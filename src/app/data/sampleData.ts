@@ -7650,6 +7650,1990 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		],
 		explanation:
 			'Objects aren\'t iterable by default. An iterable is an iterable if the iterator protocol is present. We can add this manually by adding the iterator symbol `[Symbol.iterator]`, which has to return a generator object, for example by making it a generator function `*[Symbol.iterator]() {}`. This generator function has to yield the `Object.values` of the `person` object if we want it to return the array `["Lydia Hallie", 21]`: `yield* Object.values(this)`.'
-	}
+	},
+    
+  {
+    "id": 145,
+    "title": "What is the output of below code",
+    "code": "var car = new Vehicle(\"Honda\", \"white\", \"2010\", \"UK\");\nconsole.log(car);\n\nfunction Vehicle(model, color, year, country) {\n  this.model = model;\n  this.color = color;\n  this.year = year;\n  this.country = country;\n}",
+    "options": [
+      {
+        "correct": false,
+        "text": "Undefined"
+      },
+      {
+        "correct": false,
+        "text": "ReferenceError"
+      },
+      {
+        "correct": false,
+        "text": "null"
+      },
+      {
+        "correct": true,
+        "text": "{model: \"Honda\", color: \"white\", year: \"2010\", country: \"UK\"}"
+      }
+    ],
+    "explanation": "The function declarations are hoisted similar to any variables. So the placement for `Vehicle` function declaration doesn't make any difference."
+  },
+  {
+    "id": 146,
+    "title": "What is the output of below code",
+    "code": "function foo() {\n  let x = (y = 0);\n  x++;\n  y++;\n  return x;\n}\n\nconsole.log(foo(), typeof x, typeof y);",
+    "options": [
+      {
+        "correct": false,
+        "text": "1, undefined and undefined"
+      },
+      {
+        "correct": false,
+        "text": "ReferenceError: X is not defined"
+      },
+      {
+        "correct": true,
+        "text": "1, undefined and number"
+      },
+      {
+        "correct": false,
+        "text": "1, number and number"
+      }
+    ],
+    "explanation": "Of course the return value of `foo()` is 1 due to the increment operator. But the statement `let x = y = 0` declares a local variable x. Whereas y declared as a global variable accidentally. This statement is equivalent to,\n\n```javascript\nlet x;\nwindow.y = 0;\nx = window.y;\n```\n\nSince the block scoped variable x is undefined outside of the function, the type will be undefined too. Whereas the global variable `y` is available outside the function, the value is 0 and type is number."
+  },
+  {
+    "id": 147,
+    "title": "What is the output of below code",
+    "code": "function main() {\n  console.log(\"A\");\n  setTimeout(function print() {\n    console.log(\"B\");\n  }, 0);\n  console.log(\"C\");\n}\nmain();",
+    "options": [
+      {
+        "correct": false,
+        "text": "A, B and C"
+      },
+      {
+        "correct": false,
+        "text": "B, A and C"
+      },
+      {
+        "correct": false,
+        "text": "A and C"
+      },
+      {
+        "correct": true,
+        "text": "A, C and B"
+      }
+    ],
+    "explanation": "The statements order is based on the event loop mechanism. The order of statements follows the below order,\n\n1. At first, the main function is pushed to the stack.\n2. Then the browser pushes the first statement of the main function( i.e, A's console.log) to the stack, executing and popping out immediately.\n3. But `setTimeout` statement moved to Browser API to apply the delay for callback.\n4. In the meantime, C's console.log added to stack, executed and popped out.\n5. The callback of `setTimeout` moved from Browser API to message queue.\n6. The `main` function popped out from stack because there are no statements to execute\n7. The callback moved from message queue to the stack since the stack is empty.\n8. The `console.log` for B is added to the stack and display on the console."
+  },
+  {
+    "id": 148,
+    "title": "What is the output of below equality check",
+    "code": "console.log(0.1 + 0.2 === 0.3);",
+    "options": [
+      {
+        "correct": true,
+        "text": "false"
+      },
+      {
+        "correct": false,
+        "text": "true"
+      }
+    ],
+    "explanation": "This is due to the float point math problem. Since the floating point numbers are encoded in binary format, the addition operations on them lead to rounding errors. Hence, the comparison of floating points doesn't give expected results.\nYou can find more details about the explanation here [0.30000000000000004.com/](https://0.30000000000000004.com/)"
+  },
+  {
+    "id": 149,
+    "title": "What is the output of below code",
+    "code": "var y = 1;\nif (function f() {}) {\n  y += typeof f;\n}\nconsole.log(y);",
+    "options": [
+      {
+        "correct": false,
+        "text": "1function"
+      },
+      {
+        "correct": false,
+        "text": "1object"
+      },
+      {
+        "correct": false,
+        "text": "ReferenceError"
+      },
+      {
+        "correct": true,
+        "text": "1undefined"
+      }
+    ],
+    "explanation": "The main points in the above code snippets are,\n\n1. You can see function expression instead function declaration inside if statement. So it always returns true.\n2. Since it is not declared(or assigned) anywhere, f is undefined and typeof f is undefined too.\n\nIn other words, it is same as\n\n```javascript\nvar y = 1;\nif (\"foo\") {\n  y += typeof f;\n}\nconsole.log(y);\n```\n\n**Note:** It returns 1object for MS Edge browser"
+  },
+  {
+    "id": 150,
+    "title": "What is the output of below code",
+    "code": "function foo() {\n  return;\n  {\n    message: \"Hello World\";\n  }\n}\nconsole.log(foo());",
+    "options": [
+      {
+        "correct": false,
+        "text": "Hello World"
+      },
+      {
+        "correct": false,
+        "text": "Object {message: \"Hello World\"}"
+      },
+      {
+        "correct": true,
+        "text": "Undefined"
+      },
+      {
+        "correct": false,
+        "text": "SyntaxError"
+      }
+    ],
+    "explanation": "This is a semicolon issue. Normally semicolons are optional in JavaScript. So if there are any statements(in this case, return) missing semicolon, it is automatically inserted immediately. Hence, the function returned as undefined.\n\nWhereas if the opening curly brace is along with the return keyword then the function is going to be returned as expected.\n\n```javascript\nfunction foo() {\n  return {\n    message: \"Hello World\",\n  };\n}\nconsole.log(foo()); // {message: \"Hello World\"}\n```"
+  },
+  {
+    "id": 151,
+    "title": "What is the output of below code",
+    "code": "var myChars = [\"a\", \"b\", \"c\", \"d\"];\ndelete myChars[0];\nconsole.log(myChars);\nconsole.log(myChars[0]);\nconsole.log(myChars.length);",
+    "options": [
+      {
+        "correct": false,
+        "text": "[empty, 'b', 'c', 'd'], empty, 3"
+      },
+      {
+        "correct": false,
+        "text": "[null, 'b', 'c', 'd'], empty, 3"
+      },
+      {
+        "correct": true,
+        "text": "[empty, 'b', 'c', 'd'], undefined, 4"
+      },
+      {
+        "correct": false,
+        "text": "[null, 'b', 'c', 'd'], undefined, 4"
+      }
+    ],
+    "explanation": "The `delete` operator will delete the object property but it will not reindex the array or change its length. So the number or elements or length of the array won't be changed.\nIf you try to print myChars then you can observe that it doesn't set an undefined value, rather the property is removed from the array. The newer versions of Chrome use `empty` instead of `undefined` to make the difference a bit clearer."
+  },
+  {
+    "id": 152,
+    "title": "What is the output of below code in latest Chrome",
+    "code": "var array1 = new Array(3);\nconsole.log(array1);\n\nvar array2 = [];\narray2[2] = 100;\nconsole.log(array2);\n\nvar array3 = [, , ,];\nconsole.log(array3);",
+    "options": [
+      {
+        "correct": false,
+        "text": "[undefined × 3], [undefined × 2, 100], [undefined × 3]"
+      },
+      {
+        "correct": true,
+        "text": "[empty × 3], [empty × 2, 100], [empty × 3]"
+      },
+      {
+        "correct": false,
+        "text": "[null × 3], [null × 2, 100], [null × 3]"
+      },
+      {
+        "correct": false,
+        "text": "[], [100], []"
+      }
+    ],
+    "explanation": "The latest chrome versions display `sparse array`(they are filled with holes) using this empty x n notation. Whereas the older versions have undefined x n notation.\n**Note:** The latest version of FF displays `n empty slots` notation."
+  },
+  {
+    "id": 153,
+    "title": "What is the output of below code",
+    "code": "const obj = {\n  prop1: function () {\n    return 0;\n  },\n  prop2() {\n    return 1;\n  },\n  [\"prop\" + 3]() {\n    return 2;\n  },\n};\n\nconsole.log(obj.prop1());\nconsole.log(obj.prop2());\nconsole.log(obj.prop3());",
+    "options": [
+      {
+        "correct": true,
+        "text": "0, 1, 2"
+      },
+      {
+        "correct": false,
+        "text": "0, { return 1 }, 2"
+      },
+      {
+        "correct": false,
+        "text": "0, { return 1 }, { return 2 }"
+      },
+      {
+        "correct": false,
+        "text": "0, 1, undefined"
+      }
+    ],
+    "explanation": "ES6 provides method definitions and property shorthands for objects. So both prop2 and prop3 are treated as regular function values."
+  },
+  {
+    "id": 154,
+    "title": "What is the output of below code",
+    "code": "console.log(1 < 2 < 3);\nconsole.log(3 > 2 > 1);",
+    "options": [
+      {
+        "correct": false,
+        "text": "true, true"
+      },
+      {
+        "correct": true,
+        "text": "true, false"
+      },
+      {
+        "correct": false,
+        "text": "SyntaxError, SyntaxError,"
+      },
+      {
+        "correct": false,
+        "text": "false, false"
+      }
+    ],
+    "explanation": "The important point is that if the statement contains the same operators(e.g, < or >) then it can be evaluated from left to right.\nThe first statement follows the below order,\n\n1. console.log(1 < 2 < 3);\n2. console.log(true < 3);\n3. console.log(1 < 3); // True converted as `1` during comparison\n4. True\n\nWhereas the second statement follows the below order,\n\n1. console.log(3 > 2 > 1);\n2. console.log(true > 1);\n3. console.log(1 > 1); // False converted as `0` during comparison\n4. False"
+  },
+  {
+    "id": 155,
+    "title": "What is the output of below code in non-strict mode",
+    "code": "function printNumbers(first, second, first) {\n  console.log(first, second, first);\n}\nprintNumbers(1, 2, 3);",
+    "options": [
+      {
+        "correct": false,
+        "text": "1, 2, 3"
+      },
+      {
+        "correct": true,
+        "text": "3, 2, 3"
+      },
+      {
+        "correct": false,
+        "text": "SyntaxError: Duplicate parameter name not allowed in this context"
+      },
+      {
+        "correct": false,
+        "text": "1, 2, 1"
+      }
+    ],
+    "explanation": "In non-strict mode, the regular JavaScript functions allow duplicate named parameters. The above code snippet has duplicate parameters on 1st and 3rd parameters.\nThe value of the first parameter is mapped to the third argument which is passed to the function. Hence, the 3rd argument overrides the first parameter.\n\n**Note:** In strict mode, duplicate parameters will throw a Syntax Error."
+  },
+  {
+    "id": 156,
+    "title": "What is the output of below code",
+    "code": "const printNumbersArrow = (first, second, first) => {\n  console.log(first, second, first);\n};\nprintNumbersArrow(1, 2, 3);",
+    "options": [
+      {
+        "correct": false,
+        "text": "1, 2, 3"
+      },
+      {
+        "correct": false,
+        "text": "3, 2, 3"
+      },
+      {
+        "correct": true,
+        "text": "SyntaxError: Duplicate parameter name not allowed in this context"
+      },
+      {
+        "correct": false,
+        "text": "1, 2, 1"
+      }
+    ],
+    "explanation": "Unlike regular functions, the arrow functions doesn't not allow duplicate parameters in either strict or non-strict mode. So you can see `SyntaxError` in the console."
+  },
+  {
+    "id": 157,
+    "title": "What is the output of below code",
+    "code": "const arrowFunc = () => arguments.length;\nconsole.log(arrowFunc(1, 2, 3));",
+    "options": [
+      {
+        "correct": true,
+        "text": "ReferenceError: arguments is not defined"
+      },
+      {
+        "correct": false,
+        "text": "3"
+      },
+      {
+        "correct": false,
+        "text": "undefined"
+      },
+      {
+        "correct": false,
+        "text": "null"
+      }
+    ],
+    "explanation": "Arrow functions do not have an `arguments, super, this, or new.target` bindings. So any reference to `arguments` variable tries to resolve to a binding in a lexically enclosing environment. In this case, the arguments variable is not defined outside of the arrow function. Hence, you will receive a reference error.\n\nWhere as the normal function provides the number of arguments passed to the function\n\n```javascript\nconst func = function () {\n  return arguments.length;\n};\nconsole.log(func(1, 2, 3));\n```\n\nBut If you still want to use an arrow function then rest operator on arguments provides the expected arguments\n\n```javascript\nconst arrowFunc = (...args) => args.length;\nconsole.log(arrowFunc(1, 2, 3));\n```"
+  },
+  {
+    "id": 158,
+    "title": "What is the output of below code",
+    "code": "console.log(String.prototype.trimLeft.name === \"trimLeft\");\nconsole.log(String.prototype.trimLeft.name === \"trimStart\");",
+    "options": [
+      {
+        "correct": false,
+        "text": "True, False"
+      },
+      {
+        "correct": true,
+        "text": "False, True"
+      }
+    ],
+    "explanation": "In order to be consistent with functions like `String.prototype.padStart`, the standard method name for trimming the whitespaces is considered as `trimStart`. Due to web web compatibility reasons, the old method name 'trimLeft' still acts as an alias for 'trimStart'. Hence, the prototype for 'trimLeft' is always 'trimStart'"
+  },
+  {
+    "id": 159,
+    "title": "What is the output of below code",
+    "code": "console.log(Math.max());",
+    "options": [
+      {
+        "correct": false,
+        "text": "undefined"
+      },
+      {
+        "correct": false,
+        "text": "Infinity"
+      },
+      {
+        "correct": false,
+        "text": "0"
+      },
+      {
+        "correct": true,
+        "text": "-Infinity"
+      }
+    ],
+    "explanation": "-Infinity is the initial comparant because almost every other value is bigger. So when no arguments are provided, -Infinity is going to be returned.\n**Note:** Zero number of arguments is a valid case."
+  },
+  {
+    "id": 160,
+    "title": "What is the output of below code",
+    "code": "console.log(10 == [10]);\nconsole.log(10 == [[[[[[[10]]]]]]]);",
+    "options": [
+      {
+        "correct": true,
+        "text": "True, True"
+      },
+      {
+        "correct": false,
+        "text": "True, False"
+      },
+      {
+        "correct": false,
+        "text": "False, False"
+      },
+      {
+        "correct": false,
+        "text": "False, True"
+      },
+      {
+        "correct": false,
+        "text": "), the above expression converted into JS as below"
+      }
+    ],
+    "explanation": "As per the comparison algorithm in the ECMAScript specification(ECMA-262), the above expression converted into JS as below\n\n```javascript\n10 === Number([10].valueOf().toString()); // 10\n```\n\nSo it doesn't matter about number brackets([]) around the number, it is always converted to a number in the expression."
+  },
+  {
+    "id": 161,
+    "title": "What is the output of below code",
+    "code": "console.log(10 + \"10\");\nconsole.log(10 - \"10\");",
+    "options": [
+      {
+        "correct": false,
+        "text": "20, 0"
+      },
+      {
+        "correct": true,
+        "text": "1010, 0"
+      },
+      {
+        "correct": false,
+        "text": "1010, 10-10"
+      },
+      {
+        "correct": false,
+        "text": "NaN, NaN"
+      }
+    ],
+    "explanation": "The concatenation operator(+) is applicable for both number and string types. So if any operand is string type then both operands concatenated as strings. Whereas subtract(-) operator tries to convert the operands as number type."
+  },
+  {
+    "id": 162,
+    "title": "What is the output of below code",
+    "code": "console.log([0] == false);\nif ([0]) {\n  console.log(\"I'm True\");\n} else {\n  console.log(\"I'm False\");\n}",
+    "options": [
+      {
+        "correct": true,
+        "text": "True, I'm True"
+      },
+      {
+        "correct": false,
+        "text": "True, I'm False"
+      },
+      {
+        "correct": false,
+        "text": "False, I'm True"
+      },
+      {
+        "correct": false,
+        "text": "False, I'm False"
+      }
+    ],
+    "explanation": "In comparison operators, the expression `[0]` converted to Number([0].valueOf().toString()) which is resolved to false. Whereas `[0]` just becomes a truthy value without any conversion because there is no comparison operator."
+  },
+  {
+    "id": 163,
+    "title": "What is the output of below code",
+    "code": "console.log([1, 2] + [3, 4]);",
+    "options": [
+      {
+        "correct": false,
+        "text": "[1,2,3,4]"
+      },
+      {
+        "correct": false,
+        "text": "[1,2][3,4]"
+      },
+      {
+        "correct": false,
+        "text": "SyntaxError"
+      },
+      {
+        "correct": true,
+        "text": "1,23,4"
+      }
+    ],
+    "explanation": "The + operator is not meant or defined for arrays. So it converts arrays into strings and concatenates them."
+  },
+  {
+    "id": 164,
+    "title": "What is the output of below code",
+    "code": "const numbers = new Set([1, 1, 2, 3, 4]);\nconsole.log(numbers);\n\nconst browser = new Set(\"Firefox\");\nconsole.log(browser);",
+    "options": [
+      {
+        "correct": true,
+        "text": "{1, 2, 3, 4}, {\"F\", \"i\", \"r\", \"e\", \"f\", \"o\", \"x\"}"
+      },
+      {
+        "correct": false,
+        "text": "{1, 2, 3, 4}, {\"F\", \"i\", \"r\", \"e\", \"o\", \"x\"}"
+      },
+      {
+        "correct": false,
+        "text": "[1, 2, 3, 4], [\"F\", \"i\", \"r\", \"e\", \"o\", \"x\"]"
+      },
+      {
+        "correct": false,
+        "text": "{1, 1, 2, 3, 4}, {\"F\", \"i\", \"r\", \"e\", \"f\", \"o\", \"x\"}"
+      }
+    ],
+    "explanation": "Since `Set` object is a collection of unique values, it won't allow duplicate values in the collection. At the same time, it is case sensitive data structure."
+  },
+  {
+    "id": 165,
+    "title": "What is the output of below code",
+    "code": "console.log(NaN === NaN);",
+    "options": [
+      {
+        "correct": false,
+        "text": "True"
+      },
+      {
+        "correct": true,
+        "text": "False"
+      }
+    ],
+    "explanation": "JavaScript follows IEEE 754 spec standards. As per this spec, NaNs are never equal for floating-point numbers."
+  },
+  {
+    "id": 166,
+    "title": "What is the output of below code",
+    "code": "let numbers = [1, 2, 3, 4, NaN];\nconsole.log(numbers.indexOf(NaN));",
+    "options": [
+      {
+        "correct": false,
+        "text": "4"
+      },
+      {
+        "correct": false,
+        "text": "NaN"
+      },
+      {
+        "correct": false,
+        "text": "SyntaxError"
+      },
+      {
+        "correct": true,
+        "text": "-1"
+      },
+      {
+        "correct": false,
+        "text": "always."
+      }
+    ],
+    "explanation": "The `indexOf` uses strict equality operator(===) internally and `NaN === NaN` evaluates to false. Since indexOf won't be able to find NaN inside an array, it returns -1 always.\nBut you can use `Array.prototype.findIndex` method to find out the index of NaN in an array or You can use `Array.prototype.includes` to check if NaN is present in an array or not.\n\n```javascript\nlet numbers = [1, 2, 3, 4, NaN];\nconsole.log(numbers.findIndex(Number.isNaN)); // 4\n\nconsole.log(numbers.includes(NaN)); // true\n```"
+  },
+  {
+    "id": 167,
+    "title": "What is the output of below code",
+    "code": "let [a, ...b, c] = [1, 2, 3, 4, 5];\nconsole.log(a, b, c);",
+    "options": [
+      {
+        "correct": false,
+        "text": "1, [2, 3, 4, 5]"
+      },
+      {
+        "correct": false,
+        "text": "1, {2, 3, 4, 5}"
+      },
+      {
+        "correct": true,
+        "text": "SyntaxError"
+      },
+      {
+        "correct": false,
+        "text": "1, [2, 3, 4]"
+      }
+    ],
+    "explanation": "When using rest parameters, trailing commas are not allowed and will throw a SyntaxError.\nIf you remove the trailing comma and last element then it displays 1st answer\n\n```javascript\nlet [a, ...b] = [1, 2, 3, 4, 5];\nconsole.log(a, b); // 1, [2, 3, 4, 5]\n```"
+  },
+  {
+    "id": 168,
+    "title": "What is the output of below code",
+    "code": "async function func() {\n  return 10;\n}\nconsole.log(func());",
+    "options": [
+      {
+        "correct": true,
+        "text": "Promise {\\<fulfilled\\>: 10}"
+      },
+      {
+        "correct": false,
+        "text": "10"
+      },
+      {
+        "correct": false,
+        "text": "SyntaxError"
+      },
+      {
+        "correct": false,
+        "text": "Promise {\\<rejected\\>: 10}"
+      }
+    ],
+    "explanation": "Async functions always return a promise. But even if the return value of an async function is not explicitly a promise, it will be implicitly wrapped in a promise. The above async function is equivalent to below expression,\n\n```javascript\nfunction func() {\n  return Promise.resolve(10);\n}\n```"
+  },
+  {
+    "id": 169,
+    "title": "What is the output of below code",
+    "code": "async function func() {\n  await 10;\n}\nconsole.log(func());",
+    "options": [
+      {
+        "correct": false,
+        "text": "Promise {\\<fulfilled\\>: 10}"
+      },
+      {
+        "correct": false,
+        "text": "10"
+      },
+      {
+        "correct": false,
+        "text": "SyntaxError"
+      },
+      {
+        "correct": true,
+        "text": "Promise {\\<resolved\\>: undefined}"
+      }
+    ],
+    "explanation": "The await expression returns value 10 with promise resolution and the code after each await expression can be treated as existing in a `.then` callback. In this case, there is no return expression at the end of the function. Hence, the default return value of `undefined` is returned as the resolution of the promise. The above async function is equivalent to below expression,\n\n```javascript\nfunction func() {\n  return Promise.resolve(10).then(() => undefined);\n}\n```"
+  },
+  {
+    "id": 170,
+    "title": "What is the output of below code",
+    "code": "function delay() {\n  return new Promise(resolve => setTimeout(resolve, 2000));\n}\n\nasync function delayedLog(item) {\n  await delay();\n  console.log(item);\n}\n\nasync function processArray(array) {\n  array.forEach(item => {\n    await delayedLog(item);\n  })\n}\n\nprocessArray([1, 2, 3, 4]);",
+    "options": [
+      {
+        "correct": true,
+        "text": "SyntaxError"
+      },
+      {
+        "correct": false,
+        "text": "1, 2, 3, 4"
+      },
+      {
+        "correct": false,
+        "text": "4, 4, 4, 4"
+      },
+      {
+        "correct": false,
+        "text": "4, 3, 2, 1"
+      }
+    ],
+    "explanation": "Even though “processArray” is an async function, the anonymous function that we use for `forEach` is synchronous. If you use await inside a synchronous function then it throws a syntax error."
+  },
+  {
+    "id": 171,
+    "title": "What is the output of below code",
+    "code": "function delay() {\n  return new Promise((resolve) => setTimeout(resolve, 2000));\n}\n\nasync function delayedLog(item) {\n  await delay();\n  console.log(item);\n}\n\nasync function process(array) {\n  array.forEach(async (item) => {\n    await delayedLog(item);\n  });\n  console.log(\"Process completed!\");\n}\nprocess([1, 2, 3, 5]);",
+    "options": [
+      {
+        "correct": false,
+        "text": "1 2 3 5 and Process completed!"
+      },
+      {
+        "correct": false,
+        "text": "5 5 5 5 and Process completed!"
+      },
+      {
+        "correct": false,
+        "text": "Process completed! and 5 5 5 5"
+      },
+      {
+        "correct": true,
+        "text": "Process completed! and 1 2 3 5"
+      }
+    ],
+    "explanation": "The forEach method will not wait until all items are finished but it just runs the tasks and goes next. Hence, the last statement is displayed first followed by a sequence of promise resolutions.\n\nBut you control the array sequence using for..of loop,\n\n```javascript\nasync function processArray(array) {\n  for (const item of array) {\n    await delayedLog(item);\n  }\n  console.log(\"Process completed!\");\n}\n```"
+  },
+  {
+    "id": 172,
+    "title": "What is the output of below code",
+    "code": "var set = new Set();\nset.add(\"+0\").add(\"-0\").add(NaN).add(undefined).add(NaN);\nconsole.log(set);",
+    "options": [
+      {
+        "correct": true,
+        "text": "\").add(NaN).add(undefined).add(NaN);"
+      },
+      {
+        "correct": false,
+        "text": "Set(4) {\"+0\", \"-0\", NaN, undefined}"
+      },
+      {
+        "correct": false,
+        "text": "Set(3) {\"+0\", NaN, undefined}"
+      },
+      {
+        "correct": false,
+        "text": "Set(5) {\"+0\", \"-0\", NaN, undefined, NaN}"
+      },
+      {
+        "correct": false,
+        "text": "Set(4) {\"+0\", NaN, undefined, NaN}"
+      },
+      {
+        "correct": false,
+        "text": "considered as different values"
+      }
+    ],
+    "explanation": "Set has few exceptions from equality check,\n\n1. All NaN values are equal\n2. Both +0 and -0 considered as different values"
+  },
+  {
+    "id": 173,
+    "title": "What is the output of below code",
+    "code": "const sym1 = Symbol(\"one\");\nconst sym2 = Symbol(\"one\");\n\nconst sym3 = Symbol.for(\"two\");\nconst sym4 = Symbol.for(\"two\");\n\nconsole.log(sym1 === sym2, sym3 === sym4);",
+    "options": [
+      {
+        "correct": false,
+        "text": "true, true"
+      },
+      {
+        "correct": false,
+        "text": "true, false"
+      },
+      {
+        "correct": true,
+        "text": "false, true"
+      },
+      {
+        "correct": false,
+        "text": "false, false"
+      }
+    ],
+    "explanation": "Symbol follows below conventions,\n\n1. Every symbol value returned from Symbol() is unique irrespective of the optional string.\n2. `Symbol.for()` function creates a symbol in a global symbol registry list. But it doesn't necessarily create a new symbol on every call, it checks first if a symbol with the given key is already present in the registry and returns the symbol if it is found. Otherwise a new symbol created in the registry.\n\n**Note:** The symbol description is just useful for debugging purposes."
+  },
+  {
+    "id": 174,
+    "title": "What is the output of below code",
+    "code": "const sym1 = new Symbol(\"one\");\nconsole.log(sym1);",
+    "options": [
+      {
+        "correct": true,
+        "text": "SyntaxError"
+      },
+      {
+        "correct": false,
+        "text": "one"
+      },
+      {
+        "correct": false,
+        "text": "Symbol('one')"
+      },
+      {
+        "correct": false,
+        "text": "Symbol"
+      }
+    ],
+    "explanation": "`Symbol` is a just a standard function and not an object constructor(unlike other primitives new Boolean, new String and new Number). So if you try to call it with the new operator will result in a TypeError"
+  },
+  {
+    "id": 175,
+    "title": "What is the output of below code",
+    "code": "let myNumber = 100;\nlet myString = \"100\";\n\nif (!typeof myNumber === \"string\") {\n  console.log(\"It is not a string!\");\n} else {\n  console.log(\"It is a string!\");\n}\n\nif (!typeof myString === \"number\") {\n  console.log(\"It is not a number!\");\n} else {\n  console.log(\"It is a number!\");\n}",
+    "options": [
+      {
+        "correct": false,
+        "text": "SyntaxError"
+      },
+      {
+        "correct": false,
+        "text": "It is not a string!, It is not a number!"
+      },
+      {
+        "correct": false,
+        "text": "It is not a string!, It is a number!"
+      },
+      {
+        "correct": true,
+        "text": "It is a string!, It is a number!"
+      }
+    ],
+    "explanation": "The return value of `typeof myNumber` or `typeof myString` is always a truthy value (either \"number\" or \"string\"). The ! operator operates on either `typeof myNumber` or `typeof myString`, converting them to boolean values. Since the value of both `!typeof myNumber` and `!typeof myString` is false, the if condition fails, and control goes to else block.\n\nTo make the ! operator operate on the equality expression, one needs to add parentheses:\n\n```\nif (!(typeof myNumber === \"string\"))\n```\n\nOr simply use the inequality operator:\n\n```\nif (typeof myNumber !== \"string\")\n```"
+  },
+  {
+    "id": 176,
+    "title": "What is the output of below code",
+    "code": "console.log(\n  JSON.stringify({ myArray: [\"one\", undefined, function () {}, Symbol(\"\")] })\n);\nconsole.log(\n  JSON.stringify({ [Symbol.for(\"one\")]: \"one\" }, [Symbol.for(\"one\")])\n);",
+    "options": [
+      {
+        "correct": false,
+        "text": "{\"myArray\":['one', undefined, {}, Symbol]}, {}"
+      },
+      {
+        "correct": true,
+        "text": "{\"myArray\":['one', null,null,null]}, {}"
+      },
+      {
+        "correct": false,
+        "text": "{\"myArray\":['one', null,null,null]}, \"{ [Symbol.for('one')]: 'one' }, [Symbol.for('one')]\""
+      },
+      {
+        "correct": false,
+        "text": "{\"myArray\":['one', undefined, function(){}, Symbol('')]}, {}"
+      }
+    ],
+    "explanation": "The symbols has below constraints,\n\n1. The undefined, Functions, and Symbols are not valid JSON values. So those values are either omitted (in an object) or changed to null (in an array). Hence, it returns null values for the value array.\n2. All Symbol-keyed properties will be completely ignored. Hence it returns an empty object({})."
+  },
+  {
+    "id": 177,
+    "title": "What is the output of below code",
+    "code": "class A {\n  constructor() {\n    console.log(new.target.name);\n  }\n}\n\nclass B extends A {\n  constructor() {\n    super();\n  }\n}\n\nnew A();\nnew B();",
+    "options": [
+      {
+        "correct": false,
+        "text": "A, A"
+      },
+      {
+        "correct": true,
+        "text": "A, B"
+      }
+    ],
+    "explanation": "Using constructors, `new.target` refers to the constructor (points to the class definition of class which is initialized) that was directly invoked by new. This also applies to the case if the constructor is in a parent class and was delegated from a child constructor."
+  },
+  {
+    "id": 178,
+    "title": "What is the output of below code",
+    "code": "const [x, ...y, z] = [1, 2, 3, 4];\nconsole.log(x, y, z);",
+    "options": [
+      {
+        "correct": false,
+        "text": "1, [2, 3], 4"
+      },
+      {
+        "correct": false,
+        "text": "1, [2, 3, 4], undefined"
+      },
+      {
+        "correct": false,
+        "text": "1, [2], 3"
+      },
+      {
+        "correct": true,
+        "text": "SyntaxError"
+      }
+    ],
+    "explanation": "It throws a syntax error because the rest element should not have a trailing comma. You should always consider using a rest operator as the last element."
+  },
+  {
+    "id": 179,
+    "title": "What is the output of below code",
+    "code": "const { a: x = 10, b: y = 20 } = { a: 30 };\n\nconsole.log(x);\nconsole.log(y);",
+    "options": [
+      {
+        "correct": true,
+        "text": "30, 20"
+      },
+      {
+        "correct": false,
+        "text": "10, 20"
+      },
+      {
+        "correct": false,
+        "text": "10, undefined"
+      },
+      {
+        "correct": false,
+        "text": "30, undefined"
+      }
+    ],
+    "explanation": "The object property follows below rules,\n\n1. The object properties can be retrieved and assigned to a variable with a different name\n2. The property assigned a default value when the retrieved value is `undefined`"
+  },
+  {
+    "id": 180,
+    "title": "What is the output of below code",
+    "code": "function area({ length = 10, width = 20 }) {\n  console.log(length * width);\n}\n\narea();",
+    "options": [
+      {
+        "correct": false,
+        "text": "200"
+      },
+      {
+        "correct": true,
+        "text": "Error"
+      },
+      {
+        "correct": false,
+        "text": "undefined"
+      },
+      {
+        "correct": false,
+        "text": "0"
+      }
+    ],
+    "explanation": "If you leave out the right-hand side assignment for the destructuring object, the function will look for at least one argument to be supplied when invoked. Otherwise you will receive an error `Error: Cannot read property 'length' of undefined` as mentioned above.\n\nYou can avoid the error with either of the below changes,\n\n1. **Pass at least an empty object:**\n\n```javascript\nfunction area({ length = 10, width = 20 }) {\n  console.log(length * width);\n}\n\narea({});\n```\n\n2. **Assign default empty object:**\n\n```javascript\nfunction area({ length = 10, width = 20 } = {}) {\n  console.log(length * width);\n}\n\narea();\n```"
+  },
+  {
+    "id": 181,
+    "title": "What is the output of below code",
+    "code": "const props = [\n  { id: 1, name: \"John\" },\n  { id: 2, name: \"Jack\" },\n  { id: 3, name: \"Tom\" },\n];\n\nconst [, , { name }] = props;\nconsole.log(name);",
+    "options": [
+      {
+        "correct": true,
+        "text": "Tom"
+      },
+      {
+        "correct": false,
+        "text": "Error"
+      },
+      {
+        "correct": false,
+        "text": "undefined"
+      },
+      {
+        "correct": false,
+        "text": "John"
+      }
+    ],
+    "explanation": "It is possible to combine Array and Object destructuring. In this case, the third element in the array props accessed first followed by name property in the object."
+  },
+  {
+    "id": 182,
+    "title": "What is the output of below code",
+    "code": "function checkType(num = 1) {\n  console.log(typeof num);\n}\n\ncheckType();\ncheckType(undefined);\ncheckType(\"\");\ncheckType(null);",
+    "options": [
+      {
+        "correct": false,
+        "text": "number, undefined, string, object"
+      },
+      {
+        "correct": false,
+        "text": "undefined, undefined, string, object"
+      },
+      {
+        "correct": true,
+        "text": "number, number, string, object"
+      },
+      {
+        "correct": false,
+        "text": "number, number, number, number"
+      }
+    ],
+    "explanation": "If the function argument is set implicitly(not passing argument) or explicitly to undefined, the value of the argument is the default parameter. Whereas for other falsy values('' or null), the value of the argument is passed as a parameter.\n\nHence, the result of function calls categorized as below,\n\n1. The first two function calls logs number type since the type of default value is number\n2. The type of '' and null values are string and object type respectively."
+  },
+  {
+    "id": 183,
+    "title": "What is the output of below code",
+    "code": "function add(item, items = []) {\n  items.push(item);\n  return items;\n}\n\nconsole.log(add(\"Orange\"));\nconsole.log(add(\"Apple\"));",
+    "options": [
+      {
+        "correct": false,
+        "text": "['Orange'], ['Orange', 'Apple']"
+      },
+      {
+        "correct": true,
+        "text": "['Orange'], ['Apple']"
+      }
+    ],
+    "explanation": "Since the default argument is evaluated at call time, a new object is created each time the function is called. So in this case, the new array is created and an element pushed to the default empty array."
+  },
+  {
+    "id": 184,
+    "title": "What is the output of below code",
+    "code": "function greet(greeting, name, message = greeting + \" \" + name) {\n  console.log([greeting, name, message]);\n}\n\ngreet(\"Hello\", \"John\");\ngreet(\"Hello\", \"John\", \"Good morning!\");",
+    "options": [
+      {
+        "correct": false,
+        "text": "SyntaxError"
+      },
+      {
+        "correct": true,
+        "text": "['Hello', 'John', 'Hello John'], ['Hello', 'John', 'Good morning!']"
+      }
+    ],
+    "explanation": "Since parameters defined earlier are available to later default parameters, this code snippet doesn't throw any error."
+  },
+  {
+    "id": 185,
+    "title": "What is the output of below code",
+    "code": "function outer(f = inner()) {\n  function inner() {\n    return \"Inner\";\n  }\n}\nouter();",
+    "options": [
+      {
+        "correct": true,
+        "text": "ReferenceError"
+      },
+      {
+        "correct": false,
+        "text": "Inner"
+      }
+    ],
+    "explanation": "The functions and variables declared in the function body cannot be referred from default value parameter initializers. If you still try to access, it throws a run-time ReferenceError(i.e, `inner` is not defined)."
+  },
+  {
+    "id": 186,
+    "title": "What is the output of below code",
+    "code": "function myFun(x, y, ...manyMoreArgs) {\n  console.log(manyMoreArgs);\n}\n\nmyFun(1, 2, 3, 4, 5);\nmyFun(1, 2);",
+    "options": [
+      {
+        "correct": false,
+        "text": "[3, 4, 5], undefined"
+      },
+      {
+        "correct": false,
+        "text": "SyntaxError"
+      },
+      {
+        "correct": true,
+        "text": "[3, 4, 5], []"
+      },
+      {
+        "correct": false,
+        "text": "[3, 4, 5], [undefined]"
+      }
+    ],
+    "explanation": "The rest parameter is used to hold the remaining parameters of a function and it becomes an empty array if the argument is not provided."
+  },
+  {
+    "id": 187,
+    "title": "What is the output of below code",
+    "code": "const obj = { key: \"value\" };\nconst array = [...obj];\nconsole.log(array);",
+    "options": [
+      {
+        "correct": false,
+        "text": "['key', 'value']"
+      },
+      {
+        "correct": true,
+        "text": "TypeError"
+      },
+      {
+        "correct": false,
+        "text": "[]"
+      },
+      {
+        "correct": false,
+        "text": "['key']"
+      }
+    ],
+    "explanation": "Spread syntax can be applied only to iterable objects. By default, Objects are not iterable, but they become iterable when used in an Array, or with iterating functions such as `map(), reduce(), and assign()`. If you still try to do it, it still throws `TypeError: obj is not iterable`."
+  },
+  {
+    "id": 188,
+    "title": "What is the output of below code",
+    "code": "function* myGenFunc() {\n  yield 1;\n  yield 2;\n  yield 3;\n}\nvar myGenObj = new myGenFunc();\nconsole.log(myGenObj.next().value);",
+    "options": [
+      {
+        "correct": false,
+        "text": "1"
+      },
+      {
+        "correct": false,
+        "text": "undefined"
+      },
+      {
+        "correct": false,
+        "text": "SyntaxError"
+      },
+      {
+        "correct": true,
+        "text": "TypeError"
+      }
+    ],
+    "explanation": "Generators are not constructible type. But if you still proceed to do, there will be an error saying \"TypeError: myGenFunc is not a constructor\""
+  },
+  {
+    "id": 189,
+    "title": "What is the output of below code",
+    "code": "function* yieldAndReturn() {\n  yield 1;\n  return 2;\n  yield 3;\n}\n\nvar myGenObj = yieldAndReturn();\nconsole.log(myGenObj.next());\nconsole.log(myGenObj.next());\nconsole.log(myGenObj.next());",
+    "options": [
+      {
+        "correct": true,
+        "text": "{ value: 1, done: false }, { value: 2, done: true }, { value: undefined, done: true }"
+      },
+      {
+        "correct": false,
+        "text": "{ value: 1, done: false }, { value: 2, done: false }, { value: undefined, done: true }"
+      },
+      {
+        "correct": false,
+        "text": "{ value: 1, done: false }, { value: 2, done: true }, { value: 3, done: true }"
+      },
+      {
+        "correct": false,
+        "text": "{ value: 1, done: false }, { value: 2, done: false }, { value: 3, done: true }"
+      }
+    ],
+    "explanation": "A return statement in a generator function will make the generator finish. If a value is returned, it will be set as the value property of the object and done property to true. When a generator is finished, subsequent next() calls return an object of this form: `{value: undefined, done: true}`."
+  },
+  {
+    "id": 190,
+    "title": "What is the output of below code",
+    "code": "const myGenerator = (function* () {\n  yield 1;\n  yield 2;\n  yield 3;\n})();\nfor (const value of myGenerator) {\n  console.log(value);\n  break;\n}\n\nfor (const value of myGenerator) {\n  console.log(value);\n}",
+    "options": [
+      {
+        "correct": false,
+        "text": "1,2,3 and 1,2,3"
+      },
+      {
+        "correct": false,
+        "text": "1,2,3 and 4,5,6"
+      },
+      {
+        "correct": false,
+        "text": "1 and 1"
+      },
+      {
+        "correct": true,
+        "text": "1"
+      }
+    ],
+    "explanation": "The generator should not be re-used once the iterator is closed. i.e, Upon exiting a loop(on completion or using break & return), the generator is closed and trying to iterate over it again does not yield any more results. Hence, the second loop doesn't print any value."
+  },
+  {
+    "id": 191,
+    "title": "What is the output of below code",
+    "code": "const num = 0o38;\nconsole.log(num);",
+    "options": [
+      {
+        "correct": true,
+        "text": "SyntaxError"
+      },
+      {
+        "correct": false,
+        "text": "38"
+      },
+      {
+        "correct": false,
+        "text": "range) in the octal literal, JavaScript will throw a SyntaxError. In ES5, it treats the octal literal as a decimal number."
+      }
+    ],
+    "explanation": "If you use an invalid number(outside of 0-7 range) in the octal literal, JavaScript will throw a SyntaxError. In ES5, it treats the octal literal as a decimal number."
+  },
+  {
+    "id": 192,
+    "title": "What is the output of below code",
+    "code": "const squareObj = new Square(10);\nconsole.log(squareObj.area);\n\nclass Square {\n  constructor(length) {\n    this.length = length;\n  }\n\n  get area() {\n    return this.length * this.length;\n  }\n\n  set area(value) {\n    this.area = value;\n  }\n}",
+    "options": [
+      {
+        "correct": false,
+        "text": "100"
+      },
+      {
+        "correct": true,
+        "text": "ReferenceError"
+      }
+    ],
+    "explanation": "Unlike function declarations, class declarations are not hoisted. i.e, First You need to declare your class and then access it, otherwise it will throw a ReferenceError \"Uncaught ReferenceError: Square is not defined\".\n\n**Note:** Class expressions also applies to the same hoisting restrictions of class declarations."
+  },
+  {
+    "id": 193,
+    "title": "What is the output of below code",
+    "code": "function Person() {}\n\nPerson.prototype.walk = function () {\n  return this;\n};\n\nPerson.run = function () {\n  return this;\n};\n\nlet user = new Person();\nlet walk = user.walk;\nconsole.log(walk());\n\nlet run = Person.run;\nconsole.log(run());",
+    "options": [
+      {
+        "correct": false,
+        "text": "undefined, undefined"
+      },
+      {
+        "correct": false,
+        "text": "Person, Person"
+      },
+      {
+        "correct": false,
+        "text": "SyntaxError"
+      },
+      {
+        "correct": true,
+        "text": "Window, Window"
+      }
+    ],
+    "explanation": "When a regular or prototype method is called without a value for **this**, the methods return an initial this value if the value is not undefined. Otherwise global window object will be returned. In our case, the initial `this` value is undefined so both methods return window objects."
+  },
+  {
+    "id": 194,
+    "title": "What is the output of below code",
+    "code": "class Vehicle {\n  constructor(name) {\n    this.name = name;\n  }\n\n  start() {\n    console.log(`${this.name} vehicle started`);\n  }\n}\n\nclass Car extends Vehicle {\n  start() {\n    console.log(`${this.name} car started`);\n    super.start();\n  }\n}\n\nconst car = new Car(\"BMW\");\nconsole.log(car.start());",
+    "options": [
+      {
+        "correct": false,
+        "text": "SyntaxError"
+      },
+      {
+        "correct": false,
+        "text": "BMW vehicle started, BMW car started"
+      },
+      {
+        "correct": true,
+        "text": "BMW car started, BMW vehicle started"
+      },
+      {
+        "correct": false,
+        "text": "BMW car started, BMW car started"
+      }
+    ],
+    "explanation": "The super keyword is used to call methods of a superclass. Unlike other languages the super invocation doesn't need to be a first statement. i.e, The statements will be executed in the same order of code."
+  },
+  {
+    "id": 195,
+    "title": "What is the output of below code",
+    "code": "const USER = { age: 30 };\nUSER.age = 25;\nconsole.log(USER.age);",
+    "options": [
+      {
+        "correct": false,
+        "text": "30"
+      },
+      {
+        "correct": true,
+        "text": "25"
+      },
+      {
+        "correct": false,
+        "text": "Uncaught TypeError"
+      },
+      {
+        "correct": false,
+        "text": "SyntaxError"
+      }
+    ],
+    "explanation": "Even though we used constant variables, the content of it is an object and the object's contents (e.g properties) can be altered. Hence, the change is going to be valid in this case."
+  },
+  {
+    "id": 196,
+    "title": "What is the output of below code",
+    "code": "console.log(\"🙂\" === \"🙂\");",
+    "options": [
+      {
+        "correct": false,
+        "text": "false"
+      },
+      {
+        "correct": true,
+        "text": "true"
+      }
+    ],
+    "explanation": "Emojis are unicodes and the unicode for smile symbol is \"U+1F642\". The unicode comparison of same emojies is equivalent to string comparison. Hence, the output is always true."
+  },
+  {
+    "id": 197,
+    "title": "What is the output of below code?",
+    "code": "console.log(typeof typeof typeof true);",
+    "options": [
+      {
+        "correct": true,
+        "text": "string"
+      },
+      {
+        "correct": false,
+        "text": "boolean"
+      },
+      {
+        "correct": false,
+        "text": "NaN"
+      },
+      {
+        "correct": false,
+        "text": "number"
+      }
+    ],
+    "explanation": "The typeof operator on any primitive returns a string value. So even if you apply the chain of typeof operators on the return value, it is always string."
+  },
+  {
+    "id": 198,
+    "title": "What is the output of below code?",
+    "code": "let zero = new Number(0);\n\nif (zero) {\n  console.log(\"If\");\n} else {\n  console.log(\"Else\");\n}",
+    "options": [
+      {
+        "correct": true,
+        "text": "If"
+      },
+      {
+        "correct": false,
+        "text": "Else"
+      },
+      {
+        "correct": false,
+        "text": "NaN"
+      },
+      {
+        "correct": false,
+        "text": "SyntaxError"
+      }
+    ],
+    "explanation": "1. The type of operator on new Number always returns object. i.e, typeof new Number(0) --> object.\n2. Objects are always truthy in if block\n\nHence the above code block always goes to if section."
+  },
+  {
+    "id": 199,
+    "title": "What is the output of below code in non strict mode?",
+    "code": "let msg = \"Good morning!!\";\n\nmsg.name = \"John\";\n\nconsole.log(msg.name);",
+    "options": [
+      {
+        "correct": false,
+        "text": "\"\""
+      },
+      {
+        "correct": false,
+        "text": "Error"
+      },
+      {
+        "correct": false,
+        "text": "John"
+      },
+      {
+        "correct": true,
+        "text": "Undefined"
+      }
+    ],
+    "explanation": "It returns undefined for non-strict mode and returns Error for strict mode. In non-strict mode, the wrapper object is going to be created and get the mentioned property. But the object get disappeared after accessing the property in next line."
+  },
+  {
+    "id": 200,
+    "title": "What is the output of below code?",
+    "code": "let count = 10;\n\n(function innerFunc() {\n  if (count === 10) {\n    let count = 11;\n    console.log(count);\n  }\n  console.log(count);\n})();",
+    "options": [
+      {
+        "correct": true,
+        "text": "11, 10"
+      },
+      {
+        "correct": false,
+        "text": "11, 11"
+      },
+      {
+        "correct": false,
+        "text": "10, 11"
+      },
+      {
+        "correct": false,
+        "text": "10, 10"
+      }
+    ],
+    "explanation": "11 and 10 is logged to the console.\n\nThe innerFunc is a closure which captures the count variable from the outerscope. i.e, 10. But the conditional has another local variable `count` which overwrites the ourter `count` variable. So the first console.log displays value 11.\nWhereas the second console.log logs 10 by capturing the count variable from outerscope."
+  },
+  {
+    "id": 201,
+    "title": "What is the output of below code ?",
+    "code": "",
+    "options": [
+      {
+        "correct": false,
+        "text": "console.log(true && 'hi');"
+      },
+      {
+        "correct": false,
+        "text": "console.log(true && 'hi' && 1);"
+      },
+      {
+        "correct": false,
+        "text": "console.log(true && '' && 0);"
+      },
+      {
+        "correct": false,
+        "text": "hi"
+      },
+      {
+        "correct": false,
+        "text": "1"
+      },
+      {
+        "correct": false,
+        "text": "''"
+      },
+      {
+        "correct": false,
+        "text": "0"
+      },
+      {
+        "correct": false,
+        "text": "''"
+      },
+      {
+        "correct": false,
+        "text": "null"
+      },
+      {
+        "correct": false,
+        "text": "undefined"
+      },
+      {
+        "correct": false,
+        "text": "NAN"
+      }
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 202,
+    "title": "What is the output of below code ?",
+    "code": "let arr = [1, 2, 3];\nlet str = \"1,2,3\";\n\nconsole.log(arr == str);",
+    "options": [
+      {
+        "correct": false,
+        "text": "false"
+      },
+      {
+        "correct": false,
+        "text": "Error"
+      },
+      {
+        "correct": true,
+        "text": "true"
+      }
+    ],
+    "explanation": "Arrays have their own implementation of `toString` method that returns a comma-separated list of elements. So the above code snippet returns true. In order to avoid conversion of array type, we should use === for comparison."
+  },
+  {
+    "id": 203,
+    "title": "What is the output of below code?",
+    "code": "getMessage();\n\nvar getMessage = () => {\n  console.log(\"Good morning\");\n};",
+    "options": [
+      {
+        "correct": false,
+        "text": "Good morning"
+      },
+      {
+        "correct": true,
+        "text": "getMessage is not a function"
+      },
+      {
+        "correct": false,
+        "text": "getMessage is not defined"
+      },
+      {
+        "correct": false,
+        "text": "Undefined"
+      }
+    ],
+    "explanation": "Hoisting will move variables and functions to be the top of scope. Even though getMessage is an arrow function the above function will considered as a variable due to it's variable declaration or assignment. So the variables will have undefined value in memory phase and throws an error '`getMessage` is not a function' at the code execution phase."
+  },
+  {
+    "id": 204,
+    "title": "What is the output of below code?",
+    "code": "let quickPromise = Promise.resolve();\n\nquickPromise.then(() => console.log(\"promise finished\"));\n\nconsole.log(\"program finished\");",
+    "options": [
+      {
+        "correct": false,
+        "text": "program finished"
+      },
+      {
+        "correct": false,
+        "text": "Cannot predict the order"
+      },
+      {
+        "correct": true,
+        "text": "program finished, promise finished"
+      },
+      {
+        "correct": false,
+        "text": "promise finished, program finished"
+      }
+    ],
+    "explanation": "Even though a promise is resolved immediately, it won't be executed immediately because its **.then/catch/finally** handlers or callbacks(aka task) are pushed into the queue. Whenever the JavaScript engine becomes free from the current program, it pulls a task from the queue and executes it. This is the reason why last statement is printed first before the log of promise handler.\n\n**Note:** We call the above queue as \"MicroTask Queue\""
+  },
+  {
+    "id": 205,
+    "title": "What is the output of below code?",
+    "code": "console\n  .log(\"First line\")\n  [(\"a\", \"b\", \"c\")].forEach((element) => console.log(element));\nconsole.log(\"Third line\");",
+    "options": [
+      {
+        "correct": false,
+        "text": "`First line`, then print `a, b, c` in a new line, and finally print `Third line` as next line"
+      },
+      {
+        "correct": false,
+        "text": "`First line`, then print `a, b, c` in a first line, and print `Third line` as next line"
+      },
+      {
+        "correct": false,
+        "text": "Missing semi-colon error"
+      },
+      {
+        "correct": true,
+        "text": "Cannot read properties of undefined"
+      }
+    ],
+    "explanation": "When JavaScript encounters a line break without a semicolon, the JavaScript parser will automatically add a semicolon based on a set of rules called `Automatic Semicolon Insertion` which determines whether line break as end of statement or not to insert semicolon. But it does not assume a semicolon before square brackets [...]. So the first two lines considered as a single statement as below.\n\n```javascript\nconsole\n  .log(\"First line\")\n  [(\"a\", \"b\", \"c\")].forEach((element) => console.log(element));\n```\n\nHence, there will be **cannot read properties of undefined** error while applying the array square bracket on log function."
+  },
+  {
+    "id": 206,
+    "title": "Write a function that returns a random HEX color",
+    "code": "const HEX_ALPHABET = [\n  \"0\",\n  \"1\",\n  \"2\",\n  \"3\",\n  \"4\",\n  \"5\",\n  \"6\",\n  \"7\",\n  \"8\",\n  \"9\",\n  \"a\",\n  \"b\",\n  \"c\",\n  \"d\",\n  \"e\",\n  \"f\",\n];\nconst HEX_PREFIX = \"#\";\nconst HEX_LENGTH = 6;\n\nfunction generateRandomHex() {\n  let randomHex = \"\";\n\n  for (let i = 0; i < HEX_LENGTH; i++) {\n    const randomIndex = Math.floor(Math.random() * HEX_ALPHABET.length);\n    randomHex += HEX_ALPHABET[randomIndex];\n  }\n\n  return HEX_PREFIX + randomHex;\n}",
+    "options": [],
+    "explanation": ""
+  },
+  {
+    "id": 207,
+    "title": "What is the output of below code?",
+    "code": "var of = [\"of\"];\nfor (var of of of) {\n  console.log(of);\n}",
+    "options": [
+      {
+        "correct": true,
+        "text": "of"
+      },
+      {
+        "correct": false,
+        "text": "SyntaxError: Unexpected token of"
+      },
+      {
+        "correct": false,
+        "text": "SyntaxError: Identifier 'of' has already been declared"
+      },
+      {
+        "correct": false,
+        "text": "ReferenceError: of is not defined"
+      }
+    ],
+    "explanation": "In JavaScript, `of` is not considered as a reserved keyword. So the variable declaration with `of` is accepted and prints the array value `of` using for..of loop.\n\nBut if you use reserved keyword such as `in` then there will be a syntax error saying `SyntaxError: Unexpected token in`,\n\n```javascript\nvar in = ['in'];\nfor(var in in in) {\n  console.log(in[in]);\n}\n```"
+  },
+  {
+    "id": 208,
+    "title": "What is the output of below code?",
+    "code": "const numbers = [11, 25, 31, 23, 33, 18, 200];\nnumbers.sort();\nconsole.log(numbers);",
+    "options": [
+      {
+        "correct": false,
+        "text": "[11, 18, 23, 25, 31, 33, 200]"
+      },
+      {
+        "correct": true,
+        "text": "[11, 18, 200, 23, 25, 31, 33]"
+      },
+      {
+        "correct": false,
+        "text": "[11, 25, 31, 23, 33, 18, 200]"
+      },
+      {
+        "correct": false,
+        "text": "Cannot sort numbers"
+      },
+      {
+        "correct": false,
+        "text": "code units order. Hence, you will see the above numbers not sorted as expected. In order to sort numerically just supply a comparator function which handles numeric sorts."
+      }
+    ],
+    "explanation": "By default, the sort method sorts elements alphabetically. This is because elemented converted to strings and strings compared in UTF-16 code units order. Hence, you will see the above numbers not sorted as expected. In order to sort numerically just supply a comparator function which handles numeric sorts.\n\n```javascript\nconst numbers = [11, 25, 31, 23, 33, 18, 200];\nnumbers.sort((a, b) => a - b);\nconsole.log(numbers);\n```\n\n**Note:** Sort() method changes the original array."
+  },
+  {
+    "id": 209,
+    "title": "What is the output order of below code?",
+    "code": "setTimeout(() => {\n  console.log(\"1\");\n}, 0);\nPromise.resolve(\"hello\").then(() => console.log(\"2\"));\nconsole.log(\"3\");",
+    "options": [
+      {
+        "correct": false,
+        "text": "1, 2, 3"
+      },
+      {
+        "correct": false,
+        "text": "1, 3, 2"
+      },
+      {
+        "correct": false,
+        "text": "3, 1, 2"
+      },
+      {
+        "correct": true,
+        "text": "3, 2, 1"
+      }
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 210,
+    "title": "What is the output of below code?",
+    "code": "console.log(name);\nconsole.log(message());\nvar name = \"John\";\n(function message() {\n  console.log(\"Hello John: Welcome\");\n});",
+    "options": [
+      {
+        "correct": false,
+        "text": "John, Hello John: Welcome"
+      },
+      {
+        "correct": false,
+        "text": "undefined, Hello John, Welcome"
+      },
+      {
+        "correct": false,
+        "text": "Reference error: name is not defined, Reference error: message is not defined"
+      },
+      {
+        "correct": true,
+        "text": "undefined, Reference error: message is not defined"
+      }
+    ],
+    "explanation": "IIFE(Immediately Invoked Function Expression) is just like any other function expression which won't be hoisted. Hence, there will be a reference error for message call.\nThe behavior would be the same with below function expression of message1,\n\n```javascript\nconsole.log(name);\nconsole.log(message());\nvar name = 'John';\nvar message = function () {\n   console.log('Hello John: Welcome');\n});\n```"
+  },
+  {
+    "id": 211,
+    "title": "What is the output of below code?",
+    "code": "message();\n\nfunction message() {\n  console.log(\"Hello\");\n}\nfunction message() {\n  console.log(\"Bye\");\n}",
+    "options": [
+      {
+        "correct": false,
+        "text": "Reference error: message is not defined"
+      },
+      {
+        "correct": false,
+        "text": "Hello"
+      },
+      {
+        "correct": true,
+        "text": "Bye"
+      },
+      {
+        "correct": false,
+        "text": "Compile time error"
+      }
+    ],
+    "explanation": "As part of hoisting, initially JavaScript Engine or compiler will store first function in heap memory but later rewrite or replaces with redefined function content."
+  },
+  {
+    "id": 212,
+    "title": "What is the output of below code?",
+    "code": "var currentCity = \"NewYork\";\n\nvar changeCurrentCity = function () {\n  console.log(\"Current City:\", currentCity);\n  var currentCity = \"Singapore\";\n  console.log(\"Current City:\", currentCity);\n};\n\nchangeCurrentCity();",
+    "options": [
+      {
+        "correct": false,
+        "text": "NewYork, Singapore"
+      },
+      {
+        "correct": false,
+        "text": "NewYork, NewYork"
+      },
+      {
+        "correct": true,
+        "text": "undefined, Singapore"
+      },
+      {
+        "correct": false,
+        "text": "Singapore, Singapore"
+      }
+    ],
+    "explanation": "Due to hositing feature, the variables declared with `var` will have `undefined` value in the creation phase so the outer variable `currentCity` will get same `undefined` value. But after few lines of code JavaScript engine found a new function call(`changeCurrentCity()`) to update the current city with `var` re-declaration. Since each function call will create a new execution context, the same variable will have `undefined` value before the declaration and new value(`Singapore`) after the declaration. Hence, the value `undefined` print first followed by new value `Singapore` in the execution phase."
+  },
+  {
+    "id": 213,
+    "title": "What is the output of below code in an order?",
+    "code": "function second() {\n  var message;\n  console.log(message);\n}\n\nfunction first() {\n  var message = \"first\";\n  second();\n  console.log(message);\n}\n\nvar message = \"default\";\nfirst();\nconsole.log(message);",
+    "options": [
+      {
+        "correct": true,
+        "text": "undefined, first, default"
+      },
+      {
+        "correct": false,
+        "text": "default, default, default"
+      },
+      {
+        "correct": false,
+        "text": "first, first, default"
+      },
+      {
+        "correct": false,
+        "text": "undefined, undefined, undefined"
+      }
+    ],
+    "explanation": "Each context(global or functional) has it's own variable environment and the callstack of variables in a LIFO order. So you can see the message variable value from second, first functions in an order followed by global context message variable value at the end."
+  },
+  {
+    "id": 214,
+    "title": "What is the output of below code?",
+    "code": "var expressionOne = function functionOne() {\n  console.log(\"functionOne\");\n};\nfunctionOne();",
+    "options": [
+      {
+        "correct": true,
+        "text": "functionOne is not defined"
+      },
+      {
+        "correct": false,
+        "text": "functionOne"
+      },
+      {
+        "correct": false,
+        "text": "console.log(\"functionOne\")"
+      },
+      {
+        "correct": false,
+        "text": "undefined"
+      }
+    ],
+    "explanation": "The function call `functionOne` is not going to be part of scope chain and it has it's own execution context with the enclosed variable environment. i.e, It won't be accessed from global context. Hence, there will be an error while invoking the function as `functionOne is not defined`."
+  },
+  {
+    "id": 215,
+    "title": "What is the output of below code?",
+    "code": "const user = {\n  name: \"John\",\n  eat() {\n    console.log(this);\n    var eatFruit = function () {\n      console.log(this);\n    };\n    eatFruit();\n  },\n};\nuser.eat();",
+    "options": [
+      {
+        "correct": false,
+        "text": "{name: \"John\", eat: f}, {name: \"John\", eat: f}"
+      },
+      {
+        "correct": false,
+        "text": "Window {...}, Window {...}"
+      },
+      {
+        "correct": false,
+        "text": "{name: \"John\", eat: f}, undefined"
+      },
+      {
+        "correct": true,
+        "text": "{name: \"John\", eat: f}, Window {...}"
+      }
+    ],
+    "explanation": "`this` keyword is dynamic scoped but not lexically scoped . In other words, it doesn't matter where `this` has been written but how it has been invoked really matter. In the above code snippet, the `user` object invokes `eat` function so `this` keyword refers to `user` object but `eatFruit` has been invoked by `eat` function and `this` will have default `Window` object.\n\nThe above pit fall fixed by three ways,\n\n1. In ES6, the arrow function will make `this` keyword as lexically scoped. Since the surrounding object of `this` object is `user` object, the `eatFruit` function will contain `user` object for `this` object.\n\n```javascript\nconst user = {\n  name: \"John\",\n  eat() {\n    console.log(this);\n    var eatFruit = () => {\n      console.log(this);\n    };\n    eatFruit();\n  },\n};\nuser.eat();\n```\n\nThe next two solutions have been used before ES6 introduced.\n\n2.  It is possible create a reference of `this` into a separate variable and use that new variable inplace of `this` keyword inside `eatFruit` function. This is a common practice in jQuery and AngularJS before ES6 introduced.\n\n```javascript\nconst user = {\n  name: \"John\",\n  eat() {\n    console.log(this);\n    var self = this;\n    var eatFruit = () => {\n      console.log(self);\n    };\n    eatFruit();\n  },\n};\nuser.eat();\n```\n\n3. The `eatFruit` function can bind explicitly with `this` keyword where it refers `Window` object.\n\n```javascript\nconst user = {\n  name: \"John\",\n  eat() {\n    console.log(this);\n    var eatFruit = function () {\n      console.log(this);\n    };\n    return eatFruit.bind(this);\n  },\n};\nuser.eat()();\n```"
+  },
+  {
+    "id": 216,
+    "title": "What is the output of below code?",
+    "code": "let message = \"Hello World!\";\nmessage[0] = \"J\";\nconsole.log(message);\n\nlet name = \"John\";\nname = name + \" Smith\";\nconsole.log(name);",
+    "options": [
+      {
+        "correct": false,
+        "text": "Jello World!, John Smith"
+      },
+      {
+        "correct": false,
+        "text": "Jello World!, John"
+      },
+      {
+        "correct": true,
+        "text": "Hello World!, John Smith"
+      },
+      {
+        "correct": false,
+        "text": "Hello World!, John"
+      }
+    ],
+    "explanation": "In JavaScript, primitives are immutable i.e. there is no way to change a primitive value once it gets created. So when you try to update the string's first character, there is no change in the string value and prints the same initial value `Hello World!`. Whereas in the later example, the concatenated value is re-assigned to the same variable which will result into creation of new memory block with the reference pointing to `John Smith` value and the old memory block value(`John`) will be garbage collected."
+  },
+  {
+    "id": 217,
+    "title": "What is the output of below code?",
+    "code": "let user1 = {\n  name: \"Jacob\",\n  age: 28,\n};\n\nlet user2 = {\n  name: \"Jacob\",\n  age: 28,\n};\n\nconsole.log(user1 === user2);",
+    "options": [
+      {
+        "correct": false,
+        "text": "True"
+      },
+      {
+        "correct": true,
+        "text": "False"
+      },
+      {
+        "correct": false,
+        "text": "Compile time error"
+      }
+    ],
+    "explanation": "In JavaScript, the variables such as objects, arrays and functions comes under pass by reference. When you try to compare two objects with same content, it is going to compare memory address or reference of those variables. These variables always create separate memory blocks hence the comparison is always going to return false value."
+  },
+  {
+    "id": 218,
+    "title": "What is the output of below code?",
+    "code": "function greeting() {\n  setTimeout(function () {\n    console.log(message);\n  }, 5000);\n  const message = \"Hello, Good morning\";\n}\ngreeting();",
+    "options": [
+      {
+        "correct": false,
+        "text": "Undefined"
+      },
+      {
+        "correct": false,
+        "text": "Reference error:"
+      },
+      {
+        "correct": true,
+        "text": "Hello, Good morning"
+      },
+      {
+        "correct": false,
+        "text": "null"
+      }
+    ],
+    "explanation": "The variable `message` is still treated as closure(since it has been used in inner function) eventhough it has been declared after setTimeout function. The function with in setTimeout function will be sent to WebAPI and the variable declaration executed with in 5 seconds with the assigned value. Hence, the text declared for the variable will be displayed."
+  },
+  {
+    "id": 219,
+    "title": "What is the output of below code?",
+    "code": "const a = new Number(10);\nconst b = 10;\nconsole.log(a === b);",
+    "options": [
+      {
+        "correct": true,
+        "text": "False"
+      },
+      {
+        "correct": false,
+        "text": "True"
+      }
+    ],
+    "explanation": "Eventhough both variables `a` and `b` refer a number value, the first declaration is based on constructor function and the type of the variable is going to be `object` type. Whereas the second declaration is primitive assignment with a number and the type is `number` type. Hence, the equality operator `===` will output `false` value."
+  },
+  {
+    "id": 220,
+    "title": "What is the type of below function?",
+    "code": "function add(a, b) {\n  console.log(\"The input arguments are: \", a, b);\n  return a + b;\n}",
+    "options": [
+      {
+        "correct": false,
+        "text": "Pure function"
+      },
+      {
+        "correct": true,
+        "text": "Impure function"
+      }
+    ],
+    "explanation": "Eventhough the above function returns the same result for the same arguments(input) that are passed in the function, the `console.log()` statement causes a function to have side effects because it affects the state of an external code. i.e, the `console` object's state and depends on it to perform the job. Hence, the above function considered as impure function."
+  },
+  {
+    "id": 221,
+    "title": "What is the output of below code?",
+    "code": "const promiseOne = new Promise((resolve, reject) => setTimeout(resolve, 4000));\nconst promiseTwo = new Promise((resolve, reject) => setTimeout(reject, 4000));\n\nPromise.all([promiseOne, promiseTwo]).then((data) => console.log(data));",
+    "options": [
+      {
+        "correct": false,
+        "text": "[{status: \"fulfilled\", value: undefined}, {status: \"rejected\", reason: undefined}]"
+      },
+      {
+        "correct": false,
+        "text": "[{status: \"fulfilled\", value: undefined}, Uncaught(in promise)]"
+      },
+      {
+        "correct": true,
+        "text": "Uncaught (in promise)"
+      },
+      {
+        "correct": false,
+        "text": "[Uncaught(in promise), Uncaught(in promise)]"
+      }
+    ],
+    "explanation": "The above promises settled at the same time but one of them resolved and other one rejected. When you use `.all` method on these promises, the result will be short circuted by throwing an error due to rejection in second promise. But If you use `.allSettled` method then result of both the promises will be returned irrespective of resolved or rejected promise status without throwing any error.\n\n```javascript\nPromise.allSettled([promiseOne, promiseTwo]).then((data) => console.log(data));\n```"
+  },
+  {
+    "id": 222,
+    "title": "What is the output of below code?",
+    "code": "try {\n  setTimeout(() => {\n    console.log(\"try block\");\n    throw new Error(`An exception is thrown`);\n  }, 1000);\n} catch (err) {\n  console.log(\"Error: \", err);\n}",
+    "options": [
+      {
+        "correct": false,
+        "text": "try block, Error: An exception is thrown"
+      },
+      {
+        "correct": false,
+        "text": "Error: An exception is thrown"
+      },
+      {
+        "correct": true,
+        "text": "try block, Uncaught Error: Exception is thrown"
+      },
+      {
+        "correct": false,
+        "text": "Uncaught Error: Exception is thrown"
+      }
+    ],
+    "explanation": "If you put `setTimeout` and `setInterval` methods inside the try clause and an exception is thrown, the catch clause will not catch any of them. This is because the try...catch statement works synchronously, and the function in the above code is executed asynchronously after a certain period of time. Hence, you will see runtime exception without catching the error. To resolve this issue, you have to put the try...catch block inside the function as below,\n\n```javascript\nsetTimeout(() => {\n  try {\n    console.log(\"try block\");\n    throw new Error(`An exception is thrown`);\n  } catch (err) {\n    console.log(\"Error: \", err);\n  }\n}, 1000);\n```\n\nYou can use `.catch()` function in promises to avoid these issues with asynchronous code."
+  },
+  {
+    "id": 223,
+    "title": "What is the output of below code?",
+    "code": "let a = 10;\nif (true) {\n  let a = 20;\n  console.log(a, \"inside\");\n}\nconsole.log(a, \"outside\");",
+    "options": [
+      {
+        "correct": false,
+        "text": "20, \"inside\" and 20, \"outside\""
+      },
+      {
+        "correct": true,
+        "text": "20, \"inside\" and 10, \"outside\""
+      },
+      {
+        "correct": false,
+        "text": "10, \"inside\" and 10, \"outside\""
+      },
+      {
+        "correct": false,
+        "text": "10, \"inside\" and 20, \"outside\""
+      }
+    ],
+    "explanation": "The variable \"a\" declared inside \"if\" has block scope and does not affect the value of the outer \"a\" variable."
+  },
+  {
+    "id": 224,
+    "title": "What is the output of below code?",
+    "code": "let arr = [1, 2, 3, 4, 5, -6, 7];\narr.length = 0;\nconsole.log(arr);",
+    "options": [
+      {
+        "correct": false,
+        "text": ", 7];"
+      },
+      {
+        "correct": false,
+        "text": "0"
+      },
+      {
+        "correct": false,
+        "text": "Undefined"
+      },
+      {
+        "correct": true,
+        "text": "null"
+      },
+      {
+        "correct": false,
+        "text": "[ ]"
+      }
+    ],
+    "explanation": "The length of the array 'arr' has been set to 0, so the array becomes empty."
+  },
+  {
+    "id": 225,
+    "title": "How do you verify two strings are anagrams or not?",
+    "code": "function verifyAnagrams(word1, word2) {\n  return word1.split(\"\").sort().join(\"\") === word2.split(\"\").sort().join(\"\");\n}\nconsole.log(verifyAnagrams(\"eat\", \"ate\"));",
+    "options": [],
+    "explanation": ""
+  },
+  {
+    "id": 226,
+    "title": "What is the output of below code?",
+    "code": "printHello();\n\nprintMessage();\n\nfunction printHello() {\n  console.log(\"Hello\");\n\n  function printMessage() {\n    console.log(\"Good day\");\n  }\n}",
+    "options": [
+      {
+        "correct": false,
+        "text": "Hello, Good day"
+      },
+      {
+        "correct": false,
+        "text": "Reference Error: printHello is not defined, Reference Error: printMessage is not defined"
+      },
+      {
+        "correct": false,
+        "text": "Reference Error: printHello is not defined, Good day"
+      },
+      {
+        "correct": true,
+        "text": "Hello, Reference Error: printMessage is not defined"
+      }
+    ],
+    "explanation": "The function `printHello` is hoisted to the top of the global scope and prints \"Hello\" to the console. Even `printMessage` function is hoisted, but it is lifted to the local scope(in \"printHello\") it was declared in. That is the reason you will endup with reference error for second function call.\n\nBut if the second function is invoked in the first function itself, there won't be any reference error.\n\n```javascript\nprintHello();\n\nfunction printHello() {\n  printMessage();\n  console.log(\"Hello\");\n\n  function printMessage() {\n    console.log(\"Good day\");\n  }\n}\n```"
+  },
+  {
+    "id": 227,
+    "title": "What is the time taken to execute below timeout callback?",
+    "code": "console.log(\"Start code\");\n\nsetTimeout(function () {\n  console.log(\"Callback code\");\n}, 5000);\n\nconsole.log(\"After callback\");\n\nlet startTime = new Date().getTime();\nlet endTime = startTime;\n\nwhile (endTime <= startTime + 10000) {\n  endTime = new Date().getTime();\n}\n\nconsole.log(\"End code\");",
+    "options": [
+      {
+        "correct": true,
+        "text": "> 10 sec"
+      },
+      {
+        "correct": false,
+        "text": "Immediately"
+      },
+      {
+        "correct": false,
+        "text": "< 10 sec"
+      },
+      {
+        "correct": false,
+        "text": "<= 5sec"
+      }
+    ],
+    "explanation": "Even though there is a timer of 5 seconds supplied to `setTimeout` callback, it won't get executed until the main thread is free and finished executing the remaining part of the code. In this example, the remaining code(while loop) takes 10seconds to finish it's execution. In the mean time, the callback will be stored in callback queue upon completion of its 5 seconds timer. After 10 seconds, the callback will be moved to callstack because the callstack is empty by poping out global execution context."
+  },
+  {
+    "id": 228,
+    "title": "What is the output of below code?",
+    "code": "let arr = [\"wöchentlich\", \"Woche\", \"wäre\", \"Wann\"];\nconsole.log(arr.sort());",
+    "options": [
+      {
+        "correct": false,
+        "text": "['wöchentlich','Woche', 'wäre', 'Wann']"
+      },
+      {
+        "correct": false,
+        "text": "['Wann', 'wäre', 'Woche', 'wöchentlich']"
+      },
+      {
+        "correct": true,
+        "text": "['Wann', 'Woche', 'wäre', 'wöchentlich']"
+      },
+      {
+        "correct": false,
+        "text": "['wäre', 'Wann', 'wöchentlich','Woche']"
+      }
+    ],
+    "explanation": "Javascript has a native method sort that allows sorting an array of elements in-place. It will treat each element as a string and sort it alphabetically. But if you try to sort an array of strings which has non-ASCII characters, you will receive a strange result. This is because characters with an accent have higher character codes.\n\nIn this case, the sort order of an array is ['Wann', 'Woche', 'wäre', 'wöchentlich'].\n\nIf you want to sort an array of string values which has non-ASCII characters in an ascending order, there are two possible options like **localeCompare** and **Intl.Collator** provided by ECMAScript Internationalization API.\n\n**localeCompare:**\n\n```javascript\nlet arr = [\"wöchentlich\", \"Woche\", \"wäre\", \"Wann\"];\nconsole.log(arr.sort((a, b) => a.localeCompare(b))); //['Wann', 'wäre', 'Woche', 'wöchentlich']\n```\n\n**Intl.Collator:**\n\n```javascript\nlet arr = [\"wöchentlich\", \"Woche\", \"wäre\", \"Wann\"];\nconsole.log(arr.sort(Intl.Collator().compare)); //['Wann', 'wäre', 'Woche', 'wöchentlich']\n```"
+  },
+  {
+    "id": 229,
+    "title": "What is the output of below code?",
+    "code": "function func(a, b = 2) {\n  console.log(arguments.length);\n}\n\nfunc(undefined);\nfunc();",
+    "options": [
+      {
+        "correct": true,
+        "text": "1, 0"
+      },
+      {
+        "correct": false,
+        "text": "0, 0"
+      },
+      {
+        "correct": false,
+        "text": "0, 1"
+      },
+      {
+        "correct": false,
+        "text": "1, 1"
+      }
+    ],
+    "explanation": "If a function is called with `undefined`, the `undefined` value is treated as a parameter. But if the function is not passed with any parameters, the `arguments` object doesn't include any argument eventhough the function has default function parameter. Hence, the function invocation with `undefined` has one argument and function call without any arguments has 0 arguments."
+  },
+  {
+    "id": 230,
+    "title": "What is the output of below code?",
+    "code": "function func(a, b = 2) {\n  console.log(arguments.length);\n}\n\nfunc(undefined);\nfunc();",
+    "options": [
+      {
+        "correct": true,
+        "text": "1, 0"
+      },
+      {
+        "correct": false,
+        "text": "0, 0"
+      },
+      {
+        "correct": false,
+        "text": "0, 1"
+      },
+      {
+        "correct": false,
+        "text": "1, 1"
+      }
+    ],
+    "explanation": "If a function is called with `undefined`, the `undefined` value is treated as a parameter. But if the function is not passed with any parameters, the `arguments` object doesn't include any argument eventhough the function has default function parameter. Hence, the function invocation with `undefined` has one argument and function call without any arguments has 0 arguments."
+  }
+
 ];
 
