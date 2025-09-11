@@ -29,7 +29,9 @@ export const sampleReadingContent: ReadingContent[] = [
     "codeExamples": [
       "function Person() {}\n    const person1 = new Person();\n\n    console.log(Object.getPrototypeOf(person1) === Person.prototype); // true"
     ],
-    "tables": []
+    "tables": [],
+     "image":["/images/prototype.png"],
+     "imageSize":"large"
   },
   
   {
@@ -54,7 +56,8 @@ export const sampleReadingContent: ReadingContent[] = [
       "array.splice(start, deleteCount, item1, item2, ...)",
       "let arrayIntegersOriginal1 = [1, 2, 3, 4, 5];\n    let arrayIntegersOriginal2 = [1, 2, 3, 4, 5];\n    let arrayIntegersOriginal3 = [1, 2, 3, 4, 5];\n\n    // Remove the first two elements\n    let arrayIntegers1 = arrayIntegersOriginal1.splice(0, 2); \n    // arrayIntegers1: [1, 2]\n    // arrayIntegersOriginal1 (after): [3, 4, 5]\n\n    // Remove all elements from index 3 onwards\n    let arrayIntegers2 = arrayIntegersOriginal2.splice(3);     \n    // arrayIntegers2: [4, 5]\n    // arrayIntegersOriginal2 (after): [1, 2, 3]\n\n    // Remove 1 element at index 3, then insert \"a\", \"b\", \"c\" at that position\n    let arrayIntegers3 = arrayIntegersOriginal3.splice(3, 1, \"a\", \"b\", \"c\"); \n    // arrayIntegers3: [4]\n    // arrayIntegersOriginal3 (after): [1, 2, 3, \"a\", \"b\", \"c\", 5]"
     ],
-    "tables": []
+    "tables": [],
+   
   },
   
   

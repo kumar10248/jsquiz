@@ -84,10 +84,10 @@ export default function QuizPage() {
     : 0;
 
   return (
-    <>
+    <div className="min-h-screen px-4 sm:px-6 md:px-8">
       {/* Navigation */}
-      <div className="mb-8">
-        <div className="flex items-center text-sm text-gray-600 mb-4">
+      <div className="mb-6 md:mb-8">
+        <div className="flex items-center text-sm text-gray-600 mb-3 md:mb-4">
           <Link href="/" className="hover:text-indigo-600 transition-colors">Home</Link>
           <span className="mx-2">/</span>
           <span className="text-gray-800">Quiz Practice</span>
@@ -95,26 +95,26 @@ export default function QuizPage() {
 
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Brain className="w-6 h-6 text-purple-600" />
-            <h1 className="text-2xl font-bold text-gray-800">
+            <Brain className="w-5 h-5 md:w-6 md:h-6 text-purple-600" />
+            <h1 className="text-xl md:text-2xl font-bold text-gray-800">
               Quiz Practice
             </h1>
           </div>
         </div>
       </div>
 
-      {/* Progress Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-        <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-              <Clock className="w-5 h-5 text-blue-600" />
+      {/* Progress Stats - Enhanced for mobile */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-6 md:mb-8">
+        <div className="bg-white rounded-lg md:rounded-xl p-3 md:p-6 shadow-lg border border-gray-100">
+          <div className="flex items-center gap-2 md:gap-3">
+            <div className="w-8 h-8 md:w-10 md:h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+              <Clock className="w-4 h-4 md:w-5 md:h-5 text-blue-600" />
             </div>
             <div>
-              <div className="text-2xl font-bold text-gray-800">
+              <div className="text-lg md:text-2xl font-bold text-gray-800">
                 {currentIndex + 1}/{userProgress.totalQuestions}
               </div>
-              <div className="text-sm text-gray-600">Progress</div>
+              <div className="text-xs md:text-sm text-gray-600">Progress</div>
             </div>
           </div>
         </div>
@@ -177,21 +177,21 @@ export default function QuizPage() {
       </div>
 
       {/* Quiz Content */}
-      <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden animate-fade-in">
+      <div className="bg-white rounded-xl md:rounded-2xl shadow-lg border border-gray-100 overflow-hidden animate-fade-in">
         {/* Header */}
-        <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-8">
-          <div className="flex items-center justify-between">
-            <h2 className="text-3xl font-bold">{currentQuiz.title}</h2>
-            <div className="text-white/80 text-lg">
+        <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-4 md:p-8">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">{currentQuiz.title}</h2>
+            <div className="text-white/80 text-sm md:text-lg">
               Question {currentIndex + 1} of {sampleQuizQuestions.length}
             </div>
           </div>
         </div>
 
-        <div className="p-8">
+        <div className="p-4 md:p-8">
           {/* Code Block */}
           {currentQuiz.code && (
-            <div className="mb-8">
+            <div className="mb-6 md:mb-8">
               <div className="text-sm text-gray-600 mb-3 font-medium">
                 What will be the output of this code?
               </div>
@@ -200,15 +200,15 @@ export default function QuizPage() {
           )}
 
           {/* Options */}
-          <div className="space-y-4 mb-8">
-            <div className="text-lg font-semibold text-gray-800 mb-4">
+          <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
+            <div className="text-base md:text-lg font-semibold text-gray-800 mb-3 md:mb-4">
               Choose the correct answer:
             </div>
             {currentQuiz.options.map((option, index) => (
               <button
                 key={index}
                 onClick={() => handleAnswerSelect(index)}
-                className={`w-full text-left p-6 rounded-xl border-2 transition-all duration-300 ${
+                className={`w-full text-left p-4 md:p-6 rounded-lg md:rounded-xl border-2 transition-all duration-300 min-h-[44px] ${
                   selectedAnswer === index
                     ? isCorrect
                       ? 'border-green-500 bg-green-50 shadow-lg'
@@ -220,8 +220,8 @@ export default function QuizPage() {
                 disabled={showExplanation}
               >
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-sm font-bold ${
+                  <div className="flex items-center gap-3 md:gap-4">
+                    <div className={`w-7 h-7 md:w-8 md:h-8 rounded-full border-2 flex items-center justify-center text-sm font-bold ${
                       selectedAnswer === index
                         ? isCorrect
                           ? 'border-green-500 bg-green-500 text-white'
@@ -233,20 +233,20 @@ export default function QuizPage() {
                       {String.fromCharCode(65 + index)}
                     </div>
                     <span 
-                      className="text-gray-800 font-medium" 
+                      className="text-gray-800 font-medium text-sm md:text-base" 
                       dangerouslySetInnerHTML={{ __html: option.text }} 
                     />
                   </div>
                   
                   {showExplanation && selectedAnswer === index && (
                     isCorrect ? (
-                      <CheckCircle className="w-6 h-6 text-green-500" />
+                      <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-500" />
                     ) : (
-                      <XCircle className="w-6 h-6 text-red-500" />
+                      <XCircle className="w-5 h-5 md:w-6 md:h-6 text-red-500" />
                     )
                   )}
                   {showExplanation && option.correct && selectedAnswer !== index && (
-                    <CheckCircle className="w-6 h-6 text-green-500" />
+                    <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-500" />
                   )}
                 </div>
               </button>
@@ -255,15 +255,15 @@ export default function QuizPage() {
 
           {/* Explanation */}
           {showExplanation && (
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-8 mb-8 animate-slide-up">
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg md:rounded-xl p-4 md:p-8 mb-6 md:mb-8 animate-slide-up">
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                  <span className="text-white font-bold text-sm">?</span>
+                <div className="w-6 h-6 md:w-8 md:h-8 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-white font-bold text-xs md:text-sm">?</span>
                 </div>
                 <div>
-                  <h3 className="font-bold text-blue-800 text-lg mb-3">Explanation:</h3>
+                  <h3 className="font-bold text-blue-800 text-base md:text-lg mb-2 md:mb-3">Explanation:</h3>
                   <p 
-                    className="text-blue-700 leading-relaxed text-base" 
+                    className="text-blue-700 leading-relaxed text-sm md:text-base" 
                     dangerouslySetInnerHTML={{ __html: currentQuiz.explanation }} 
                   />
                 </div>
@@ -272,20 +272,20 @@ export default function QuizPage() {
           )}
 
           {/* Navigation */}
-          <div className="flex items-center justify-between pt-8 border-t border-gray-200">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-6 md:pt-8 border-t border-gray-200">
             <button
               onClick={prevQuestion}
               disabled={currentIndex === 0}
-              className="flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-600 rounded-xl hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+              className="flex items-center justify-center gap-2 px-4 md:px-6 py-3 bg-gray-100 text-gray-600 rounded-lg md:rounded-xl hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 min-h-[44px] text-sm md:text-base"
             >
               <ArrowLeft className="w-4 h-4" />
               Previous
             </button>
 
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
               <button
                 onClick={resetQuestion}
-                className="flex items-center gap-2 px-6 py-3 bg-indigo-100 text-indigo-600 rounded-xl hover:bg-indigo-200 transition-all duration-300"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 md:px-6 py-3 bg-indigo-100 text-indigo-600 rounded-lg md:rounded-xl hover:bg-indigo-200 transition-all duration-300 min-h-[44px] text-sm md:text-base"
                 title="Reset current question"
               >
                 <RefreshCw className="w-4 h-4" />
@@ -294,7 +294,7 @@ export default function QuizPage() {
 
               <button
                 onClick={resetQuiz}
-                className="flex items-center gap-2 px-6 py-3 bg-purple-100 text-purple-600 rounded-xl hover:bg-purple-200 transition-all duration-300"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 md:px-6 py-3 bg-purple-100 text-purple-600 rounded-lg md:rounded-xl hover:bg-purple-200 transition-all duration-300 min-h-[44px] text-sm md:text-base"
                 title="Restart entire quiz"
               >
                 <Trophy className="w-4 h-4" />
@@ -305,7 +305,7 @@ export default function QuizPage() {
             <button
               onClick={nextQuestion}
               disabled={currentIndex === sampleQuizQuestions.length - 1}
-              className="flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-600 rounded-xl hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+              className="flex items-center justify-center gap-2 px-4 md:px-6 py-3 bg-gray-100 text-gray-600 rounded-lg md:rounded-xl hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 min-h-[44px] text-sm md:text-base"
             >
               Next
               <ArrowRight className="w-4 h-4" />
@@ -314,22 +314,22 @@ export default function QuizPage() {
 
           {/* Completion Message */}
           {userProgress.completedQuestions.length === userProgress.totalQuestions && (
-            <div className="mt-8 p-8 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl text-center animate-slide-up">
-              <Trophy className="w-16 h-16 text-green-600 mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-green-800 mb-2">Quiz Completed! 🎉</h3>
-              <p className="text-green-700 text-lg mb-4">
+            <div className="mt-6 md:mt-8 p-4 md:p-8 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-lg md:rounded-xl text-center animate-slide-up">
+              <Trophy className="w-12 h-12 md:w-16 md:h-16 text-green-600 mx-auto mb-3 md:mb-4" />
+              <h3 className="text-xl md:text-2xl font-bold text-green-800 mb-2">Quiz Completed! 🎉</h3>
+              <p className="text-green-700 text-base md:text-lg mb-4">
                 You scored {userProgress.correctAnswers} out of {userProgress.totalQuestions} questions correctly!
               </p>
-              <div className="flex items-center justify-center gap-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
                 <Link
                   href="/reading"
-                  className="px-6 py-3 bg-green-600 text-white rounded-xl hover:bg-green-700 transition-colors"
+                  className="w-full sm:w-auto px-4 md:px-6 py-3 bg-green-600 text-white rounded-lg md:rounded-xl hover:bg-green-700 transition-colors min-h-[44px] flex items-center justify-center"
                 >
                   Continue Learning
                 </Link>
                 <button
                   onClick={resetQuiz}
-                  className="px-6 py-3 bg-white text-green-600 border border-green-300 rounded-xl hover:bg-green-50 transition-colors"
+                  className="w-full sm:w-auto px-4 md:px-6 py-3 bg-white text-green-600 border border-green-300 rounded-lg md:rounded-xl hover:bg-green-50 transition-colors min-h-[44px] flex items-center justify-center"
                 >
                   Retake Quiz
                 </button>
@@ -338,6 +338,6 @@ export default function QuizPage() {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 }

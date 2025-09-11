@@ -78,27 +78,27 @@ export default function ReadingPage() {
       <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transform origin-left transition-transform duration-300" 
              style={{ transform: `scaleX(${progressPercentage / 100})` }} />
-        <div className="bg-white/95 backdrop-blur-sm border-b border-gray-200/50 px-6 py-3">
+        <div className="bg-white/95 backdrop-blur-sm border-b border-gray-200/50 px-4 sm:px-6 py-3">
           <div className="flex items-center justify-between max-w-6xl mx-auto">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center">
-                <BookOpen className="w-4 h-4 text-white" />
+            <div className="flex items-center gap-2 md:gap-3 min-w-0 flex-1">
+              <div className="w-6 h-6 md:w-8 md:h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center">
+                <BookOpen className="w-3 h-3 md:w-4 md:h-4 text-white" />
               </div>
-              <span className="font-medium text-gray-800 truncate max-w-xs">
+              <span className="font-medium text-gray-800 truncate text-sm md:text-base">
                 {currentContent.question}
               </span>
             </div>
-            <div className="text-sm text-gray-600 font-medium">
+            <div className="text-xs md:text-sm text-gray-600 font-medium ml-2">
               {currentIndex + 1} / {sampleReadingContent.length}
             </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 py-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 md:py-8">
         {/* Breadcrumb Navigation */}
-        <div className="mb-8 animate-fade-in">
-          <div className="flex items-center text-sm text-gray-600 mb-6">
+        <div className="mb-6 md:mb-8 animate-fade-in">
+          <div className="flex items-center text-sm text-gray-600 mb-4 md:mb-6">
             <Link href="/" className="hover:text-indigo-600 transition-colors duration-200 flex items-center gap-1">
               Home
             </Link>
@@ -106,22 +106,22 @@ export default function ReadingPage() {
             <span className="text-gray-800 font-medium">Reading Materials</span>
           </div>
 
-          <div className="flex items-center justify-between flex-wrap gap-4">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
-                <BookOpen className="w-6 h-6 text-white" />
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+            <div className="flex items-center gap-2 md:gap-3">
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg">
+                <BookOpen className="w-5 h-5 md:w-6 md:h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-3xl font-bold text-gray-800 mb-1">
+                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-1">
                   Reading Materials
                 </h1>
-                <div className="flex items-center gap-4 text-sm text-gray-600">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs md:text-sm text-gray-600">
                   <div className="flex items-center gap-1">
-                    <Target className="w-4 h-4" />
+                    <Target className="w-3 h-3 md:w-4 md:h-4" />
                     Topic {currentIndex + 1} of {sampleReadingContent.length}
                   </div>
                   <div className="flex items-center gap-1">
-                    <Clock className="w-4 h-4" />
+                    <Clock className="w-3 h-3 md:w-4 md:h-4" />
                     ~{readingTime} min read
                   </div>
                 </div>
@@ -129,13 +129,13 @@ export default function ReadingPage() {
             </div>
             
             {/* Topic Progress Indicators */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1 md:gap-2 justify-center lg:justify-end">
               {sampleReadingContent.map((_, index) => (
                 <div
                   key={index}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
                     index === currentIndex 
-                      ? 'bg-gradient-to-r from-indigo-500 to-purple-500 ring-2 ring-indigo-200 scale-125' 
+                      ? 'bg-gradient-to-r from-indigo-500 to-purple-500 ring-1 md:ring-2 ring-indigo-200 scale-125' 
                       : completedSections.has(index)
                       ? 'bg-green-500'
                       : 'bg-gray-300'
@@ -147,46 +147,46 @@ export default function ReadingPage() {
         </div>
 
         {/* Main Content Card */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border border-white/20 overflow-hidden animate-slide-up">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-xl border border-white/20 overflow-hidden animate-slide-up">
           {/* Dynamic Header */}
           <div className="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent" />
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl transform translate-x-32 -translate-y-32" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full blur-3xl transform -translate-x-24 translate-y-24" />
+            <div className="absolute top-0 right-0 w-32 h-32 md:w-64 md:h-64 bg-white/10 rounded-full blur-3xl transform translate-x-16 md:translate-x-32 -translate-y-16 md:-translate-y-32" />
+            <div className="absolute bottom-0 left-0 w-24 h-24 md:w-48 md:h-48 bg-white/10 rounded-full blur-3xl transform -translate-x-12 md:-translate-x-24 translate-y-12 md:translate-y-24" />
             
-            <div className="relative p-8 md:p-12">
-              <div className="flex items-start justify-between mb-6">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
-                    <Sparkles className="w-5 h-5 text-white" />
+            <div className="relative p-4 sm:p-6 md:p-8 lg:p-12">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 md:mb-6 gap-3">
+                <div className="flex items-center gap-2 md:gap-3">
+                  <div className="w-8 h-8 md:w-10 md:h-10 bg-white/20 backdrop-blur-sm rounded-lg md:rounded-xl flex items-center justify-center">
+                    <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-white" />
                   </div>
                   <div>
-                    <div className="text-white/80 text-sm font-medium mb-1">
+                    <div className="text-white/80 text-xs md:text-sm font-medium mb-1">
                       Learning Topic
                     </div>
-                    <div className="w-16 h-1 bg-white/30 rounded-full" />
+                    <div className="w-12 md:w-16 h-1 bg-white/30 rounded-full" />
                   </div>
                 </div>
                 
-                <div className="text-right">
-                  <div className="text-white/80 text-sm mb-1">Progress</div>
-                  <div className="text-2xl font-bold">{Math.round(progressPercentage)}%</div>
+                <div className="text-left sm:text-right">
+                  <div className="text-white/80 text-xs md:text-sm mb-1">Progress</div>
+                  <div className="text-xl md:text-2xl font-bold">{Math.round(progressPercentage)}%</div>
                 </div>
               </div>
               
-              <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-3 md:mb-4">
                 {currentContent.question}
               </h2>
               
-              <div className="flex items-center gap-4 text-white/80">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-white/80">
                 <div className="flex items-center gap-2">
-                  <Eye className="w-4 h-4" />
-                  <span className="text-sm">Interactive Content</span>
+                  <Eye className="w-3 h-3 md:w-4 md:h-4" />
+                  <span className="text-xs md:text-sm">Interactive Content</span>
                 </div>
                 {completedSections.has(currentIndex) && (
-                  <div className="flex items-center gap-2 bg-green-500/20 px-3 py-1 rounded-full">
-                    <CheckCircle2 className="w-4 h-4" />
-                    <span className="text-sm">Completed</span>
+                  <div className="flex items-center gap-2 bg-green-500/20 px-2 md:px-3 py-1 rounded-full">
+                    <CheckCircle2 className="w-3 h-3 md:w-4 md:h-4" />
+                    <span className="text-xs md:text-sm">Completed</span>
                   </div>
                 )}
               </div>
