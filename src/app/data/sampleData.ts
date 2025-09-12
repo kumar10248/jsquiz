@@ -2,10 +2,11 @@ import { ReadingContent, QuizQuestion } from '../types';
 
 export const sampleReadingContent: ReadingContent[] = [
  
+ 
   {
     "id": 1,
     "question": "What are the possible ways to create objects in JavaScript",
-    "description": "There are many ways to create objects in javascript as mentioned below:\n\n    1. Object literal syntax:\n\n       The object literal syntax (or object initializer), is a comma-separated set of name-value pairs wrapped in curly braces.\n\n       \n\n       Object literal property values can be of any data type, including array, function, and nested object.\n\n       Note: This is one of the easiest ways to create an object and it's most commonly used for creating simple, ad-hoc objects.\n\n    2. Object constructor:\n\n       The simplest way to create an empty object is using the `Object` constructor. Currently this approach is not recommended.\n\n       \n\n       The `Object()` is a built-in constructor function so \"new\" keyword is not required for creating plain objects. The above code snippet can be re-written as:\n\n       \n       However, `Object()` can be used to either create a plain object or convert a given value into its corresponding object wrapper, whereas `new Object()` is specifically used to explicitly create a new object instance.\n       \n    3. Object's create method:\n\n       The `create` method of Object is used to create a new object by passing the specified prototype object and properties as arguments, i.e., this pattern is helpful to create new objects based on existing objects. In other words, this is useful for setting up prototypal inheritance. The second argument is optional and it is used to create properties on a newly created object.\n\n       The following code creates a new empty object whose prototype is null.\n\n       \n\n       The following example creates an object along with additional new properties.\n\n       \n\n    4. Function constructor:\n\n       In this approach, create any function and apply the new operator to create object instances. This was the main way to do constructor-based OOP before ES6 classes.\n\n       \n    5. Function constructor with prototype:\n\n       This is similar to function constructor but it uses prototype for their properties and methods. Using prototype means you're sharing methods/properties across instances, which saves memory and improve performance.\n\n       \n\n       This is equivalent to creating an instance with `Object.create` method with a function prototype and then calling that function with an instance and parameters as arguments.\n\n       \n\n       (OR)\n\n       \n\n    6. Object's assign method:\n\n       The `Object.assign` method is used to copy all the properties from one or more source objects and stores them into a target object. This is mainly used for cloning and merging\n\n       The following code creates a new staff object by copying properties of his working company and the car he owns.\n\n       \n\n    7. ES6 Class syntax:\n\n       ES6 introduces class feature to create objects. This is syntactic sugar over the prototype-based system.\n\n       \n\n    8. Singleton pattern:\n\n       A Singleton is an object which can only be instantiated one time. Repeated calls to its constructor return the same instance. This way one can ensure that they don't accidentally create multiple instances.\n\n         Singleton with Closure (Classic JS Pattern)\n        \n         In modern JavaScript applications, singletons are commonly implemented using ES6 modules for their built-in caching behavior, or closures for encapsulated state management.",
+    "description": "There are many ways to create objects in javascript as mentioned below:\n\n    1. Object literal syntax:\n\n       The object literal syntax (or object initializer), is a comma-separated set of name-value pairs wrapped in curly braces.\n\n       Object literal property values can be of any data type, including array, function, and nested object.\n\n       Note: This is one of the easiest ways to create an object and it's most commonly used for creating simple, ad-hoc objects.\n\n    2. Object constructor:\n\n       The simplest way to create an empty object is using the `Object` constructor. Currently this approach is not recommended.\n\n       The `Object()` is a built-in constructor function so \"new\" keyword is not required for creating plain objects. The above code snippet can be re-written as:\n\n       However, `Object()` can be used to either create a plain object or convert a given value into its corresponding object wrapper, whereas `new Object()` is specifically used to explicitly create a new object instance.\n\n    3. Object's create method:\n\n       The `create` method of Object is used to create a new object by passing the specified prototype object and properties as arguments, i.e., this pattern is helpful to create new objects based on existing objects. In other words, this is useful for setting up prototypal inheritance. The second argument is optional and it is used to create properties on a newly created object.\n\n       The following code creates a new empty object whose prototype is null.\n\n       The following example creates an object along with additional new properties.\n\n    4. Function constructor:\n\n       In this approach, create any function and apply the new operator to create object instances. This was the main way to do constructor-based OOP before ES6 classes.\n\n    5. Function constructor with prototype:\n\n       This is similar to function constructor but it uses prototype for their properties and methods. Using prototype means you're sharing methods/properties across instances, which saves memory and improve performance.\n\n       This is equivalent to creating an instance with `Object.create` method with a function prototype and then calling that function with an instance and parameters as arguments.\n\n       (OR)\n\n    6. Object's assign method:\n\n       The `Object.assign` method is used to copy all the properties from one or more source objects and stores them into a target object. This is mainly used for cloning and merging\n\n       The following code creates a new staff object by copying properties of his working company and the car he owns.\n\n    7. ES6 Class syntax:\n\n       ES6 introduces class feature to create objects. This is syntactic sugar over the prototype-based system.\n\n    8. Singleton pattern:\n\n       A Singleton is an object which can only be instantiated one time. Repeated calls to its constructor return the same instance. This way one can ensure that they don't accidentally create multiple instances.\n\n         Singleton with Closure (Classic JS Pattern)\n\n         In modern JavaScript applications, singletons are commonly implemented using ES6 modules for their built-in caching behavior, or closures for encapsulated state management.",
     "codeExamples": [
       "var object = {\n         name: \"Sudheer\",\n         age: 34,\n       };",
       "var object = new Object();",
@@ -25,7 +26,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 2,
     "question": "What is a prototype chain",
-    "description": "The prototype chain is a core concept in JavaScript’s inheritance model. It allows objects to inherit properties and methods from other objects. When you try to access a property or method on an object, JavaScript first looks for it on that object itself. If it’s not found, the engine looks up the object's internal `[[Prototype]]` reference (accessible via `Object.getPrototypeOf(obj)` or the deprecated `__proto__` property) and continues searching up the chain until it finds the property or reaches the end (usually `null`).\n\n    For objects created via constructor functions, the prototype chain starts with the instance, then refers to the constructor’s `.prototype` object, and continues from there. For example:\n\n    \n\n    This mechanism allows for property and method sharing among objects, enabling code reuse and a form of inheritance.\n\n    Summary:\n\n    *   The prototype chain enables inheritance in JavaScript.\n    *   If a property isn’t found on an object, JavaScript looks up its prototype chain.\n    *   The prototype of an object instance can be accessed with `Object.getPrototypeOf(obj)` or `__proto__`.\n    *   The prototype of a constructor function is available via `Constructor.prototype`.\n    *   The chain ends when the prototype is `null`.\n\n    The prototype chain among objects appears as below, \n    \n    ![Screenshot](images/prototype_chain.png)",
+    "description": "The prototype chain is a core concept in JavaScript’s inheritance model. It allows objects to inherit properties and methods from other objects. When you try to access a property or method on an object, JavaScript first looks for it on that object itself. If it’s not found, the engine looks up the object's internal `[[Prototype]]` reference (accessible via `Object.getPrototypeOf(obj)` or the deprecated `__proto__` property) and continues searching up the chain until it finds the property or reaches the end (usually `null`).\n\n    For objects created via constructor functions, the prototype chain starts with the instance, then refers to the constructor’s `.prototype` object, and continues from there. For example:\n\n    This mechanism allows for property and method sharing among objects, enabling code reuse and a form of inheritance.\n\n    Summary:\n\n    *   The prototype chain enables inheritance in JavaScript.\n    *   If a property isn’t found on an object, JavaScript looks up its prototype chain.\n    *   The prototype of an object instance can be accessed with `Object.getPrototypeOf(obj)` or `__proto__`.\n    *   The prototype of a constructor function is available via `Constructor.prototype`.\n    *   The chain ends when the prototype is `null`.\n\n    The prototype chain among objects appears as below,",
     "codeExamples": [
       "function Person() {}\n    const person1 = new Person();\n\n    console.log(Object.getPrototypeOf(person1) === Person.prototype); // true"
     ],
@@ -34,8 +35,15 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 3,
     "question": "What is the Difference Between `call`, `apply`, and `bind`",
-    "description": "In JavaScript, `call`, `apply`, and `bind` are methods that allow you to control the context (`this` value) in which a function is executed. While their purposes are similar, they differ in how they handle arguments and when the function is invoked.\n\n  ---\n\n   `call`\n\n  - Description:  \n    The `call()` method invokes a function immediately, allowing you to specify the value of `this` and pass arguments individually (comma-separated).\n\n  - Syntax:  \n    ```js\n    func.call(thisArg, arg1, arg2, ...)\n    ```\n\n  - Example:\n    ```js\n    var employee1 = { firstName: \"John\", lastName: \"Rodson\" };\n    var employee2 = { firstName: \"Jimmy\", lastName: \"Baily\" };\n\n    function invite(greeting1, greeting2) {\n      console.log(\n        greeting1 + \" \" + this.firstName + \" \" + this.lastName + \", \" + greeting2\n      );\n    }\n\n    invite.call(employee1, \"Hello\", \"How are you?\"); // Hello John Rodson, How are you?\n    invite.call(employee2, \"Hello\", \"How are you?\"); // Hello Jimmy Baily, How are you?\n    ```\n\n  ---\n\n   `apply`\n\n  - Description:  \n    The `apply()` method is similar to `call()`, but it takes the function arguments as an array (or array-like object) instead of individual arguments.\n\n  - Syntax:  \n    ```js\n    func.apply(thisArg, [argsArray])\n    ```\n\n  - Example:\n    ```js\n    var employee1 = { firstName: \"John\", lastName: \"Rodson\" };\n    var employee2 = { firstName: \"Jimmy\", lastName: \"Baily\" };\n\n    function invite(greeting1, greeting2) {\n      console.log(\n        greeting1 + \" \" + this.firstName + \" \" + this.lastName + \", \" + greeting2\n      );\n    }\n\n    invite.apply(employee1, [\"Hello\", \"How are you?\"]); // Hello John Rodson, How are you?\n    invite.apply(employee2, [\"Hello\", \"How are you?\"]); // Hello Jimmy Baily, How are you?\n    ```\n\n  ---\n\n   `bind`\n\n  - Description:  \n    The `bind()` method creates a new function with a specific `this` value and, optionally, preset initial arguments. Unlike `call` and `apply`, `bind` does not immediately invoke the function; instead, it returns a new function that you can call later.\n\n  - Syntax:  \n    ```js\n    var boundFunc = func.bind(thisArg[, arg1[, arg2[, ...]]])\n    ```\n\n  - Example:\n    ```js\n    var employee1 = { firstName: \"John\", lastName: \"Rodson\" };\n    var employee2 = { firstName: \"Jimmy\", lastName: \"Baily\" };\n\n    function invite(greeting1, greeting2) {\n      console.log(\n        greeting1 + \" \" + this.firstName + \" \" + this.lastName + \", \" + greeting2\n      );\n    }\n\n    var inviteEmployee1 = invite.bind(employee1);\n    var inviteEmployee2 = invite.bind(employee2);\n\n    inviteEmployee1(\"Hello\", \"How are you?\"); // Hello John Rodson, How are you?\n    inviteEmployee2(\"Hello\", \"How are you?\"); // Hello Jimmy Baily, How are you?\n    ```\n\n  ---\n\n   Summary\n\n          \n  ---\n\n   Key Points\n\n  - `call` and `apply` are almost interchangeable; both invoke the function immediately, but differ in how arguments are passed.\n      - _Tip:_ \"Call is for Comma-separated, Apply is for Array.\"\n  - `bind` does not execute the function immediately. Instead, it creates a new function with the specified `this` value and optional arguments, which can be called later.\n\n  - Use `call` or `apply` when you want to immediately invoke a function with a specific `this` context. Use `bind` when you want to create a new function with a specific `this` context to be invoked later.\n  \n  ---",
-    "codeExamples": [],
+    "description": "In JavaScript, `call`, `apply`, and `bind` are methods that allow you to control the context (`this` value) in which a function is executed. While their purposes are similar, they differ in how they handle arguments and when the function is invoked.\n\n  ---\n\n   `call`\n\n  - Description:  \n    The `call()` method invokes a function immediately, allowing you to specify the value of `this` and pass arguments individually (comma-separated).\n\n  - Syntax:  \n\n  - Example:\n\n  ---\n\n   `apply`\n\n  - Description:  \n    The `apply()` method is similar to `call()`, but it takes the function arguments as an array (or array-like object) instead of individual arguments.\n\n  - Syntax:  \n\n  - Example:\n\n  ---\n\n   `bind`\n\n  - Description:  \n    The `bind()` method creates a new function with a specific `this` value and, optionally, preset initial arguments. Unlike `call` and `apply`, `bind` does not immediately invoke the function; instead, it returns a new function that you can call later.\n\n  - Syntax:  \n\n  - Example:\n\n  ---\n\n   Summary\n\n  ---\n\n   Key Points\n\n  - `call` and `apply` are almost interchangeable; both invoke the function immediately, but differ in how arguments are passed.\n      - _Tip:_ \"Call is for Comma-separated, Apply is for Array.\"\n  - `bind` does not execute the function immediately. Instead, it creates a new function with the specified `this` value and optional arguments, which can be called later.\n\n  - Use `call` or `apply` when you want to immediately invoke a function with a specific `this` context. Use `bind` when you want to create a new function with a specific `this` context to be invoked later.\n\n  ---",
+    "codeExamples": [
+      "    func.call(thisArg, arg1, arg2, ...)\n    ",
+      "    var employee1 = { firstName: \"John\", lastName: \"Rodson\" };\n    var employee2 = { firstName: \"Jimmy\", lastName: \"Baily\" };\n\n    function invite(greeting1, greeting2) {\n      console.log(\n        greeting1 + \" \" + this.firstName + \" \" + this.lastName + \", \" + greeting2\n      );\n    }\n\n    invite.call(employee1, \"Hello\", \"How are you?\"); // Hello John Rodson, How are you?\n    invite.call(employee2, \"Hello\", \"How are you?\"); // Hello Jimmy Baily, How are you?\n    ",
+      "    func.apply(thisArg, [argsArray])\n    ",
+      "    var employee1 = { firstName: \"John\", lastName: \"Rodson\" };\n    var employee2 = { firstName: \"Jimmy\", lastName: \"Baily\" };\n\n    function invite(greeting1, greeting2) {\n      console.log(\n        greeting1 + \" \" + this.firstName + \" \" + this.lastName + \", \" + greeting2\n      );\n    }\n\n    invite.apply(employee1, [\"Hello\", \"How are you?\"]); // Hello John Rodson, How are you?\n    invite.apply(employee2, [\"Hello\", \"How are you?\"]); // Hello Jimmy Baily, How are you?\n    ",
+      "    var boundFunc = func.bind(thisArg[, arg1[, arg2[, ...]]])\n    ",
+      "    var employee1 = { firstName: \"John\", lastName: \"Rodson\" };\n    var employee2 = { firstName: \"Jimmy\", lastName: \"Baily\" };\n\n    function invite(greeting1, greeting2) {\n      console.log(\n        greeting1 + \" \" + this.firstName + \" \" + this.lastName + \", \" + greeting2\n      );\n    }\n\n    var inviteEmployee1 = invite.bind(employee1);\n    var inviteEmployee2 = invite.bind(employee2);\n\n    inviteEmployee1(\"Hello\", \"How are you?\"); // Hello John Rodson, How are you?\n    inviteEmployee2(\"Hello\", \"How are you?\"); // Hello Jimmy Baily, How are you?\n    "
+    ],
     "tables": [
       {
         "headers": [
@@ -70,21 +78,28 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 4,
     "question": "What is JSON and its common operations",
-    "description": "JSON (JavaScript Object Notation) is a lightweight, text-based data format that uses JavaScript object syntax for structuring data. It was popularized by Douglas Crockford and is widely used for transmitting data between a server and a client in web applications. JSON files typically have a `.json` extension and use the MIME type `application/json`. \n\n     Common Operations with JSON\n\n    1. Parsing: Transforming a JSON-formatted string into a native JavaScript object.\n      ```js\n      const obj = JSON.parse(jsonString);\n      ```\n      - Example:  \n        ```js\n        const jsonString = '{\"name\":\"John\",\"age\":30}';\n        const obj = JSON.parse(jsonString);  // { name: \"John\", age: 30 }\n        ```\n\n    2. Stringification: Converting a JavaScript object into a JSON-formatted string, commonly used for data transmission or storage.\n      ```js\n      const jsonString = JSON.stringify(object);\n      ```\n      - Example:  \n        ```js\n        const obj = { name: \"Jane\", age: 25 };\n        const jsonString = JSON.stringify(obj);  // '{\"name\":\"Jane\",\"age\":25}'\n        ```",
-    "codeExamples": [],
+    "description": "JSON (JavaScript Object Notation) is a lightweight, text-based data format that uses JavaScript object syntax for structuring data. It was popularized by Douglas Crockford and is widely used for transmitting data between a server and a client in web applications. JSON files typically have a `.json` extension and use the MIME type `application/json`. \n\n     Common Operations with JSON\n\n    1. Parsing: Transforming a JSON-formatted string into a native JavaScript object.\n\n      - Example:  \n\n    2. Stringification: Converting a JavaScript object into a JSON-formatted string, commonly used for data transmission or storage.\n\n      - Example:",
+    "codeExamples": [
+      "      const obj = JSON.parse(jsonString);\n      ",
+      "        const jsonString = '{\"name\":\"John\",\"age\":30}';\n        const obj = JSON.parse(jsonString);  // { name: \"John\", age: 30 }\n        ",
+      "      const jsonString = JSON.stringify(object);\n      ",
+      "        const obj = { name: \"Jane\", age: 25 };\n        const jsonString = JSON.stringify(obj);  // '{\"name\":\"Jane\",\"age\":25}'\n        "
+    ],
     "tables": []
   },
   {
     "id": 5,
     "question": "What is the purpose of the array slice method",
-    "description": "The `slice()` method in JavaScript is used to extract a section of an array, returning a new array containing the selected elements. It does not modify the original array. The method takes two arguments:\n\n    - start: The index at which extraction begins (inclusive).\n    - end (optional): The index before which to end extraction (exclusive). If omitted, extraction continues to the end of the array.\n\n    You can also use negative indices, which count from the end of the array.\n\n     Examples:\n\n    ```js\n    let arrayIntegers = [1, 2, 3, 4, 5];\n\n    let arrayIntegers1 = arrayIntegers.slice(0, 2);    // [1, 2]\n    let arrayIntegers2 = arrayIntegers.slice(2, 3);    // [3]\n    let arrayIntegers3 = arrayIntegers.slice(4);       // [5]\n    let arrayIntegers4 = arrayIntegers.slice(-3, -1);  // [3, 4]\n    ```\n\n    Note:  \n    The `slice()` method does not mutate (change) the original array; instead, it returns a new array containing the extracted elements.",
-    "codeExamples": [],
+    "description": "The `slice()` method in JavaScript is used to extract a section of an array, returning a new array containing the selected elements. It does not modify the original array. The method takes two arguments:\n\n    - start: The index at which extraction begins (inclusive).\n    - end (optional): The index before which to end extraction (exclusive). If omitted, extraction continues to the end of the array.\n\n    You can also use negative indices, which count from the end of the array.\n\n     Examples:\n\n    Note:  \n    The `slice()` method does not mutate (change) the original array; instead, it returns a new array containing the extracted elements.",
+    "codeExamples": [
+      "    let arrayIntegers = [1, 2, 3, 4, 5];\n\n    let arrayIntegers1 = arrayIntegers.slice(0, 2);    // [1, 2]\n    let arrayIntegers2 = arrayIntegers.slice(2, 3);    // [3]\n    let arrayIntegers3 = arrayIntegers.slice(4);       // [5]\n    let arrayIntegers4 = arrayIntegers.slice(-3, -1);  // [3, 4]\n    "
+    ],
     "tables": []
   },
   {
     "id": 6,
     "question": "What is the purpose of the array splice method",
-    "description": "The `splice()` method in JavaScript is used to add, remove, or replace elements within an array. Unlike `slice()`, which creates a shallow copy and does not alter the original array, `splice()` modifies the original array in place and returns an array containing the removed elements.\n\n     Syntax\n\n    \n    - start: The index at which to start changing the array.\n    - deleteCount: (Optional) The number of elements to remove from the array. If omitted, all elements from the start index to the end of the array will be removed.\n    - item1, item2, ...: (Optional) Elements to add to the array, starting at the start position.\n\n     Examples\n\n    \n\n    Note:  \n    - The `splice()` method modifies the original array.\n    - It returns an array containing the elements that were removed (if any).\n    - You can use it both to remove and insert elements in a single operation.",
+    "description": "The `splice()` method in JavaScript is used to add, remove, or replace elements within an array. Unlike `slice()`, which creates a shallow copy and does not alter the original array, `splice()` modifies the original array in place and returns an array containing the removed elements.\n\n     Syntax\n\n    - start: The index at which to start changing the array.\n    - deleteCount: (Optional) The number of elements to remove from the array. If omitted, all elements from the start index to the end of the array will be removed.\n    - item1, item2, ...: (Optional) Elements to add to the array, starting at the start position.\n\n     Examples\n\n    Note:  \n    - The `splice()` method modifies the original array.\n    - It returns an array containing the elements that were removed (if any).\n    - You can use it both to remove and insert elements in a single operation.",
     "codeExamples": [
       "array.splice(start, deleteCount, item1, item2, ...)",
       "let arrayIntegersOriginal1 = [1, 2, 3, 4, 5];\n    let arrayIntegersOriginal2 = [1, 2, 3, 4, 5];\n    let arrayIntegersOriginal3 = [1, 2, 3, 4, 5];\n\n    // Remove the first two elements\n    let arrayIntegers1 = arrayIntegersOriginal1.splice(0, 2); \n    // arrayIntegers1: [1, 2]\n    // arrayIntegersOriginal1 (after): [3, 4, 5]\n\n    // Remove all elements from index 3 onwards\n    let arrayIntegers2 = arrayIntegersOriginal2.splice(3);     \n    // arrayIntegers2: [4, 5]\n    // arrayIntegersOriginal2 (after): [1, 2, 3]\n\n    // Remove 1 element at index 3, then insert \"a\", \"b\", \"c\" at that position\n    let arrayIntegers3 = arrayIntegersOriginal3.splice(3, 1, \"a\", \"b\", \"c\"); \n    // arrayIntegers3: [4]\n    // arrayIntegersOriginal3 (after): [1, 2, 3, \"a\", \"b\", \"c\", 5]"
@@ -94,7 +109,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 7,
     "question": "What is the difference between slice and splice",
-    "description": "Here are the key differences between `slice()` and `splice()` methods in JavaScript arrays:\n\n                        \n    Summary:  \n    - Use `slice()` when you want to copy or extract elements without altering the original array.\n    - Use `splice()` when you need to add, remove, or replace elements and want to change the original array.",
+    "description": "Here are the key differences between `slice()` and `splice()` methods in JavaScript arrays:\n\n    Summary:  \n    - Use `slice()` when you want to copy or extract elements without altering the original array.\n    - Use `splice()` when you need to add, remove, or replace elements and want to change the original array.",
     "codeExamples": [],
     "tables": [
       {
@@ -196,7 +211,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 11,
     "question": "What is a first class function",
-    "description": "In JavaScript, first-class functions(first-class citizens) mean that functions are treated like any other variable. That means:\n\n    1. You can assign a function to a variable.\n    2. You can pass a function as an argument to another function.\n    3. You can return a function from another function.\n\n    This capability enables powerful patterns like callbacks, higher-order functions, event handling, and functional programming in JavaScript.\n    \n    For example, the handler function below is assigned to a variable and then passed as an argument to the `addEventListener` method.",
+    "description": "In JavaScript, first-class functions(first-class citizens) mean that functions are treated like any other variable. That means:\n\n    1. You can assign a function to a variable.\n    2. You can pass a function as an argument to another function.\n    3. You can return a function from another function.\n\n    This capability enables powerful patterns like callbacks, higher-order functions, event handling, and functional programming in JavaScript.\n\n    For example, the handler function below is assigned to a variable and then passed as an argument to the `addEventListener` method.",
     "codeExamples": [
       "const handler = () => console.log(\"This is a click handler function\");\n    document.addEventListener(\"click\", handler);"
     ],
@@ -214,7 +229,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 13,
     "question": "What is a higher order function",
-    "description": "A higher-order function is a function that either accepts another function as an argument, returns a function as its result, or both. This concept is a core part of JavaScript's functional programming capabilities and is widely used for creating modular, reusable, and expressive code.\n\n    The syntactic structure of higher order function will be explained with an example as follows,\n\n      \n\n    In this example:\n\n    1. `firstOrderFunc` is a regular (first-order) function.\n\n    2. `higherOrder` is a higher-order function because it takes another function as an argument.\n\n    3. `firstOrderFunc` is also called a callback function because it is passed to and executed by another function.",
+    "description": "A higher-order function is a function that either accepts another function as an argument, returns a function as its result, or both. This concept is a core part of JavaScript's functional programming capabilities and is widely used for creating modular, reusable, and expressive code.\n\n    The syntactic structure of higher order function will be explained with an example as follows,\n\n    In this example:\n\n    1. `firstOrderFunc` is a regular (first-order) function.\n\n    2. `higherOrder` is a higher-order function because it takes another function as an argument.\n\n    3. `firstOrderFunc` is also called a callback function because it is passed to and executed by another function.",
     "codeExamples": [
       "// First-order function (does not accept or return another function)\n      const firstOrderFunc = () => \n        console.log(\"Hello, I am a first-order function\");\n\n      // Higher-order function (accepts a function as an argument)\n      const higherOrder = (callback) => callback();\n\n      // Passing the first-order function to the higher-order function\n      higherOrder(firstOrderFunc);"
     ],
@@ -223,7 +238,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 14,
     "question": "What is a unary function",
-    "description": "A unary function (also known as a monadic function) is a function that accepts exactly one argument. The term \"unary\" simply refers to the function's arity—the number of arguments it takes.\n\n    Let us take an example of unary function,\n\n    \n    In this example:\n\n    - `unaryFunction` takes a single parameter `a`, making it a unary function.\n    - It performs a simple operation: adding 10 to the input and printing the result.",
+    "description": "A unary function (also known as a monadic function) is a function that accepts exactly one argument. The term \"unary\" simply refers to the function's arity—the number of arguments it takes.\n\n    Let us take an example of unary function,\n\n    In this example:\n\n    - `unaryFunction` takes a single parameter `a`, making it a unary function.\n    - It performs a simple operation: adding 10 to the input and printing the result.",
     "codeExamples": [
       "const unaryFunction = (a) => console.log(a + 10); // This will add 10 to the input and log the result\n    unaryFunction(5); // Output: 15"
     ],
@@ -232,7 +247,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 15,
     "question": "What is the currying function",
-    "description": "Currying is the process of transforming a function with multiple arguments into a sequence of nested functions, each accepting only one argument at a time.\n\n    This concept is named after mathematician Haskell Curry, and is commonly used in functional programming to enhance modularity and reuse.\n\n\n     Before Currying (Normal n-ary Function)\n\n    \n    This is a standard function that takes three arguments at once.\n\n     After Currying (Unary Function Chain)\n    \n    Each function in the chain accepts one argument and returns the next function, until all arguments are provided and the final result is computed.\n\n     Benefits of Currying\n      - Improves code reusability\n      → You can partially apply functions with known arguments.\n\n      - Enhances functional composition\n      → Easier to compose small, pure functions.\n\n      - Encourages clean, modular code\n      → You can split logic into smaller single-responsibility functions.",
+    "description": "Currying is the process of transforming a function with multiple arguments into a sequence of nested functions, each accepting only one argument at a time.\n\n    This concept is named after mathematician Haskell Curry, and is commonly used in functional programming to enhance modularity and reuse.\n\n     Before Currying (Normal n-ary Function)\n\n    This is a standard function that takes three arguments at once.\n\n     After Currying (Unary Function Chain)\n\n    Each function in the chain accepts one argument and returns the next function, until all arguments are provided and the final result is computed.\n\n     Benefits of Currying\n      - Improves code reusability\n      → You can partially apply functions with known arguments.\n\n      - Enhances functional composition\n      → Easier to compose small, pure functions.\n\n      - Encourages clean, modular code\n      → You can split logic into smaller single-responsibility functions.",
     "codeExamples": [
       "const multiArgFunction = (a, b, c) => a + b + c;\n\n    console.log(multiArgFunction(1, 2, 3)); // Output: 6",
       "const curryUnaryFunction = (a) => (b) => (c) => a + b + c;\n\n    console.log(curryUnaryFunction(1));       // Returns: function (b) => ...\n    console.log(curryUnaryFunction(1)(2));    // Returns: function (c) => ...\n    console.log(curryUnaryFunction(1)(2)(3)); // Output: 6"
@@ -242,7 +257,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 16,
     "question": "What is a pure function",
-    "description": "A pure function is a function whose output depends only on its input arguments and produces no side effects. This means that given the same inputs, a pure function will always return the same output, and it does not modify any external state or data.\n\n    Let's take an example to see the difference between pure and impure functions,\n\n     Example: Pure vs. Impure Functions\n\n    \n    - `impureAddNumber` changes the external variable numberArray and returns the new length of the array, making it impure.\n    - `pureAddNumber` creates a new array with the added number and does not modify the original array, making it pure.",
+    "description": "A pure function is a function whose output depends only on its input arguments and produces no side effects. This means that given the same inputs, a pure function will always return the same output, and it does not modify any external state or data.\n\n    Let's take an example to see the difference between pure and impure functions,\n\n     Example: Pure vs. Impure Functions\n\n    - `impureAddNumber` changes the external variable numberArray and returns the new length of the array, making it impure.\n    - `pureAddNumber` creates a new array with the added number and does not modify the original array, making it pure.",
     "codeExamples": [
       "// Impure Function\n    let numberArray = [];\n    const impureAddNumber = (number) => numberArray.push(number);\n\n    // Pure Function\n    const pureAddNumber = (number) => (inputArray) =>\n      inputArray.concat([number]);\n\n    // Usage\n    console.log(impureAddNumber(6)); // returns 1\n    console.log(numberArray);        // returns [6]\n\n    console.log(pureAddNumber(7)(numberArray)); // returns [6, 7]\n    console.log(numberArray);                   // remains [6]"
     ],
@@ -258,7 +273,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 18,
     "question": "What is the purpose of the let keyword",
-    "description": "The `let` keyword in JavaScript is used to declare a block-scoped local variable. This means that variables declared with `let` are only accessible within the block, statement, or expression where they are defined. This is a significant improvement over the older `var` keyword, which is function-scoped (or globally-scoped if declared outside a function), and does not respect block-level scoping.\n\n     Key Features of `let`:\n    - Block Scope: The variable exists only within the nearest enclosing block (e.g., inside an `{}` pair).\n    - No Hoisting Issues: While `let` declarations are hoisted, they are not initialized until the code defining them is executed. Accessing them before declaration results in a ReferenceError (temporal dead zone).\n    - No Redeclaration: The same variable cannot be declared twice in the same scope with `let`.\n\n     Example:\n\n    \n\n    In this example, the `counter` inside the `if` block is a separate variable from the one outside. The `let` keyword ensures that both have their own distinct scope.\n\n    In summary, you need to use `let` when you want variables to be limited to the block in which they are defined, preventing accidental overwrites and bugs related to variable scope.",
+    "description": "The `let` keyword in JavaScript is used to declare a block-scoped local variable. This means that variables declared with `let` are only accessible within the block, statement, or expression where they are defined. This is a significant improvement over the older `var` keyword, which is function-scoped (or globally-scoped if declared outside a function), and does not respect block-level scoping.\n\n     Key Features of `let`:\n    - Block Scope: The variable exists only within the nearest enclosing block (e.g., inside an `{}` pair).\n    - No Hoisting Issues: While `let` declarations are hoisted, they are not initialized until the code defining them is executed. Accessing them before declaration results in a ReferenceError (temporal dead zone).\n    - No Redeclaration: The same variable cannot be declared twice in the same scope with `let`.\n\n     Example:\n\n    In this example, the `counter` inside the `if` block is a separate variable from the one outside. The `let` keyword ensures that both have their own distinct scope.\n\n    In summary, you need to use `let` when you want variables to be limited to the block in which they are defined, preventing accidental overwrites and bugs related to variable scope.",
     "codeExamples": [
       "let counter = 30;\n    if (counter === 30) {\n      let counter = 31;\n      console.log(counter); // Output: 31 (block-scoped variable inside if-block)\n    }\n    console.log(counter); // Output: 30 (outer variable, unaffected by inner block)"
     ],
@@ -267,7 +282,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 19,
     "question": "What is the difference between let and var",
-    "description": "You can list out the differences in a tabular format\n\n                        \n    Let's take an example to see the difference,",
+    "description": "You can list out the differences in a tabular format\n\n    Let's take an example to see the difference,",
     "codeExamples": [
       "function userDetails(username) {\n      if (username) {\n        console.log(salary); // undefined due to hoisting\n        console.log(age); // ReferenceError: Cannot access 'age' before initialization\n        let age = 30;\n        var salary = 10000;\n      }\n      console.log(salary); //10000 (accessible due to function scope)\n      console.log(age); //error: age is not defined(due to block scope)\n    }\n    userDetails(\"John\");"
     ],
@@ -308,7 +323,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 21,
     "question": "How do you redeclare variables in a switch block without an error",
-    "description": "When you try to redeclare variables using `let` or `const` in multiple `case` clauses of a `switch` statement, you will get a SyntaxError. This happens because, in JavaScript, all `case` clauses within a `switch` statement share the same block scope. For example:\n    \n    \n    \n    To avoid this error, you can create a new block scope within each `case` clause by wrapping the code in curly braces `{}`. This way, each `let` or `const` declaration is scoped only to that block, and redeclaration errors are avoided:\n    \n    \n    \n    That means, to safely redeclare variables in different cases of a switch statement, wrap each case’s code in its own block using curly braces. This ensures each variable declaration is scoped to its specific case block.",
+    "description": "When you try to redeclare variables using `let` or `const` in multiple `case` clauses of a `switch` statement, you will get a SyntaxError. This happens because, in JavaScript, all `case` clauses within a `switch` statement share the same block scope. For example:\n\n    To avoid this error, you can create a new block scope within each `case` clause by wrapping the code in curly braces `{}`. This way, each `let` or `const` declaration is scoped only to that block, and redeclaration errors are avoided:\n\n    That means, to safely redeclare variables in different cases of a switch statement, wrap each case’s code in its own block using curly braces. This ensures each variable declaration is scoped to its specific case block.",
     "codeExamples": [
       "let counter = 1;\n    switch (x) {\n      case 0:\n        let name;\n        break;\n      case 1:\n        let name; // SyntaxError: Identifier 'name' has already been declared\n        break;\n    }",
       "let counter = 1;\n    switch (x) {\n      case 0: {\n        let name;\n        // code for case 0\n        break;\n      }\n      case 1: {\n        let name; // No SyntaxError\n        // code for case 1\n        break;\n      }\n    }"
@@ -318,7 +333,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 22,
     "question": "What is the Temporal Dead Zone",
-    "description": "The Temporal Dead Zone (TDZ) refers to the period between the start of a block and the point where a variable declared with `let` or `const` is initialized. During this time, the variable exists in scope but cannot be accessed, and attempting to do so results in a `ReferenceError`.\n    \n    This behavior is part of JavaScript's ES6 (ECMAScript 2015) specification and applies only to variables declared with `let` and `const`, not `var`. Variables declared with `var` are hoisted and initialized with `undefined`, so accessing them before the declaration does not throw an error, though it can lead to unexpected results.\n    \n     Example",
+    "description": "The Temporal Dead Zone (TDZ) refers to the period between the start of a block and the point where a variable declared with `let` or `const` is initialized. During this time, the variable exists in scope but cannot be accessed, and attempting to do so results in a `ReferenceError`.\n\n    This behavior is part of JavaScript's ES6 (ECMAScript 2015) specification and applies only to variables declared with `let` and `const`, not `var`. Variables declared with `var` are hoisted and initialized with `undefined`, so accessing them before the declaration does not throw an error, though it can lead to unexpected results.\n\n     Example",
     "codeExamples": [
       "function someMethod() {\n        console.log(counter1); // Output: undefined (due to var hoisting)\n        console.log(counter2); // Throws ReferenceError (TDZ for let)\n    \n        var counter1 = 1;\n        let counter2 = 2;\n    }"
     ],
@@ -327,7 +342,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 23,
     "question": "What is an IIFE (Immediately Invoked Function Expression)",
-    "description": "IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined. The signature of it would be as below,\n\n    \n\n    The primary reason to use an IIFE is to obtain data privacy because any variables declared within the IIFE cannot be accessed by the outside world. i.e, If you try to access variables from the IIFE then it throws an error as below,",
+    "description": "IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined. The signature of it would be as below,\n\n    The primary reason to use an IIFE is to obtain data privacy because any variables declared within the IIFE cannot be accessed by the outside world. i.e, If you try to access variables from the IIFE then it throws an error as below,",
     "codeExamples": [
       "(function () {\n      // logic here\n    })();",
       "(function () {\n      var message = \"IIFE\";\n      console.log(message);\n    })();\n    console.log(message); //Error: message is not defined"
@@ -355,7 +370,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 26,
     "question": "What is Hoisting",
-    "description": "Hoisting is a JavaScript mechanism where variables, function declarations and classes are moved to the top of their scope before code execution. Remember that JavaScript only hoists declarations, not initialisation.\n    Let's take a simple example of variable hoisting,\n\n    \n\n    The above code looks like as below to the interpreter,\n\n    \n\n    In the same fashion, function declarations are hoisted too\n\n    \n\n    This hoisting makes functions to be safely used in code before they are declared.",
+    "description": "Hoisting is a JavaScript mechanism where variables, function declarations and classes are moved to the top of their scope before code execution. Remember that JavaScript only hoists declarations, not initialisation.\n    Let's take a simple example of variable hoisting,\n\n    The above code looks like as below to the interpreter,\n\n    In the same fashion, function declarations are hoisted too\n\n    This hoisting makes functions to be safely used in code before they are declared.",
     "codeExamples": [
       "console.log(message); //output : undefined\n    var message = \"The variable Has been hoisted\";",
       "var message;\n    console.log(message);\n    message = \"The variable Has been hoisted\";",
@@ -366,7 +381,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 27,
     "question": "What are classes in ES6",
-    "description": "In ES6, Javascript classes are primarily syntactic sugar over JavaScript’s existing prototype-based inheritance.\n    For example, the prototype based inheritance written in function expression as below,\n\n    \n\n    Whereas ES6 classes can be defined as an alternative",
+    "description": "In ES6, Javascript classes are primarily syntactic sugar over JavaScript’s existing prototype-based inheritance.\n    For example, the prototype based inheritance written in function expression as below,\n\n    Whereas ES6 classes can be defined as an alternative",
     "codeExamples": [
       "function Bike(model, color) {\n      this.model = model;\n      this.color = color;\n    }\n\n    Bike.prototype.getDetails = function () {\n      return this.model + \" bike has\" + this.color + \" color\";\n    };",
       "class Bike {\n      constructor(color, model) {\n        this.color = color;\n        this.model = model;\n      }\n\n      getDetails() {\n        return this.model + \" bike has\" + this.color + \" color\";\n      }\n    }"
@@ -376,7 +391,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 28,
     "question": "What are closures",
-    "description": "A closure is the combination of a function bundled(enclosed) together with its lexical environment within which that function was declared. i.e, It is an inner function that has access to the outer or enclosing function’s variables, functions and other data even after the outer function has finished its execution. The closure has three scope chains.\n\n    1. Own scope where variables defined between its curly brackets\n    2. Outer function's variables\n    3. Global variables\n\n    Let's take an example of closure concept,\n\n    \n\n    As per the above code, the inner function(i.e, greetingInfo) has access to the variables in the outer function scope(i.e, Welcome) even after the outer function has returned.",
+    "description": "A closure is the combination of a function bundled(enclosed) together with its lexical environment within which that function was declared. i.e, It is an inner function that has access to the outer or enclosing function’s variables, functions and other data even after the outer function has finished its execution. The closure has three scope chains.\n\n    1. Own scope where variables defined between its curly brackets\n    2. Outer function's variables\n    3. Global variables\n\n    Let's take an example of closure concept,\n\n    As per the above code, the inner function(i.e, greetingInfo) has access to the variables in the outer function scope(i.e, Welcome) even after the outer function has returned.",
     "codeExamples": [
       "function Welcome(name) {\n      var greetingInfo = function (message) {\n        console.log(message + \" \" + name);\n      };\n      return greetingInfo;\n    }\n    var myFunction = Welcome(\"John\");\n    myFunction(\"Welcome \"); //Output: Welcome John\n    myFunction(\"Hello Mr.\"); //output: Hello Mr. John"
     ],
@@ -448,7 +463,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 38,
     "question": "What is a Cookie",
-    "description": "A cookie is a piece of data that is stored on your computer to be accessed by your browser. Cookies are saved as key/value pairs.\n    For example, you can create a cookie named username as below,\n\n    \n\n    ![Screenshot](images/cookie.png)",
+    "description": "A cookie is a piece of data that is stored on your computer to be accessed by your browser. Cookies are saved as key/value pairs.\n    For example, you can create a cookie named username as below,",
     "codeExamples": [
       "document.cookie = \"username=John\";"
     ],
@@ -464,7 +479,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 40,
     "question": "What are the options in a cookie",
-    "description": "There are few below options available for a cookie,\n\n    1. By default, the cookie is deleted when the browser is closed but you can change this behavior by setting expiry date (in UTC time).\n\n    \n\n    2. By default, the cookie belongs to a current page. But you can tell the browser what path the cookie belongs to using a path parameter.",
+    "description": "There are few below options available for a cookie,\n\n    1. By default, the cookie is deleted when the browser is closed but you can change this behavior by setting expiry date (in UTC time).\n\n    2. By default, the cookie belongs to a current page. But you can tell the browser what path the cookie belongs to using a path parameter.",
     "codeExamples": [
       "document.cookie = \"username=John; expires=Sat, 8 Jun 2019 12:00:00 UTC\";",
       "document.cookie = \"username=John; path=/services\";"
@@ -474,7 +489,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 41,
     "question": "How do you delete a cookie",
-    "description": "You can delete a cookie by setting the expiry date as a passed date. You don't need to specify a cookie value in this case.\n    For example, you can delete a username cookie in the current page as below.\n\n    \n\n    Note: You should define the cookie path option to ensure that you delete the right cookie. Some browsers doesn't allow to delete a cookie unless you specify a path parameter.",
+    "description": "You can delete a cookie by setting the expiry date as a passed date. You don't need to specify a cookie value in this case.\n    For example, you can delete a username cookie in the current page as below.\n\n    Note: You should define the cookie path option to ensure that you delete the right cookie. Some browsers doesn't allow to delete a cookie unless you specify a path parameter.",
     "codeExamples": [
       "document.cookie =\n      \"username=; expires=Fri, 07 Jun 2019 00:00:00 UTC; path=/;\";"
     ],
@@ -562,7 +577,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 46,
     "question": "What is a storage event and its event handler",
-    "description": "The StorageEvent is an event that fires when a storage area has been changed in the context of another document. Whereas onstorage property is an EventHandler for processing storage events.\n    The syntax would be as below\n\n    \n\n    Let's take the example usage of onstorage event handler which logs the storage key and it's values",
+    "description": "The StorageEvent is an event that fires when a storage area has been changed in the context of another document. Whereas onstorage property is an EventHandler for processing storage events.\n    The syntax would be as below\n\n    Let's take the example usage of onstorage event handler which logs the storage key and it's values",
     "codeExamples": [
       "window.onstorage = functionRef;",
       "window.onstorage = function (e) {\n      console.log(\n        \"The \" +\n          e.key +\n          \" key has been changed from \" +\n          e.oldValue +\n          \" to \" +\n          e.newValue +\n          \".\"\n      );\n    };"
@@ -597,7 +612,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 50,
     "question": "Give an example of a web worker",
-    "description": "You need to follow below steps to start using web workers for counting example\n\n    1. Create a Web Worker File: You need to write a script to increment the count value. Let's name it as counter.js\n\n    \n\n    Here postMessage() method is used to post a message back to the HTML page\n\n    2. Create a Web Worker Object: You can create a web worker object by checking for browser support. Let's name this file as web_worker_example.js\n\n    \n\n    and we can receive messages from web worker\n\n    \n\n    3. Terminate a Web Worker:\n       Web workers will continue to listen for messages (even after the external script is finished) until it is terminated. You can use the terminate() method to terminate listening to the messages.\n\n    \n\n    4. Reuse the Web Worker: If you set the worker variable to undefined you can reuse the code",
+    "description": "You need to follow below steps to start using web workers for counting example\n\n    1. Create a Web Worker File: You need to write a script to increment the count value. Let's name it as counter.js\n\n    Here postMessage() method is used to post a message back to the HTML page\n\n    2. Create a Web Worker Object: You can create a web worker object by checking for browser support. Let's name this file as web_worker_example.js\n\n    and we can receive messages from web worker\n\n    3. Terminate a Web Worker:\n       Web workers will continue to listen for messages (even after the external script is finished) until it is terminated. You can use the terminate() method to terminate listening to the messages.\n\n    4. Reuse the Web Worker: If you set the worker variable to undefined you can reuse the code",
     "codeExamples": [
       "let i = 0;\n\n    function timedCount() {\n      i = i + 1;\n      postMessage(i);\n      setTimeout(\"timedCount()\", 500);\n    }\n\n    timedCount();",
       "if (typeof w == \"undefined\") {\n      w = new Worker(\"counter.js\");\n    }",
@@ -617,7 +632,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 52,
     "question": "What is a promise",
-    "description": "A Promise is a JavaScript object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value. It acts as a placeholder for a value that may not be available yet but will be resolved in the future.\n\n    A Promise can be in one of three states:\n    - `pending`: Initial state, neither fulfilled nor rejected.\n    - `fulfilled`: The operation completed successfully.\n    - `rejected`: The operation failed (e.g., due to a network error).\n\n\n     Promise Syntax\n\n    \n     Example: Creating and Using a Promise\n    \n    In the above example:\n\n    *   A `Promise` is created to handle an asynchronous operation with `resolve` and `reject` callbacks.\n    *   The `setTimeout` resolves the promise with a value after 5 seconds.\n    *   `.then()`, `.catch()`, and `.finally()` are used to handle success, errors, and cleanup respectively.\n\n    The action flow of a promise will be as below,\n\n    ![Screenshot](images/promises.png)",
+    "description": "A Promise is a JavaScript object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value. It acts as a placeholder for a value that may not be available yet but will be resolved in the future.\n\n    A Promise can be in one of three states:\n    - `pending`: Initial state, neither fulfilled nor rejected.\n    - `fulfilled`: The operation completed successfully.\n    - `rejected`: The operation failed (e.g., due to a network error).\n\n     Promise Syntax\n\n     Example: Creating and Using a Promise\n\n    In the above example:\n\n    *   A `Promise` is created to handle an asynchronous operation with `resolve` and `reject` callbacks.\n    *   The `setTimeout` resolves the promise with a value after 5 seconds.\n    *   `.then()`, `.catch()`, and `.finally()` are used to handle success, errors, and cleanup respectively.\n\n    The action flow of a promise will be as below,",
     "codeExamples": [
       "const promise = new Promise(function (resolve, reject) {\n      // Perform async operation\n    });",
       "const promise = new Promise((resolve, reject) => {\n      setTimeout(() => {\n        resolve(\"I'm a Promise!\");\n      }, 5000);\n    });\n\n    promise\n      .then((value) => console.log(value)); // Logs after 5 seconds: \"I'm a Promise!\"\n      .catch((error) => console.error(error))  // Handles any rejection\n      .finally(() => console.log(\"Done\"));     // Runs regardless of success or failure"
@@ -650,7 +665,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 56,
     "question": "Why do we need callbacks",
-    "description": "The callbacks are needed because javascript is an event driven language. That means instead of waiting for a response, javascript will keep executing while listening for other events.\n    Let's take an example with the first function invoking an API call(simulated by setTimeout) and the next function which logs the message.\n\n    \n\n    As observed from the output, javascript didn't wait for the response of the first function and the remaining code block got executed. So callbacks are used in a way to make sure that certain code doesn’t execute until the other code finishes execution.",
+    "description": "The callbacks are needed because javascript is an event driven language. That means instead of waiting for a response, javascript will keep executing while listening for other events.\n    Let's take an example with the first function invoking an API call(simulated by setTimeout) and the next function which logs the message.\n\n    As observed from the output, javascript didn't wait for the response of the first function and the remaining code block got executed. So callbacks are used in a way to make sure that certain code doesn’t execute until the other code finishes execution.",
     "codeExamples": [
       "function firstFunction() {\n      // Simulate a code delay\n      setTimeout(function () {\n        console.log(\"First function called\");\n      }, 1000);\n    }\n    function secondFunction() {\n      console.log(\"Second function called\");\n    }\n    firstFunction();\n    secondFunction();\n\n    // Output:\n    // Second function called\n    // First function called"
     ],
@@ -737,7 +752,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 64,
     "question": "What is promise chaining",
-    "description": "The process of executing a sequence of asynchronous tasks one after another using promises is known as Promise chaining. Let's take an example of promise chaining for calculating the final result,\n\n    \n\n    In the above handlers, the result is passed to the chain of .then() handlers with the below work flow,\n\n    1. The initial promise resolves in 1 second,\n    2. After that `.then` handler is called by logging the result(1) and then return a promise with the value of result \\* 2.\n    3. After that the value passed to the next `.then` handler by logging the result(2) and return a promise with result \\* 3.\n    4. Finally the value passed to the last `.then` handler by logging the result(6) and return a promise with result \\* 4.",
+    "description": "The process of executing a sequence of asynchronous tasks one after another using promises is known as Promise chaining. Let's take an example of promise chaining for calculating the final result,\n\n    In the above handlers, the result is passed to the chain of .then() handlers with the below work flow,\n\n    1. The initial promise resolves in 1 second,\n    2. After that `.then` handler is called by logging the result(1) and then return a promise with the value of result \\* 2.\n    3. After that the value passed to the next `.then` handler by logging the result(2) and return a promise with result \\* 3.\n    4. Finally the value passed to the last `.then` handler by logging the result(6) and return a promise with result \\* 4.",
     "codeExamples": [
       "new Promise(function (resolve, reject) {\n      setTimeout(() => resolve(1), 1000);\n    })\n      .then(function (result) {\n        console.log(result); // 1\n        return result * 2;\n      })\n      .then(function (result) {\n        console.log(result); // 2\n        return result * 3;\n      })\n      .then(function (result) {\n        console.log(result); // 6\n        return result * 4;\n      });"
     ],
@@ -746,7 +761,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 65,
     "question": "What is promise.all",
-    "description": "Promise.all is a promise that takes an array of promises as an input (an iterable), and it gets resolved when all the promises get resolved or any one of them gets rejected. For example, the syntax of promise.all method is below,\n\n    \n\n    Note: Remember that the order of the promises(output the result) is maintained as per input order.",
+    "description": "Promise.all is a promise that takes an array of promises as an input (an iterable), and it gets resolved when all the promises get resolved or any one of them gets rejected. For example, the syntax of promise.all method is below,\n\n    Note: Remember that the order of the promises(output the result) is maintained as per input order.",
     "codeExamples": [
       "Promise.all([Promise1, Promise2, Promise3]) .then(result) => {   console.log(result) }) .catch(error => console.log(`Error in promises ${error}`))"
     ],
@@ -778,7 +793,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 69,
     "question": "How do you declare strict mode",
-    "description": "The strict mode is declared by adding \"use strict\"; to the beginning of a script or a function.\n    If declared at the beginning of a script, it has global scope.\n\n    \n\n    and if you declare inside a function, it has local scope",
+    "description": "The strict mode is declared by adding \"use strict\"; to the beginning of a script or a function.\n    If declared at the beginning of a script, it has global scope.\n\n    and if you declare inside a function, it has local scope",
     "codeExamples": [
       "\"use strict\";\n    x = 3.14; // This will cause an error because x is not declared",
       "x = 3.14; // This will not cause an error.\n    myFunction();\n\n    function myFunction() {\n      \"use strict\";\n      y = 3.14; // This will cause an error\n    }"
@@ -788,7 +803,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 70,
     "question": "What is the purpose of double exclamation",
-    "description": "The double exclamation or negation(!!) ensures the resulting type is a boolean. If it was falsey (e.g. 0, null, undefined, etc.), it will be false, otherwise, it will be true.\n    For example, you can test IE version using this expression as below,\n\n    \n\n    If you don't use this expression then it returns the original value.\n\n    \n\n    Note: The expression !! is not an operator, but it is just twice of ! operator.",
+    "description": "The double exclamation or negation(!!) ensures the resulting type is a boolean. If it was falsey (e.g. 0, null, undefined, etc.), it will be false, otherwise, it will be true.\n    For example, you can test IE version using this expression as below,\n\n    If you don't use this expression then it returns the original value.\n\n    Note: The expression !! is not an operator, but it is just twice of ! operator.",
     "codeExamples": [
       "let isIE8 = false;\n    isIE8 = !!navigator.userAgent.match(/MSIE 8.0/);\n    console.log(isIE8); // returns true or false",
       "console.log(navigator.userAgent.match(/MSIE 8.0/)); // returns either an Array or null"
@@ -816,7 +831,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 73,
     "question": "What is undefined property",
-    "description": "The undefined property indicates that a variable has not been assigned a value, or declared but not initialized at all. The type of undefined value is undefined too.\n\n    \n\n    Any variable can be emptied by setting the value to undefined.",
+    "description": "The undefined property indicates that a variable has not been assigned a value, or declared but not initialized at all. The type of undefined value is undefined too.\n\n    Any variable can be emptied by setting the value to undefined.",
     "codeExamples": [
       "var user; // Value is undefined, type is undefined\n    console.log(typeof user); //undefined",
       "user = undefined;"
@@ -908,7 +923,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 78,
     "question": "How do you access history in javascript",
-    "description": "The window.history object contains the browser's history. You can load previous and next URLs in the history using back() and next() methods.\n\n    \n\n    Note: You can also access history without window prefix.",
+    "description": "The window.history object contains the browser's history. You can load previous and next URLs in the history using back() and next() methods.\n\n    Note: You can also access history without window prefix.",
     "codeExamples": [
       "function goBack() {\n      window.history.back();\n    }\n    function goForward() {\n      window.history.forward();\n    }"
     ],
@@ -917,8 +932,10 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 79,
     "question": "How do you detect caps lock key turned on or not",
-    "description": "The `mouseEvent getModifierState()` is used to return a boolean value that indicates whether the specified modifier key is activated or not. The modifiers such as CapsLock, ScrollLock and NumLock are activated when they are clicked, and deactivated when they are clicked again.\n\n    Let's take an input element to detect the CapsLock on/off behavior with an example:\n\n    ```html\n    <input type=\"password\" onmousedown=\"enterInput(event)\" />\n\n    <p id=\"feedback\"></p>\n\n    <script>\n      function enterInput(e) {\n        var flag = e.getModifierState(\"CapsLock\");\n        if (flag) {\n          document.getElementById(\"feedback\").innerHTML = \"CapsLock activated\";\n        } else {\n          document.getElementById(\"feedback\").innerHTML =\n            \"CapsLock not activated\";\n        }\n      }\n    </script>\n    ```",
-    "codeExamples": [],
+    "description": "The `mouseEvent getModifierState()` is used to return a boolean value that indicates whether the specified modifier key is activated or not. The modifiers such as CapsLock, ScrollLock and NumLock are activated when they are clicked, and deactivated when they are clicked again.\n\n    Let's take an input element to detect the CapsLock on/off behavior with an example:",
+    "codeExamples": [
+      "    <input type=\"password\" onmousedown=\"enterInput(event)\" />\n\n    <p id=\"feedback\"></p>\n\n    <script>\n      function enterInput(e) {\n        var flag = e.getModifierState(\"CapsLock\");\n        if (flag) {\n          document.getElementById(\"feedback\").innerHTML = \"CapsLock activated\";\n        } else {\n          document.getElementById(\"feedback\").innerHTML =\n            \"CapsLock not activated\";\n        }\n      }\n    </script>\n    "
+    ],
     "tables": []
   },
   {
@@ -933,7 +950,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 81,
     "question": "What are the differences between undeclared and undefined variables",
-    "description": "Below are the major differences between undeclared(not defined) and undefined variables,\n\n                \n    \n    This can be confusing, because it says `not defined` instead of `not declared` (Chrome)",
+    "description": "Below are the major differences between undeclared(not defined) and undefined variables,\n\n    This can be confusing, because it says `not defined` instead of `not declared` (Chrome)",
     "codeExamples": [
       "var a;\n    a; // yields undefined\n\n    b; // Throws runtime error like \"Uncaught ReferenceError: b is not defined\""
     ],
@@ -1009,7 +1026,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 88,
     "question": "What is event bubbling",
-    "description": "Event bubbling is a type of event propagation in which an event first triggers on the innermost target element (the one the user interacted with), and then bubbles up through its ancestors in the DOM hierarchy — eventually reaching the outermost elements, like the document or window.\n\n    By default, event listeners in JavaScript are triggered during the bubbling phase, unless specified otherwise.\n\n    \n\n    Here, at first, the event triggers on the child button. Thereafter it bubbles up and triggers the parent div's event handler.",
+    "description": "Event bubbling is a type of event propagation in which an event first triggers on the innermost target element (the one the user interacted with), and then bubbles up through its ancestors in the DOM hierarchy — eventually reaching the outermost elements, like the document or window.\n\n    By default, event listeners in JavaScript are triggered during the bubbling phase, unless specified otherwise.\n\n    Here, at first, the event triggers on the child button. Thereafter it bubbles up and triggers the parent div's event handler.",
     "codeExamples": [
       "<div>\n      <button class=\"child\">Hello</button>\n    </div>\n\n    <script>\n      const parent = document.querySelector(\"div\");\n      const child = document.querySelector(\".child\");\n\n      // Bubbling phase (default)\n      parent.addEventListener(\"click\", function () {\n        console.log(\"Parent\");\n      });\n\n      child.addEventListener(\"click\", function () {\n        console.log(\"Child\");\n      });\n    </script>\n    //Child\n    //Parent"
     ],
@@ -1064,7 +1081,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 95,
     "question": "What is the difference between an attribute and a property",
-    "description": "Attributes are defined on the HTML markup whereas properties are defined on the DOM. For example, the below HTML element has 2 attributes: `type` and `value`,\n\n    \n\n    You can retrieve the attribute value as below, for example after typing \"Good morning\" into the input field:\n\n    \n\n    And after you change the value of the text field to \"Good evening\", it becomes like",
+    "description": "Attributes are defined on the HTML markup whereas properties are defined on the DOM. For example, the below HTML element has 2 attributes: `type` and `value`,\n\n    You can retrieve the attribute value as below, for example after typing \"Good morning\" into the input field:\n\n    And after you change the value of the text field to \"Good evening\", it becomes like",
     "codeExamples": [
       "<input type=\"text\" value=\"Name:\">",
       "const input = document.querySelector(\"input\");\n    console.log(input.getAttribute(\"value\")); // Good morning\n    console.log(input.value); // Good morning",
@@ -1128,7 +1145,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 103,
     "question": "What is the use of preventDefault method",
-    "description": "The preventDefault() method cancels the event if it is cancelable, meaning that the default action or behaviour that belongs to the event will not occur. For example, prevent form submission when clicking on submit button and prevent opening the page URL when clicking on hyperlink are some common use cases.\n\n      \n\n      Note: Remember that not all events are cancelable.",
+    "description": "The preventDefault() method cancels the event if it is cancelable, meaning that the default action or behaviour that belongs to the event will not occur. For example, prevent form submission when clicking on submit button and prevent opening the page URL when clicking on hyperlink are some common use cases.\n\n      Note: Remember that not all events are cancelable.",
     "codeExamples": [
       "document\n        .getElementById(\"link\")\n        .addEventListener(\"click\", function (event) {\n          event.preventDefault();\n        });"
     ],
@@ -1153,7 +1170,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 106,
     "question": "What is BOM",
-    "description": "The Browser Object Model (BOM) allows JavaScript to \"talk to\" the browser. It consists of the objects navigator, history, screen, location and document which are children of the window. The Browser Object Model is not standardized and can change based on different browsers.\n\n      ![Screenshot](images/bom.png)",
+    "description": "The Browser Object Model (BOM) allows JavaScript to \"talk to\" the browser. It consists of the objects navigator, history, screen, location and document which are children of the window. The Browser Object Model is not standardized and can change based on different browsers.",
     "codeExamples": [],
     "tables": []
   },
@@ -1274,7 +1291,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 121,
     "question": "How do you check whether a string contains a substring",
-    "description": "There are 3 possible ways to check whether a string contains a substring or not,\n\n      1. Using includes: ES6 provided `String.prototype.includes` method to test a string contains a substring\n\n      \n\n      2. Using indexOf: In an ES5 or older environment, you can use `String.prototype.indexOf` which returns the index of a substring. If the index value is not equal to -1 then it means the substring exists in the main string.\n\n      \n\n      3. Using RegEx: The advanced solution is using Regular expression's test method(`RegExp.test`), which allows for testing for against regular expressions",
+    "description": "There are 3 possible ways to check whether a string contains a substring or not,\n\n      1. Using includes: ES6 provided `String.prototype.includes` method to test a string contains a substring\n\n      2. Using indexOf: In an ES5 or older environment, you can use `String.prototype.indexOf` which returns the index of a substring. If the index value is not equal to -1 then it means the substring exists in the main string.\n\n      3. Using RegEx: The advanced solution is using Regular expression's test method(`RegExp.test`), which allows for testing for against regular expressions",
     "codeExamples": [
       "var mainString = \"hello\",\n        subString = \"hell\";\n      mainString.includes(subString);",
       "var mainString = \"hello\",\n        subString = \"hell\";\n      mainString.indexOf(subString) !== -1;",
@@ -1285,7 +1302,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 122,
     "question": "How do you validate an email in javascript",
-    "description": "You can validate an email in javascript using regular expressions. It is recommended to do validations on the server side instead of the client side. Because the javascript can be disabled on the client side.\n\n      \n\n      \n\n      The above regular expression accepts unicode characters.",
+    "description": "You can validate an email in javascript using regular expressions. It is recommended to do validations on the server side instead of the client side. Because the javascript can be disabled on the client side.\n\n      The above regular expression accepts unicode characters.",
     "codeExamples": [
       "function validateEmail(email) {\n        var re =\n          /^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$/;\n        return re.test(String(email).toLowerCase());\n      }"
     ],
@@ -1319,7 +1336,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 126,
     "question": "How do you check if a key exists in an object",
-    "description": "You can check whether a key exists in an object or not using three approaches,\n\n      1. Using in operator: You can use the in operator whether a key exists in an object or not\n\n         \n\n         and If you want to check if a key doesn't exist, remember to use parenthesis,\n\n         \n\n      2. Using hasOwnProperty method: You can use `hasOwnProperty` to particularly test for properties of the object instance (and not inherited properties)\n\n         \n\n      3. Using undefined comparison: If you access a non-existing property from an object, the result is undefined. Let’s compare the properties against undefined to determine the existence of the property.",
+    "description": "You can check whether a key exists in an object or not using three approaches,\n\n      1. Using in operator: You can use the in operator whether a key exists in an object or not\n\n         and If you want to check if a key doesn't exist, remember to use parenthesis,\n\n      2. Using hasOwnProperty method: You can use `hasOwnProperty` to particularly test for properties of the object instance (and not inherited properties)\n\n      3. Using undefined comparison: If you access a non-existing property from an object, the result is undefined. Let’s compare the properties against undefined to determine the existence of the property.",
     "codeExamples": [
       "\"key\" in obj;",
       "!(\"key\" in obj);",
@@ -1340,7 +1357,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 128,
     "question": "How do you test for an empty object",
-    "description": "There are different solutions based on ECMAScript versions\n\n      1. Using Object entries(ECMA 7+): You can use object entries length along with constructor type.\n\n      \n\n      2. Using Object keys(ECMA 5+): You can use object keys length along with constructor type.\n\n      \n\n      3. Using for-in with hasOwnProperty(Pre-ECMA 5): You can use a for-in loop along with hasOwnProperty.",
+    "description": "There are different solutions based on ECMAScript versions\n\n      1. Using Object entries(ECMA 7+): You can use object entries length along with constructor type.\n\n      2. Using Object keys(ECMA 5+): You can use object keys length along with constructor type.\n\n      3. Using for-in with hasOwnProperty(Pre-ECMA 5): You can use a for-in loop along with hasOwnProperty.",
     "codeExamples": [
       "Object.entries(obj).length === 0 && obj.constructor === Object; // Since date object length is 0, you need to check constructor check as well",
       "Object.keys(obj).length === 0 && obj.constructor === Object; // Since date object length is 0, you need to check constructor check as well",
@@ -1351,7 +1368,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 129,
     "question": "What is an arguments object",
-    "description": "The arguments object is an Array-like object accessible inside functions that contains the values of the arguments passed to that function. For example, let's see how to use arguments object inside sum function,\n\n      \n\n      Note: You can't apply array methods on arguments object. But you can convert into a regular array as below.",
+    "description": "The arguments object is an Array-like object accessible inside functions that contains the values of the arguments passed to that function. For example, let's see how to use arguments object inside sum function,\n\n      Note: You can't apply array methods on arguments object. But you can convert into a regular array as below.",
     "codeExamples": [
       "function sum() {\n        var total = 0;\n        for (var i = 0, len = arguments.length; i < len; ++i) {\n          total += arguments[i];\n        }\n        return total;\n      }\n\n      sum(1, 2, 3); // returns 6",
       "var argsArray = Array.prototype.slice.call(arguments);"
@@ -1404,7 +1421,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 135,
     "question": "How do you trim a string in javascript",
-    "description": "JavaScript provided a trim method on string types to trim any whitespaces present at the beginning or ending of the string.\n\n      \n\n      If your browser(<IE9) doesn't support this method then you can use below polyfill.",
+    "description": "JavaScript provided a trim method on string types to trim any whitespaces present at the beginning or ending of the string.\n\n      If your browser(<IE9) doesn't support this method then you can use below polyfill.",
     "codeExamples": [
       "\"  Hello World   \".trim(); //Hello World",
       "if (!String.prototype.trim) {\n        (function () {\n          // Make sure we trim BOM and NBSP\n          var rtrim = /^[\\s\\uFEFF\\xA0]+|[\\s\\uFEFF\\xA0]+$/g;\n          String.prototype.trim = function () {\n            return this.replace(rtrim, \"\");\n          };\n        })();\n      }"
@@ -1414,7 +1431,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 136,
     "question": "How do you add a key value pair in javascript",
-    "description": "There are two possible solutions to add new properties to an object.\n\n      Let's take a simple object to explain these solutions.\n\n      \n\n      1. Using dot notation: This solution is useful when you know the name of the property\n\n      \n\n      2. Using square bracket notation: This solution is useful when the name of the property is dynamically determined or the key's name is non-JS like \"user-name\"",
+    "description": "There are two possible solutions to add new properties to an object.\n\n      Let's take a simple object to explain these solutions.\n\n      1. Using dot notation: This solution is useful when you know the name of the property\n\n      2. Using square bracket notation: This solution is useful when the name of the property is dynamically determined or the key's name is non-JS like \"user-name\"",
     "codeExamples": [
       "var object = {\n        key1: value1,\n        key2: value2,\n      };",
       "object.key3 = \"value3\";",
@@ -1432,7 +1449,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 138,
     "question": "How do you assign default values to variables",
-    "description": "You can use the logical or operator `||` in an assignment expression to provide a default value. The syntax looks like as below,\n\n      \n\n      As per the above expression, variable 'a 'will get the value of 'c' only if 'b' is falsy (if is null, false, undefined, 0, empty string, or NaN), otherwise 'a' will get the value of 'b'.",
+    "description": "You can use the logical or operator `||` in an assignment expression to provide a default value. The syntax looks like as below,\n\n      As per the above expression, variable 'a 'will get the value of 'c' only if 'b' is falsy (if is null, false, undefined, 0, empty string, or NaN), otherwise 'a' will get the value of 'b'.",
     "codeExamples": [
       "var a = b || c;"
     ],
@@ -1441,7 +1458,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 139,
     "question": "How do you define multiline strings",
-    "description": "You can define multiline string literals using the '\\n' character followed by line terminator('\\').\n\n      \n\n      But if you have a space after the '\\n' character, there will be indentation inconsistencies.",
+    "description": "You can define multiline string literals using the '\\n' character followed by line terminator('\\').\n\n      But if you have a space after the '\\n' character, there will be indentation inconsistencies.",
     "codeExamples": [
       "var str = \"This is a \\n very lengthy \\n sentence!\";\n      console.log(str);"
     ],
@@ -1482,7 +1499,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 144,
     "question": "What are break and continue statements",
-    "description": "The break statement is used to \"jump out\" of a loop. i.e, It breaks the loop and continues executing the code after the loop.\n\n      \n\n      The continue statement is used to \"jump over\" one iteration in the loop. i.e, It breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.",
+    "description": "The break statement is used to \"jump out\" of a loop. i.e, It breaks the loop and continues executing the code after the loop.\n\n      The continue statement is used to \"jump over\" one iteration in the loop. i.e, It breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.",
     "codeExamples": [
       "for (i = 0; i < 10; i++) {\n        if (i === 5) {\n          break;\n        }\n        text += \"Number: \" + i + \"<br>\";\n      }",
       "for (i = 0; i < 10; i++) {\n        if (i === 5) {\n          continue;\n        }\n        text += \"Number: \" + i + \"<br>\";\n      }"
@@ -1533,7 +1550,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 150,
     "question": "How do you generate random integers",
-    "description": "You can use `Math.random()` with `Math.floor()` to return random integers. For example, if you want generate random integers between 1 to 10, the multiplication factor should be 10,\n\n      \n\n      Note: `Math.random()` returns a random number between 0 (inclusive), and 1 (exclusive)",
+    "description": "You can use `Math.random()` with `Math.floor()` to return random integers. For example, if you want generate random integers between 1 to 10, the multiplication factor should be 10,\n\n      Note: `Math.random()` returns a random number between 0 (inclusive), and 1 (exclusive)",
     "codeExamples": [
       "Math.floor(Math.random() * 10) + 1; // returns a random integer from 1 to 10\n      Math.floor(Math.random() * 100) + 1; // returns a random integer from 1 to 100"
     ],
@@ -1572,7 +1589,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 155,
     "question": "What is a Regular Expression",
-    "description": "A regular expression is a sequence of characters that forms a search pattern. You can use this search pattern for searching data in a text. These can be used to perform all types of text search and text replace operations. Let's see the syntax format now,\n\n      \n\n      For example, the regular expression or search pattern with case-insensitive username would be,",
+    "description": "A regular expression is a sequence of characters that forms a search pattern. You can use this search pattern for searching data in a text. These can be used to perform all types of text search and text replace operations. Let's see the syntax format now,\n\n      For example, the regular expression or search pattern with case-insensitive username would be,",
     "codeExamples": [
       "/pattern/modifiers;",
       "/John/i;"
@@ -1582,7 +1599,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 156,
     "question": "What are the string methods that accept Regular expression",
-    "description": "There are six string methods: `search()`, `replace()`, `replaceAll()`, `match()`, `matchAll()`, and `split()`.\n\n      The `search()` method uses an expression to search for a match, and returns the position of the match.\n\n      \n\n      The `replace()` and `replaceAll()` methods are used to return a modified string where the pattern is replaced.\n\n      \n\n      The `match()` and `matchAll()` methods are used to return the matches when matching a string against a regular expression.\n\n      \n\n      The `split()` method is used to split a string into an array of substrings, and returns the new array.",
+    "description": "There are six string methods: `search()`, `replace()`, `replaceAll()`, `match()`, `matchAll()`, and `split()`.\n\n      The `search()` method uses an expression to search for a match, and returns the position of the match.\n\n      The `replace()` and `replaceAll()` methods are used to return a modified string where the pattern is replaced.\n\n      The `match()` and `matchAll()` methods are used to return the matches when matching a string against a regular expression.\n\n      The `split()` method is used to split a string into an array of substrings, and returns the new array.",
     "codeExamples": [
       "var msg = \"Hello John\";\n      var n = msg.search(/John/i); // 6",
       "var msg = \"ball bat\";\n      var n1 = msg.replace(/b/i, \"c\"); // call bat\n      var n2 = msg.replaceAll(/b/i, \"c\"); // call cat",
@@ -1594,7 +1611,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 157,
     "question": "What are modifiers in regular expression",
-    "description": "Modifiers can be used to perform case-insensitive and global searches. Let's list some of the modifiers,\n\n                              \n      Let's take an example of global modifier,",
+    "description": "Modifiers can be used to perform case-insensitive and global searches. Let's list some of the modifiers,\n\n      Let's take an example of global modifier,",
     "codeExamples": [
       "var text = \"Learn JS one by one\";\n      var pattern = /one/g;\n      var result = text.match(pattern); // one,one"
     ],
@@ -1658,7 +1675,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 162,
     "question": "How do you change the style of a HTML element",
-    "description": "You can change inline style or classname of a HTML element using javascript DOM-manipulation\n\n      1. Using style property: You can modify inline style using style property\n\n      \n\n      2. Using ClassName property: It is easy to modify element class using className property",
+    "description": "You can change inline style or classname of a HTML element using javascript DOM-manipulation\n\n      1. Using style property: You can modify inline style using style property\n\n      2. Using ClassName property: It is easy to modify element class using className property",
     "codeExamples": [
       "document.getElementById(\"title\").style.fontSize = \"30px\";",
       "document.getElementById(\"title\").className = \"custom-title\";"
@@ -1736,7 +1753,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 171,
     "question": "How do you make asynchronous HTTP request",
-    "description": "Browsers provide an XMLHttpRequest object which can be used to make asynchronous HTTP requests from JavaScript by passing the 3rd parameter as true.\n\n      \n\n      Today this is considered deprecated, because an async `fetch` call (in browsers later than 2016) is simpler and more robust.",
+    "description": "Browsers provide an XMLHttpRequest object which can be used to make asynchronous HTTP requests from JavaScript by passing the 3rd parameter as true.\n\n      Today this is considered deprecated, because an async `fetch` call (in browsers later than 2016) is simpler and more robust.",
     "codeExamples": [
       "function httpGetAsync(theUrl, callback) {\n        var xmlHttpReq = new XMLHttpRequest();\n        xmlHttpReq.onreadystatechange = function () {\n          if (xmlHttpReq.readyState == 4 && xmlHttpReq.status == 200)\n            callback(xmlHttpReq.responseText);\n        };\n        xmlHttpReq.open(\"GET\", theUrl, true); // true for asynchronous\n        xmlHttpReq.send(null);\n      }"
     ],
@@ -1781,7 +1798,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 176,
     "question": "What are the ways to execute javascript after a page load",
-    "description": "You can execute javascript after page load in many different ways,\n\n      1. window.onload:\n\n      \n\n      2. document.onload:\n\n      \n\n      3. body onload:",
+    "description": "You can execute javascript after page load in many different ways,\n\n      1. window.onload:\n\n      2. document.onload:\n\n      3. body onload:",
     "codeExamples": [
       "window.onload = function ...",
       "document.onload = function ...",
@@ -1792,7 +1809,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 177,
     "question": "What is the difference between proto and prototype",
-    "description": "The `__proto__` object is the actual object that is used in the lookup chain to resolve methods, etc. Whereas `prototype` is the object that is used to build `__proto__` when you create an object with the `new` operator (a special variant of a function call).\n\n      \n\n      There are few more differences,",
+    "description": "The `__proto__` object is the actual object that is used in the lookup chain to resolve methods, etc. Whereas `prototype` is the object that is used to build `__proto__` when you create an object with the `new` operator (a special variant of a function call).\n\n      There are few more differences,",
     "codeExamples": [
       "new Employee().__proto__ === Employee.prototype;\n      new Employee().prototype === undefined;"
     ],
@@ -1831,7 +1848,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 178,
     "question": "Can you give an example of when you really need a semicolon",
-    "description": "It is recommended to use semicolons after every statement in JavaScript. For example, in the below case (that is an IIFE = Immediately Invoked Function Expression) it throws an error \".. is not a function\" at runtime due to missing semicolon.\n\n      \n\n      and it will be interpreted as\n\n      \n\n      In this case, we are passing the second function as an argument to the first function and then trying to call the result of the first function call as a function. Hence, the second function will fail with a \"... is not a function\" error at runtime.",
+    "description": "It is recommended to use semicolons after every statement in JavaScript. For example, in the below case (that is an IIFE = Immediately Invoked Function Expression) it throws an error \".. is not a function\" at runtime due to missing semicolon.\n\n      and it will be interpreted as\n\n      In this case, we are passing the second function as an argument to the first function and then trying to call the result of the first function call as a function. Hence, the second function will fail with a \"... is not a function\" error at runtime.",
     "codeExamples": [
       "// define a function\n      var fn = (function () {\n        //...\n      })(\n        // semicolon missing at this line\n\n        // then execute some code inside a closure\n        function () {\n          //...\n        }\n      )();",
       "var fn = (function () {\n        //...\n      })(function () {\n        //...\n      })();"
@@ -1841,7 +1858,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 179,
     "question": "What is the freeze method",
-    "description": "The `freeze()` method is used to freeze an object. Freezing an object does not allow adding new properties to an object, prevents removing, and prevents changing the enumerability, configurability, or writability of existing properties. i.e. It returns the passed object and does not create a frozen copy.\n\n      \n\n      Remember freezing is only applied to the top-level properties in objects but not for nested objects.\n      For example, let's try to freeze user object which has employment details as nested object and observe that details have been changed.\n\n      \n\n      Note: It causes a TypeError if the argument passed is not an object.",
+    "description": "The `freeze()` method is used to freeze an object. Freezing an object does not allow adding new properties to an object, prevents removing, and prevents changing the enumerability, configurability, or writability of existing properties. i.e. It returns the passed object and does not create a frozen copy.\n\n      Remember freezing is only applied to the top-level properties in objects but not for nested objects.\n      For example, let's try to freeze user object which has employment details as nested object and observe that details have been changed.\n\n      Note: It causes a TypeError if the argument passed is not an object.",
     "codeExamples": [
       "const obj = {\n        prop: 100,\n      };\n\n      Object.freeze(obj);\n      obj.prop = 200; // Throws an error in strict mode\n\n      console.log(obj.prop); //100",
       "const user = {\n        name: \"John\",\n        employment: {\n          department: \"IT\",\n        },\n      };\n\n      Object.freeze(user);\n      user.employment.department = \"HR\";"
@@ -1899,7 +1916,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 186,
     "question": "What is a rest parameter",
-    "description": "Rest parameter is an improved way to handle function parameters which allows us to represent an indefinite number of arguments as an array. The syntax would be as below,\n\n      \n\n      For example, let's take a sum example to calculate on dynamic number of parameters,\n\n      \n\n      Note: Rest parameter is added in ES2015 or ES6",
+    "description": "Rest parameter is an improved way to handle function parameters which allows us to represent an indefinite number of arguments as an array. The syntax would be as below,\n\n      For example, let's take a sum example to calculate on dynamic number of parameters,\n\n      Note: Rest parameter is added in ES2015 or ES6",
     "codeExamples": [
       "function f(a, b, ...theArgs) {\n        // ...\n      }",
       "function sum(...args) {\n        let total = 0;\n        for (const i of args) {\n          total += i;\n        }\n        return total;\n      }\n\n      console.log(sum(1, 2)); //3\n      console.log(sum(1, 2, 3)); //6\n      console.log(sum(1, 2, 3, 4)); //10\n      console.log(sum(1, 2, 3, 4, 5)); //15"
@@ -1943,7 +1960,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 191,
     "question": "How do you determine two values same or not using object",
-    "description": "The `Object.is()` method determines whether two values are the same value. For example, the usage with different types of values would be,\n\n      \n\n      Two values are considered identical if one of the following holds:\n\n      1. both undefined\n      2. both null\n      3. both true or both false\n      4. both strings of the same length with the same characters in the same order\n      5. both the same object (means both object have same reference)\n      6. both numbers and\n         both +0\n         both -0\n         both NaN\n         both non-zero and both not NaN and both have the same value.",
+    "description": "The `Object.is()` method determines whether two values are the same value. For example, the usage with different types of values would be,\n\n      Two values are considered identical if one of the following holds:\n\n      1. both undefined\n      2. both null\n      3. both true or both false\n      4. both strings of the same length with the same characters in the same order\n      5. both the same object (means both object have same reference)\n      6. both numbers and\n         both +0\n         both -0\n         both NaN\n         both non-zero and both not NaN and both have the same value.",
     "codeExamples": [
       "Object.is(\"hello\", \"hello\"); // true\n      Object.is(window, window); // true\n      Object.is([], []); // false"
     ],
@@ -1959,7 +1976,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 193,
     "question": "How do you copy properties from one object to other",
-    "description": "You can use the `Object.assign()` method which is used to copy the values and properties from one or more source objects to a target object. It returns the target object which has properties and values copied from the source objects. The syntax would be as below,\n\n      \n\n      Let's take example with one source and one target object,\n\n      \n\n      As observed in the above code, there is a common property(`b`) from source to target so it's value has been overwritten.",
+    "description": "You can use the `Object.assign()` method which is used to copy the values and properties from one or more source objects to a target object. It returns the target object which has properties and values copied from the source objects. The syntax would be as below,\n\n      Let's take example with one source and one target object,\n\n      As observed in the above code, there is a common property(`b`) from source to target so it's value has been overwritten.",
     "codeExamples": [
       "Object.assign(target, ...sources);",
       "const target = { a: 1, b: 2 };\n      const source = { b: 3, c: 4 };\n\n      const returnedTarget = Object.assign(target, source);\n\n      console.log(target); // { a: 1, b: 3, c: 4 }\n\n      console.log(returnedTarget); // { a: 1, b: 3, c: 4 }"
@@ -1976,7 +1993,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 195,
     "question": "What is a proxy object",
-    "description": "The Proxy object is used to define custom behavior for fundamental operations such as property lookup, assignment, enumeration, function invocation, etc.\n\n      A proxy is created with two parameters: a target object which you want to proxy and a handler object which contains methods to intercept fundamental operations. The syntax would be as follows,\n\n      \n\n      Let's take a look at below examples of proxy object and how the get method which customize the lookup behavior,\n\n      \n\n      In the above code, it uses `get` handler which define the behavior of the proxy when an operation is performed on it. These proxies are mainly used for some of the below cross-cutting concerns.\n\n      1. Logging\n      2. Authentication or Authorization\n      3. Data binding and observables\n      4. Function parameter validation\n\n      Note: This feature was introduced with ES6.",
+    "description": "The Proxy object is used to define custom behavior for fundamental operations such as property lookup, assignment, enumeration, function invocation, etc.\n\n      A proxy is created with two parameters: a target object which you want to proxy and a handler object which contains methods to intercept fundamental operations. The syntax would be as follows,\n\n      Let's take a look at below examples of proxy object and how the get method which customize the lookup behavior,\n\n      In the above code, it uses `get` handler which define the behavior of the proxy when an operation is performed on it. These proxies are mainly used for some of the below cross-cutting concerns.\n\n      1. Logging\n      2. Authentication or Authorization\n      3. Data binding and observables\n      4. Function parameter validation\n\n      Note: This feature was introduced with ES6.",
     "codeExamples": [
       "var p = new Proxy(target, handler);",
       "//Example1:\n\n      const person = {\n        name: \"Sudheer Jonna\",\n        age: 35,\n      };\n\n      const handler = {\n        get(target, prop) {\n          if (prop === \"name\") {\n            return \"Mr. \" + target[prop];\n          }\n          return target[prop];\n        },\n      };\n\n      const proxy = new Proxy(person, handler);\n\n      //Example2:\n\n      var handler1 = {\n        get: function (obj, prop) {\n          return prop in obj ? obj[prop] : 100;\n        },\n      };\n\n      var p = new Proxy({}, handler1);\n      p.a = 10;\n      p.b = null;\n\n      console.log(p.a, p.b); // 10, null\n      console.log(\"c\" in p, p.c); // false, 100"
@@ -2018,7 +2035,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 200,
     "question": "How do you get enumerable key and value pairs",
-    "description": "The `Object.entries()` method is used to return an array of a given object's own enumerable string-keyed property [key, value] pairs, in the same order as that provided by a `for...in` loop. Let's see the functionality of `object.entries()` method in an example,\n\n      \n\n      Note: The order is not guaranteed as object defined.",
+    "description": "The `Object.entries()` method is used to return an array of a given object's own enumerable string-keyed property [key, value] pairs, in the same order as that provided by a `for...in` loop. Let's see the functionality of `object.entries()` method in an example,\n\n      Note: The order is not guaranteed as object defined.",
     "codeExamples": [
       "const object = {\n        a: \"Good morning\",\n        b: 100,\n      };\n\n      for (let [key, value] of Object.entries(object)) {\n        console.log(`${key}: ${value}`); // a: 'Good morning'\n        // b: 100\n      }"
     ],
@@ -2054,7 +2071,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 204,
     "question": "What is a WeakSet",
-    "description": "A `WeakSet` is used to store a collection of weakly(weak references) held objects. The syntax would be as follows,\n\n      \n\n      Let's see the below example to explain it's behavior,",
+    "description": "A `WeakSet` is used to store a collection of weakly(weak references) held objects. The syntax would be as follows,\n\n      Let's see the below example to explain it's behavior,",
     "codeExamples": [
       "new WeakSet([iterable]);",
       "var ws = new WeakSet();\n      var user = {};\n      ws.add(user);\n      ws.has(user); // true\n      ws.delete(user); // removes user from the set\n      ws.has(user); // false, user has been removed"
@@ -2080,7 +2097,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 207,
     "question": "What is a WeakMap",
-    "description": "A `WeakMap` object is a collection of key/value pairs in which the keys are weakly referenced. In this case, keys must be objects and the values can be arbitrary values. The syntax looks like the following:\n\n      \n\n      Let's see the below example to explain it's behavior,",
+    "description": "A `WeakMap` object is a collection of key/value pairs in which the keys are weakly referenced. In this case, keys must be objects and the values can be arbitrary values. The syntax looks like the following:\n\n      Let's see the below example to explain it's behavior,",
     "codeExamples": [
       "new WeakMap([iterable]);",
       "var ws = new WeakMap();\n      var user = {};\n      ws.set(user);\n      ws.has(user); // true\n      ws.delete(user); // removes user from the map\n      ws.has(user); // false, user has been removed"
@@ -2106,7 +2123,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 210,
     "question": "What is the purpose of uneval",
-    "description": "The `uneval()` is an builtin function which is used to create a string representation of the source code of an Object. It is a top-level function and is not associated with any object. Let's see the below example to know more about it's functionality,\n\n      \n\n      The `uneval()` function has been deprecated. It is recommended to use `toString()` for functions and `JSON.stringify()` for other cases.",
+    "description": "The `uneval()` is an builtin function which is used to create a string representation of the source code of an Object. It is a top-level function and is not associated with any object. Let's see the below example to know more about it's functionality,\n\n      The `uneval()` function has been deprecated. It is recommended to use `toString()` for functions and `JSON.stringify()` for other cases.",
     "codeExamples": [
       "var a = 1;\n      uneval(a); // returns a String containing 1\n      uneval(function user() {}); // returns \"(function user(){})\"",
       "function user() {}\n      console.log(user.toString()); // returns \"(function user(){})\""
@@ -2134,8 +2151,10 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 213,
     "question": "How do you print the contents of web page",
-    "description": "The `window` object provides a `print()` method which is used to print the contents of the current window. It opens a Print dialog box which lets you choose between various printing options. Let's see the usage of print method in an example,\n\n      ```html\n      <input type=\"button\" value=\"Print\" onclick=\"window.print()\" />\n      ```\n\n      Note: In most browsers, it will block while the print dialog is open.",
-    "codeExamples": [],
+    "description": "The `window` object provides a `print()` method which is used to print the contents of the current window. It opens a Print dialog box which lets you choose between various printing options. Let's see the usage of print method in an example,\n\n      Note: In most browsers, it will block while the print dialog is open.",
+    "codeExamples": [
+      "      <input type=\"button\" value=\"Print\" onclick=\"window.print()\" />\n      "
+    ],
     "tables": []
   },
   {
@@ -2150,7 +2169,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 215,
     "question": "What is an anonymous function",
-    "description": "An anonymous function is a function without a name! Anonymous functions are commonly assigned to a variable name or used as a callback function. The syntax would be as below,\n\n      \n\n      Let's see the above anonymous function in an example,",
+    "description": "An anonymous function is a function without a name! Anonymous functions are commonly assigned to a variable name or used as a callback function. The syntax would be as below,\n\n      Let's see the above anonymous function in an example,",
     "codeExamples": [
       "function (optionalParameters) {\n        //do something\n      }\n\n      const myFunction = function(){ //Anonymous function assigned to a variable\n        //do something\n      };\n\n      [1, 2, 3].map(function(element){ //Anonymous function used as a callback function\n        //do something\n      });",
       "var x = function (a, b) {\n        return a * b;\n      };\n      var z = x(5, 10);\n      console.log(z); // 50"
@@ -2210,7 +2229,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 222,
     "question": "What is the purpose of switch-case",
-    "description": "The `switch case` statement in JavaScript is used for decision making purposes. In a few cases, using the `switch case` statement is going to be more convenient than `if-else` statements. The syntax would be as below,\n\n      \n\n      The above multi-way branch statement provides an easy way to dispatch execution to different parts of code based on the value of the expression.",
+    "description": "The `switch case` statement in JavaScript is used for decision making purposes. In a few cases, using the `switch case` statement is going to be more convenient than `if-else` statements. The syntax would be as below,\n\n      The above multi-way branch statement provides an easy way to dispatch execution to different parts of code based on the value of the expression.",
     "codeExamples": [
       "switch (expression)\n      {\n          case value1:\n              statement1;\n              break;\n          case value2:\n              statement2;\n              break;\n          .\n          .\n          case valueN:\n              statementN;\n              break;\n          default:\n              statementDefault;\n      }"
     ],
@@ -2233,7 +2252,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 225,
     "question": "What are the different ways to access object properties",
-    "description": "There are 3 possible ways for accessing the property of an object.\n\n      1. Dot notation: It uses dot for accessing the properties\n\n      \n\n      2. Square brackets notation: It uses square brackets for property access\n\n      \n\n      3. Expression notation: It uses expression in the square brackets",
+    "description": "There are 3 possible ways for accessing the property of an object.\n\n      1. Dot notation: It uses dot for accessing the properties\n\n      2. Square brackets notation: It uses square brackets for property access\n\n      3. Expression notation: It uses expression in the square brackets",
     "codeExamples": [
       "objectName.property;",
       "objectName[\"property\"];",
@@ -2375,7 +2394,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 238,
     "question": "What is the call stack",
-    "description": "Call Stack is a data structure for javascript interpreters to keep track of function calls(creates execution context) in the program. It has two major actions,\n\n      1. Whenever you call a function for its execution, you are pushing it to the stack.\n      2. Whenever the execution is completed, the function is popped out of the stack.\n\n      Let's take an example and it's state representation in a diagram format\n\n      \n\n      The above code processed in a call stack as below,\n\n      3. Add the `hungry()` function to the call stack list and execute the code.\n      4. Add the `eatFruits()` function to the call stack list and execute the code.\n      5. Delete the `eatFruits()` function from our call stack list.\n      6. Delete the `hungry()` function from the call stack list since there are no items anymore.\n\n      ![Screenshot](images/call-stack.png)",
+    "description": "Call Stack is a data structure for javascript interpreters to keep track of function calls(creates execution context) in the program. It has two major actions,\n\n      1. Whenever you call a function for its execution, you are pushing it to the stack.\n      2. Whenever the execution is completed, the function is popped out of the stack.\n\n      Let's take an example and it's state representation in a diagram format\n\n      The above code processed in a call stack as below,\n\n      3. Add the `hungry()` function to the call stack list and execute the code.\n      4. Add the `eatFruits()` function to the call stack list and execute the code.\n      5. Delete the `eatFruits()` function from our call stack list.\n      6. Delete the `hungry()` function from the call stack list since there are no items anymore.",
     "codeExamples": [
       "function hungry() {\n        eatFruits();\n      }\n      function eatFruits() {\n        return \"I'm eating fruits\";\n      }\n\n      // Invoke the `hungry` function\n      hungry();"
     ],
@@ -2416,7 +2435,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 243,
     "question": "How do you sort elements in an array",
-    "description": "The `sort()` method is used to sort the elements of an array in place and returns the sorted array. The default sort order is ascending, based on the string Unicode order. The example usage would be as below,\n\n      \n\n      Beware: `sort()` is changing the original array.",
+    "description": "The `sort()` method is used to sort the elements of an array in place and returns the sorted array. The default sort order is ascending, based on the string Unicode order. The example usage would be as below,\n\n      Beware: `sort()` is changing the original array.",
     "codeExamples": [
       "var months = [\"Aug\", \"Sep\", \"Jan\", \"June\"];\n      months.sort();\n      console.log(months); //  [\"Aug\", \"Jan\", \"June\", \"Sep\"]"
     ],
@@ -2488,7 +2507,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 251,
     "question": "What is the advantage of the comma operator",
-    "description": "It is normally used to include multiple expressions in a location that requires a single expression. One of the common usages of this comma operator is to supply multiple parameters in a `for` loop. For example, the below for loop uses multiple expressions in a single location using comma operator,\n\n      \n\n      You can also use the comma operator in a return statement where it processes before returning.",
+    "description": "It is normally used to include multiple expressions in a location that requires a single expression. One of the common usages of this comma operator is to supply multiple parameters in a `for` loop. For example, the below for loop uses multiple expressions in a single location using comma operator,\n\n      You can also use the comma operator in a return statement where it processes before returning.",
     "codeExamples": [
       "for (var a = 0, b =10; a <= 10; a++, b--)",
       "function myFunction() {\n        var a = 1;\n        return (a += 10), a; // 11\n      }"
@@ -2498,8 +2517,11 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 252,
     "question": "What is typescript",
-    "description": "TypeScript is a typed superset of JavaScript created by Microsoft that adds optional types, classes\n      and many other features, and compiles to plain JavaScript. Angular is built entirely in TypeScript and it is used as the primary language there. You can install it globally as\n\n      ```bash\n      npm install -g typescript\n      ```\n\n      Let's see a simple example of TypeScript usage,\n\n      ```typescript\n      function greeting(name: string): string {\n        return \"Hello, \" + name;\n      }\n\n      let user = \"Sudheer\";\n\n      console.log(greeting(user));\n      ```\n\n      The greeting method allows only string type as argument.",
-    "codeExamples": [],
+    "description": "TypeScript is a typed superset of JavaScript created by Microsoft that adds optional types, classes\n      and many other features, and compiles to plain JavaScript. Angular is built entirely in TypeScript and it is used as the primary language there. You can install it globally as\n\n      Let's see a simple example of TypeScript usage,\n\n      The greeting method allows only string type as argument.",
+    "codeExamples": [
+      "      npm install -g typescript\n      ",
+      "      function greeting(name: string): string {\n        return \"Hello, \" + name;\n      }\n\n      let user = \"Sudheer\";\n\n      console.log(greeting(user));\n      "
+    ],
     "tables": []
   },
   {
@@ -2572,7 +2594,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 257,
     "question": "What happens if you write constructor more than once in a class",
-    "description": "The \"constructor\" in a class is a special method and it should be defined only once in a class. i.e, If you write a constructor method more than once in a class it will throw a `SyntaxError` error.\n\n      \n\n      This constructor is called by using the special function call `new` (see example above).",
+    "description": "The \"constructor\" in a class is a special method and it should be defined only once in a class. i.e, If you write a constructor method more than once in a class it will throw a `SyntaxError` error.\n\n      This constructor is called by using the special function call `new` (see example above).",
     "codeExamples": [
       "class Employee {\n         constructor() {\n           this.name = \"John\";\n         }\n         constructor() {   //  Uncaught SyntaxError: A class may only have one constructor\n           this.age = 30;\n         }\n       }\n\n       var employeeObject = new Employee();\n\n       console.log(employeeObject.name);"
     ],
@@ -2617,7 +2639,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 262,
     "question": "How do you check whether an object can be extended or not",
-    "description": "The `Object.isExtensible()` method is used to determine if an object is extendable or not. i.e, Whether it can have new properties added to it or not.\n\n      \n\n      Note: By default, all the objects are extendable. i.e, The new properties can be added or modified.",
+    "description": "The `Object.isExtensible()` method is used to determine if an object is extendable or not. i.e, Whether it can have new properties added to it or not.\n\n      Note: By default, all the objects are extendable. i.e, The new properties can be added or modified.",
     "codeExamples": [
       "const newObject = {};\n      console.log(Object.isExtensible(newObject)); //true"
     ],
@@ -2660,7 +2682,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 267,
     "question": "What is obfuscation in javascript",
-    "description": "Obfuscation is the deliberate act of creating obfuscated javascript code(i.e, source or machine code) that is difficult for humans to understand. It is something similar to encryption, but a machine can understand the code and execute it.\n      Let's see the below function before Obfuscation,\n\n      \n\n      And after the code Obfuscation, it would be appeared as below,",
+    "description": "Obfuscation is the deliberate act of creating obfuscated javascript code(i.e, source or machine code) that is difficult for humans to understand. It is something similar to encryption, but a machine can understand the code and execute it.\n      Let's see the below function before Obfuscation,\n\n      And after the code Obfuscation, it would be appeared as below,",
     "codeExamples": [
       "function greeting() {\n        console.log(\"Hello, welcome to JS world\");\n      }",
       "eval(\n        (function (p, a, c, k, e, d) {\n          e = function (c) {\n            return c;\n          };\n          if (!\"\".replace(/^/, String)) {\n            while (c--) {\n              d[c] = k[c] || c;\n            }\n            k = [\n              function (e) {\n                return d[e];\n              },\n            ];\n            e = function () {\n              return \"\\\\w+\";\n            };\n            c = 1;\n          }\n          while (c--) {\n            if (k[c]) {\n              p = p.replace(new RegExp(\"\\\\b\" + e(c) + \"\\\\b\", \"g\"), k[c]);\n            }\n          }\n          return p;\n        })(\n          \"2 1(){0.3('4, 7 6 5 8')}\",\n          9,\n          9,\n          \"console|greeting|function|log|Hello|JS|to|welcome|world\".split(\"|\"),\n          0,\n          {}\n        )\n      );"
@@ -2730,17 +2752,20 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 273,
     "question": "How do you perform form validation using javascript",
-    "description": "JavaScript can be used to perform HTML form validation. For example, if the form field is empty, the function needs to notify, and return false, to prevent the form being submitted.\n      Lets' perform user login in an html form,\n\n      ```html\n      <form name=\"myForm\" onsubmit=\"return validateForm()\" method=\"post\">\n        User name:\n        <input type=\"text\" name=\"uname\" />\n        <input type=\"submit\" value=\"Submit\" />\n      </form>\n      ```\n\n      And the validation on user login is below,",
+    "description": "JavaScript can be used to perform HTML form validation. For example, if the form field is empty, the function needs to notify, and return false, to prevent the form being submitted.\n      Lets' perform user login in an html form,\n\n      And the validation on user login is below,",
     "codeExamples": [
-      "function validateForm() {\n        var x = document.forms[\"myForm\"][\"uname\"].value;\n        if (x == \"\") {\n          alert(\"The username shouldn't be empty\");\n          return false;\n        }\n      }"
+      "function validateForm() {\n        var x = document.forms[\"myForm\"][\"uname\"].value;\n        if (x == \"\") {\n          alert(\"The username shouldn't be empty\");\n          return false;\n        }\n      }",
+      "      <form name=\"myForm\" onsubmit=\"return validateForm()\" method=\"post\">\n        User name:\n        <input type=\"text\" name=\"uname\" />\n        <input type=\"submit\" value=\"Submit\" />\n      </form>\n      "
     ],
     "tables": []
   },
   {
     "id": 274,
     "question": "How do you perform form validation without javascript",
-    "description": "You can perform HTML form validation automatically without using javascript. The validation enabled by applying the `required` attribute to prevent form submission when the input is empty.\n\n      ```html\n      <form method=\"post\">\n        <input type=\"text\" name=\"uname\" required />\n        <input type=\"submit\" value=\"Submit\" />\n      </form>\n      ```\n\n      Note: Automatic form validation does not work in Internet Explorer 9 or earlier.",
-    "codeExamples": [],
+    "description": "You can perform HTML form validation automatically without using javascript. The validation enabled by applying the `required` attribute to prevent form submission when the input is empty.\n\n      Note: Automatic form validation does not work in Internet Explorer 9 or earlier.",
+    "codeExamples": [
+      "      <form method=\"post\">\n        <input type=\"text\" name=\"uname\" required />\n        <input type=\"submit\" value=\"Submit\" />\n      </form>\n      "
+    ],
     "tables": []
   },
   {
@@ -2769,9 +2794,10 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 278,
     "question": "Give an example usage of the rangeOverflow property",
-    "description": "If an element's value is greater than its max attribute then the `rangeOverflow` property is true. For example, the below form submission throws an error if the value is more than 100,\n\n      ```html\n      <input id=\"age\" type=\"number\" max=\"100\" />\n      <button onclick=\"myOverflowFunction()\">OK</button>\n      ```",
+    "description": "If an element's value is greater than its max attribute then the `rangeOverflow` property is true. For example, the below form submission throws an error if the value is more than 100,",
     "codeExamples": [
-      "function myOverflowFunction() {\n        if (document.getElementById(\"age\").validity.rangeOverflow) {\n          alert(\"The mentioned age is not allowed\");\n        }\n      }"
+      "function myOverflowFunction() {\n        if (document.getElementById(\"age\").validity.rangeOverflow) {\n          alert(\"The mentioned age is not allowed\");\n        }\n      }",
+      "      <input id=\"age\" type=\"number\" max=\"100\" />\n      <button onclick=\"myOverflowFunction()\">OK</button>\n      "
     ],
     "tables": []
   },
@@ -2821,7 +2847,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 284,
     "question": "How do you extend classes",
-    "description": "The `extends` keyword is used in class declarations/expressions to create a class which is a child of another class. It can be used to subclass custom classes as well as built-in objects. The syntax would be as below,\n\n      \n\n      Let's take an example of Square subclass from Polygon parent class,",
+    "description": "The `extends` keyword is used in class declarations/expressions to create a class which is a child of another class. It can be used to subclass custom classes as well as built-in objects. The syntax would be as below,\n\n      Let's take an example of Square subclass from Polygon parent class,",
     "codeExamples": [
       "class ChildClass extends ParentClass { ... }",
       "class Square extends Rectangle {\n        constructor(length) {\n          super(length, length);\n          this.name = \"Square\";\n        }\n\n        get area() {\n          return this.width * this.height;\n        }\n\n        set area(value) {\n          this.area = value;\n        }\n      }"
@@ -2831,7 +2857,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 285,
     "question": "How do I modify the url without reloading the page",
-    "description": "The `window.location.href` property will be helpful to modify the url but it reloads the page. HTML5 introduced the `history.pushState()` and `history.replaceState()` methods, which allow you to add and modify history entries, respectively. For example, you can use pushState as below,\n\n      \n\n      This mechanism is used by routing libraries of frameworks like React and Angular in order to simulate the behaviour of a multi-page-website, even though they are only SPA (Single Page Applications).",
+    "description": "The `window.location.href` property will be helpful to modify the url but it reloads the page. HTML5 introduced the `history.pushState()` and `history.replaceState()` methods, which allow you to add and modify history entries, respectively. For example, you can use pushState as below,\n\n      This mechanism is used by routing libraries of frameworks like React and Angular in order to simulate the behaviour of a multi-page-website, even though they are only SPA (Single Page Applications).",
     "codeExamples": [
       "window.history.pushState(\"page2\", \"Title\", \"/page2.html\");"
     ],
@@ -2849,7 +2875,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 287,
     "question": "How do you compare scalar arrays",
-    "description": "You can use length and every method of arrays to compare two scalars (compared directly using `===`) arrays. The combination of these expressions can give the expected result,\n\n      \n\n      If you would like to compare arrays irrespective of order then you should sort them before,",
+    "description": "You can use length and every method of arrays to compare two scalars (compared directly using `===`) arrays. The combination of these expressions can give the expected result,\n\n      If you would like to compare arrays irrespective of order then you should sort them before,",
     "codeExamples": [
       "const arrayFirst = [1, 2, 3, 4, 5];\n      const arraySecond = [1, 2, 3, 4, 5];\n      console.log(\n        arrayFirst.length === arraySecond.length &&\n          arrayFirst.every((value, index) => value === arraySecond[index])\n      ); // true",
       "const arrayFirst = [2, 3, 1, 4, 5];\n      const arraySecond = [1, 2, 3, 4, 5];\n      console.log(\n        arrayFirst.length === arraySecond.length &&\n          arrayFirst\n            .sort()\n            .every((value, index) => value === arraySecond[index])\n      ); //true"
@@ -2914,7 +2940,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 291,
     "question": "Does JavaScript support namespaces",
-    "description": "JavaScript doesn’t support namespaces by default. So if you create any element (function, method, object, variable) then it becomes global and pollutes the global namespace. Let's take an example of defining two functions without any namespace,\n\n      \n\n      It always calls the second function definition. In this case, namespaces will solve the name collision problem.",
+    "description": "JavaScript doesn’t support namespaces by default. So if you create any element (function, method, object, variable) then it becomes global and pollutes the global namespace. Let's take an example of defining two functions without any namespace,\n\n      It always calls the second function definition. In this case, namespaces will solve the name collision problem.",
     "codeExamples": [
       "function func1() {\n        console.log(\"This is a first definition\");\n      }\n      function func1() {\n        console.log(\"This is a second definition\");\n      }\n      func1(); // This is a second definition"
     ],
@@ -2923,7 +2949,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 292,
     "question": "How do you declare a namespace",
-    "description": "Even though JavaScript lacks namespaces, we can use Objects, an IIFE (Immediately Invoked Function Expression) or `let`/`const` to create namespaces.\n\n      1. Using Object Literal Notation: Let's wrap variables and functions inside an Object literal which acts as a namespace. After that you can access them using object notation\n\n         \n\n      2. Using IIFE (Immediately invoked function expression): The outer pair of parentheses of IIFE creates a local scope for all the code inside of it and makes the anonymous function a function expression. Due to that, you can create the same function in two different function expressions to act as a namespace.\n\n         \n\n      3. Using a block and a let/const declaration: In ECMAScript 6, you can simply use a block and a let declaration to restrict the scope of a variable to a block.",
+    "description": "Even though JavaScript lacks namespaces, we can use Objects, an IIFE (Immediately Invoked Function Expression) or `let`/`const` to create namespaces.\n\n      1. Using Object Literal Notation: Let's wrap variables and functions inside an Object literal which acts as a namespace. After that you can access them using object notation\n\n      2. Using IIFE (Immediately invoked function expression): The outer pair of parentheses of IIFE creates a local scope for all the code inside of it and makes the anonymous function a function expression. Due to that, you can create the same function in two different function expressions to act as a namespace.\n\n      3. Using a block and a let/const declaration: In ECMAScript 6, you can simply use a block and a let declaration to restrict the scope of a variable to a block.",
     "codeExamples": [
       "var namespaceOne = {\n             function func1() {\n                 console.log(\"This is a first definition\");\n             }\n         }\n         var namespaceTwo = {\n               function func1() {\n                   console.log(\"This is a second definition\");\n               }\n           }\n         namespaceOne.func1(); // This is a first definition\n         namespaceTwo.func1(); // This is a second definition",
       "(function () {\n           function fun1() {\n             console.log(\"This is a first definition\");\n           }\n           fun1();\n         })();\n\n         (function () {\n           function fun1() {\n             console.log(\"This is a second definition\");\n           }\n           fun1();\n         })();",
@@ -2968,7 +2994,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 297,
     "question": "What is jQuery",
-    "description": "jQuery is a popular cross-browser JavaScript library that provides Document Object Model (DOM) traversal, event handling, animations and AJAX interactions by minimizing the discrepancies across browsers. It is widely famous with its philosophy of “Write less, do more”. For example, you can display welcome message on the page load using jQuery as below,\n\n      \n\n      Note: You can download it from jquery's official site or install it from CDNs, like google.",
+    "description": "jQuery is a popular cross-browser JavaScript library that provides Document Object Model (DOM) traversal, event handling, animations and AJAX interactions by minimizing the discrepancies across browsers. It is widely famous with its philosophy of “Write less, do more”. For example, you can display welcome message on the page load using jQuery as below,\n\n      Note: You can download it from jquery's official site or install it from CDNs, like google.",
     "codeExamples": [
       "$(document).ready(function () {\n        // It selects the document and apply the function on page load\n        alert(\"Welcome to jQuery world\");\n      });"
     ],
@@ -2993,7 +3019,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 300,
     "question": "What is a void operator",
-    "description": "The `void` operator evaluates the given expression and then returns `undefined` (i.e, without returning value). The syntax would be as below,\n\n      \n\n      Let's display a message without any redirection or reload\n\n      \n\n      Note: This operator is often used to obtain the undefined primitive value, using `void(0)`. Also it can be used to call asynchronous functions without waiting for the result.",
+    "description": "The `void` operator evaluates the given expression and then returns `undefined` (i.e, without returning value). The syntax would be as below,\n\n      Let's display a message without any redirection or reload\n\n      Note: This operator is often used to obtain the undefined primitive value, using `void(0)`. Also it can be used to call asynchronous functions without waiting for the result.",
     "codeExamples": [
       "void expression;\n      void expression;",
       "<a href=\"javascript:void(alert('Welcome to JS world'))\">\n        Click here to see a message\n      </a>"
@@ -3003,9 +3029,10 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 301,
     "question": "How to set the cursor to wait",
-    "description": "The cursor can be set to wait in JavaScript by using the property `cursor`. Let's perform this behavior on page load using the below function.\n\n      \n\n      and this function invoked on page load\n\n      ```html\n      <body onload=\"myFunction()\"></body>\n      ```",
+    "description": "The cursor can be set to wait in JavaScript by using the property `cursor`. Let's perform this behavior on page load using the below function.\n\n      and this function invoked on page load",
     "codeExamples": [
-      "function myFunction() {\n        window.document.body.style.cursor = \"wait\";\n      }"
+      "function myFunction() {\n        window.document.body.style.cursor = \"wait\";\n      }",
+      "      <body onload=\"myFunction()\"></body>\n      "
     ],
     "tables": []
   },
@@ -3021,7 +3048,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 303,
     "question": "Why do you need to avoid with statement",
-    "description": "JavaScript's with statement was intended to provide a shorthand for writing recurring accesses to objects. So it can help reduce file size by reducing the need to repeat a lengthy object reference without performance penalty. Let's take an example where it is used to avoid redundancy when accessing an object several times.\n\n      \n\n      Using `with` it turns this into:\n\n      \n\n      But this `with` statement creates performance problems since one cannot predict whether an argument will refer to a real variable or to a property inside the with argument.",
+    "description": "JavaScript's with statement was intended to provide a shorthand for writing recurring accesses to objects. So it can help reduce file size by reducing the need to repeat a lengthy object reference without performance penalty. Let's take an example where it is used to avoid redundancy when accessing an object several times.\n\n      Using `with` it turns this into:\n\n      But this `with` statement creates performance problems since one cannot predict whether an argument will refer to a real variable or to a property inside the with argument.",
     "codeExamples": [
       "a.b.c.greeting = \"welcome\";\n      a.b.c.age = 32;",
       "with (a.b.c) {\n        greeting = \"welcome\";\n        age = 32;\n      }"
@@ -3054,10 +3081,11 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 307,
     "question": "Can I redeclare let and const variables",
-    "description": "No, you cannot redeclare let and const variables. If you do, it throws below error\n\n      ```bash\n      Uncaught SyntaxError: Identifier 'someVariable' has already been declared\n      ```\n\n      Explanation: The variable declaration with `var` keyword refers to a function scope and the variable is treated as if it were declared at the top of the enclosing scope due to hoisting feature. So all the multiple declarations contributing to the same hoisted variable without any error. Let's take an example of re-declaring variables in the same scope for both var and let/const variables.\n\n      \n\n      The block-scoped multi-declaration throws syntax error,",
+    "description": "No, you cannot redeclare let and const variables. If you do, it throws below error\n\n      Explanation: The variable declaration with `var` keyword refers to a function scope and the variable is treated as if it were declared at the top of the enclosing scope due to hoisting feature. So all the multiple declarations contributing to the same hoisted variable without any error. Let's take an example of re-declaring variables in the same scope for both var and let/const variables.\n\n      The block-scoped multi-declaration throws syntax error,",
     "codeExamples": [
       "var name = \"John\";\n      function myFunc() {\n        var name = \"Nick\";\n        var name = \"Abraham\"; // Re-assigned in the same function block\n        alert(name); // Abraham\n      }\n      myFunc();\n      alert(name); // John",
-      "let name = \"John\";\n      function myFunc() {\n        let name = \"Nick\";\n        let name = \"Abraham\"; // Uncaught SyntaxError: Identifier 'name' has already been declared\n        alert(name);\n      }\n\n      myFunc();\n      alert(name);"
+      "let name = \"John\";\n      function myFunc() {\n        let name = \"Nick\";\n        let name = \"Abraham\"; // Uncaught SyntaxError: Identifier 'name' has already been declared\n        alert(name);\n      }\n\n      myFunc();\n      alert(name);",
+      "      Uncaught SyntaxError: Identifier 'someVariable' has already been declared\n      "
     ],
     "tables": []
   },
@@ -3073,7 +3101,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 309,
     "question": "What are default parameters",
-    "description": "In ES5, we need to depend on logical OR operators to handle default values of function parameters. Whereas in ES6, Default function parameters feature allows parameters to be initialized with default values if no value or undefined is passed. Let's compare the behavior with an examples,\n\n      \n\n      The default parameters makes the initialization more simpler,",
+    "description": "In ES5, we need to depend on logical OR operators to handle default values of function parameters. Whereas in ES6, Default function parameters feature allows parameters to be initialized with default values if no value or undefined is passed. Let's compare the behavior with an examples,\n\n      The default parameters makes the initialization more simpler,",
     "codeExamples": [
       "//ES5\n      var calculateArea = function (height, width) {\n        height = height || 50;\n        width = width || 60;\n\n        return width * height;\n      };\n      console.log(calculateArea()); //300",
       "//ES6\n      var calculateArea = function (height = 50, width = 60) {\n        return width * height;\n      };\n\n      console.log(calculateArea()); //300"
@@ -3083,7 +3111,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 310,
     "question": "What are template literals",
-    "description": "Template literals or template strings are string literals allowing embedded expressions. These are enclosed by the back-tick (`) character instead of double or single quotes.\n      In ES6, this feature enables using dynamic expressions as below,\n\n      \n\n      In ES5, you need break string like below,\n\n      \n\n      Note: You can use multi-line strings and string interpolation features with template literals.",
+    "description": "Template literals or template strings are string literals allowing embedded expressions. These are enclosed by the back-tick (`) character instead of double or single quotes.\n      In ES6, this feature enables using dynamic expressions as below,\n\n      In ES5, you need break string like below,\n\n      Note: You can use multi-line strings and string interpolation features with template literals.",
     "codeExamples": [
       "var greeting = `Welcome to JS World, Mr. ${firstName} ${lastName}.`;",
       "var greeting = 'Welcome to JS World, Mr. ' + firstName + ' ' + lastName.`"
@@ -3093,7 +3121,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 311,
     "question": "How do you write multi-line strings in template literals",
-    "description": "In ES5, you would have to use newline escape characters('\\\\n') and concatenation symbols(+) in order to get multi-line strings.\n\n      \n\n      Whereas in ES6, You don't need to mention any newline sequence character,",
+    "description": "In ES5, you would have to use newline escape characters('\\\\n') and concatenation symbols(+) in order to get multi-line strings.\n\n      Whereas in ES6, You don't need to mention any newline sequence character,",
     "codeExamples": [
       "console.log(\"This is string sentence 1\\n\" + \"This is string sentence 2\");",
       "console.log(`This is string sentence\n      'This is string sentence 2`);"
@@ -3103,7 +3131,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 312,
     "question": "What are nesting templates",
-    "description": "The nesting template is a feature supported within template literals syntax to allow inner backticks inside a placeholder ${ } within the template. For example, the below nesting template is used to display the icons based on user permissions whereas outer template checks for platform type,\n\n      \n\n      You can write the above use case without nesting template features as well. However, the nesting template feature is more compact and readable.",
+    "description": "The nesting template is a feature supported within template literals syntax to allow inner backticks inside a placeholder ${ } within the template. For example, the below nesting template is used to display the icons based on user permissions whereas outer template checks for platform type,\n\n      You can write the above use case without nesting template features as well. However, the nesting template feature is more compact and readable.",
     "codeExamples": [
       "const iconStyles = `icon ${\n        isMobilePlatform()\n          ? \"\"\n          : `icon-${user.isAuthorized ? \"submit\" : \"disabled\"}`\n      }`;",
       "//Without nesting templates\n      const iconStyles = `icon ${\n        isMobilePlatform()\n          ? \"\"\n          : user.isAuthorized\n          ? \"icon-submit\"\n          : \"icon-disabled\"\n      }`;"
@@ -3122,7 +3150,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 314,
     "question": "What are raw strings",
-    "description": "ES6 provides a raw strings feature using the `String.raw()` method which is used to get the raw string form of template strings. This feature allows you to access the raw strings as they were entered, without processing escape sequences. For example, the usage would be as below,\n\n      \n\n      If you don't use raw strings, the newline character sequence will be processed by displaying the output in multiple lines\n\n      \n\n      Also, the raw property is available on the first argument to the tag function",
+    "description": "ES6 provides a raw strings feature using the `String.raw()` method which is used to get the raw string form of template strings. This feature allows you to access the raw strings as they were entered, without processing escape sequences. For example, the usage would be as below,\n\n      If you don't use raw strings, the newline character sequence will be processed by displaying the output in multiple lines\n\n      Also, the raw property is available on the first argument to the tag function",
     "codeExamples": [
       "var calculationString = String.raw`The sum of numbers is \\n${\n        1 + 2 + 3 + 4\n      }!`;\n      console.log(calculationString); // The sum of numbers is \\n10!",
       "var calculationString = `The sum of numbers is \\n${1 + 2 + 3 + 4}!`;\n      console.log(calculationString);\n      // The sum of numbers is\n      // 10!",
@@ -3133,7 +3161,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 315,
     "question": "What is destructuring assignment",
-    "description": "The destructuring assignment is a JavaScript expression that makes it possible to unpack values from arrays or properties from objects into distinct variables.\n      Let's get the month values from an array using destructuring assignment\n\n      \n\n      and you can get user properties of an object using destructuring assignment,",
+    "description": "The destructuring assignment is a JavaScript expression that makes it possible to unpack values from arrays or properties from objects into distinct variables.\n      Let's get the month values from an array using destructuring assignment\n\n      and you can get user properties of an object using destructuring assignment,",
     "codeExamples": [
       "var [one, two, three] = [\"JAN\", \"FEB\", \"MARCH\"];\n\n      console.log(one); // \"JAN\"\n      console.log(two); // \"FEB\"\n      console.log(three); // \"MARCH\"",
       "var { name, age } = { name: \"John\", age: 32 };\n\n      console.log(name); // John\n      console.log(age); // 32"
@@ -3143,7 +3171,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 316,
     "question": "What are default values in destructuring assignment",
-    "description": "A variable can be assigned a default value when the value unpacked from the array or object is undefined during destructuring assignment. It helps to avoid setting default values separately for each assignment. Let's take an example for both arrays and object use cases,\n\n      Arrays destructuring:\n\n      \n\n      Objects destructuring:",
+    "description": "A variable can be assigned a default value when the value unpacked from the array or object is undefined during destructuring assignment. It helps to avoid setting default values separately for each assignment. Let's take an example for both arrays and object use cases,\n\n      Arrays destructuring:\n\n      Objects destructuring:",
     "codeExamples": [
       "var x, y, z;\n\n      [x = 2, y = 4, z = 6] = [10];\n      console.log(x); // 10\n      console.log(y); // 4\n      console.log(z); // 6",
       "var { x = 2, y = 4, z = 6 } = { x: 10 };\n\n      console.log(x); // 10\n      console.log(y); // 4\n      console.log(z); // 6"
@@ -3180,7 +3208,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 320,
     "question": "What are the use cases for dynamic imports",
-    "description": "Below are some of the use cases of using dynamic imports over static imports,\n\n      1. Import a module on-demand or conditionally. For example, if you want to load a polyfill on legacy browser\n\n         \n\n      2. Compute the module specifier at runtime. For example, you can use it for internationalization.\n\n         \n\n      3. Import a module from within a regular script instead a module.",
+    "description": "Below are some of the use cases of using dynamic imports over static imports,\n\n      1. Import a module on-demand or conditionally. For example, if you want to load a polyfill on legacy browser\n\n      2. Compute the module specifier at runtime. For example, you can use it for internationalization.\n\n      3. Import a module from within a regular script instead a module.",
     "codeExamples": [
       "if (isLegacyBrowser()) {\n             import(···)\n             .then(···);\n         }",
       "import(`messages_${getLocale()}.js`).then(···);"
@@ -3206,7 +3234,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 323,
     "question": "What is collation",
-    "description": "Collation is used for sorting a set of strings and searching within a set of strings. It is parameterized by locale and aware of Unicode. Let's take comparison and sorting features,\n\n      1. Comparison:\n\n      \n\n      2. Sorting:",
+    "description": "Collation is used for sorting a set of strings and searching within a set of strings. It is parameterized by locale and aware of Unicode. Let's take comparison and sorting features,\n\n      1. Comparison:\n\n      2. Sorting:",
     "codeExamples": [
       "var list = [\"ä\", \"a\", \"z\"]; // In German,  \"ä\" sorts with \"a\" Whereas in Swedish, \"ä\" sorts after \"z\"\n      var l10nDE = new Intl.Collator(\"de\");\n      var l10nSV = new Intl.Collator(\"sv\");\n      console.log(l10nDE.compare(\"ä\", \"z\") === -1); // true\n      console.log(l10nSV.compare(\"ä\", \"z\") === +1); // true",
       "var list = [\"ä\", \"a\", \"z\"]; // In German,  \"ä\" sorts with \"a\" Whereas in Swedish, \"ä\" sorts after \"z\"\n      var l10nDE = new Intl.Collator(\"de\");\n      var l10nSV = new Intl.Collator(\"sv\");\n      console.log(list.sort(l10nDE.compare)); // [ \"a\", \"ä\", \"z\" ]\n      console.log(list.sort(l10nSV.compare)); // [ \"a\", \"z\", \"ä\" ]"
@@ -3294,9 +3322,10 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 334,
     "question": "How do you get the status of a checkbox",
-    "description": "You can apply the `checked` property on the selected checkbox in the DOM. If the value is `true` it means the checkbox is checked, otherwise it is unchecked. For example, the below HTML checkbox element can be access using javascript as below:\n\n      ```html\n      <input type=\"checkbox\" id=\"checkboxname\" value=\"Agree\" />\n      Agree the conditions\n      <br />\n      ```",
+    "description": "You can apply the `checked` property on the selected checkbox in the DOM. If the value is `true` it means the checkbox is checked, otherwise it is unchecked. For example, the below HTML checkbox element can be access using javascript as below:",
     "codeExamples": [
-      "console.log(document.getElementById(‘checkboxname’).checked); // true or false"
+      "console.log(document.getElementById(‘checkboxname’).checked); // true or false",
+      "      <input type=\"checkbox\" id=\"checkboxname\" value=\"Agree\" />\n      Agree the conditions\n      <br />\n      "
     ],
     "tables": []
   },
@@ -3310,7 +3339,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 336,
     "question": "How do you convert character to ASCII code",
-    "description": "You can use the `String.prototype.charCodeAt()` method to convert string characters to ASCII numbers. For example, let's find ASCII code for the first letter of 'ABC' string,\n\n      \n\n      Whereas `String.fromCharCode()` method converts numbers to equal ASCII characters.",
+    "description": "You can use the `String.prototype.charCodeAt()` method to convert string characters to ASCII numbers. For example, let's find ASCII code for the first letter of 'ABC' string,\n\n      Whereas `String.fromCharCode()` method converts numbers to equal ASCII characters.",
     "codeExamples": [
       "\"ABC\".charCodeAt(0); // returns 65",
       "String.fromCharCode(65, 66, 67); // returns 'ABC'"
@@ -3320,7 +3349,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 337,
     "question": "What is ArrayBuffer",
-    "description": "An ArrayBuffer object is used to represent a generic, fixed-length raw binary data buffer. You can create it as below,\n\n      \n\n      To manipulate an ArrayBuffer, we need to use a “view” object.",
+    "description": "An ArrayBuffer object is used to represent a generic, fixed-length raw binary data buffer. You can create it as below,\n\n      To manipulate an ArrayBuffer, we need to use a “view” object.",
     "codeExamples": [
       "let buffer = new ArrayBuffer(16); // create a buffer of length 16\n      alert(buffer.byteLength); // 16",
       "//Create a DataView referring to the buffer\n      let view = new DataView(buffer);"
@@ -3339,7 +3368,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 339,
     "question": "What is the purpose of Error object",
-    "description": "The Error constructor creates an error object and the instances of error objects are thrown when runtime errors occur. The Error object can also be used as a base object for user-defined exceptions. The syntax of error object would be as below,\n\n      \n\n      You can throw user defined exceptions or errors using Error object in try...catch block as below,",
+    "description": "The Error constructor creates an error object and the instances of error objects are thrown when runtime errors occur. The Error object can also be used as a base object for user-defined exceptions. The syntax of error object would be as below,\n\n      You can throw user defined exceptions or errors using Error object in try...catch block as below,",
     "codeExamples": [
       "new Error([message[, fileName[, lineNumber]]])",
       "try {\n        if (withdraw > balance)\n          throw new Error(\"Oops! You don't have enough balance\");\n      } catch (e) {\n        console.log(e.name + \": \" + e.message);\n      }"
@@ -3349,7 +3378,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 340,
     "question": "What is the purpose of EvalError object",
-    "description": "The EvalError object indicates an error regarding the global `eval()` function. Even though this exception is not thrown by JavaScript anymore, the EvalError object remains for compatibility. The syntax of this expression would be as below,\n\n      \n\n      You can throw EvalError with in try...catch block as below,",
+    "description": "The EvalError object indicates an error regarding the global `eval()` function. Even though this exception is not thrown by JavaScript anymore, the EvalError object remains for compatibility. The syntax of this expression would be as below,\n\n      You can throw EvalError with in try...catch block as below,",
     "codeExamples": [
       "new EvalError([message[, fileName[, lineNumber]]])",
       "try {\n        throw new EvalError('Eval function error', 'someFile.js', 100);\n      } catch (e) {\n        console.log(e.message, e.name, e.fileName);              // \"Eval function error\", \"EvalError\", \"someFile.js\""
@@ -3359,7 +3388,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 341,
     "question": "What are the list of cases error thrown from non-strict mode to strict mode",
-    "description": "When you apply 'use strict'; syntax, some of the below cases will throw a SyntaxError before executing the script\n\n      1. When you use Octal syntax\n\n      \n\n      2. Using `with` statement\n      3. When you use delete operator on a variable name\n      4. Using eval or arguments as variable or function argument name\n      5. When you use newly reserved keywords\n      6. When you declare a function in a block and access it from outside of the block\n\n      \n\n      Hence, the errors from above cases are helpful to avoid errors in development/production environments.",
+    "description": "When you apply 'use strict'; syntax, some of the below cases will throw a SyntaxError before executing the script\n\n      1. When you use Octal syntax\n\n      2. Using `with` statement\n      3. When you use delete operator on a variable name\n      4. Using eval or arguments as variable or function argument name\n      5. When you use newly reserved keywords\n      6. When you declare a function in a block and access it from outside of the block\n\n      Hence, the errors from above cases are helpful to avoid errors in development/production environments.",
     "codeExamples": [
       "var n = 022;",
       "if (someCondition) {\n        function f() {}\n      }\n      f(); // ReferenceError: f is not defined"
@@ -3394,7 +3423,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 345,
     "question": "How do you combine two or more arrays",
-    "description": "The concat() method is used to join two or more arrays by returning a new array containing all the elements. The syntax would be as below,\n\n      \n\n      Let's take an example of array's concatenation with veggies and fruits arrays,",
+    "description": "The concat() method is used to join two or more arrays by returning a new array containing all the elements. The syntax would be as below,\n\n      Let's take an example of array's concatenation with veggies and fruits arrays,",
     "codeExamples": [
       "array1.concat(array2, array3, ..., arrayX)",
       "var veggies = [\"Tomato\", \"Carrot\", \"Cabbage\"];\n      var fruits = [\"Apple\", \"Orange\", \"Pears\"];\n      var veggiesAndFruits = veggies.concat(fruits);\n      console.log(veggiesAndFruits); // Tomato, Carrot, Cabbage, Apple, Orange, Pears"
@@ -3404,7 +3433,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 346,
     "question": "What is the difference between Shallow and Deep copy",
-    "description": "There are two ways to copy an object,\n\n      Shallow Copy:\n      Shallow copy is a bitwise copy of an object. A new object is created that has an exact copy of the values in the original object. If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied.\n\n      Example\n\n      \n\n      to create a duplicate\n\n      \n\n      if we change some property value in the duplicate one like this:\n\n      \n\n      The above statement will also change the name of `empDetails`, since we have a shallow copy. That means we're losing the original data as well.\n\n      Deep copy:\n      A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields. A deep copy occurs when an object is copied along with the objects to which it refers.\n\n      Example\n\n      \n\n      Create a deep copy by using the properties from the original object into new variable\n\n      \n\n      Now if you change `empDetailsDeepCopy.name`, it will only affect `empDetailsDeepCopy` & not `empDetails`",
+    "description": "There are two ways to copy an object,\n\n      Shallow Copy:\n      Shallow copy is a bitwise copy of an object. A new object is created that has an exact copy of the values in the original object. If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied.\n\n      Example\n\n      to create a duplicate\n\n      if we change some property value in the duplicate one like this:\n\n      The above statement will also change the name of `empDetails`, since we have a shallow copy. That means we're losing the original data as well.\n\n      Deep copy:\n      A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields. A deep copy occurs when an object is copied along with the objects to which it refers.\n\n      Example\n\n      Create a deep copy by using the properties from the original object into new variable\n\n      Now if you change `empDetailsDeepCopy.name`, it will only affect `empDetailsDeepCopy` & not `empDetails`",
     "codeExamples": [
       "var empDetails = {\n        name: \"John\",\n        age: 25,\n        expertise: \"Software Developer\",\n      };",
       "var empDetailsShallowCopy = empDetails; //Shallow copying!",
@@ -3444,7 +3473,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 350,
     "question": "What is the output of below console statement with unary operator",
-    "description": "Let's take console statement with unary operator as given below,\n\n      \n\n      The output of the above console log statement returns NaN. Because the element is prefixed by the unary operator and the JavaScript interpreter will try to convert that element into a number type. Since the conversion fails, the value of the statement results in NaN value.",
+    "description": "Let's take console statement with unary operator as given below,\n\n      The output of the above console log statement returns NaN. Because the element is prefixed by the unary operator and the JavaScript interpreter will try to convert that element into a number type. Since the conversion fails, the value of the statement results in NaN value.",
     "codeExamples": [
       "console.log(+\"Hello\"); // NaN"
     ],
@@ -3469,7 +3498,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 353,
     "question": "Benefits",
-    "description": "- Avoids deep inheritance hierarchies\n      - Encourages composition over inheritance\n      - Promotes reusable and modular code\n  \n      Modern JavaScript favors mixin alternatives like composition, delegation, higher-order functions, and class mixins to promote reusable and modular code. Libraries like Lodash offer utilities for object composition, while frameworks like Vue.js provide built-in mixin features to promote reusable and modular code.",
+    "description": "- Avoids deep inheritance hierarchies\n      - Encourages composition over inheritance\n      - Promotes reusable and modular code\n\n      Modern JavaScript favors mixin alternatives like composition, delegation, higher-order functions, and class mixins to promote reusable and modular code. Libraries like Lodash offer utilities for object composition, while frameworks like Vue.js provide built-in mixin features to promote reusable and modular code.",
     "codeExamples": [],
     "tables": []
   },
@@ -3485,7 +3514,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 355,
     "question": "What are asynchronous thunks",
-    "description": "The asynchronous thunks are useful to make network requests. Let's see an example of network requests,\n\n      \n\n      The `getData` function won't be called immediately but it will be invoked only when the data is available from API endpoint. The setTimeout function is also used to make our code asynchronous. The best real time example is redux state management library which uses the asynchronous thunks to delay the actions to dispatch.",
+    "description": "The asynchronous thunks are useful to make network requests. Let's see an example of network requests,\n\n      The `getData` function won't be called immediately but it will be invoked only when the data is available from API endpoint. The setTimeout function is also used to make our code asynchronous. The best real time example is redux state management library which uses the asynchronous thunks to delay the actions to dispatch.",
     "codeExamples": [
       "function fetchData(fn) {\n        fetch(\"https://jsonplaceholder.typicode.com/todos/1\")\n          .then((response) => response.json())\n          .then((json) => fn(json));\n      }\n\n      const asyncThunk = function () {\n        return fetchData(function getData(data) {\n          console.log(data);\n        });\n      };\n\n      asyncThunk();"
     ],
@@ -3494,7 +3523,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 356,
     "question": "What is the output of below function calls",
-    "description": "Code snippet:\n\n      \n\n      \n\n      Output:\n\n      The output is 40 and NaN. Remember that diameter is a regular function, whereas the value of perimeter is an arrow function. The `this` keyword of a regular function(i.e, diameter) refers to the surrounding scope which is a class(i.e, Shape object). Whereas this keyword of perimeter function refers to the surrounding scope which is a window object. Since there is no radius property on window objects it returns an undefined value and the multiple of number value returns NaN value.",
+    "description": "Code snippet:\n\n      Output:\n\n      The output is 40 and NaN. Remember that diameter is a regular function, whereas the value of perimeter is an arrow function. The `this` keyword of a regular function(i.e, diameter) refers to the surrounding scope which is a class(i.e, Shape object). Whereas this keyword of perimeter function refers to the surrounding scope which is a window object. Since there is no radius property on window objects it returns an undefined value and the multiple of number value returns NaN value.",
     "codeExamples": [
       "const circle = {\n        radius: 20,\n        diameter() {\n          return this.radius * 2;\n        },\n        perimeter: () => 2 * Math.PI * this.radius,\n      };",
       "console.log(circle.diameter());\n      console.log(circle.perimeter());"
@@ -3504,7 +3533,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 357,
     "question": "How to remove all line breaks from a string",
-    "description": "The easiest approach is using regular expressions to detect and replace newlines in the string. In this case, we use replace function along with string to replace with, which in our case is an empty string.\n\n      \n\n      In the above expression, g and m are for global and multiline flags.",
+    "description": "The easiest approach is using regular expressions to detect and replace newlines in the string. In this case, we use replace function along with string to replace with, which in our case is an empty string.\n\n      In the above expression, g and m are for global and multiline flags.",
     "codeExamples": [
       "function remove_linebreaks( var message ) {\n          return message.replace( /[\\r\\n]+/gm, \"\" );\n      }"
     ],
@@ -3547,7 +3576,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 362,
     "question": "How do you create self string using special characters",
-    "description": "The self string can be formed with the combination of `[]()!+` characters. You need to remember the below conventions to achieve this pattern.\n\n      1. Since Arrays are truthful values, negating the arrays will produce false: ![] === false\n      2. As per JavaScript coercion rules, the addition of arrays together will toString them: [] + [] === \"\"\n      3. Prepend an array with + operator will convert an array to false, the negation will make it true and finally converting the result will produce value '1': +(!(+[])) === 1\n\n      By applying the above rules, we can derive below conditions\n\n      \n\n      Now the character pattern would be created as below,",
+    "description": "The self string can be formed with the combination of `[]()!+` characters. You need to remember the below conventions to achieve this pattern.\n\n      1. Since Arrays are truthful values, negating the arrays will produce false: ![] === false\n      2. As per JavaScript coercion rules, the addition of arrays together will toString them: [] + [] === \"\"\n      3. Prepend an array with + operator will convert an array to false, the negation will make it true and finally converting the result will produce value '1': +(!(+[])) === 1\n\n      By applying the above rules, we can derive below conditions\n\n      Now the character pattern would be created as below,",
     "codeExamples": [
       "(![] + [] === \"false\" + !+[]) === 1;",
       "s               e               l               f\n       ^^^^^^^^^^^^^   ^^^^^^^^^^^^^   ^^^^^^^^^^^^^   ^^^^^^^^^^^^^\n\n       (![] + [])[3] + (![] + [])[4] + (![] + [])[2] + (![] + [])[0]\n       ^^^^^^^^^^^^^   ^^^^^^^^^^^^^   ^^^^^^^^^^^^^   ^^^^^^^^^^^^^\n      (![] + [])[+!+[]+!+[]+!+[]] +\n      (![] + [])[+!+[]+!+[]+!+[]+!+[]] +\n      (![] + [])[+!+[]+!+[]] +\n      (![] + [])[+[]]\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n      (![]+[])[+!+[]+!+[]+!+[]]+(![]+[])[+!+[]+!+[]+!+[]+!+[]]+(![]+[])[+!+[]+!+[]]+(![]+[])[+[]]"
@@ -3638,7 +3667,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 372,
     "question": "Is it possible to add CSS to console messages",
-    "description": "Yes, you can apply CSS styles to console messages similar to html text on the web page.\n\n      \n\n      The text will be displayed as below,\n      ![Screenshot](images/console-css.png)\n\n      Note: All CSS styles can be applied to console messages.",
+    "description": "Yes, you can apply CSS styles to console messages similar to html text on the web page.\n\n      The text will be displayed as below,\n\n      Note: All CSS styles can be applied to console messages.",
     "codeExamples": [
       "console.log(\n        \"%c The text has blue color, with large font and red background\",\n        \"color: blue; font-size: x-large; background: red\"\n      );"
     ],
@@ -3647,7 +3676,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 373,
     "question": "What is the purpose of dir method of console object",
-    "description": "The `console.dir()` is used to display an interactive list of the properties of the specified JavaScript object as JSON.\n\n      \n\n      The user object displayed in JSON representation\n      ![Screenshot](images/console-dir.png)",
+    "description": "The `console.dir()` is used to display an interactive list of the properties of the specified JavaScript object as JSON.\n\n      The user object displayed in JSON representation",
     "codeExamples": [
       "const user = { name: \"John\", id: 1, city: \"Delhi\" };\n      console.dir(user);"
     ],
@@ -3656,7 +3685,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 374,
     "question": "Is it possible to debug HTML elements in console",
-    "description": "Yes, it is possible to get and debug HTML elements in the console just like inspecting elements.\n\n      \n\n      It prints the HTML element in the console,\n\n      ![Screenshot](images/console-html.png)",
+    "description": "Yes, it is possible to get and debug HTML elements in the console just like inspecting elements.\n\n      It prints the HTML element in the console,",
     "codeExamples": [
       "const element = document.getElementsByTagName(\"body\")[0];\n      console.log(element);"
     ],
@@ -3665,8 +3694,10 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 375,
     "question": "How do you display data in a tabular format using console object",
-    "description": "The `console.table()` is used to display data in the console in a tabular format to visualize complex arrays or objects.\n\n      ```js\n      const users = [\n        { name: \"John\", id: 1, city: \"Delhi\" },\n        { name: \"Max\", id: 2, city: \"London\" },\n        { name: \"Rod\", id: 3, city: \"Paris\" },\n      ];\n      console.table(users);\n      ```\n\n      The data visualized in a table format,\n\n      ![Screenshot](images/console-table.png)\n      Not: Remember that `console.table()` is not supported in IE.",
-    "codeExamples": [],
+    "description": "The `console.table()` is used to display data in the console in a tabular format to visualize complex arrays or objects.\n\n      The data visualized in a table format,\n\n      Not: Remember that `console.table()` is not supported in IE.",
+    "codeExamples": [
+      "      const users = [\n        { name: \"John\", id: 1, city: \"Delhi\" },\n        { name: \"Max\", id: 2, city: \"London\" },\n        { name: \"Rod\", id: 3, city: \"Paris\" },\n      ];\n      console.table(users);\n      "
+    ],
     "tables": []
   },
   {
@@ -3699,7 +3730,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 379,
     "question": "How do you flattening multi dimensional arrays",
-    "description": "Flattening bi-dimensional arrays is trivial with Spread operator.\n\n      \n\n      But you can make it work with multi-dimensional arrays by recursive calls,\n\n      \n\n      Also you can use the `flat` method of Array.",
+    "description": "Flattening bi-dimensional arrays is trivial with Spread operator.\n\n      But you can make it work with multi-dimensional arrays by recursive calls,\n\n      Also you can use the `flat` method of Array.",
     "codeExamples": [
       "const biDimensionalArr = [11, [22, 33], [44, 55], [66, 77], 88, 99];\n      const flattenArr = [].concat(...biDimensionalArr); // [11, 22, 33, 44, 55, 66, 77, 88, 99]",
       "function flattenMultiArray(arr) {\n        const flattened = [].concat(...arr);\n        return flattened.some((item) => Array.isArray(item))\n          ? flattenMultiArray(flattened)\n          : flattened;\n      }\n      const multiDimensionalArr = [\n        11,\n        [22, 33],\n        [44, [55, 66, [77, [88]], 99]],\n      ];\n      const flatArr = flattenMultiArray(multiDimensionalArr); // [11, 22, 33, 44, 55, 66, 77, 88, 99]",
@@ -3719,7 +3750,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 381,
     "question": "How do you capture browser back button",
-    "description": "The `beforeunload` event is triggered when the window, the document and its resources are about to be unloaded. This event is helpful to warn users about losing the current data and detect back button event.\n\n      \n\n      You can also use `popstate` event to detect the browser back button.\n      Note: The history entry has been activated using `history.pushState` method.\n\n      \n\n\n    In the preceeding code, When the box element clicked, its background color appears in blue color and changed to while color upon clicking the browser back button using `popstate` event handler. The `state` property of `popstate` contains the copy of history entry's state object.",
+    "description": "The `beforeunload` event is triggered when the window, the document and its resources are about to be unloaded. This event is helpful to warn users about losing the current data and detect back button event.\n\n      You can also use `popstate` event to detect the browser back button.\n      Note: The history entry has been activated using `history.pushState` method.\n\n    In the preceeding code, When the box element clicked, its background color appears in blue color and changed to while color upon clicking the browser back button using `popstate` event handler. The `state` property of `popstate` contains the copy of history entry's state object.",
     "codeExamples": [
       "window.addEventListener(\"beforeunload\", () => {\n        console.log(\"Clicked browser back button\");\n      });",
       "window.addEventListener(\"popstate\", () => {\n        console.log(\"Clicked browser back button\");\n        box.style.backgroundColor = \"white\";\n      });\n\n      const box = document.getElementById(\"div\");\n\n      box.addEventListener(\"click\", () => {\n        box.style.backgroundColor = \"blue\";\n        window.history.pushState({}, null, null);\n      });"
@@ -3729,14 +3760,16 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 382,
     "question": "How do you disable right click in the web page",
-    "description": "The right click on the page can be disabled by returning false from the `oncontextmenu` attribute on the body element.\n\n     ```html\n     <body oncontextmenu=\"return false;\"></body>\n     ```",
-    "codeExamples": [],
+    "description": "The right click on the page can be disabled by returning false from the `oncontextmenu` attribute on the body element.",
+    "codeExamples": [
+      "     <body oncontextmenu=\"return false;\"></body>\n     "
+    ],
     "tables": []
   },
   {
     "id": 383,
     "question": "What are wrapper objects",
-    "description": "Primitive Values like string,number and boolean don't have properties and methods but they are temporarily converted or coerced to an object(Wrapper object) when you try to perform actions on them. For example, if you apply toUpperCase() method on a primitive string value, it does not throw an error but returns uppercase of the string.\n\n     \n\n     i.e, Every primitive except null and undefined have Wrapper Objects and the list of wrapper objects are String,Number,Boolean,Symbol and BigInt.",
+    "description": "Primitive Values like string,number and boolean don't have properties and methods but they are temporarily converted or coerced to an object(Wrapper object) when you try to perform actions on them. For example, if you apply toUpperCase() method on a primitive string value, it does not throw an error but returns uppercase of the string.\n\n     i.e, Every primitive except null and undefined have Wrapper Objects and the list of wrapper objects are String,Number,Boolean,Symbol and BigInt.",
     "codeExamples": [
       "let name = \"john\";\n\n     console.log(name.toUpperCase()); // Behind the scenes treated as console.log(new String(name).toUpperCase());"
     ],
@@ -3768,7 +3801,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 387,
     "question": "What is web speech API",
-    "description": "Web speech API is used to enable modern browsers recognize and synthesize speech(i.e, voice data into web apps). This API was introduced by W3C Community in the year 2012. It has two main parts:\n\n     1. SpeechRecognition (Asynchronous Speech Recognition or Speech-to-Text): It provides the ability to recognize voice context from an audio input and respond accordingly. This is accessed by the `SpeechRecognition` interface.\n        The example below shows how to use this API to get text from speech,\n\n     \n\n     In this API, browser is going to ask you for permission to use your microphone\n\n     2. SpeechSynthesis (Text-to-Speech): It provides the ability to recognize voice context from an audio input and respond. This is accessed by the `SpeechSynthesis` interface.\n        For example, the below code is used to get voice/speech from text,\n\n     \n\n     The above examples can be tested on chrome(33+) browser's developer console.\n     Note: This API is still a working draft and only available in Chrome and Firefox browsers(ofcourse Chrome only implemented the specification)",
+    "description": "Web speech API is used to enable modern browsers recognize and synthesize speech(i.e, voice data into web apps). This API was introduced by W3C Community in the year 2012. It has two main parts:\n\n     1. SpeechRecognition (Asynchronous Speech Recognition or Speech-to-Text): It provides the ability to recognize voice context from an audio input and respond accordingly. This is accessed by the `SpeechRecognition` interface.\n        The example below shows how to use this API to get text from speech,\n\n     In this API, browser is going to ask you for permission to use your microphone\n\n     2. SpeechSynthesis (Text-to-Speech): It provides the ability to recognize voice context from an audio input and respond. This is accessed by the `SpeechSynthesis` interface.\n        For example, the below code is used to get voice/speech from text,\n\n     The above examples can be tested on chrome(33+) browser's developer console.\n     Note: This API is still a working draft and only available in Chrome and Firefox browsers(ofcourse Chrome only implemented the specification)",
     "codeExamples": [
       "window.SpeechRecognition =\n       window.webkitSpeechRecognition || window.SpeechRecognition; // webkitSpeechRecognition for Chrome and SpeechRecognition for FF\n     const recognition = new window.SpeechRecognition();\n     recognition.onresult = (event) => {\n       // SpeechRecognitionEvent type\n       const speechToText = event.results[0][0].transcript;\n       console.log(speechToText);\n     };\n     recognition.start();",
       "if (\"speechSynthesis\" in window) {\n       var speech = new SpeechSynthesisUtterance(\"Hello World!\");\n       speech.lang = \"en-US\";\n       window.speechSynthesis.speak(speech);\n     }"
@@ -3778,10 +3811,12 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 388,
     "question": "What is minimum timeout throttling",
-    "description": "Both browser and NodeJS javascript environments throttles with a minimum delay that is greater than 0ms. That means even though setting a delay of 0ms will not happen instantaneously.\n     Browsers: They have a minimum delay of 4ms. This throttle occurs when successive calls are triggered due to callback nesting(certain depth) or after a certain number of successive intervals.\n     Note: The older browsers have a minimum delay of 10ms.\n     Nodejs: They have a minimum delay of 1ms. This throttle happens when the delay is larger than 2147483647 or less than 1.\n     The best example to explain this timeout throttling behavior is the order of below code snippet.\n\n     \n\n     and the output would be in\n\n     ```cmd\n     Script loaded\n     My script is initialized\n     ```\n\n     If you don't use `setTimeout`, the order of logs will be sequential.\n\n     \n\n     and the output is,\n\n     ```cmd\n     My script is initialized\n     Script loaded\n     ```",
+    "description": "Both browser and NodeJS javascript environments throttles with a minimum delay that is greater than 0ms. That means even though setting a delay of 0ms will not happen instantaneously.\n     Browsers: They have a minimum delay of 4ms. This throttle occurs when successive calls are triggered due to callback nesting(certain depth) or after a certain number of successive intervals.\n     Note: The older browsers have a minimum delay of 10ms.\n     Nodejs: They have a minimum delay of 1ms. This throttle happens when the delay is larger than 2147483647 or less than 1.\n     The best example to explain this timeout throttling behavior is the order of below code snippet.\n\n     and the output would be in\n\n     If you don't use `setTimeout`, the order of logs will be sequential.\n\n     and the output is,",
     "codeExamples": [
       "function runMeFirst() {\n       console.log(\"My script is initialized\");\n     }\n     setTimeout(runMeFirst, 0);\n     console.log(\"Script loaded\");",
-      "function runMeFirst() {\n       console.log(\"My script is initialized\");\n     }\n     runMeFirst();\n     console.log(\"Script loaded\");"
+      "function runMeFirst() {\n       console.log(\"My script is initialized\");\n     }\n     runMeFirst();\n     console.log(\"Script loaded\");",
+      "     Script loaded\n     My script is initialized\n     ",
+      "     My script is initialized\n     Script loaded\n     "
     ],
     "tables": []
   },
@@ -3802,7 +3837,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 391,
     "question": "What is microtask",
-    "description": "A microtask is a type of JavaScript callback that is scheduled to run immediately after the currently executing script and before the next event loop tick. Microtasks are executed after the current task completes and before any new tasks (macrotasks) are run. This ensures a fast and predictable update cycle.\n\n     Common sources of microtasks stored in the microtask queue include:\n\n     1. Promises:\n        When a Promise is resolved or rejected, its `.then()`, `.catch()`, and `.finally()` callbacks are placed in the microtask queue.\n\n        \n\n      2. queueMicrotask():\n     \n         A method that explicitly schedules a function to be run in the microtask queue.\n\n         \n\n      3. MutationObserver callbacks:\n\n         Observers changes in the DOM and triggers a callback as a microtask.\n\n         \n\n      4. await:  \n         Await internally uses Promises, so the code after `await` is scheduled as a microtask.\n\n         \n     Note: All of these microtasks are processed in the same turn of the event loop.",
+    "description": "A microtask is a type of JavaScript callback that is scheduled to run immediately after the currently executing script and before the next event loop tick. Microtasks are executed after the current task completes and before any new tasks (macrotasks) are run. This ensures a fast and predictable update cycle.\n\n     Common sources of microtasks stored in the microtask queue include:\n\n     1. Promises:\n        When a Promise is resolved or rejected, its `.then()`, `.catch()`, and `.finally()` callbacks are placed in the microtask queue.\n\n      2. queueMicrotask():\n\n         A method that explicitly schedules a function to be run in the microtask queue.\n\n      3. MutationObserver callbacks:\n\n         Observers changes in the DOM and triggers a callback as a microtask.\n\n      4. await:  \n         Await internally uses Promises, so the code after `await` is scheduled as a microtask.\n\n     Note: All of these microtasks are processed in the same turn of the event loop.",
     "codeExamples": [
       "Promise.resolve().then(() => {\n         console.log('Microtask from a Promise');\n        });",
       "queueMicrotask(() => {\n             console.log('Microtask from  queueMicrotask');\n           });",
@@ -3821,7 +3856,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 393,
     "question": "What is the purpose of queueMicrotask",
-    "description": "The `queueMicrotask` function is used to schedule a microtask, which is a function that will be executed asynchronously in the microtask queue. The purpose of `queueMicrotask` is to ensure that a function is executed after the current task has finished, but before the browser performs any rendering or handles user events.\n\n     Example:\n\n     \n\n     By using queueMicrotask, you can ensure that certain tasks or callbacks are executed at the earliest opportunity during the JavaScript event loop, making it useful for performing work that needs to be done asynchronously but with higher priority than regular `setTimeout` or `setInterval` callbacks.",
+    "description": "The `queueMicrotask` function is used to schedule a microtask, which is a function that will be executed asynchronously in the microtask queue. The purpose of `queueMicrotask` is to ensure that a function is executed after the current task has finished, but before the browser performs any rendering or handles user events.\n\n     Example:\n\n     By using queueMicrotask, you can ensure that certain tasks or callbacks are executed at the earliest opportunity during the JavaScript event loop, making it useful for performing work that needs to be done asynchronously but with higher priority than regular `setTimeout` or `setInterval` callbacks.",
     "codeExamples": [
       "console.log(\"Start\"); //1\n\n     queueMicrotask(() => {\n       console.log(\"Inside microtask\"); // 3\n     });\n\n     console.log(\"End\"); //2"
     ],
@@ -3830,7 +3865,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 394,
     "question": "How do you use javascript libraries in typescript file",
-    "description": "It is known that not all JavaScript libraries or frameworks have TypeScript declaration files. But if you still want to use libraries or frameworks in your TypeScript files without getting compilation errors, the only solution is `declare` keyword along with a variable declaration. For example, let's imagine you have a library called `customLibrary` that doesn’t have a TypeScript declaration and have a namespace called `customLibrary` in the global namespace. You can use this library in typescript code as below,\n\n     \n\n     In the runtime, typescript will provide the type to the `customLibrary` variable as `any` type. The another alternative without using declare keyword is below",
+    "description": "It is known that not all JavaScript libraries or frameworks have TypeScript declaration files. But if you still want to use libraries or frameworks in your TypeScript files without getting compilation errors, the only solution is `declare` keyword along with a variable declaration. For example, let's imagine you have a library called `customLibrary` that doesn’t have a TypeScript declaration and have a namespace called `customLibrary` in the global namespace. You can use this library in typescript code as below,\n\n     In the runtime, typescript will provide the type to the `customLibrary` variable as `any` type. The another alternative without using declare keyword is below",
     "codeExamples": [
       "declare var customLibrary;",
       "var customLibrary: any;"
@@ -3876,14 +3911,14 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 396,
     "question": "What is heap",
-    "description": "Heap(Or memory heap) is the memory location where objects are stored when we define variables. i.e, This is the place where all the memory allocations and de-allocation take place. Both heap and call-stack are two containers of JS runtime.\n     Whenever runtime comes across variables and function declarations in the code it stores them in the Heap.\n\n     ![Screenshot](images/heap.png)",
+    "description": "Heap(Or memory heap) is the memory location where objects are stored when we define variables. i.e, This is the place where all the memory allocations and de-allocation take place. Both heap and call-stack are two containers of JS runtime.\n     Whenever runtime comes across variables and function declarations in the code it stores them in the Heap.",
     "codeExamples": [],
     "tables": []
   },
   {
     "id": 397,
     "question": "What is an event table",
-    "description": "Event Table is a data structure that stores and keeps track of all the events which will be executed asynchronously like after some time interval or after the resolution of some API requests. i.e Whenever you call a setTimeout function or invoke async operation, it is added to the Event Table.\n     It doesn't not execute functions on it’s own. The main purpose of the event table is to keep track of events and send them to the Event Queue as shown in the below diagram.\n\n     ![Screenshot](images/event-table.png)",
+    "description": "Event Table is a data structure that stores and keeps track of all the events which will be executed asynchronously like after some time interval or after the resolution of some API requests. i.e Whenever you call a setTimeout function or invoke async operation, it is added to the Event Table.\n     It doesn't not execute functions on it’s own. The main purpose of the event table is to keep track of events and send them to the Event Queue as shown in the below diagram.",
     "codeExamples": [],
     "tables": []
   },
@@ -3904,7 +3939,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 400,
     "question": "How do you detect primitive or non primitive value type",
-    "description": "In JavaScript, primitive types include boolean, string, number, BigInt, null, Symbol and undefined. Whereas non-primitive types include the Objects. But you can easily identify them with the below function,\n\n     \n\n     If the value is a primitive data type, the Object constructor creates a new wrapper object for the value. But If the value is a non-primitive data type (an object), the Object constructor will give the same object.",
+    "description": "In JavaScript, primitive types include boolean, string, number, BigInt, null, Symbol and undefined. Whereas non-primitive types include the Objects. But you can easily identify them with the below function,\n\n     If the value is a primitive data type, the Object constructor creates a new wrapper object for the value. But If the value is a non-primitive data type (an object), the Object constructor will give the same object.",
     "codeExamples": [
       "var myPrimitive = 30;\n     var myNonPrimitive = {};\n     function isPrimitive(val) {\n       return Object(val) !== val;\n     }\n\n     isPrimitive(myPrimitive);\n     isPrimitive(myNonPrimitive);"
     ],
@@ -3941,7 +3976,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 405,
     "question": "What is the difference between Function constructor and function declaration",
-    "description": "The functions which are created with `Function constructor` do not create closures to their creation contexts but they are always created in the global scope. i.e, the function can access its own local variables and global scope variables only. Whereas function declarations can access outer function variables(closures) too.\n\n     Let's see this difference with an example,\n\n     Function Constructor:\n\n     \n\n     Function declaration:",
+    "description": "The functions which are created with `Function constructor` do not create closures to their creation contexts but they are always created in the global scope. i.e, the function can access its own local variables and global scope variables only. Whereas function declarations can access outer function variables(closures) too.\n\n     Let's see this difference with an example,\n\n     Function Constructor:\n\n     Function declaration:",
     "codeExamples": [
       "var a = 100;\n     function createFunction() {\n       var a = 200;\n       return new Function(\"return a;\");\n     }\n     console.log(createFunction()()); // 100",
       "var a = 100;\n     function createFunction() {\n       var a = 200;\n       return function func() {\n         return a;\n       };\n     }\n     console.log(createFunction()()); // 200"
@@ -3951,7 +3986,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 406,
     "question": "What is a Short circuit condition",
-    "description": "Short circuit conditions are meant for condensed way of writing simple if statements. Let's demonstrate the scenario using an example. If you would like to login to a portal with an authentication condition, the expression would be as below,\n\n     \n\n     Since the javascript logical operators evaluated from left to right, the above expression can be simplified using && logical operator",
+    "description": "Short circuit conditions are meant for condensed way of writing simple if statements. Let's demonstrate the scenario using an example. If you would like to login to a portal with an authentication condition, the expression would be as below,\n\n     Since the javascript logical operators evaluated from left to right, the above expression can be simplified using && logical operator",
     "codeExamples": [
       "if (authenticate) {\n       loginToPorta();\n     }",
       "authenticate && loginToPorta();"
@@ -3961,7 +3996,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 407,
     "question": "What is the easiest way to resize an array",
-    "description": "The length property of an array is useful to resize or empty an array quickly. Let's apply length property on number array to resize the number of elements from 5 to 2,\n\n     \n\n     and the array can be emptied too",
+    "description": "The length property of an array is useful to resize or empty an array quickly. Let's apply length property on number array to resize the number of elements from 5 to 2,\n\n     and the array can be emptied too",
     "codeExamples": [
       "var array = [1, 2, 3, 4, 5];\n     console.log(array.length); // 5\n\n     array.length = 2;\n     console.log(array.length); // 2\n     console.log(array); // [1,2]",
       "var array = [1, 2, 3, 4, 5];\n     array.length = 0;\n     console.log(array.length); // 0\n     console.log(array); // []"
@@ -3971,7 +4006,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 408,
     "question": "What is an observable",
-    "description": "An Observable is basically a function that can return a stream of values either synchronously or asynchronously to an observer over time. The consumer can get the value by calling `subscribe()` method.\n     Let's look at a simple example of an Observable\n\n     \n\n     ![Screenshot](images/observables.png)\n\n     Note: Observables are not part of the JavaScript language yet but they are being proposed to be added to the language",
+    "description": "An Observable is basically a function that can return a stream of values either synchronously or asynchronously to an observer over time. The consumer can get the value by calling `subscribe()` method.\n     Let's look at a simple example of an Observable\n\n     Note: Observables are not part of the JavaScript language yet but they are being proposed to be added to the language",
     "codeExamples": [
       "import { Observable } from \"rxjs\";\n\n     const observable = new Observable((observer) => {\n       setTimeout(() => {\n         observer.next(\"Message from a Observable!\");\n       }, 3000);\n     });\n\n     observable.subscribe((value) => console.log(value));"
     ],
@@ -3980,7 +4015,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 409,
     "question": "What is the difference between function and class declarations",
-    "description": "The main difference between function declarations and class declarations is `hoisting`. The function declarations are hoisted but not class declarations.\n\n     Classes:\n\n     \n\n     Constructor Function:",
+    "description": "The main difference between function declarations and class declarations is `hoisting`. The function declarations are hoisted but not class declarations.\n\n     Classes:\n\n     Constructor Function:",
     "codeExamples": [
       "const user = new User(); // ReferenceError\n\n     class User {}",
       "const user = new User(); // No error\n\n     function User() {}"
@@ -3990,7 +4025,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 410,
     "question": "What is an async function",
-    "description": "An async function is a function declared with the `async` keyword which enables asynchronous, promise-based behavior to be written in a cleaner style by avoiding promise chains. These functions can contain zero or more `await` expressions.\n\n     Let's take a below async function example,\n\n     \n\n     It is basically syntax sugar over ES2015 promises and generators.",
+    "description": "An async function is a function declared with the `async` keyword which enables asynchronous, promise-based behavior to be written in a cleaner style by avoiding promise chains. These functions can contain zero or more `await` expressions.\n\n     Let's take a below async function example,\n\n     It is basically syntax sugar over ES2015 promises and generators.",
     "codeExamples": [
       "async function logger() {\n       let data = await fetch(\"http://someapi.com/users\"); // pause until fetch returns\n       console.log(data);\n     }\n     logger();"
     ],
@@ -3999,7 +4034,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 411,
     "question": "How do you prevent promises swallowing errors",
-    "description": "While using asynchronous code, JavaScript’s ES6 promises can make your life a lot easier without having callback pyramids and error handling on every second line. But Promises have some pitfalls and the biggest one is swallowing errors by default.\n\n     Let's say you expect to print an error to the console for all the below cases,\n\n     \n\n     But there are many modern JavaScript environments that won't print any errors. You can fix this problem in different ways,\n\n     1. Add catch block at the end of each chain: You can add catch block to the end of each of your promise chains\n\n        \n\n        But it is quite difficult to type for each promise chain and verbose too.\n\n     2. Add done method: You can replace first solution's then and catch blocks with done method\n\n        \n\n        Let's say you want to fetch data using HTTP and later perform processing on the resulting data asynchronously. You can write `done` block as below,\n\n        \n\n        In future, if the processing library API changed to synchronous then you can remove `done` block as below,\n\n        \n\n        and then you forgot to add `done` block to `then` block leads to silent errors.\n\n     3. Extend ES6 Promises by Bluebird:\n        Bluebird extends the ES6 Promises API to avoid the issue in the second solution. This library has a “default” onRejection handler which will print all errors from rejected Promises to stderr. After installation, you can process unhandled rejections\n\n        \n\n        and discard a rejection, just handle it with an empty catch",
+    "description": "While using asynchronous code, JavaScript’s ES6 promises can make your life a lot easier without having callback pyramids and error handling on every second line. But Promises have some pitfalls and the biggest one is swallowing errors by default.\n\n     Let's say you expect to print an error to the console for all the below cases,\n\n     But there are many modern JavaScript environments that won't print any errors. You can fix this problem in different ways,\n\n     1. Add catch block at the end of each chain: You can add catch block to the end of each of your promise chains\n\n        But it is quite difficult to type for each promise chain and verbose too.\n\n     2. Add done method: You can replace first solution's then and catch blocks with done method\n\n        Let's say you want to fetch data using HTTP and later perform processing on the resulting data asynchronously. You can write `done` block as below,\n\n        In future, if the processing library API changed to synchronous then you can remove `done` block as below,\n\n        and then you forgot to add `done` block to `then` block leads to silent errors.\n\n     3. Extend ES6 Promises by Bluebird:\n        Bluebird extends the ES6 Promises API to avoid the issue in the second solution. This library has a “default” onRejection handler which will print all errors from rejected Promises to stderr. After installation, you can process unhandled rejections\n\n        and discard a rejection, just handle it with an empty catch",
     "codeExamples": [
       "Promise.resolve(\"promised value\").then(function () {\n       throw new Error(\"error\");\n     });\n\n     Promise.reject(\"error value\").catch(function () {\n       throw new Error(\"error\");\n     });\n\n     new Promise(function (resolve, reject) {\n       throw new Error(\"error\");\n     });",
       "Promise.resolve(\"promised value\")\n          .then(function () {\n            throw new Error(\"error\");\n          })\n          .catch(function (error) {\n            console.error(error.stack);\n          });",
@@ -4021,7 +4056,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 413,
     "question": "How do you make an object iterable in javascript",
-    "description": "By default, plain objects are not iterable. But you can make the object iterable by defining a `Symbol.iterator` property on it.\n\n     Let's demonstrate this with an example,\n\n     \n\n     The above process can be simplified using a generator function,",
+    "description": "By default, plain objects are not iterable. But you can make the object iterable by defining a `Symbol.iterator` property on it.\n\n     Let's demonstrate this with an example,\n\n     The above process can be simplified using a generator function,",
     "codeExamples": [
       "const collection = {\n       one: 1,\n       two: 2,\n       three: 3,\n       [Symbol.iterator]() {\n         const values = Object.keys(this);\n         let i = 0;\n         return {\n           next: () => {\n             return {\n               value: this[values[i++]],\n               done: i > values.length,\n             };\n           },\n         };\n       },\n     };\n\n     const iterator = collection[Symbol.iterator]();\n\n     console.log(iterator.next()); // → {value: 1, done: false}\n     console.log(iterator.next()); // → {value: 2, done: false}\n     console.log(iterator.next()); // → {value: 3, done: false}\n     console.log(iterator.next()); // → {value: undefined, done: true}",
       "const collection = {\n       one: 1,\n       two: 2,\n       three: 3,\n       [Symbol.iterator]: function* () {\n         for (let key in this) {\n           yield this[key];\n         }\n       },\n     };\n     const iterator = collection[Symbol.iterator]();\n     console.log(iterator.next()); // {value: 1, done: false}\n     console.log(iterator.next()); // {value: 2, done: false}\n     console.log(iterator.next()); // {value: 3, done: false}\n     console.log(iterator.next()); // {value: undefined, done: true}"
@@ -4031,7 +4066,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 414,
     "question": "What is a Proper Tail Call",
-    "description": "First, we should know about tail call before talking about \"Proper Tail Call\". A tail call is a subroutine or function call performed as the final action of a calling function. Whereas Proper tail call(PTC) is a technique where the program or code will not create additional stack frames for a recursion when the function call is a tail call.\n\n     For example, the below classic or head recursion of factorial function relies on stack for each step. Each step need to be processed upto `n * factorial(n - 1)`\n\n     \n\n     But if you use Tail recursion functions, they keep passing all the necessary data it needs down the recursion without relying on the stack.\n\n     \n\n     The above pattern returns the same output as the first one. But the accumulator keeps track of total as an argument without using stack memory on recursive calls.",
+    "description": "First, we should know about tail call before talking about \"Proper Tail Call\". A tail call is a subroutine or function call performed as the final action of a calling function. Whereas Proper tail call(PTC) is a technique where the program or code will not create additional stack frames for a recursion when the function call is a tail call.\n\n     For example, the below classic or head recursion of factorial function relies on stack for each step. Each step need to be processed upto `n * factorial(n - 1)`\n\n     But if you use Tail recursion functions, they keep passing all the necessary data it needs down the recursion without relying on the stack.\n\n     The above pattern returns the same output as the first one. But the accumulator keeps track of total as an argument without using stack memory on recursive calls.",
     "codeExamples": [
       "function factorial(n) {\n       if (n === 0) {\n         return 1;\n       }\n       return n * factorial(n - 1);\n     }\n     console.log(factorial(5)); //120",
       "function factorial(n, acc = 1) {\n       if (n === 0) {\n         return acc;\n       }\n       return factorial(n - 1, n * acc);\n     }\n     console.log(factorial(5)); //120"
@@ -4041,7 +4076,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 415,
     "question": "How do you check an object is a promise or not",
-    "description": "If you don't know if a value is a promise or not, wrapping the value as `Promise.resolve(value)` which returns a promise\n\n     \n\n     Another way is to check for `.then()` handler type",
+    "description": "If you don't know if a value is a promise or not, wrapping the value as `Promise.resolve(value)` which returns a promise\n\n     Another way is to check for `.then()` handler type",
     "codeExamples": [
       "function isPromise(object) {\n       if (Promise && Promise.resolve) {\n         return Promise.resolve(object) == object;\n       } else {\n         throw \"Promise not supported in your environment\";\n       }\n     }\n\n     var i = 1;\n     var promise = new Promise(function (resolve, reject) {\n       resolve();\n     });\n\n     console.log(isPromise(i)); // false\n     console.log(isPromise(promise)); // true",
       "function isPromise(value) {\n       return Boolean(value && typeof value.then === \"function\");\n     }\n     var i = 1;\n     var promise = new Promise(function (resolve, reject) {\n       resolve();\n     });\n\n     console.log(isPromise(i)); // false\n     console.log(isPromise(promise)); // true"
@@ -4074,7 +4109,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 419,
     "question": "What are the different kinds of generators",
-    "description": "There are five kinds of generators,\n\n     1. Generator function declaration:\n\n        \n\n     2. Generator function expressions:\n\n        \n\n     3. Generator method definitions in object literals:\n\n        \n\n     4. Generator method definitions in class:\n\n        \n\n     5. Generator as a computed property:",
+    "description": "There are five kinds of generators,\n\n     1. Generator function declaration:\n\n     2. Generator function expressions:\n\n     3. Generator method definitions in object literals:\n\n     4. Generator method definitions in class:\n\n     5. Generator as a computed property:",
     "codeExamples": [
       "function* myGenFunc() {\n          yield 1;\n          yield 2;\n          yield 3;\n        }\n        const genObj = myGenFunc();",
       "const myGenFunc = function* () {\n          yield 1;\n          yield 2;\n          yield 3;\n        };\n        const genObj = myGenFunc();",
@@ -4094,7 +4129,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 421,
     "question": "What are the differences between for...of and for...in statements",
-    "description": "Both for...in and for...of statements iterate over js data structures. The only difference is over what they iterate:\n\n     1. for..in iterates over all enumerable property keys of an object\n     2. for..of iterates over the values of an iterable object.\n\n     Let's explain this difference with an example,\n\n     \n\n     Since for..in loop iterates over the keys of the object, the first loop logs 0, 1, 2 and newProp while iterating over the array object. The for..of loop iterates over the values of a arr data structure and logs a, b, c in the console.",
+    "description": "Both for...in and for...of statements iterate over js data structures. The only difference is over what they iterate:\n\n     1. for..in iterates over all enumerable property keys of an object\n     2. for..of iterates over the values of an iterable object.\n\n     Let's explain this difference with an example,\n\n     Since for..in loop iterates over the keys of the object, the first loop logs 0, 1, 2 and newProp while iterating over the array object. The for..of loop iterates over the values of a arr data structure and logs a, b, c in the console.",
     "codeExamples": [
       "let arr = [\"a\", \"b\", \"c\"];\n\n     arr.newProp = \"newVlue\";\n\n     // key are the property keys\n     for (let key in arr) {\n       console.log(key); // 0, 1, 2 & newProp\n     }\n\n     // value are the property values\n     for (let value of arr) {\n       console.log(value); // a, b, c\n     }"
     ],
@@ -4103,7 +4138,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 422,
     "question": "How do you define instance and non-instance properties",
-    "description": "The Instance properties must be defined inside of class methods. For example, name and age properties defined inside constructor as below,\n\n     \n\n     But Static(class) and prototype data properties must be defined outside of the ClassBody declaration. Let's assign the age value for Person class as below,",
+    "description": "The Instance properties must be defined inside of class methods. For example, name and age properties defined inside constructor as below,\n\n     But Static(class) and prototype data properties must be defined outside of the ClassBody declaration. Let's assign the age value for Person class as below,",
     "codeExamples": [
       "class Person {\n       constructor(name, age) {\n         this.name = name;\n         this.age = age;\n       }\n     }",
       "Person.staticAge = 30;\n     Person.prototype.prototypeAge = 40;"
@@ -4122,57 +4157,78 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 424,
     "question": "How to invoke an IIFE without any extra brackets?",
-    "description": "Immediately Invoked Function Expressions(IIFE) requires a pair of parenthesis to wrap the function which contains set of statements.\n\n     ```js\n     (function (dt) {\n       console.log(dt.toLocaleTimeString());\n     })(new Date());\n     ```\n\n     Since both IIFE and void operator discard the result of an expression, you can avoid the extra brackets using `void operator` for IIFE as below,\n\n     ```js\n     void (function (dt) {\n       console.log(dt.toLocaleTimeString());\n     })(new Date());\n     ```",
-    "codeExamples": [],
+    "description": "Immediately Invoked Function Expressions(IIFE) requires a pair of parenthesis to wrap the function which contains set of statements.\n\n     Since both IIFE and void operator discard the result of an expression, you can avoid the extra brackets using `void operator` for IIFE as below,",
+    "codeExamples": [
+      "     (function (dt) {\n       console.log(dt.toLocaleTimeString());\n     })(new Date());\n     ",
+      "     void (function (dt) {\n       console.log(dt.toLocaleTimeString());\n     })(new Date());\n     "
+    ],
     "tables": []
   },
   {
     "id": 425,
     "question": "Is that possible to use expressions in switch cases?",
-    "description": "You might have seen expressions used in switch condition but it is also possible to use for switch cases by assigning true value for the switch condition. Let's see the weather condition based on temperature as an example,\n\n     ```js\n     const weather = (function getWeather(temp) {\n       switch (true) {\n         case temp < 0:\n           return \"freezing\";\n         case temp < 10:\n           return \"cold\";\n         case temp < 24:\n           return \"cool\";\n         default:\n           return \"unknown\";\n       }\n     })(10);\n     ```",
-    "codeExamples": [],
+    "description": "You might have seen expressions used in switch condition but it is also possible to use for switch cases by assigning true value for the switch condition. Let's see the weather condition based on temperature as an example,",
+    "codeExamples": [
+      "     const weather = (function getWeather(temp) {\n       switch (true) {\n         case temp < 0:\n           return \"freezing\";\n         case temp < 10:\n           return \"cold\";\n         case temp < 24:\n           return \"cool\";\n         default:\n           return \"unknown\";\n       }\n     })(10);\n     "
+    ],
     "tables": []
   },
   {
     "id": 426,
     "question": "What is the easiest way to ignore promise errors?",
-    "description": "The easiest and safest way to ignore promise errors is void that error. This approach is ESLint friendly too.\n\n     ```js\n     await promise.catch((e) => void e);\n     ```",
-    "codeExamples": [],
+    "description": "The easiest and safest way to ignore promise errors is void that error. This approach is ESLint friendly too.",
+    "codeExamples": [
+      "     await promise.catch((e) => void e);\n     "
+    ],
     "tables": []
   },
   {
     "id": 427,
     "question": "How do style the console output using CSS?",
-    "description": "You can add CSS styling to the console output using the CSS format content specifier %c. The console string message can be appended after the specifier and CSS style in another argument. Let's print the red color text using console.log and CSS specifier as below,\n\n     ```js\n     console.log(\"%cThis is a red text\", \"color:red\");\n     ```\n\n     It is also possible to add more styles for the content. For example, the font-size can be modified for the above text\n\n     ```js\n     console.log(\n       \"%cThis is a red text with bigger font\",\n       \"color:red; font-size:20px\"\n     );\n     ```",
-    "codeExamples": [],
+    "description": "You can add CSS styling to the console output using the CSS format content specifier %c. The console string message can be appended after the specifier and CSS style in another argument. Let's print the red color text using console.log and CSS specifier as below,\n\n     It is also possible to add more styles for the content. For example, the font-size can be modified for the above text",
+    "codeExamples": [
+      "     console.log(\"%cThis is a red text\", \"color:red\");\n     ",
+      "     console.log(\n       \"%cThis is a red text with bigger font\",\n       \"color:red; font-size:20px\"\n     );\n     "
+    ],
     "tables": []
   },
   {
     "id": 428,
     "question": "What is nullish coalescing operator (??)?",
-    "description": "It is a logical operator that returns its right-hand side operand when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand. This can be contrasted with the logical OR (||) operator, which returns the right-hand side operand if the left operand is any falsy value, not only null or undefined.\n\n     ```js\n     console.log(null ?? true); // true\n     console.log(false ?? true); // false\n     console.log(undefined ?? true); // true\n     ```",
-    "codeExamples": [],
+    "description": "It is a logical operator that returns its right-hand side operand when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand. This can be contrasted with the logical OR (||) operator, which returns the right-hand side operand if the left operand is any falsy value, not only null or undefined.",
+    "codeExamples": [
+      "     console.log(null ?? true); // true\n     console.log(false ?? true); // false\n     console.log(undefined ?? true); // true\n     "
+    ],
     "tables": []
   },
   {
     "id": 429,
     "question": "How do you group and nest console output?",
-    "description": "The `console.group()` can be used to group related log messages to be able to easily read the logs and use console.groupEnd()to close the group. Along with this, you can also nest groups which allows to output message in hierarchical manner.\n\n     For example, if you’re logging a user’s details:\n\n     ```js\n     console.group(\"User Details\");\n     console.log(\"name: Sudheer Jonna\");\n     console.log(\"job: Software Developer\");\n\n     // Nested Group\n     console.group(\"Address\");\n     console.log(\"Street: Commonwealth\");\n     console.log(\"City: Los Angeles\");\n     console.log(\"State: California\");\n\n     // Close nested group\n     console.groupEnd();\n\n     // Close outer group\n     console.groupEnd();\n     ```\n\n     You can also use `console.groupCollapsed()` instead of `console.group()` if you want the groups to be collapsed by default.",
-    "codeExamples": [],
+    "description": "The `console.group()` can be used to group related log messages to be able to easily read the logs and use console.groupEnd()to close the group. Along with this, you can also nest groups which allows to output message in hierarchical manner.\n\n     For example, if you’re logging a user’s details:\n\n     You can also use `console.groupCollapsed()` instead of `console.group()` if you want the groups to be collapsed by default.",
+    "codeExamples": [
+      "     console.group(\"User Details\");\n     console.log(\"name: Sudheer Jonna\");\n     console.log(\"job: Software Developer\");\n\n     // Nested Group\n     console.group(\"Address\");\n     console.log(\"Street: Commonwealth\");\n     console.log(\"City: Los Angeles\");\n     console.log(\"State: California\");\n\n     // Close nested group\n     console.groupEnd();\n\n     // Close outer group\n     console.groupEnd();\n     "
+    ],
     "tables": []
   },
   {
     "id": 430,
     "question": "What is the difference between dense and sparse arrays?",
-    "description": "An array contains items at each index starting from first(0) to last(array.length - 1) is called as Dense array. Whereas if at least one item is missing at any index, the array is called as sparse.\n\n     Let's see the below two kind of arrays,\n\n     ```js\n     const avengers = [\"Ironman\", \"Hulk\", \"CaptainAmerica\"];\n     console.log(avengers[0]); // 'Ironman'\n     console.log(avengers[1]); // 'Hulk'\n     console.log(avengers[2]); // 'CaptainAmerica'\n     console.log(avengers.length); // 3\n\n     const justiceLeague = [\"Superman\", \"Aquaman\", , \"Batman\"];\n     console.log(justiceLeague[0]); // 'Superman'\n     console.log(justiceLeague[1]); // 'Aquaman'\n     console.log(justiceLeague[2]); // undefined\n     console.log(justiceLeague[3]); // 'Batman'\n     console.log(justiceLeague.length); // 4\n     ```",
-    "codeExamples": [],
+    "description": "An array contains items at each index starting from first(0) to last(array.length - 1) is called as Dense array. Whereas if at least one item is missing at any index, the array is called as sparse.\n\n     Let's see the below two kind of arrays,",
+    "codeExamples": [
+      "     const avengers = [\"Ironman\", \"Hulk\", \"CaptainAmerica\"];\n     console.log(avengers[0]); // 'Ironman'\n     console.log(avengers[1]); // 'Hulk'\n     console.log(avengers[2]); // 'CaptainAmerica'\n     console.log(avengers.length); // 3\n\n     const justiceLeague = [\"Superman\", \"Aquaman\", , \"Batman\"];\n     console.log(justiceLeague[0]); // 'Superman'\n     console.log(justiceLeague[1]); // 'Aquaman'\n     console.log(justiceLeague[2]); // undefined\n     console.log(justiceLeague[3]); // 'Batman'\n     console.log(justiceLeague.length); // 4\n     "
+    ],
     "tables": []
   },
   {
     "id": 431,
     "question": "What are the different ways to create sparse arrays?",
-    "description": "There are 4 different ways to create sparse arrays in JavaScript\n\n     1. Array literal: Omit a value when using the array literal\n        ```js\n        const justiceLeague = [\"Superman\", \"Aquaman\", , \"Batman\"];\n        console.log(justiceLeague); // ['Superman', 'Aquaman', empty ,'Batman']\n        ```\n     2. Array() constructor: Invoking Array(length) or new Array(length)\n        ```js\n        const array = Array(3);\n        console.log(array); // [empty, empty ,empty]\n        ```\n     3. Delete operator: Using delete array[index] operator on the array\n        ```js\n        const justiceLeague = [\"Superman\", \"Aquaman\", \"Batman\"];\n        delete justiceLeague[1];\n        console.log(justiceLeague); // ['Superman', empty, ,'Batman']\n        ```\n     4. Increase length property: Increasing length property of an array\n        ```js\n        const justiceLeague = [\"Superman\", \"Aquaman\", \"Batman\"];\n        justiceLeague.length = 5;\n        console.log(justiceLeague); // ['Superman', 'Aquaman', 'Batman', empty, empty]\n        ```",
-    "codeExamples": [],
+    "description": "There are 4 different ways to create sparse arrays in JavaScript\n\n     1. Array literal: Omit a value when using the array literal\n\n     2. Array() constructor: Invoking Array(length) or new Array(length)\n\n     3. Delete operator: Using delete array[index] operator on the array\n\n     4. Increase length property: Increasing length property of an array",
+    "codeExamples": [
+      "        const justiceLeague = [\"Superman\", \"Aquaman\", , \"Batman\"];\n        console.log(justiceLeague); // ['Superman', 'Aquaman', empty ,'Batman']\n        ",
+      "        const array = Array(3);\n        console.log(array); // [empty, empty ,empty]\n        ",
+      "        const justiceLeague = [\"Superman\", \"Aquaman\", \"Batman\"];\n        delete justiceLeague[1];\n        console.log(justiceLeague); // ['Superman', empty, ,'Batman']\n        ",
+      "        const justiceLeague = [\"Superman\", \"Aquaman\", \"Batman\"];\n        justiceLeague.length = 5;\n        console.log(justiceLeague); // ['Superman', 'Aquaman', 'Batman', empty, empty]\n        "
+    ],
     "tables": []
   },
   {
@@ -4185,7 +4241,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 433,
     "question": "How do you reverse an array without modifying original array?",
-    "description": "The `reverse()` method reverses the order of the elements in an array but it mutates the original array. Let's take a simple example to demonistrate this case,\n\n     \n\n     There are few solutions that won't mutate the original array. Let's take a look.\n\n     1. Using slice and reverse methods:\n        In this case, just invoke the `slice()` method on the array to create a shallow copy followed by `reverse()` method call on the copy.\n\n        \n\n     2. Using spread and reverse methods:\n        In this case, let's use the spread syntax (...) to create a copy of the array followed by `reverse()` method call on the copy.\n\n        \n\n     3. Using reduce and spread methods:\n        Here execute a reducer function on an array elements and append the accumulated array on right side using spread syntax\n\n        \n\n     4. Using reduceRight and spread methods:\n        Here execute a right reducer function(i.e. opposite direction of reduce method) on an array elements and append the accumulated array on left side using spread syntax\n\n        \n\n     5. Using reduceRight and push methods:\n        Here execute a right reducer function(i.e. opposite direction of reduce method) on an array elements and push the iterated value to the accumulator",
+    "description": "The `reverse()` method reverses the order of the elements in an array but it mutates the original array. Let's take a simple example to demonistrate this case,\n\n     There are few solutions that won't mutate the original array. Let's take a look.\n\n     1. Using slice and reverse methods:\n        In this case, just invoke the `slice()` method on the array to create a shallow copy followed by `reverse()` method call on the copy.\n\n     2. Using spread and reverse methods:\n        In this case, let's use the spread syntax (...) to create a copy of the array followed by `reverse()` method call on the copy.\n\n     3. Using reduce and spread methods:\n        Here execute a reducer function on an array elements and append the accumulated array on right side using spread syntax\n\n     4. Using reduceRight and spread methods:\n        Here execute a right reducer function(i.e. opposite direction of reduce method) on an array elements and append the accumulated array on left side using spread syntax\n\n     5. Using reduceRight and push methods:\n        Here execute a right reducer function(i.e. opposite direction of reduce method) on an array elements and push the iterated value to the accumulator",
     "codeExamples": [
       "const originalArray = [1, 2, 3, 4, 5];\n     const newArray = originalArray.reverse();\n\n     console.log(newArray); // [ 5, 4, 3, 2, 1]\n     console.log(originalArray); // [ 5, 4, 3, 2, 1]",
       "const originalArray = [1, 2, 3, 4, 5];\n        const newArray = originalArray.slice().reverse(); //Slice an array gives a new copy\n\n        console.log(originalArray); // [1, 2, 3, 4, 5]\n        console.log(newArray); // [ 5, 4, 3, 2, 1]",
@@ -4199,7 +4255,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 434,
     "question": "How do you create custom HTML element?",
-    "description": "The creation of custom HTML elements involves two main steps,\n\n     1. Define your custom HTML element: First you need to define some custom class by extending HTMLElement class.\n        After that define your component properties (styles,text etc) using `connectedCallback` method.\n        Note: The browser exposes a function called `customElements.define` inorder to reuse the element.\n        \n     2. Use custom element just like other HTML element: Declare your custom element as a HTML tag.",
+    "description": "The creation of custom HTML elements involves two main steps,\n\n     1. Define your custom HTML element: First you need to define some custom class by extending HTMLElement class.\n        After that define your component properties (styles,text etc) using `connectedCallback` method.\n        Note: The browser exposes a function called `customElements.define` inorder to reuse the element.\n\n     2. Use custom element just like other HTML element: Declare your custom element as a HTML tag.",
     "codeExamples": [
       "class CustomElement extends HTMLElement {\n          connectedCallback() {\n            this.innerHTML = \"This is a custom element\";\n          }\n        }\n        customElements.define(\"custom-element\", CustomElement);",
       "<body>\n             <custom-element>\n        </body>"
@@ -4225,22 +4281,29 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 437,
     "question": "What is debouncing?",
-    "description": "Debouncing is a programming technique used to limit how often a function is executed. Specifically, it ensures that a function is only triggered after a certain amount of time has passed since it was last invoked. This prevents unnecessary or excessive function calls, which can help optimize performance and reduce unnecessary CPU usage or API requests.\n\n    For example, when a user types in a search box, you typically want to wait until they’ve finished typing before fetching suggestions. Without debouncing, an API call would be triggered on every keystroke, potentially causing performance issues. With debouncing, the function call is postponed until the user stops typing for a specified period (e.g., 300ms). If the user types again before this time elapses, the timer resets.\n\n    Typical use cases for debouncing include:\n\n    *   Search box suggestions (wait until typing pauses before fetching results)\n    *   Auto-saving text fields (save only after the user stops typing)\n    *   Preventing double-clicks on buttons\n    *   Handling window resize or scroll events efficiently\n\n    Example Debounce Function:\n\n    JavaScript\n\n    ```css\n    function debounce(func, timeout = 500) {\n      let timer;\n      return function (...args) {\n        clearTimeout(timer);\n        timer = setTimeout(() => {\n          func.apply(this, args);\n        }, timeout);\n      };\n    }\n    ```\n\n    Usage Example:\n\n    JavaScript\n\n    ```css\n    function fetchResults() {\n      console.log(\"Fetching input suggestions\");\n    }\n    const processChange = debounce(fetchResults, 300);\n\n    // Attach to input element\n    <input type=\"text\" onkeyup=\"processChange()\" />\n\n    // Attach to button\n    <button onclick=\"processChange()\">Click me</button>\n\n    // Attach to window event\n    window.addEventListener(\"scroll\", processChange);\n    ```\n\n    How it works:  \n    When `processChange` is invoked (e.g., by typing or clicking), any pending execution is canceled, and the function is scheduled to run after the specified delay. If another event occurs before the delay is up, the timer resets, and the function will only run after events have stopped for the delay duration.\n\n    Debouncing is an essential tool for improving user experience and application performance, especially when dealing with events that can fire rapidly and repeatedly.",
-    "codeExamples": [],
+    "description": "Debouncing is a programming technique used to limit how often a function is executed. Specifically, it ensures that a function is only triggered after a certain amount of time has passed since it was last invoked. This prevents unnecessary or excessive function calls, which can help optimize performance and reduce unnecessary CPU usage or API requests.\n\n    For example, when a user types in a search box, you typically want to wait until they’ve finished typing before fetching suggestions. Without debouncing, an API call would be triggered on every keystroke, potentially causing performance issues. With debouncing, the function call is postponed until the user stops typing for a specified period (e.g., 300ms). If the user types again before this time elapses, the timer resets.\n\n    Typical use cases for debouncing include:\n\n    *   Search box suggestions (wait until typing pauses before fetching results)\n    *   Auto-saving text fields (save only after the user stops typing)\n    *   Preventing double-clicks on buttons\n    *   Handling window resize or scroll events efficiently\n\n    Example Debounce Function:\n\n    JavaScript\n\n    Usage Example:\n\n    JavaScript\n\n    How it works:  \n    When `processChange` is invoked (e.g., by typing or clicking), any pending execution is canceled, and the function is scheduled to run after the specified delay. If another event occurs before the delay is up, the timer resets, and the function will only run after events have stopped for the delay duration.\n\n    Debouncing is an essential tool for improving user experience and application performance, especially when dealing with events that can fire rapidly and repeatedly.",
+    "codeExamples": [
+      "    function debounce(func, timeout = 500) {\n      let timer;\n      return function (...args) {\n        clearTimeout(timer);\n        timer = setTimeout(() => {\n          func.apply(this, args);\n        }, timeout);\n      };\n    }\n    ",
+      "    function fetchResults() {\n      console.log(\"Fetching input suggestions\");\n    }\n    const processChange = debounce(fetchResults, 300);\n\n    // Attach to input element\n    <input type=\"text\" onkeyup=\"processChange()\" />\n\n    // Attach to button\n    <button onclick=\"processChange()\">Click me</button>\n\n    // Attach to window event\n    window.addEventListener(\"scroll\", processChange);\n    "
+    ],
     "tables": []
   },
   {
     "id": 438,
     "question": "What is throttling?",
-    "description": "Throttling is a programming technique used to control the rate at which a function is executed. When an event is triggered continuously—such as during window resizing, scrolling, or mouse movement—throttling ensures that the associated event handler is not called more often than a specified interval. This helps improve performance by reducing the number of expensive function calls and preventing performance bottlenecks.\n\n      Common use cases:\n\n      *   Window resize events\n      *   Scroll events\n      *   Mouse movement or drag events\n      *   API rate limiting\n\n      How does throttling work?  \n      Throttling will execute the function at most once every specified time interval, ignoring additional calls until the interval has passed.\n\n      Example: Throttle Implementation and Usage\n\n      JavaScript\n\n      ```css\n      // Simple throttle function: allows 'func' to run at most once every 'limit' ms\n      function throttle(func, limit) {\n        let inThrottle = false;\n        return function(...args) {\n          if (!inThrottle) {\n            func.apply(this, args);\n            inThrottle = true;\n            setTimeout(() => (inThrottle = false), limit);\n          }\n        };\n      }\n\n      // Usage: throttling a scroll event handler\n      function handleScrollAnimation() {\n        console.log('Scroll event triggered');\n      }\n\n      window.addEventListener(\n        \"scroll\",\n        throttle(handleScrollAnimation, 100) // Will run at most once every 100ms\n      );\n      ```",
-    "codeExamples": [],
+    "description": "Throttling is a programming technique used to control the rate at which a function is executed. When an event is triggered continuously—such as during window resizing, scrolling, or mouse movement—throttling ensures that the associated event handler is not called more often than a specified interval. This helps improve performance by reducing the number of expensive function calls and preventing performance bottlenecks.\n\n      Common use cases:\n\n      *   Window resize events\n      *   Scroll events\n      *   Mouse movement or drag events\n      *   API rate limiting\n\n      How does throttling work?  \n      Throttling will execute the function at most once every specified time interval, ignoring additional calls until the interval has passed.\n\n      Example: Throttle Implementation and Usage\n\n      JavaScript",
+    "codeExamples": [
+      "      // Simple throttle function: allows 'func' to run at most once every 'limit' ms\n      function throttle(func, limit) {\n        let inThrottle = false;\n        return function(...args) {\n          if (!inThrottle) {\n            func.apply(this, args);\n            inThrottle = true;\n            setTimeout(() => (inThrottle = false), limit);\n          }\n        };\n      }\n\n      // Usage: throttling a scroll event handler\n      function handleScrollAnimation() {\n        console.log('Scroll event triggered');\n      }\n\n      window.addEventListener(\n        \"scroll\",\n        throttle(handleScrollAnimation, 100) // Will run at most once every 100ms\n      );\n      "
+    ],
     "tables": []
   },
   {
     "id": 439,
     "question": "What is optional chaining?",
-    "description": "According to MDN official docs, the optional chaining operator (?.) permits reading the value of a property located deep within a chain of connected objects without having to expressly validate that each reference in the chain is valid.\n\n     The ?. operator is like the . chaining operator, except that instead of causing an error if a reference is nullish (null or undefined), the expression short-circuits with a return value of undefined. When used with function calls, it returns undefined if the given function does not exist.\n\n     ```js\n     const adventurer = {\n       name: \"Alice\",\n       cat: {\n         name: \"Dinah\",\n       },\n     };\n\n     const dogName = adventurer.dog?.name;\n     console.log(dogName);\n     // expected output: undefined\n\n     console.log(adventurer.someNonExistentMethod?.());\n     // expected output: undefined\n     ```",
-    "codeExamples": [],
+    "description": "According to MDN official docs, the optional chaining operator (?.) permits reading the value of a property located deep within a chain of connected objects without having to expressly validate that each reference in the chain is valid.\n\n     The ?. operator is like the . chaining operator, except that instead of causing an error if a reference is nullish (null or undefined), the expression short-circuits with a return value of undefined. When used with function calls, it returns undefined if the given function does not exist.",
+    "codeExamples": [
+      "     const adventurer = {\n       name: \"Alice\",\n       cat: {\n         name: \"Dinah\",\n       },\n     };\n\n     const dogName = adventurer.dog?.name;\n     console.log(dogName);\n     // expected output: undefined\n\n     console.log(adventurer.someNonExistentMethod?.());\n     // expected output: undefined\n     "
+    ],
     "tables": []
   },
   {
@@ -4253,7 +4316,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 441,
     "question": "How to verify if a variable is an array?",
-    "description": "It is possible to check if a variable is an array instance using 3 different ways,\n\n     1. Array.isArray() method:\n\n        The `Array.isArray(value)` utility function is used to determine whether value is an array or not. This function returns a true boolean value if the variable is an array and a false value if it is not.\n\n        \n\n     2. instanceof operator:\n\n        The instanceof operator is used to check the type of an array at run time. It returns true if the type of a variable is an Array other false for other type.\n\n        \n\n     3. Checking constructor type:\n\n        The constructor property of the variable is used to determine whether the variable Array type or not.",
+    "description": "It is possible to check if a variable is an array instance using 3 different ways,\n\n     1. Array.isArray() method:\n\n        The `Array.isArray(value)` utility function is used to determine whether value is an array or not. This function returns a true boolean value if the variable is an array and a false value if it is not.\n\n     2. instanceof operator:\n\n        The instanceof operator is used to check the type of an array at run time. It returns true if the type of a variable is an Array other false for other type.\n\n     3. Checking constructor type:\n\n        The constructor property of the variable is used to determine whether the variable Array type or not.",
     "codeExamples": [
       "const numbers = [1, 2, 3];\n        const user = { name: \"John\" };\n        Array.isArray(numbers); // true\n        Array.isArray(user); //false",
       "const numbers = [1, 2, 3];\n        const user = { name: \"John\" };\n        console.log(numbers instanceof Array); // true\n        console.log(user instanceof Array); // false",
@@ -4264,7 +4327,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 442,
     "question": "What is pass by value and pass by reference?",
-    "description": "Pass-by-value creates a new space in memory and makes a copy of a value. Primitives such as string, number, boolean etc will actually create a new copy. Hence, updating one value doesn't impact the other value. i.e, The values are independent of each other.\n\n     \n\n     In the above code snippet, the value of `a` is assigned to `b` and the variable `b` has been incremented. Since there is a new space created for variable `b`, any update on this variable doesn't impact the variable `a`.\n\n     Pass by reference doesn't create a new space in memory but the new variable adopts a memory address of an initial variable. Non-primitives such as objects, arrays and functions gets the reference of the initiable variable. i.e, updating one value will impact the other variable.\n\n     \n\n     In the above code snippet, updating the `age` property of one object will impact the other property due to the same reference.",
+    "description": "Pass-by-value creates a new space in memory and makes a copy of a value. Primitives such as string, number, boolean etc will actually create a new copy. Hence, updating one value doesn't impact the other value. i.e, The values are independent of each other.\n\n     In the above code snippet, the value of `a` is assigned to `b` and the variable `b` has been incremented. Since there is a new space created for variable `b`, any update on this variable doesn't impact the variable `a`.\n\n     Pass by reference doesn't create a new space in memory but the new variable adopts a memory address of an initial variable. Non-primitives such as objects, arrays and functions gets the reference of the initiable variable. i.e, updating one value will impact the other variable.\n\n     In the above code snippet, updating the `age` property of one object will impact the other property due to the same reference.",
     "codeExamples": [
       "let a = 5;\n     let b = a;\n\n     b++;\n     console.log(a, b); //5, 6",
       "let user1 = {\n       name: \"John\",\n       age: 27,\n     };\n     let user2 = user1;\n     user2.age = 30;\n\n     console.log(user1.age, user2.age); // 30, 30"
@@ -4310,8 +4373,10 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 444,
     "question": "How do you create your own bind method using either call or apply method?",
-    "description": "The custom bind function needs to be created on Function prototype inorder to use it as other builtin functions. This custom function should return a function similar to original bind method and the implementation of inner function needs to use apply method call.\n\n     The function which is going to bind using custom `myOwnBind` method act as the attached function(`boundTargetFunction`) and argument as the object for `apply` method call.\n\n     ```js\n     Function.prototype.myOwnBind = function (whoIsCallingMe) {\n       if (typeof this !== \"function\") {\n         throw new Error(this + \"cannot be bound as it's not callable\");\n       }\n       const boundTargetFunction = this;\n       return function () {\n         boundTargetFunction.apply(whoIsCallingMe, arguments);\n       };\n     };\n     ```",
-    "codeExamples": [],
+    "description": "The custom bind function needs to be created on Function prototype inorder to use it as other builtin functions. This custom function should return a function similar to original bind method and the implementation of inner function needs to use apply method call.\n\n     The function which is going to bind using custom `myOwnBind` method act as the attached function(`boundTargetFunction`) and argument as the object for `apply` method call.",
+    "codeExamples": [
+      "     Function.prototype.myOwnBind = function (whoIsCallingMe) {\n       if (typeof this !== \"function\") {\n         throw new Error(this + \"cannot be bound as it's not callable\");\n       }\n       const boundTargetFunction = this;\n       return function () {\n         boundTargetFunction.apply(whoIsCallingMe, arguments);\n       };\n     };\n     "
+    ],
     "tables": []
   },
   {
@@ -4368,7 +4433,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 449,
     "question": "What is module pattern?",
-    "description": "Module pattern is a designed pattern used to wrap a set of variables and functions together in a single scope returned as an object. JavaScript doesn't have access specifiers similar to other languages(Java, Python, etc) to provide private scope. It uses IIFE (Immediately invoked function expression) to allow for private scopes. i.e., a closure that protect variables and methods.\n\n     The module pattern looks like below,\n\n     \n\n     Let's see an example of a module pattern for an employee with private and public access,\n\n     \n\n     Note: It mimic the concepts of classes with private variables and methods.",
+    "description": "Module pattern is a designed pattern used to wrap a set of variables and functions together in a single scope returned as an object. JavaScript doesn't have access specifiers similar to other languages(Java, Python, etc) to provide private scope. It uses IIFE (Immediately invoked function expression) to allow for private scopes. i.e., a closure that protect variables and methods.\n\n     The module pattern looks like below,\n\n     Let's see an example of a module pattern for an employee with private and public access,\n\n     Note: It mimic the concepts of classes with private variables and methods.",
     "codeExamples": [
       "(function () {\n       // Private variables or functions goes here.\n\n       return {\n         // Return public variables or functions here.\n       };\n     })();",
       "const createEmployee = (function () {\n       // Private\n       const name = \"John\";\n       const department = \"Sales\";\n       const getEmployeeName = () => name;\n       const getDepartmentName = () => department;\n\n       // Public\n       return {\n         name,\n         department,\n         getName: () => getEmployeeName(),\n         getDepartment: () => getDepartmentName(),\n       };\n     })();\n\n     console.log(createEmployee.name);\n     console.log(createEmployee.department);\n     console.log(createEmployee.getName());\n     console.log(createEmployee.getDepartment());"
@@ -4387,7 +4452,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 451,
     "question": "How to use await outside of async function prior to ES2022?",
-    "description": "Prior to ES2022, if you attempted to use an await outside of an async function resulted in a SyntaxError.\n\n     \n\n     But you can fix this issue with an alternative IIFE (Immediately Invoked Function Expression) to get access to the feature.\n\n     \n\n     In ES2022, you can write top-level await without writing any hacks.",
+    "description": "Prior to ES2022, if you attempted to use an await outside of an async function resulted in a SyntaxError.\n\n     But you can fix this issue with an alternative IIFE (Immediately Invoked Function Expression) to get access to the feature.\n\n     In ES2022, you can write top-level await without writing any hacks.",
     "codeExamples": [
       "await Promise.resolve(console.log(\"Hello await\")); // SyntaxError: await is only valid in async function",
       "(async function () {\n       await Promise.resolve(console.log(\"Hello await\")); // Hello await\n     })();",
@@ -4398,7 +4463,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 452,
     "question": "What is the purpose of the this keyword in JavaScript?",
-    "description": "The `this` keyword in JavaScript refers to the object that is executing the current function. Its value is determined by how a function is called, not where it is defined.  `this` is essential for writing object-oriented and event-driven code, as it allows methods to interact with the data of the object they belong to.\n\n\n  Example 1: this in a Global Context\n\n  \n\n  - In a global context, this refers to the global object (e.g., window in a browser).\n\n  Example 2: this in a Function\n\n  \n\n  - In a regular function, this refers to the global object(window in browser and global in nodejs) for non-strict mode.  In strict mode, it's value is undefined.\n\n  Example 3: this in a Method\n\n  \n\n  - In a method, this refers to the object that owns the method (person in the case).\n\n  Example 4: this in an Event Handler\n\n  \n\n  - In an event handler, this refers to the element that triggered the event (the button in this case).\n\n  Example 5: `this` with Arrow Functions\n\n  \n  - Arrow functions do not have their own `this` binding; they inherit it from their surrounding (lexical) context.\n\n  Example 6: this in Constructor Functions / Classes\n    \n  \n   - When used with new, this refers to the newly created object.",
+    "description": "The `this` keyword in JavaScript refers to the object that is executing the current function. Its value is determined by how a function is called, not where it is defined.  `this` is essential for writing object-oriented and event-driven code, as it allows methods to interact with the data of the object they belong to.\n\n  Example 1: this in a Global Context\n\n  - In a global context, this refers to the global object (e.g., window in a browser).\n\n  Example 2: this in a Function\n\n  - In a regular function, this refers to the global object(window in browser and global in nodejs) for non-strict mode.  In strict mode, it's value is undefined.\n\n  Example 3: this in a Method\n\n  - In a method, this refers to the object that owns the method (person in the case).\n\n  Example 4: this in an Event Handler\n\n  - In an event handler, this refers to the element that triggered the event (the button in this case).\n\n  Example 5: `this` with Arrow Functions\n\n  - Arrow functions do not have their own `this` binding; they inherit it from their surrounding (lexical) context.\n\n  Example 6: this in Constructor Functions / Classes\n\n   - When used with new, this refers to the newly created object.",
     "codeExamples": [
       "console.log(this);",
       "function displayThis() {\n    console.log(this);\n  }\n\n  displayThis();",
@@ -4454,14 +4519,21 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 459,
     "question": "How do you create polyfills for map, filter and reduce methods?",
-    "description": "The polyfills for array methods such as map, filter and reduce methods can be created using array prototype.\n\n1.  map:\n\n    The built-in `Array.map` method syntax will be helpful to write polyfill. The map method takes the callback function as an argument and that callback function can have below three arguments passed into it.\n\n    i. Current value\n    ii. Index of current value(optional)\n    iii. array(optional)\n\n    The syntax would like below,\n\n    ```js\n    let newArray = arr.map(callback(currentValue[, index, arr) {\n       // return new array after executing the code\n    })\n    ```\n\n    Let's build our map polyfill based on the above syntax,\n\n    ```js\n    Array.prototype.myMap = function (cb) {\n      let newArr = [];\n      for (let i = 0; i < this.length; i++) {\n        newArr.push(cb(this[i], i, this));\n      }\n      return newArr;\n    };\n\n    const nums = [1, 2, 3, 4, 5];\n    const multiplyByTwo = nums.myMap((x) => x * 2);\n    console.log(multiplyByTwo); // [2, 4, 6, 8, 10]\n    ```\n\n    In the above code, custom method name 'myMap' has been used to avoid conflicts with built-in method.\n\n2.  filter:\n    Similar to map method, `Array.filter` method takes callback function as an argument and the callback function can have three agurguments passed into it.\n\n        i. Current value\n        ii. Index of current value(optional)\n        iii. array(optional)\n\n    The syntax looks like below,\n\n    ```js\n    let newArray = arr.filter(callback(currentValue[, index, arr) {\n      // return new array whose elements satisfy the callback conditions\n    })\n    ```\n\n    Let's build our filter polyfill based on the above syntax,\n\n    ```js\n    Array.prototype.myFilter = function (cb) {\n      let newArr = [];\n      for (let i = 0; i < this.length; i++) {\n        if (cb(this[i], i, this)) {\n          newArr.push(this[i]);\n        }\n      }\n      return newArr;\n    };\n\n    const nums = [1, 2, 3, 4, 5, 6];\n    const evenNums = nums.myFilter((x) => x % 2);\n    console.log(evenNums); // [2, 4, 6]\n    ```\n\n3.  reduce:\n\n          The built-in `Array.reduce` method syntax will be helpful to write our own polyfill. The reduce method takes the callback function as first argument and the initial value as second argument.\n\n          The callback function can have four arguments passed into it.\n          i. Accumulator\n          ii. Current value\n          iii. Index of current value(optional)\n          iv. array(optional)\n\n        The syntax would like below,\n\n        ```js\n        arr.reduce(callback((acc, curr, i, arr) => {}), initValue);\n        ```\n        Let's build our reduce polyfill based on the above syntax,\n\n        ```js\n        Array.prototype.myReduce = function(cb, initialValue) {\n            let accumulator = initialValue;\n            for(let i=0; i< this.length; i++) {\n                accumulator = accumulator ? cb(accumulator, this[i], i, this) : this[i];\n            }\n            return accumulator;\n        }\n          const nums = [1, 2, 3, 4, 5, 6];\n          const sum = nums.myReduce((acc, curr, i, arr) => {\n            return acc += curr\n          }, 0);\n          console.log(sum); // 21\n        ```",
-    "codeExamples": [],
+    "description": "The polyfills for array methods such as map, filter and reduce methods can be created using array prototype.\n\n1.  map:\n\n    The built-in `Array.map` method syntax will be helpful to write polyfill. The map method takes the callback function as an argument and that callback function can have below three arguments passed into it.\n\n    i. Current value\n    ii. Index of current value(optional)\n    iii. array(optional)\n\n    The syntax would like below,\n\n    Let's build our map polyfill based on the above syntax,\n\n    In the above code, custom method name 'myMap' has been used to avoid conflicts with built-in method.\n\n2.  filter:\n    Similar to map method, `Array.filter` method takes callback function as an argument and the callback function can have three agurguments passed into it.\n\n        i. Current value\n        ii. Index of current value(optional)\n        iii. array(optional)\n\n    The syntax looks like below,\n\n    Let's build our filter polyfill based on the above syntax,\n\n3.  reduce:\n\n          The built-in `Array.reduce` method syntax will be helpful to write our own polyfill. The reduce method takes the callback function as first argument and the initial value as second argument.\n\n          The callback function can have four arguments passed into it.\n          i. Accumulator\n          ii. Current value\n          iii. Index of current value(optional)\n          iv. array(optional)\n\n        The syntax would like below,\n\n        Let's build our reduce polyfill based on the above syntax,",
+    "codeExamples": [
+      "    let newArray = arr.map(callback(currentValue[, index, arr) {\n       // return new array after executing the code\n    })\n    ",
+      "    Array.prototype.myMap = function (cb) {\n      let newArr = [];\n      for (let i = 0; i < this.length; i++) {\n        newArr.push(cb(this[i], i, this));\n      }\n      return newArr;\n    };\n\n    const nums = [1, 2, 3, 4, 5];\n    const multiplyByTwo = nums.myMap((x) => x * 2);\n    console.log(multiplyByTwo); // [2, 4, 6, 8, 10]\n    ",
+      "    let newArray = arr.filter(callback(currentValue[, index, arr) {\n      // return new array whose elements satisfy the callback conditions\n    })\n    ",
+      "    Array.prototype.myFilter = function (cb) {\n      let newArr = [];\n      for (let i = 0; i < this.length; i++) {\n        if (cb(this[i], i, this)) {\n          newArr.push(this[i]);\n        }\n      }\n      return newArr;\n    };\n\n    const nums = [1, 2, 3, 4, 5, 6];\n    const evenNums = nums.myFilter((x) => x % 2);\n    console.log(evenNums); // [2, 4, 6]\n    ",
+      "        arr.reduce(callback((acc, curr, i, arr) => {}), initValue);\n        ",
+      "        Array.prototype.myReduce = function(cb, initialValue) {\n            let accumulator = initialValue;\n            for(let i=0; i< this.length; i++) {\n                accumulator = accumulator ? cb(accumulator, this[i], i, this) : this[i];\n            }\n            return accumulator;\n        }\n          const nums = [1, 2, 3, 4, 5, 6];\n          const sum = nums.myReduce((acc, curr, i, arr) => {\n            return acc += curr\n          }, 0);\n          console.log(sum); // 21\n        "
+    ],
     "tables": []
   },
   {
     "id": 460,
     "question": "What is the difference between map and forEach functions?",
-    "description": "Both map and forEach functions are used to iterate over an arrays but there are some differences in their functionality.\n\n    1. Returning values: The `map` method returns a new array with transformed elements whereas `forEach` method returns `undefined` eventhough both of them are doing the same job.\n\n    \n\n    2. Chaining methods: The `map` method is chainable. i.e, It can be attached with `reduce`, `filter`, `sort` and other methods as well. Whereas `forEach` cannot be attached with any other methods because it returns `undefined` value.\n\n    \n\n    3. Mutation: The `map` method doesn't mutate the original array by returning new array. Whereas `forEach` method also doesn't mutate the original array but it's callback is allowed to mutate the original array.\n\n    Note: Both these methods existed since ES5 onwards.",
+    "description": "Both map and forEach functions are used to iterate over an arrays but there are some differences in their functionality.\n\n    1. Returning values: The `map` method returns a new array with transformed elements whereas `forEach` method returns `undefined` eventhough both of them are doing the same job.\n\n    2. Chaining methods: The `map` method is chainable. i.e, It can be attached with `reduce`, `filter`, `sort` and other methods as well. Whereas `forEach` cannot be attached with any other methods because it returns `undefined` value.\n\n    3. Mutation: The `map` method doesn't mutate the original array by returning new array. Whereas `forEach` method also doesn't mutate the original array but it's callback is allowed to mutate the original array.\n\n    Note: Both these methods existed since ES5 onwards.",
     "codeExamples": [
       "const arr = [1, 2, 3, 4, 5];\n      arr.map(x => x * x); // [1, 4, 9, 16, 25]\n      arr.forEach(x => x * x); //\n\n      The `forEach()` method in JavaScript always returns undefined. This is because forEach() is used to iterate over arrays and perform side effects on each element, rather than returning a `new array or transforming the original array`",
       "const arr = [1, 2, 3, 4, 5];\n    arr.map((x) => x * x).reduce((total, cur) => total + cur); // 55\n    arr.forEach((x) => x * x).reduce((total, cur) => total + cur); //Uncaught TypeError: Cannot read properties of undefine(reading 'reduce')"
@@ -4478,7 +4550,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 462,
     "question": "What are the event phases of a browser?",
-    "description": "There are 3 phases in the lifecycle of an event propagation in JavaScript,\n\n     1. Capturing phase: This phase goes down gradually from the top of the DOM tree to the target element when a nested element clicked. Before the click event reaching the final destination element, the click event of each parent's element must be triggered.\n\n     2. Target phase: This is the phase where the event originally occurred reached the target element .\n\n     3. Bubbling phase: This is reverse of the capturing phase. In this pase, the event bubbles up from the target element through it's parent element, an ancestor and goes all the way to the global window object.\n\n     The pictorial representation of these 3 event phases in DOM looks like below,\n\n     ![Screenshot](images/event-flow.png)",
+    "description": "There are 3 phases in the lifecycle of an event propagation in JavaScript,\n\n     1. Capturing phase: This phase goes down gradually from the top of the DOM tree to the target element when a nested element clicked. Before the click event reaching the final destination element, the click event of each parent's element must be triggered.\n\n     2. Target phase: This is the phase where the event originally occurred reached the target element .\n\n     3. Bubbling phase: This is reverse of the capturing phase. In this pase, the event bubbles up from the target element through it's parent element, an ancestor and goes all the way to the global window object.\n\n     The pictorial representation of these 3 event phases in DOM looks like below,",
     "codeExamples": [],
     "tables": []
   },
@@ -4492,7 +4564,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 464,
     "question": "What are hidden classes?",
-    "description": "Since JavaScript is a dynamic programming language, you can add or remove properties and methods from objects on the fly at runtime. This nature of JavaScript increases the dynamic dictionary lookups(because objects implemented as HashTables in memory) for retrieving a property on an object.\n\n     Let's consider the following example to see how the additional properties `age` and `gender` added at runtime.\n\n     \n\n     As a result, this behavior leads to lower JavaScript performance compared to the contiguous buffer method used in non-dynamic languages. The V8 engine provided a solution named hidden classes to optimize the access time when retrieving a property on an object. This optimization is achieved by sharing hidden classes among objects created in a similar fashion. These hidden classes are attached to each and every object to track its shape.\n\n     When V8 engine sees the constructor function(e.g, Person) is declared, it creates a hidden class (let's say Class01) without any offsets. Once the first property assignment statement (`this.name = name`) is executed, V8 engine will create a new hidden class (let's say Class02), inheriting all properties from the previous hidden class (Class01), and assign the property to offset 0. This process enables compiler to skip dictionary lookup when you try to retrieve the same property(i.e, name). Instead, V8 will directly point to Class02. The same procedure happens when you add new properties to the object.\n\n     For example, adding `age` and `gender` properties to `Person` constructor leads to transition of hidden classes(Class02 -> Class03 -> Class04). If you create a second object(Person2) based on the same Person object, both Class01 and Class02 hidden classes are going to be shared. However, the hidden classes Class03 and Class04 cannot be shared because second object has been modified with a different order of properties assignment.\n\n     Since both the objects(person1 and person2) do not share the hidden classes, now V8 engine cannot use Inline Caching technique for the faster access of properties.",
+    "description": "Since JavaScript is a dynamic programming language, you can add or remove properties and methods from objects on the fly at runtime. This nature of JavaScript increases the dynamic dictionary lookups(because objects implemented as HashTables in memory) for retrieving a property on an object.\n\n     Let's consider the following example to see how the additional properties `age` and `gender` added at runtime.\n\n     As a result, this behavior leads to lower JavaScript performance compared to the contiguous buffer method used in non-dynamic languages. The V8 engine provided a solution named hidden classes to optimize the access time when retrieving a property on an object. This optimization is achieved by sharing hidden classes among objects created in a similar fashion. These hidden classes are attached to each and every object to track its shape.\n\n     When V8 engine sees the constructor function(e.g, Person) is declared, it creates a hidden class (let's say Class01) without any offsets. Once the first property assignment statement (`this.name = name`) is executed, V8 engine will create a new hidden class (let's say Class02), inheriting all properties from the previous hidden class (Class01), and assign the property to offset 0. This process enables compiler to skip dictionary lookup when you try to retrieve the same property(i.e, name). Instead, V8 will directly point to Class02. The same procedure happens when you add new properties to the object.\n\n     For example, adding `age` and `gender` properties to `Person` constructor leads to transition of hidden classes(Class02 -> Class03 -> Class04). If you create a second object(Person2) based on the same Person object, both Class01 and Class02 hidden classes are going to be shared. However, the hidden classes Class03 and Class04 cannot be shared because second object has been modified with a different order of properties assignment.\n\n     Since both the objects(person1 and person2) do not share the hidden classes, now V8 engine cannot use Inline Caching technique for the faster access of properties.",
     "codeExamples": [
       "function Person(name) {\n       this.name = name;\n     }\n\n     var person1 = new Person(\"John\");\n     var person2 = new Person(\"Randy\");\n\n     person1.age = 40;\n     person1.gender = \"Male\";\n\n     person2.gender = \"Female\";\n     person2.age = 50;"
     ],
@@ -4501,28 +4573,35 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 465,
     "question": "What is inline caching?",
-    "description": "Inline caching is an optimization technique based on the observation that repeated calls to same function tends to occur on same type of objects. The V8 compiler stores a cache of the type of objects that were passed as a parameter in recent method calls. Upon next time when same function is called, compiler can directly search for the type in cache.\n\nLet's consider an example where the compiler stores the shape type in cache for repeated calls in the loop.\n\n```js\nlet shape = { width: 30, height: 20 }; // Compiler store the type in cache as { width: <int>, height: <int>} after repeated calls\n\nfunction area(obj) {\n  //Calculate area\n}\nfor (let i = 0; i < 100; i++) {\n  area(shape);\n}\n```\n\nAfter few successful calls of the same area method to its same hidden class, V8 engine omits the hidden class lookup and simply adds the offset of the property to the object pointer itself. As a result, it increases the execution speed.\n\nThere are mainly 3 types of inline caching possible:\n\n1. Monomorphic: This is a optimized caching technique in which there can be always same type of objects passed.\n2. Polymorphic: This ia slightly optimized caching technique in which limited number of different types of objects can be passed.\n3. Megamorphic: It is an unoptimized caching in which any number of different objects can be passed.",
-    "codeExamples": [],
+    "description": "Inline caching is an optimization technique based on the observation that repeated calls to same function tends to occur on same type of objects. The V8 compiler stores a cache of the type of objects that were passed as a parameter in recent method calls. Upon next time when same function is called, compiler can directly search for the type in cache.\n\nLet's consider an example where the compiler stores the shape type in cache for repeated calls in the loop.\n\nAfter few successful calls of the same area method to its same hidden class, V8 engine omits the hidden class lookup and simply adds the offset of the property to the object pointer itself. As a result, it increases the execution speed.\n\nThere are mainly 3 types of inline caching possible:\n\n1. Monomorphic: This is a optimized caching technique in which there can be always same type of objects passed.\n2. Polymorphic: This ia slightly optimized caching technique in which limited number of different types of objects can be passed.\n3. Megamorphic: It is an unoptimized caching in which any number of different objects can be passed.",
+    "codeExamples": [
+      "let shape = { width: 30, height: 20 }; // Compiler store the type in cache as { width: <int>, height: <int>} after repeated calls\n\nfunction area(obj) {\n  //Calculate area\n}\nfor (let i = 0; i < 100; i++) {\n  area(shape);\n}"
+    ],
     "tables": []
   },
   {
     "id": 466,
     "question": "What are the different ways to execute external scripts?",
-    "description": "There are three different ways to execute external scripts,\n\n     1. async: The script is downloaded in parallel to parsing the page, and executed as soon as it is available even before parsing completes. The parsing of the page is going to be interuppted once the script is downloaded completely and then the script is executed. Thereafter, the parsing of the remaining page will continue.\n\n        The syntax for async usage is as shown below,\n\n        ```html\n        <script src=\"demo.js\" async></script>\n        ```\n\n     2. defer: The script is downloaded in parallel to parsing the page, and executed after the page has finished parsing.\n\n        The syntax for defer usage is as shown below,\n\n        ```html\n        <script src=\"demo.js\" defer></script>\n        ```\n\n     3. Neither async or defer: The script is downloaded and executed immediately by blocking parsing of the page until the script execution is completed.\n\n     Note: You should only use either async or defer attribute if the `src` attribute is present.",
-    "codeExamples": [],
+    "description": "There are three different ways to execute external scripts,\n\n     1. async: The script is downloaded in parallel to parsing the page, and executed as soon as it is available even before parsing completes. The parsing of the page is going to be interuppted once the script is downloaded completely and then the script is executed. Thereafter, the parsing of the remaining page will continue.\n\n        The syntax for async usage is as shown below,\n\n     2. defer: The script is downloaded in parallel to parsing the page, and executed after the page has finished parsing.\n\n        The syntax for defer usage is as shown below,\n\n     3. Neither async or defer: The script is downloaded and executed immediately by blocking parsing of the page until the script execution is completed.\n\n     Note: You should only use either async or defer attribute if the `src` attribute is present.",
+    "codeExamples": [
+      "        <script src=\"demo.js\" async></script>\n        ",
+      "        <script src=\"demo.js\" defer></script>\n        "
+    ],
     "tables": []
   },
   {
     "id": 467,
     "question": "What is Lexical Scope?",
-    "description": "Lexical scope is the ability for a function scope to access variables from the parent scope.\n\n     ```js\n     <script>\n             function x(){\n               var a=10;\n               function y(){\n                   console.log(a); // will print a , because of lexical scope, it will first look 'a' in\n               //its local memory space and then in its parent functions memory space\n               }\n               y();\n           }\n           x();\n     </script>\n     ```",
-    "codeExamples": [],
+    "description": "Lexical scope is the ability for a function scope to access variables from the parent scope.",
+    "codeExamples": [
+      "     <script>\n             function x(){\n               var a=10;\n               function y(){\n                   console.log(a); // will print a , because of lexical scope, it will first look 'a' in\n               //its local memory space and then in its parent functions memory space\n               }\n               y();\n           }\n           x();\n     </script>\n     "
+    ],
     "tables": []
   },
   {
     "id": 468,
     "question": "How to detect system dark mode in javascript?",
-    "description": "The combination of `Window.matchMedia()` utility method along with media query is used to check if the user has selected a dark color scheme in their operating system settings or not. The CSS media query `prefers-color-scheme` needs to be passed to identify system color theme.\n\n     The following javascript code describes the usage,\n\n     \n\n     You can also watch changes to system color scheme using `addEventListener`,\n\n     \n\n     Note: The matchMedia method returns MediaQueryList object stores information from a media query.",
+    "description": "The combination of `Window.matchMedia()` utility method along with media query is used to check if the user has selected a dark color scheme in their operating system settings or not. The CSS media query `prefers-color-scheme` needs to be passed to identify system color theme.\n\n     The following javascript code describes the usage,\n\n     You can also watch changes to system color scheme using `addEventListener`,\n\n     Note: The matchMedia method returns MediaQueryList object stores information from a media query.",
     "codeExamples": [
       "const hasDarkColorScheme = () =>\n       window.matchMedia &&\n       window.matchMedia(\"(prefers-color-scheme: dark)\").matches;",
       "window\n       .matchMedia(\"(prefers-color-scheme: dark)\")\n       .addEventListener(\"change\", (event) => {\n         const theme = event.matches ? \"dark\" : \"light\";\n       });"
@@ -4541,7 +4620,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 470,
     "question": "What is the difference between substring and substr methods?",
-    "description": "Both `substring` and `substr` are used to extract parts of a string, but there are subtle differences between the substring() and substr() methods in terms of syntax and behavior.\n\n     1. `substring(start, end)`\n         - Parameters:\n             - `start`: The index to start extracting (inclusive).\n             - `end`: The index to stop extracting (exclusive).\n         - Behavior:\n             - If `start > end`, it swaps the arguments.\n             - Negative values are treated as `0`.\n\n         \n     2. `substr(start, length)` _(Deprecated)_\n\n         - Parameters:\n           - `start`: The index to start extracting.\n           - `length`: The number of characters to extract.\n         - Behavior:\n           - If `start` is negative, it counts from the end of the string.\n           - If `length` is omitted, it extracts to the end of the string.\n\n         \n         Note: substr() is considered a legacy feature in ECMAScript, so it is best to avoid using it if possible.",
+    "description": "Both `substring` and `substr` are used to extract parts of a string, but there are subtle differences between the substring() and substr() methods in terms of syntax and behavior.\n\n     1. `substring(start, end)`\n         - Parameters:\n             - `start`: The index to start extracting (inclusive).\n             - `end`: The index to stop extracting (exclusive).\n         - Behavior:\n             - If `start > end`, it swaps the arguments.\n             - Negative values are treated as `0`.\n\n     2. `substr(start, length)` _(Deprecated)_\n\n         - Parameters:\n           - `start`: The index to start extracting.\n           - `length`: The number of characters to extract.\n         - Behavior:\n           - If `start` is negative, it counts from the end of the string.\n           - If `length` is omitted, it extracts to the end of the string.\n\n         Note: substr() is considered a legacy feature in ECMAScript, so it is best to avoid using it if possible.",
     "codeExamples": [
       "let str = \"Hello World\";\n          console.log(str.substring(0, 5));   // \"Hello\"\n          console.log(str.substring(5, 0));   // \"Hello\" (swapped)\n          console.log(str.substring(-3, 4));  // \"Hell\" (negative = 0)",
       "let str = \"Hello World\"; console.log(str.substr(0, 5)); // \"Hello\" \n         console.log(str.substr(-5, 3)); // \"Wor\" (starts from 'W')`"
@@ -4551,7 +4630,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 471,
     "question": "How to find the number of parameters expected by a function?",
-    "description": "The function's object has a length property which tells you how many formal parameters expected by a function. This is a static value defined by the function, not the number of arguments the function is called with(arguments.length). The basic usage of length propery is,\n\n\n\nBut there are few important rules which needs to be noted while using length property.\n\n1. Default values: Only the parameters which exists before a default value are considered.\n   \n2. Rest params: The rest parameters are excluded with in length property.\n   \n3. Destructuring patterns: Each destructuring pattern counted as a single parameter.\n\n   \n\nNote: The Function constructor is itself a function object and it has a length property of 1.",
+    "description": "The function's object has a length property which tells you how many formal parameters expected by a function. This is a static value defined by the function, not the number of arguments the function is called with(arguments.length). The basic usage of length propery is,\n\nBut there are few important rules which needs to be noted while using length property.\n\n1. Default values: Only the parameters which exists before a default value are considered.\n\n2. Rest params: The rest parameters are excluded with in length property.\n\n3. Destructuring patterns: Each destructuring pattern counted as a single parameter.\n\nNote: The Function constructor is itself a function object and it has a length property of 1.",
     "codeExamples": [
       "function multiply(x, y) {\n  return x * y;\n}\n\nfunction sum(a, b, c) {\n  return a + b + c;\n}\n\nconsole.log(multiply.length); //2\nconsole.log(sum.length); //3",
       "function sum(a, b = 2, c = 3) {\n     return a + b + c;\n   }\n   console.log(sum.length); // 1",
@@ -4579,7 +4658,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 474,
     "question": "What is module scope in JavaScript?",
-    "description": "Module scope is a feature introduced with ES6 (ES2015) modules that creates a scope specific to a module file, isolating variables and functions declared within it from the global scope and other modules. Variables and functions declared in a module are private by default and can only be accessed by other modules if they are explicitly exported.\n\nKey characteristics of module scope:\n\n1.  Variables declared in a module are scoped to that module only.\n2.  Each module has its own top-level scope\n3.  Variables and functions need to be explicitly exported to be used in other modules\n4.  The global scope cannot access module variables unless they are explicitly exported and imported\n5.  Modules are always executed in strict mode\n\n\n\nCommon use cases and benefits:\n\n- Encapsulation of module-specific code\n- Prevention of global scope pollution\n- Better code organization and maintenance\n- Explicit dependency management\n- Protection of private implementation details",
+    "description": "Module scope is a feature introduced with ES6 (ES2015) modules that creates a scope specific to a module file, isolating variables and functions declared within it from the global scope and other modules. Variables and functions declared in a module are private by default and can only be accessed by other modules if they are explicitly exported.\n\nKey characteristics of module scope:\n\n1.  Variables declared in a module are scoped to that module only.\n2.  Each module has its own top-level scope\n3.  Variables and functions need to be explicitly exported to be used in other modules\n4.  The global scope cannot access module variables unless they are explicitly exported and imported\n5.  Modules are always executed in strict mode\n\nCommon use cases and benefits:\n\n- Encapsulation of module-specific code\n- Prevention of global scope pollution\n- Better code organization and maintenance\n- Explicit dependency management\n- Protection of private implementation details",
     "codeExamples": [
       "// moduleA.js\n\n// This variable is PRIVATE to moduleA. It's like a tool inside a closed box.\nconst privateVariable = \"I am private\";\n\n// This variable is PUBLIC because it's exported. Others can use it when they import moduleA.\nexport const publicVariable = \"I am public\";\n\n// PUBLIC function because it's exported. But it can still access privateVariable inside moduleA.\nexport function publicFunction() {\n  console.log(privateVariable); // ✅ This works because we're inside the same module.\n  return \"Hello from publicFunction!\";\n}\n\n// moduleB.js\n\n// Importing PUBLIC items from moduleA.\nimport { publicVariable, publicFunction } from \"./moduleA.js\";\n\nconsole.log(publicVariable); // ✅ \"I am public\" - Works because it's exported.\nconsole.log(publicFunction()); // ✅ \"Hello from publicFunction!\" - Works as well.\n\n// ❌ This will cause an ERROR because privateVariable was NOT exported from moduleA.\n// console.log(privateVariable);   // ❌ ReferenceError: privateVariable is not defined"
     ],
@@ -4588,7 +4667,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 475,
     "question": "What are shadowing and illegal shadowing?",
-    "description": "Both shadowing and illegal shadowing refer to how variable names can \"hide\" or override others within nested scopes.\n\n     Shadowing occurs when a variable declared within a certain scope (like a function or block) has the same name as a variable declared in an outer scope. The inner variable shadows the outer one — meaning, the inner variable takes precedence in its own scope.\n\n     Let's take an example where the inner `a` inside `func()` shadows the outer variable `a`.\n\n      \n\n     Illegal shadowing in JavaScript refers to a syntax error that happens when you try to declare a block-scoped variable (`let` or `const`) with the same name as a variable declared using `var` in the same or an overlapping scope. \n\n     For example, if you declare both block-scoped variable and function scoped variable using the same name inside a function causes an illegal shadowing.\n\n      \n    \n      As an another example, if you declare a variable with `let` or `const` in an outer scope, and then try to redeclare it with `var` inside a nested block, JavaScript throws an error — even though `var` is supposed to be function-scoped. Since the var appears in a block, it ends up trying to overwrite the `let` in the outer scope, which causes a conflict.",
+    "description": "Both shadowing and illegal shadowing refer to how variable names can \"hide\" or override others within nested scopes.\n\n     Shadowing occurs when a variable declared within a certain scope (like a function or block) has the same name as a variable declared in an outer scope. The inner variable shadows the outer one — meaning, the inner variable takes precedence in its own scope.\n\n     Let's take an example where the inner `a` inside `func()` shadows the outer variable `a`.\n\n     Illegal shadowing in JavaScript refers to a syntax error that happens when you try to declare a block-scoped variable (`let` or `const`) with the same name as a variable declared using `var` in the same or an overlapping scope. \n\n     For example, if you declare both block-scoped variable and function scoped variable using the same name inside a function causes an illegal shadowing.\n\n      As an another example, if you declare a variable with `let` or `const` in an outer scope, and then try to redeclare it with `var` inside a nested block, JavaScript throws an error — even though `var` is supposed to be function-scoped. Since the var appears in a block, it ends up trying to overwrite the `let` in the outer scope, which causes a conflict.",
     "codeExamples": [
       "let a = 10;\n\n      function func() {\n        let a = 20; // Shadows the outer 'a'\n        console.log(a); // 20\n      }\n\n      func();\n      console.log(a); // 10",
       "function test() {\n        var a = 10;\n        let a = 20; // SyntaxError: Identifier 'a' has already been declared\n      }",
