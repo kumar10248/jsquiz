@@ -7,18 +7,18 @@ export const sampleReadingContent: ReadingContent[] = [
     "question": "What are the possible ways to create objects in JavaScript",
     "description": "There are many ways to create objects in javascript as mentioned below:\n\n    1. Object literal syntax:\n\n       The object literal syntax (or object initializer), is a comma-separated set of name-value pairs wrapped in curly braces.\n\n       \n\n       Object literal property values can be of any data type, including array, function, and nested object.\n\n       Note: This is one of the easiest ways to create an object and it's most commonly used for creating simple, ad-hoc objects.\n\n    2. Object constructor:\n\n       The simplest way to create an empty object is using the `Object` constructor. Currently this approach is not recommended.\n\n       \n\n       The `Object()` is a built-in constructor function so \"new\" keyword is not required for creating plain objects. The above code snippet can be re-written as:\n\n       \n       However, `Object()` can be used to either create a plain object or convert a given value into its corresponding object wrapper, whereas `new Object()` is specifically used to explicitly create a new object instance.\n       \n    3. Object's create method:\n\n       The `create` method of Object is used to create a new object by passing the specified prototype object and properties as arguments, i.e., this pattern is helpful to create new objects based on existing objects. In other words, this is useful for setting up prototypal inheritance. The second argument is optional and it is used to create properties on a newly created object.\n\n       The following code creates a new empty object whose prototype is null.\n\n       \n\n       The following example creates an object along with additional new properties.\n\n       \n\n    4. Function constructor:\n\n       In this approach, create any function and apply the new operator to create object instances. This was the main way to do constructor-based OOP before ES6 classes.\n\n       \n    5. Function constructor with prototype:\n\n       This is similar to function constructor but it uses prototype for their properties and methods. Using prototype means you're sharing methods/properties across instances, which saves memory and improve performance.\n\n       \n\n       This is equivalent to creating an instance with `Object.create` method with a function prototype and then calling that function with an instance and parameters as arguments.\n\n       \n\n       (OR)\n\n       \n\n    6. Object's assign method:\n\n       The `Object.assign` method is used to copy all the properties from one or more source objects and stores them into a target object. This is mainly used for cloning and merging\n\n       The following code creates a new staff object by copying properties of his working company and the car he owns.\n\n       \n\n    7. ES6 Class syntax:\n\n       ES6 introduces class feature to create objects. This is syntactic sugar over the prototype-based system.\n\n       \n\n    8. Singleton pattern:\n\n       A Singleton is an object which can only be instantiated one time. Repeated calls to its constructor return the same instance. This way one can ensure that they don't accidentally create multiple instances.\n\n         Singleton with Closure (Classic JS Pattern)\n        \n         In modern JavaScript applications, singletons are commonly implemented using ES6 modules for their built-in caching behavior, or closures for encapsulated state management.",
     "codeExamples": [
-      "var object = {\n         name: \"Devashish\",\n         age: 34,\n       };",
+      "var object = {\n         name: \"Sudheer\",\n         age: 34,\n       };",
       "var object = new Object();",
       "var object = Object();",
       "var object = Object.create(null);",
       "let vehicle = {\n         wheels: \"4\",\n         fuelType: \"Gasoline\",\n         color: \"Green\",\n       };\n       let carProps = {\n         type: {\n           value: \"Volkswagen\",\n         },\n         model: {\n           value: \"Golf\",\n         },\n       };\n\n       var car = Object.create(vehicle, carProps);\n       console.log(car);",
-      "function Person(name) {\n         this.name = name;\n         this.age = 21;\n       }\n       var object = new Person(\"Devashish\");",
-      "function Person() {}\n       Person.prototype.name = \"Devashish\";\n       var object = new Person();",
+      "function Person(name) {\n         this.name = name;\n         this.age = 21;\n       }\n       var object = new Person(\"Sudheer\");",
+      "function Person() {}\n       Person.prototype.name = \"Sudheer\";\n       var object = new Person();",
       "function func(x, y, z) {\n        this.x = x;\n        this.y = y;\n        this.z = z;\n       }\n\n       var instance = new func(1, 2, 3);",
       "function func(x, y, z) {\n          this.x = x;\n          this.y = y;\n          this.z = z;\n       }\n       // Create a new instance using function prototype.\n       var newInstance = Object.create(func.prototype)\n\n       // Call the function\n       var result = func.call(newInstance, 1, 2, 3),\n\n       // If the result is a non-null object then use it otherwise just use the new instance.\n       console.log(result && typeof result === 'object' ? result : newInstance);",
       "const orgObject = { company: \"XYZ Corp\" };\n       const carObject = { name: \"Toyota\" };\n       const staff = Object.assign({}, orgObject, carObject);",
-      "class Person {\n         constructor(name) {\n           this.name = name;\n         }\n       }\n\n       var object = new Person(\"Devashish\");",
-      "const Singleton = (function () {\n        let instance;\n\n        function createInstance() {\n          return { name: \"Devashish\" };\n        }\n\n        return {\n          getInstance: function () {\n            if (!instance) {\n              instance = createInstance();\n            }\n            return instance;\n          }\n        };\n        })();\n\n        // Usage\n        const obj1 = Singleton.getInstance();\n        const obj2 = Singleton.getInstance();\n\n        console.log(obj1 === obj2); // true"
+      "class Person {\n         constructor(name) {\n           this.name = name;\n         }\n       }\n\n       var object = new Person(\"Sudheer\");",
+      "const Singleton = (function () {\n        let instance;\n\n        function createInstance() {\n          return { name: \"Sudheer\" };\n        }\n\n        return {\n          getInstance: function () {\n            if (!instance) {\n              instance = createInstance();\n            }\n            return instance;\n          }\n        };\n        })();\n\n        // Usage\n        const obj1 = Singleton.getInstance();\n        const obj2 = Singleton.getInstance();\n\n        console.log(obj1 === obj2); // true"
     ],
     "tables": []
   },
@@ -29,11 +29,44 @@ export const sampleReadingContent: ReadingContent[] = [
     "codeExamples": [
       "function Person() {}\n    const person1 = new Person();\n\n    console.log(Object.getPrototypeOf(person1) === Person.prototype); // true"
     ],
-    "tables": [],
-     "image":["/images/prototype.png"],
-     "imageSize":"large"
+    "tables": []
   },
-  
+  {
+    "id": 3,
+    "question": "What is the Difference Between `call`, `apply`, and `bind`",
+    "description": "In JavaScript, `call`, `apply`, and `bind` are methods that allow you to control the context (`this` value) in which a function is executed. While their purposes are similar, they differ in how they handle arguments and when the function is invoked.\n\n  ---\n\n   `call`\n\n  - Description:  \n    The `call()` method invokes a function immediately, allowing you to specify the value of `this` and pass arguments individually (comma-separated).\n\n  - Syntax:  \n    ```js\n    func.call(thisArg, arg1, arg2, ...)\n    ```\n\n  - Example:\n    ```js\n    var employee1 = { firstName: \"John\", lastName: \"Rodson\" };\n    var employee2 = { firstName: \"Jimmy\", lastName: \"Baily\" };\n\n    function invite(greeting1, greeting2) {\n      console.log(\n        greeting1 + \" \" + this.firstName + \" \" + this.lastName + \", \" + greeting2\n      );\n    }\n\n    invite.call(employee1, \"Hello\", \"How are you?\"); // Hello John Rodson, How are you?\n    invite.call(employee2, \"Hello\", \"How are you?\"); // Hello Jimmy Baily, How are you?\n    ```\n\n  ---\n\n   `apply`\n\n  - Description:  \n    The `apply()` method is similar to `call()`, but it takes the function arguments as an array (or array-like object) instead of individual arguments.\n\n  - Syntax:  \n    ```js\n    func.apply(thisArg, [argsArray])\n    ```\n\n  - Example:\n    ```js\n    var employee1 = { firstName: \"John\", lastName: \"Rodson\" };\n    var employee2 = { firstName: \"Jimmy\", lastName: \"Baily\" };\n\n    function invite(greeting1, greeting2) {\n      console.log(\n        greeting1 + \" \" + this.firstName + \" \" + this.lastName + \", \" + greeting2\n      );\n    }\n\n    invite.apply(employee1, [\"Hello\", \"How are you?\"]); // Hello John Rodson, How are you?\n    invite.apply(employee2, [\"Hello\", \"How are you?\"]); // Hello Jimmy Baily, How are you?\n    ```\n\n  ---\n\n   `bind`\n\n  - Description:  \n    The `bind()` method creates a new function with a specific `this` value and, optionally, preset initial arguments. Unlike `call` and `apply`, `bind` does not immediately invoke the function; instead, it returns a new function that you can call later.\n\n  - Syntax:  \n    ```js\n    var boundFunc = func.bind(thisArg[, arg1[, arg2[, ...]]])\n    ```\n\n  - Example:\n    ```js\n    var employee1 = { firstName: \"John\", lastName: \"Rodson\" };\n    var employee2 = { firstName: \"Jimmy\", lastName: \"Baily\" };\n\n    function invite(greeting1, greeting2) {\n      console.log(\n        greeting1 + \" \" + this.firstName + \" \" + this.lastName + \", \" + greeting2\n      );\n    }\n\n    var inviteEmployee1 = invite.bind(employee1);\n    var inviteEmployee2 = invite.bind(employee2);\n\n    inviteEmployee1(\"Hello\", \"How are you?\"); // Hello John Rodson, How are you?\n    inviteEmployee2(\"Hello\", \"How are you?\"); // Hello Jimmy Baily, How are you?\n    ```\n\n  ---\n\n   Summary\n\n          \n  ---\n\n   Key Points\n\n  - `call` and `apply` are almost interchangeable; both invoke the function immediately, but differ in how arguments are passed.\n      - _Tip:_ \"Call is for Comma-separated, Apply is for Array.\"\n  - `bind` does not execute the function immediately. Instead, it creates a new function with the specified `this` value and optional arguments, which can be called later.\n\n  - Use `call` or `apply` when you want to immediately invoke a function with a specific `this` context. Use `bind` when you want to create a new function with a specific `this` context to be invoked later.\n  \n  ---",
+    "codeExamples": [],
+    "tables": [
+      {
+        "headers": [
+          "Method",
+          "Invokes Function Immediately?",
+          "How Arguments Are Passed",
+          "Returns"
+        ],
+        "rows": [
+          [
+            "call",
+            "Yes",
+            "Comma-separated list",
+            "Function's result"
+          ],
+          [
+            "apply",
+            "Yes",
+            "Array or array-like object",
+            "Function's result"
+          ],
+          [
+            "bind",
+            "No",
+            "(Optional) preset, then rest",
+            "New function"
+          ]
+        ]
+      }
+    ]
+  },
   {
     "id": 4,
     "question": "What is JSON and its common operations",
@@ -56,11 +89,92 @@ export const sampleReadingContent: ReadingContent[] = [
       "array.splice(start, deleteCount, item1, item2, ...)",
       "let arrayIntegersOriginal1 = [1, 2, 3, 4, 5];\n    let arrayIntegersOriginal2 = [1, 2, 3, 4, 5];\n    let arrayIntegersOriginal3 = [1, 2, 3, 4, 5];\n\n    // Remove the first two elements\n    let arrayIntegers1 = arrayIntegersOriginal1.splice(0, 2); \n    // arrayIntegers1: [1, 2]\n    // arrayIntegersOriginal1 (after): [3, 4, 5]\n\n    // Remove all elements from index 3 onwards\n    let arrayIntegers2 = arrayIntegersOriginal2.splice(3);     \n    // arrayIntegers2: [4, 5]\n    // arrayIntegersOriginal2 (after): [1, 2, 3]\n\n    // Remove 1 element at index 3, then insert \"a\", \"b\", \"c\" at that position\n    let arrayIntegers3 = arrayIntegersOriginal3.splice(3, 1, \"a\", \"b\", \"c\"); \n    // arrayIntegers3: [4]\n    // arrayIntegersOriginal3 (after): [1, 2, 3, \"a\", \"b\", \"c\", 5]"
     ],
-    "tables": [],
-   
+    "tables": []
   },
-  
-  
+  {
+    "id": 7,
+    "question": "What is the difference between slice and splice",
+    "description": "Here are the key differences between `slice()` and `splice()` methods in JavaScript arrays:\n\n                        \n    Summary:  \n    - Use `slice()` when you want to copy or extract elements without altering the original array.\n    - Use `splice()` when you need to add, remove, or replace elements and want to change the original array.",
+    "codeExamples": [],
+    "tables": [
+      {
+        "headers": [
+          "slice()",
+          "splice()"
+        ],
+        "rows": [
+          [
+            "Does **not** modify the original array (immutable)",
+            "Modifies the original array (mutable)"
+          ],
+          [
+            "Returns a **shallow copy** (subset) of selected elements",
+            "Returns an array of the **removed** elements"
+          ],
+          [
+            "Used to **extract** elements from an array",
+            "Used to **add**, **remove**, or **replace** elements in an array"
+          ],
+          [
+            "Syntax: `array.slice(start, end)",
+            "Syntax: `array.splice(start, deleteCount, ...items)"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "question": "How do you compare Object and Map",
+    "description": "Objects and Maps both allow you to associate keys with values, retrieve those values, delete keys, and check if a key exists. Historically, Objects have been used as Maps, but there are several key differences that make `Map` a better choice in certain scenarios:",
+    "codeExamples": [],
+    "tables": [
+      {
+        "headers": [
+          "Feature",
+          "Object",
+          "Map"
+        ],
+        "rows": [
+          [
+            "**Key Types**",
+            "Only strings and symbols are valid keys",
+            "Any value can be used as a key (objects, functions, primitives)"
+          ],
+          [
+            "**Key Order**",
+            "Keys are unordered (in practice, insertion order is mostly preserved for string keys, but not guaranteed)",
+            "Keys are ordered by insertion; iteration follows insertion order"
+          ],
+          [
+            "**Size Property**",
+            "No built-in way to get the number of keys; must use `Object.keys(obj).length",
+            "Use the `.size` property for the number of entries"
+          ],
+          [
+            "**Iterability**",
+            "Not directly iterable; must use `Object.keys`, `Object.values`, or `Object.entries",
+            "Directly iterable with `for...of`, `.keys()`, `.values()`, `.entries()"
+          ],
+          [
+            "**Prototype**",
+            "Has a prototype chain; may have default properties that can collide with custom keys (can be avoided with `Object.create(null)`)",
+            "Does not have a prototype, so there are no default keys"
+          ],
+          [
+            "**Performance**",
+            "May be less efficient for frequent additions/removals",
+            "Optimized for frequent additions and deletions"
+          ],
+          [
+            "**Serialization**",
+            "Can be easily serialized to JSON",
+            "Cannot be directly serialized to JSON"
+          ]
+        ]
+      }
+    ]
+  },
   {
     "id": 9,
     "question": "What is the difference between == and === operators",
@@ -150,7 +264,40 @@ export const sampleReadingContent: ReadingContent[] = [
     ],
     "tables": []
   },
-  
+  {
+    "id": 19,
+    "question": "What is the difference between let and var",
+    "description": "You can list out the differences in a tabular format\n\n                        \n    Let's take an example to see the difference,",
+    "codeExamples": [
+      "function userDetails(username) {\n      if (username) {\n        console.log(salary); // undefined due to hoisting\n        console.log(age); // ReferenceError: Cannot access 'age' before initialization\n        let age = 30;\n        var salary = 10000;\n      }\n      console.log(salary); //10000 (accessible due to function scope)\n      console.log(age); //error: age is not defined(due to block scope)\n    }\n    userDetails(\"John\");"
+    ],
+    "tables": [
+      {
+        "headers": [
+          "var",
+          "let"
+        ],
+        "rows": [
+          [
+            "It has been available from the beginning of JavaScript",
+            "Introduced as part of ES6"
+          ],
+          [
+            "It has function scope",
+            "It has block scope"
+          ],
+          [
+            "Variable declaration will be hoisted, initialized as undefined",
+            "Hoisted but not initialized"
+          ],
+          [
+            "It is possible to re-declare the variable in the same scope",
+            "It is not possible to re-declare the variable"
+          ]
+        ]
+      }
+    ]
+  },
   {
     "id": 20,
     "question": "What is the reason to choose the name let as a keyword",
@@ -333,7 +480,60 @@ export const sampleReadingContent: ReadingContent[] = [
     ],
     "tables": []
   },
-  
+  {
+    "id": 42,
+    "question": "What are the differences between cookie, local storage and session storage",
+    "description": "Below are some of the differences between cookie, local storage and session storage,",
+    "codeExamples": [],
+    "tables": [
+      {
+        "headers": [
+          "Feature",
+          "Cookie",
+          "Local storage",
+          "Session storage"
+        ],
+        "rows": [
+          [
+            "Accessed on client or server side",
+            "Both server-side & client-side. The `set-cookie` HTTP response header is used by server inorder to send it to user.",
+            "client-side only",
+            "client-side only"
+          ],
+          [
+            "Expiry",
+            "Manually configured using Expires option",
+            "Forever until deleted",
+            "until tab is closed"
+          ],
+          [
+            "SSL support",
+            "Supported",
+            "Not supported",
+            "Not supported"
+          ],
+          [
+            "Maximum data size",
+            "4KB",
+            "5 MB",
+            "5MB"
+          ],
+          [
+            "Accessible from",
+            "Any window",
+            "Any window",
+            "Same tab"
+          ],
+          [
+            "Sent with requests",
+            "Yes",
+            "No",
+            "No"
+          ]
+        ]
+      }
+    ]
+  },
   {
     "id": 43,
     "question": "What is the main difference between localStorage and sessionStorage",
@@ -490,7 +690,34 @@ export const sampleReadingContent: ReadingContent[] = [
     ],
     "tables": []
   },
-
+  {
+    "id": 61,
+    "question": "What are the events available for server sent events",
+    "description": "Below are the list of events available for server sent events\n        |---- | ---------",
+    "codeExamples": [],
+    "tables": [
+      {
+        "headers": [
+          "Event",
+          "Description"
+        ],
+        "rows": [
+          [
+            "onopen",
+            "It is used when a connection to the server is opened"
+          ],
+          [
+            "onmessage",
+            "This event is used when a message is received"
+          ],
+          [
+            "onerror",
+            "It happens when an error occurs"
+          ]
+        ]
+      }
+    ]
+  },
   {
     "id": 62,
     "question": "What are the main rules of promise",
@@ -501,7 +728,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 63,
     "question": "What is callback in callback",
-    "description": "You can nest one callback inside in another callback to execute the actions sequentially one by one. This is known as callbacks in callbacks. Beware, too many levels of nesting lead to [Callback hell](https://github.com/Devashishj/javascript-interview-questions?tab=readme-ov-filewhat-is-a-callback-hell)",
+    "description": "You can nest one callback inside in another callback to execute the actions sequentially one by one. This is known as callbacks in callbacks. Beware, too many levels of nesting lead to [Callback hell](https://github.com/sudheerj/javascript-interview-questions?tab=readme-ov-filewhat-is-a-callback-hell)",
     "codeExamples": [
       "loadScript(\"/script1.js\", function (script) {\n      console.log(\"first script is loaded\");\n\n      loadScript(\"/script2.js\", function (script) {\n        console.log(\"second script is loaded\");\n\n        loadScript(\"/script3.js\", function (script) {\n          console.log(\"third script is loaded\");\n          // after all scripts are loaded\n        });\n      });\n    });"
     ],
@@ -605,7 +832,42 @@ export const sampleReadingContent: ReadingContent[] = [
     ],
     "tables": []
   },
-  
+  {
+    "id": 75,
+    "question": "What is the difference between null and undefined",
+    "description": "Below are the main differences between null and undefined,",
+    "codeExamples": [],
+    "tables": [
+      {
+        "headers": [
+          "Null",
+          "Undefined"
+        ],
+        "rows": [
+          [
+            "It is an assignment value which indicates that variable points to no object.",
+            "It is not an assignment value where a variable has been declared but has not yet been assigned a value."
+          ],
+          [
+            "Type of null is object",
+            "Type of undefined is undefined"
+          ],
+          [
+            "The null value is a primitive value that represents the null, empty, or non-existent reference.",
+            "The undefined value is a primitive value used when a variable has not been assigned a value."
+          ],
+          [
+            "Indicates the absence of a value for a variable",
+            "Indicates absence of variable itself"
+          ],
+          [
+            "Converted to zero (0) while performing primitive operations",
+            "Converted to NaN while performing primitive operations"
+          ]
+        ]
+      }
+    ]
+  },
   {
     "id": 76,
     "question": "What is eval",
@@ -615,7 +877,34 @@ export const sampleReadingContent: ReadingContent[] = [
     ],
     "tables": []
   },
-  
+  {
+    "id": 77,
+    "question": "What is the difference between window and document",
+    "description": "Below are the main differences between window and document,",
+    "codeExamples": [],
+    "tables": [
+      {
+        "headers": [
+          "Window",
+          "Document"
+        ],
+        "rows": [
+          [
+            "It is the root level element in any web page",
+            "It is the direct child of the window object. This is also known as Document Object Model (DOM)"
+          ],
+          [
+            "By default window object is available implicitly in the page",
+            "You can access it via window.document or document."
+          ],
+          [
+            "It has methods like alert(), confirm() and properties like document, location",
+            "It provides methods like getElementById, getElementsByTagName, createElement etc"
+          ]
+        ]
+      }
+    ]
+  },
   {
     "id": 78,
     "question": "How do you access history in javascript",
@@ -641,7 +930,32 @@ export const sampleReadingContent: ReadingContent[] = [
     ],
     "tables": []
   },
-
+  {
+    "id": 81,
+    "question": "What are the differences between undeclared and undefined variables",
+    "description": "Below are the major differences between undeclared(not defined) and undefined variables,\n\n                \n    \n    This can be confusing, because it says `not defined` instead of `not declared` (Chrome)",
+    "codeExamples": [
+      "var a;\n    a; // yields undefined\n\n    b; // Throws runtime error like \"Uncaught ReferenceError: b is not defined\""
+    ],
+    "tables": [
+      {
+        "headers": [
+          "undeclared",
+          "undefined"
+        ],
+        "rows": [
+          [
+            "These variables do not exist in a program and are not declared",
+            "These variables declared in the program but have not assigned any value"
+          ],
+          [
+            "If you try to read the value of an undeclared variable, then a runtime error is encountered",
+            "If you try to read the value of an undefined variable, an undefined value is returned."
+          ]
+        ]
+      }
+    ]
+  },
   {
     "id": 82,
     "question": "What are global variables",
@@ -1277,7 +1591,36 @@ export const sampleReadingContent: ReadingContent[] = [
     ],
     "tables": []
   },
- 
+  {
+    "id": 157,
+    "question": "What are modifiers in regular expression",
+    "description": "Modifiers can be used to perform case-insensitive and global searches. Let's list some of the modifiers,\n\n                              \n      Let's take an example of global modifier,",
+    "codeExamples": [
+      "var text = \"Learn JS one by one\";\n      var pattern = /one/g;\n      var result = text.match(pattern); // one,one"
+    ],
+    "tables": [
+      {
+        "headers": [
+          "Modifier",
+          "Description"
+        ],
+        "rows": [
+          [
+            "i",
+            "Perform case-insensitive matching"
+          ],
+          [
+            "g",
+            "Perform a global match rather than stops at first match"
+          ],
+          [
+            "m",
+            "Perform multiline matching"
+          ]
+        ]
+      }
+    ]
+  },
   {
     "id": 158,
     "question": "What are regular expression patterns",
@@ -1446,7 +1789,45 @@ export const sampleReadingContent: ReadingContent[] = [
     ],
     "tables": []
   },
-
+  {
+    "id": 177,
+    "question": "What is the difference between proto and prototype",
+    "description": "The `__proto__` object is the actual object that is used in the lookup chain to resolve methods, etc. Whereas `prototype` is the object that is used to build `__proto__` when you create an object with the `new` operator (a special variant of a function call).\n\n      \n\n      There are few more differences,",
+    "codeExamples": [
+      "new Employee().__proto__ === Employee.prototype;\n      new Employee().prototype === undefined;"
+    ],
+    "tables": [
+      {
+        "headers": [
+          "feature",
+          "Prototype",
+          "proto"
+        ],
+        "rows": [
+          [
+            "Access",
+            "All function constructors have prototype properties.",
+            "All objects have \\_\\_proto\\_\\_ property"
+          ],
+          [
+            "Purpose",
+            "Used to reduce memory wastage with a single copy of function",
+            "Used in lookup chain to resolve methods, constructors etc."
+          ],
+          [
+            "ECMAScript",
+            "Introduced in ES6",
+            "Introduced in ES5"
+          ],
+          [
+            "Usage",
+            "Frequently used",
+            "Rarely used"
+          ]
+        ]
+      }
+    ]
+  },
   {
     "id": 178,
     "question": "Can you give an example of when you really need a semicolon",
@@ -1598,7 +1979,7 @@ export const sampleReadingContent: ReadingContent[] = [
     "description": "The Proxy object is used to define custom behavior for fundamental operations such as property lookup, assignment, enumeration, function invocation, etc.\n\n      A proxy is created with two parameters: a target object which you want to proxy and a handler object which contains methods to intercept fundamental operations. The syntax would be as follows,\n\n      \n\n      Let's take a look at below examples of proxy object and how the get method which customize the lookup behavior,\n\n      \n\n      In the above code, it uses `get` handler which define the behavior of the proxy when an operation is performed on it. These proxies are mainly used for some of the below cross-cutting concerns.\n\n      1. Logging\n      2. Authentication or Authorization\n      3. Data binding and observables\n      4. Function parameter validation\n\n      Note: This feature was introduced with ES6.",
     "codeExamples": [
       "var p = new Proxy(target, handler);",
-      "//Example1:\n\n      const person = {\n        name: \"Devashish Jonna\",\n        age: 35,\n      };\n\n      const handler = {\n        get(target, prop) {\n          if (prop === \"name\") {\n            return \"Mr. \" + target[prop];\n          }\n          return target[prop];\n        },\n      };\n\n      const proxy = new Proxy(person, handler);\n\n      //Example2:\n\n      var handler1 = {\n        get: function (obj, prop) {\n          return prop in obj ? obj[prop] : 100;\n        },\n      };\n\n      var p = new Proxy({}, handler1);\n      p.a = 10;\n      p.b = null;\n\n      console.log(p.a, p.b); // 10, null\n      console.log(\"c\" in p, p.c); // false, 100"
+      "//Example1:\n\n      const person = {\n        name: \"Sudheer Jonna\",\n        age: 35,\n      };\n\n      const handler = {\n        get(target, prop) {\n          if (prop === \"name\") {\n            return \"Mr. \" + target[prop];\n          }\n          return target[prop];\n        },\n      };\n\n      const proxy = new Proxy(person, handler);\n\n      //Example2:\n\n      var handler1 = {\n        get: function (obj, prop) {\n          return prop in obj ? obj[prop] : 100;\n        },\n      };\n\n      var p = new Proxy({}, handler1);\n      p.a = 10;\n      p.b = null;\n\n      console.log(p.a, p.b); // 10, null\n      console.log(\"c\" in p, p.c); // false, 100"
     ],
     "tables": []
   },
@@ -1887,7 +2268,50 @@ export const sampleReadingContent: ReadingContent[] = [
     ],
     "tables": []
   },
-  
+  {
+    "id": 229,
+    "question": "What are the different error names from error object",
+    "description": "There are 7 different types of error names returned from error object,\n            |---- | ---------",
+    "codeExamples": [],
+    "tables": [
+      {
+        "headers": [
+          "Error Name",
+          "Description"
+        ],
+        "rows": [
+          [
+            "AggregateError",
+            "An error indicating that multiple errors occurred"
+          ],
+          [
+            "EvalError",
+            "An error has occurred in the eval() function"
+          ],
+          [
+            "RangeError",
+            "An error has occurred with a number \"out of range\""
+          ],
+          [
+            "ReferenceError",
+            "An error due to an illegal reference"
+          ],
+          [
+            "SyntaxError",
+            "An error due to a syntax error"
+          ],
+          [
+            "TypeError",
+            "An error due to a type error"
+          ],
+          [
+            "URIError",
+            "An error due to encodeURI()"
+          ]
+        ]
+      }
+    ]
+  },
   {
     "id": 230,
     "question": "What are the various statements in error handling",
@@ -2074,11 +2498,52 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 252,
     "question": "What is typescript",
-    "description": "TypeScript is a typed superset of JavaScript created by Microsoft that adds optional types, classes\n      and many other features, and compiles to plain JavaScript. Angular is built entirely in TypeScript and it is used as the primary language there. You can install it globally as\n\n      ```bash\n      npm install -g typescript\n      ```\n\n      Let's see a simple example of TypeScript usage,\n\n      ```typescript\n      function greeting(name: string): string {\n        return \"Hello, \" + name;\n      }\n\n      let user = \"Devashish\";\n\n      console.log(greeting(user));\n      ```\n\n      The greeting method allows only string type as argument.",
+    "description": "TypeScript is a typed superset of JavaScript created by Microsoft that adds optional types, classes\n      and many other features, and compiles to plain JavaScript. Angular is built entirely in TypeScript and it is used as the primary language there. You can install it globally as\n\n      ```bash\n      npm install -g typescript\n      ```\n\n      Let's see a simple example of TypeScript usage,\n\n      ```typescript\n      function greeting(name: string): string {\n        return \"Hello, \" + name;\n      }\n\n      let user = \"Sudheer\";\n\n      console.log(greeting(user));\n      ```\n\n      The greeting method allows only string type as argument.",
     "codeExamples": [],
     "tables": []
   },
-
+  {
+    "id": 253,
+    "question": "What are the differences between javascript and typescript",
+    "description": "Below are the list of differences between javascript and typescript,",
+    "codeExamples": [],
+    "tables": [
+      {
+        "headers": [
+          "feature",
+          "typescript",
+          "javascript"
+        ],
+        "rows": [
+          [
+            "Language paradigm",
+            "Object oriented programming language",
+            "Multi-paradigm language"
+          ],
+          [
+            "Typing support",
+            "Supports static typing",
+            "Dynamic typing"
+          ],
+          [
+            "Modules",
+            "Supported",
+            "Not supported"
+          ],
+          [
+            "Interface",
+            "It has interfaces concept",
+            "Doesn't support interfaces"
+          ],
+          [
+            "Optional parameters",
+            "Functions support optional parameters",
+            "No support of optional parameters for functions"
+          ]
+        ]
+      }
+    ]
+  },
   {
     "id": 254,
     "question": "What are the advantages of typescript over javascript",
@@ -2223,7 +2688,38 @@ export const sampleReadingContent: ReadingContent[] = [
     "codeExamples": [],
     "tables": []
   },
-
+  {
+    "id": 271,
+    "question": "What are the differences between obfuscation and Encryption",
+    "description": "Below are the main differences between obfuscation and encryption,",
+    "codeExamples": [],
+    "tables": [
+      {
+        "headers": [
+          "Feature",
+          "Obfuscation",
+          "Encryption"
+        ],
+        "rows": [
+          [
+            "Definition",
+            "Changing the form of any data in any other form",
+            "Changing the form of information to an unreadable format by using a key"
+          ],
+          [
+            "A key to decode",
+            "It can be decoded without any key",
+            "It is required"
+          ],
+          [
+            "Target data format",
+            "It will be converted to a complex form",
+            "Converted into an unreadable format"
+          ]
+        ]
+      }
+    ]
+  },
   {
     "id": 272,
     "question": "What are the common tools used for minification",
@@ -2378,7 +2874,43 @@ export const sampleReadingContent: ReadingContent[] = [
     ],
     "tables": []
   },
- 
+  {
+    "id": 290,
+    "question": "What is the difference between java and javascript",
+    "description": "Both are totally unrelated programming languages and no relation between them. Java is statically typed, compiled, runs on its own VM. Whereas Javascript is dynamically typed, interpreted, and runs in a browser and nodejs environments. Let's see the major differences in a tabular format,\n            |---- | ---- | -----",
+    "codeExamples": [],
+    "tables": [
+      {
+        "headers": [
+          "Feature",
+          "Java",
+          "JavaScript"
+        ],
+        "rows": [
+          [
+            "Typed",
+            "It's a strongly typed language",
+            "It's a dynamic typed language"
+          ],
+          [
+            "Paradigm",
+            "Object oriented programming",
+            "Prototype based programming"
+          ],
+          [
+            "Scoping",
+            "Block scoped",
+            "Function-scoped, block scoped since ES6"
+          ],
+          [
+            "Concurrency",
+            "Thread based",
+            "event based"
+          ]
+        ]
+      }
+    ]
+  },
   {
     "id": 291,
     "question": "Does JavaScript support namespaces",
@@ -2930,7 +3462,7 @@ export const sampleReadingContent: ReadingContent[] = [
     "question": "Mixin Example using Object composition",
     "description": "",
     "codeExamples": [
-      "// Define a mixin\n      const canEat = {\n        eat() {\n          console.log(\"Eating...\");\n        }\n      };\n\n      const canWalk = {\n        walk() {\n          console.log(\"Walking...\");\n        }\n      };\n\n      const canRead = {\n        read() {\n          console.log(\"Reading...\");\n        }\n      };\n\n      // Create a class\n      class Person {\n        constructor(name) {\n          this.name = name;\n        }\n      }\n\n      // Apply mixins\n      Object.assign(Person.prototype, canEat, canWalk, canRead);\n\n      // Use it\n      const person = new Person(\"Devashish\");\n      person.eat();  // Output: Eating...\n      person.walk(); // Output: Walking...\n      person.read(); // Output: Reading..."
+      "// Define a mixin\n      const canEat = {\n        eat() {\n          console.log(\"Eating...\");\n        }\n      };\n\n      const canWalk = {\n        walk() {\n          console.log(\"Walking...\");\n        }\n      };\n\n      const canRead = {\n        read() {\n          console.log(\"Reading...\");\n        }\n      };\n\n      // Create a class\n      class Person {\n        constructor(name) {\n          this.name = name;\n        }\n      }\n\n      // Apply mixins\n      Object.assign(Person.prototype, canEat, canWalk, canRead);\n\n      // Use it\n      const person = new Person(\"Sudheer\");\n      person.eat();  // Output: Eating...\n      person.walk(); // Output: Walking...\n      person.read(); // Output: Reading..."
     ],
     "tables": []
   },
@@ -3305,7 +3837,42 @@ export const sampleReadingContent: ReadingContent[] = [
     ],
     "tables": []
   },
-
+  {
+    "id": 395,
+    "question": "What are the differences between promises and observables",
+    "description": "Some of the major difference in a tabular form",
+    "codeExamples": [],
+    "tables": [
+      {
+        "headers": [
+          "Promises",
+          "Observables"
+        ],
+        "rows": [
+          [
+            "Emits only a single value at a time",
+            "Emits multiple values over a period of time(stream of values ranging from 0 to multiple)"
+          ],
+          [
+            "Eager in nature; they are going to be called immediately",
+            "Lazy in nature; they require subscription to be invoked"
+          ],
+          [
+            "Promise is always asynchronous even though it resolved immediately",
+            "Observable can be either synchronous or asynchronous"
+          ],
+          [
+            "Doesn't provide any operators",
+            "Provides operators such as map, forEach, filter, reduce, retry, and retryWhen etc"
+          ],
+          [
+            "Cannot be canceled",
+            "Canceled by using unsubscribe() method"
+          ]
+        ]
+      }
+    ]
+  },
   {
     "id": 396,
     "question": "What is heap",
@@ -3590,7 +4157,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 429,
     "question": "How do you group and nest console output?",
-    "description": "The `console.group()` can be used to group related log messages to be able to easily read the logs and use console.groupEnd()to close the group. Along with this, you can also nest groups which allows to output message in hierarchical manner.\n\n     For example, if you’re logging a user’s details:\n\n     ```js\n     console.group(\"User Details\");\n     console.log(\"name: Devashish Jonna\");\n     console.log(\"job: Software Developer\");\n\n     // Nested Group\n     console.group(\"Address\");\n     console.log(\"Street: Commonwealth\");\n     console.log(\"City: Los Angeles\");\n     console.log(\"State: California\");\n\n     // Close nested group\n     console.groupEnd();\n\n     // Close outer group\n     console.groupEnd();\n     ```\n\n     You can also use `console.groupCollapsed()` instead of `console.group()` if you want the groups to be collapsed by default.",
+    "description": "The `console.group()` can be used to group related log messages to be able to easily read the logs and use console.groupEnd()to close the group. Along with this, you can also nest groups which allows to output message in hierarchical manner.\n\n     For example, if you’re logging a user’s details:\n\n     ```js\n     console.group(\"User Details\");\n     console.log(\"name: Sudheer Jonna\");\n     console.log(\"job: Software Developer\");\n\n     // Nested Group\n     console.group(\"Address\");\n     console.log(\"Street: Commonwealth\");\n     console.log(\"City: Los Angeles\");\n     console.log(\"State: California\");\n\n     // Close nested group\n     console.groupEnd();\n\n     // Close outer group\n     console.groupEnd();\n     ```\n\n     You can also use `console.groupCollapsed()` instead of `console.group()` if you want the groups to be collapsed by default.",
     "codeExamples": [],
     "tables": []
   },
@@ -3704,7 +4271,42 @@ export const sampleReadingContent: ReadingContent[] = [
     ],
     "tables": []
   },
-
+  {
+    "id": 443,
+    "question": "What are the differences between primitives and non-primitives?",
+    "description": "JavaScript language has both primitives and non-primitives but there are few differences between them as below,",
+    "codeExamples": [],
+    "tables": [
+      {
+        "headers": [
+          "Primitives",
+          "Non-primitives"
+        ],
+        "rows": [
+          [
+            "These types are predefined",
+            "Created by developer"
+          ],
+          [
+            "These are immutable",
+            "Mutable"
+          ],
+          [
+            "Compare by value",
+            "Compare by reference"
+          ],
+          [
+            "Stored in Stack",
+            "Stored in heap"
+          ],
+          [
+            "Contain certain value",
+            "Can contain NULL too"
+          ]
+        ]
+      }
+    ]
+  },
   {
     "id": 444,
     "question": "How do you create your own bind method using either call or apply method?",
@@ -3712,7 +4314,34 @@ export const sampleReadingContent: ReadingContent[] = [
     "codeExamples": [],
     "tables": []
   },
-  
+  {
+    "id": 445,
+    "question": "What are the differences between pure and impure functions?",
+    "description": "Some of the major differences between pure and impure function are as below,",
+    "codeExamples": [],
+    "tables": [
+      {
+        "headers": [
+          "Pure function",
+          "Impure function"
+        ],
+        "rows": [
+          [
+            "It has no side effects",
+            "It causes side effects"
+          ],
+          [
+            "It is always return the same result",
+            "It returns different result on each call"
+          ],
+          [
+            "Easy to read and debug",
+            "Difficult to read and debug because they are affected by external code"
+          ]
+        ]
+      }
+    ]
+  },
   {
     "id": 446,
     "question": "What is referential transparency?",
@@ -3776,7 +4405,7 @@ export const sampleReadingContent: ReadingContent[] = [
       "const person = {\n    name: \"John\",\n    greet: function () {\n      console.log(\"Hello, \" + this.name);\n    },\n  };\n\n  person.greet();",
       "document.getElementById(\"myButton\").addEventListener(\"click\", function () {\n            console.log(this);\n   });",
       "const obj = {\n          age: 42,\n          regular: function() { console.log(this.age); },\n          arrow: () => { console.log(this.age); }\n        };\n        obj.regular(); // 42 (this refers to obj)\n        obj.arrow();   // undefined (this refers to the outer scope, not obj)",
-      "function Person(name) {\n      this.name = name;\n    }\n    \n    const p1 = new Person('Devashish');\n    console.log(p1.name); // Devashish"
+      "function Person(name) {\n      this.name = name;\n    }\n    \n    const p1 = new Person('Sudheer');\n    console.log(p1.name); // Sudheer"
     ],
     "tables": []
   },
@@ -3919,7 +4548,7 @@ export const sampleReadingContent: ReadingContent[] = [
     ],
     "tables": []
   },
-   {
+  {
     "id": 471,
     "question": "How to find the number of parameters expected by a function?",
     "description": "The function's object has a length property which tells you how many formal parameters expected by a function. This is a static value defined by the function, not the number of arguments the function is called with(arguments.length). The basic usage of length propery is,\n\n\n\nBut there are few important rules which needs to be noted while using length property.\n\n1. Default values: Only the parameters which exists before a default value are considered.\n   \n2. Rest params: The rest parameters are excluded with in length property.\n   \n3. Destructuring patterns: Each destructuring pattern counted as a single parameter.\n\n   \n\nNote: The Function constructor is itself a function object and it has a length property of 1.",
@@ -3967,6 +4596,8 @@ export const sampleReadingContent: ReadingContent[] = [
     ],
     "tables": []
   },
+
+
 
 ];
 

@@ -1,9 +1,14 @@
+export interface TableData {
+  headers: string[];
+  rows: string[][];
+}
+
 export interface ReadingContent {
   id: number;
   question: string;
   description: string;
   codeExamples?: string[];
-  tables?: string[][];
+  tables?: TableData[];  // Now properly typed with headers and rows
   image?: string[];
   imageSize?: 'small' | 'medium' | 'large';
 }

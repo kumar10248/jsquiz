@@ -21,7 +21,7 @@ import {
   Share2
 } from 'lucide-react';
 import { sampleReadingContent } from '../data/sampleData';
-import { ReadingContent } from '../types';
+import { ReadingContent, TableData } from '../types';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -222,10 +222,10 @@ export default function EnhancedReadingPage() {
                     Visual Examples
                   </div>
                 )}
-                {currentContent.tables && (
+                {currentContent.tables && currentContent.tables.length > 0 && (
                   <div className="text-xs md:text-sm text-slate-400 bg-slate-700/50 px-2 md:px-3 py-1 md:py-2 rounded-lg flex items-center gap-1 md:gap-2">
                     <Table className="w-3 h-3 md:w-4 md:h-4" />
-                    Reference Table
+                    Reference Tables
                   </div>
                 )}
               </div>
@@ -367,36 +367,47 @@ export default function EnhancedReadingPage() {
                       <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-lg md:rounded-xl flex items-center justify-center">
                         <Table className="w-4 h-4 md:w-5 md:h-5 text-white" />
                       </div>
-                      <h2 className="text-xl md:text-2xl font-bold text-white">Reference Table</h2>
+                      <h2 className="text-xl md:text-2xl font-bold text-white">Reference Tables</h2>
                       <div className="flex-1 h-px bg-gradient-to-r from-slate-600 to-transparent" />
                     </div>
                     
-                    <div className="overflow-hidden rounded-xl md:rounded-2xl border border-slate-600/50 shadow-lg">
-                      <div className="overflow-x-auto">
-                        <table className="w-full border-collapse bg-slate-800/50 backdrop-blur-sm text-sm md:text-base">
-                          {currentContent.tables.map((row: string[], rowIndex: number) => (
-                            <tr key={rowIndex} className={`
-                              ${rowIndex === 0 
-                                ? 'bg-slate-700/50' 
-                                : 'hover:bg-slate-700/30 transition-colors duration-200'
-                              }
-                            `}>
-                              {row.map((cell: string, cellIndex: number) => (
-                                <td 
-                                  key={cellIndex} 
-                                  className={`border-b border-slate-700/50 px-3 sm:px-4 md:px-6 py-2 md:py-4 ${
-                                    rowIndex === 0 
-                                      ? 'font-bold text-white text-xs md:text-sm uppercase tracking-wider' 
-                                      : 'text-slate-300 text-sm md:text-base'
-                                  }`}
-                                >
-                                  {cell}
-                                </td>
-                              ))}
-                            </tr>
-                          ))}
-                        </table>
-                      </div>
+                    <div className="space-y-6 md:space-y-8">
+                      {currentContent.tables.map((tableData: TableData, tableIndex: number) => (
+                        <div key={tableIndex} className="overflow-hidden rounded-xl md:rounded-2xl border border-slate-600/50 shadow-lg">
+                          <div className="overflow-x-auto">
+                            <table className="w-full border-collapse bg-slate-800/50 backdrop-blur-sm text-sm md:text-base">
+                              {/* Table Header */}
+                              <thead>
+                                <tr className="bg-slate-700/50">
+                                  {tableData.headers.map((header: string, headerIndex: number) => (
+                                    <th
+                                      key={headerIndex}
+                                      className="border-b border-slate-700/50 px-3 sm:px-4 md:px-6 py-3 md:py-4 font-bold text-white text-xs md:text-sm uppercase tracking-wider text-left"
+                                    >
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              {/* Table Body */}
+                              <tbody>
+                                {tableData.rows.map((row: string[], rowIndex: number) => (
+                                  <tr key={rowIndex} className="hover:bg-slate-700/30 transition-colors duration-200">
+                                    {row.map((cell: string, cellIndex: number) => (
+                                      <td 
+                                        key={cellIndex} 
+                                        className="border-b border-slate-700/50 px-3 sm:px-4 md:px-6 py-2 md:py-4 text-slate-300 text-sm md:text-base"
+                                      >
+                                        {cell}
+                                      </td>
+                                    ))}
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </section>
                 )}
