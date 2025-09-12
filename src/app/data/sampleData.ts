@@ -8,18 +8,18 @@ export const sampleReadingContent: ReadingContent[] = [
     "question": "What are the possible ways to create objects in JavaScript",
     "description": "There are many ways to create objects in javascript as mentioned below:\n\n    1. Object literal syntax:\n\n       The object literal syntax (or object initializer), is a comma-separated set of name-value pairs wrapped in curly braces.\n\n       Object literal property values can be of any data type, including array, function, and nested object.\n\n       Note: This is one of the easiest ways to create an object and it's most commonly used for creating simple, ad-hoc objects.\n\n    2. Object constructor:\n\n       The simplest way to create an empty object is using the `Object` constructor. Currently this approach is not recommended.\n\n       The `Object()` is a built-in constructor function so \"new\" keyword is not required for creating plain objects. The above code snippet can be re-written as:\n\n       However, `Object()` can be used to either create a plain object or convert a given value into its corresponding object wrapper, whereas `new Object()` is specifically used to explicitly create a new object instance.\n\n    3. Object's create method:\n\n       The `create` method of Object is used to create a new object by passing the specified prototype object and properties as arguments, i.e., this pattern is helpful to create new objects based on existing objects. In other words, this is useful for setting up prototypal inheritance. The second argument is optional and it is used to create properties on a newly created object.\n\n       The following code creates a new empty object whose prototype is null.\n\n       The following example creates an object along with additional new properties.\n\n    4. Function constructor:\n\n       In this approach, create any function and apply the new operator to create object instances. This was the main way to do constructor-based OOP before ES6 classes.\n\n    5. Function constructor with prototype:\n\n       This is similar to function constructor but it uses prototype for their properties and methods. Using prototype means you're sharing methods/properties across instances, which saves memory and improve performance.\n\n       This is equivalent to creating an instance with `Object.create` method with a function prototype and then calling that function with an instance and parameters as arguments.\n\n       (OR)\n\n    6. Object's assign method:\n\n       The `Object.assign` method is used to copy all the properties from one or more source objects and stores them into a target object. This is mainly used for cloning and merging\n\n       The following code creates a new staff object by copying properties of his working company and the car he owns.\n\n    7. ES6 Class syntax:\n\n       ES6 introduces class feature to create objects. This is syntactic sugar over the prototype-based system.\n\n    8. Singleton pattern:\n\n       A Singleton is an object which can only be instantiated one time. Repeated calls to its constructor return the same instance. This way one can ensure that they don't accidentally create multiple instances.\n\n         Singleton with Closure (Classic JS Pattern)\n\n         In modern JavaScript applications, singletons are commonly implemented using ES6 modules for their built-in caching behavior, or closures for encapsulated state management.",
     "codeExamples": [
-      "var object = {\n         name: \"Sudheer\",\n         age: 34,\n       };",
+      "var object = {\n         name: \"Devashish\",\n         age: 34,\n       };",
       "var object = new Object();",
       "var object = Object();",
       "var object = Object.create(null);",
       "let vehicle = {\n         wheels: \"4\",\n         fuelType: \"Gasoline\",\n         color: \"Green\",\n       };\n       let carProps = {\n         type: {\n           value: \"Volkswagen\",\n         },\n         model: {\n           value: \"Golf\",\n         },\n       };\n\n       var car = Object.create(vehicle, carProps);\n       console.log(car);",
-      "function Person(name) {\n         this.name = name;\n         this.age = 21;\n       }\n       var object = new Person(\"Sudheer\");",
-      "function Person() {}\n       Person.prototype.name = \"Sudheer\";\n       var object = new Person();",
+      "function Person(name) {\n         this.name = name;\n         this.age = 21;\n       }\n       var object = new Person(\"Devashish\");",
+      "function Person() {}\n       Person.prototype.name = \"Devashish\";\n       var object = new Person();",
       "function func(x, y, z) {\n        this.x = x;\n        this.y = y;\n        this.z = z;\n       }\n\n       var instance = new func(1, 2, 3);",
       "function func(x, y, z) {\n          this.x = x;\n          this.y = y;\n          this.z = z;\n       }\n       // Create a new instance using function prototype.\n       var newInstance = Object.create(func.prototype)\n\n       // Call the function\n       var result = func.call(newInstance, 1, 2, 3),\n\n       // If the result is a non-null object then use it otherwise just use the new instance.\n       console.log(result && typeof result === 'object' ? result : newInstance);",
       "const orgObject = { company: \"XYZ Corp\" };\n       const carObject = { name: \"Toyota\" };\n       const staff = Object.assign({}, orgObject, carObject);",
-      "class Person {\n         constructor(name) {\n           this.name = name;\n         }\n       }\n\n       var object = new Person(\"Sudheer\");",
-      "const Singleton = (function () {\n        let instance;\n\n        function createInstance() {\n          return { name: \"Sudheer\" };\n        }\n\n        return {\n          getInstance: function () {\n            if (!instance) {\n              instance = createInstance();\n            }\n            return instance;\n          }\n        };\n        })();\n\n        // Usage\n        const obj1 = Singleton.getInstance();\n        const obj2 = Singleton.getInstance();\n\n        console.log(obj1 === obj2); // true"
+      "class Person {\n         constructor(name) {\n           this.name = name;\n         }\n       }\n\n       var object = new Person(\"Devashish\");",
+      "const Singleton = (function () {\n        let instance;\n\n        function createInstance() {\n          return { name: \"Devashish\" };\n        }\n\n        return {\n          getInstance: function () {\n            if (!instance) {\n              instance = createInstance();\n            }\n            return instance;\n          }\n        };\n        })();\n\n        // Usage\n        const obj1 = Singleton.getInstance();\n        const obj2 = Singleton.getInstance();\n\n        console.log(obj1 === obj2); // true"
     ],
     "tables": []
   },
@@ -30,7 +30,9 @@ export const sampleReadingContent: ReadingContent[] = [
     "codeExamples": [
       "function Person() {}\n    const person1 = new Person();\n\n    console.log(Object.getPrototypeOf(person1) === Person.prototype); // true"
     ],
-    "tables": []
+    "tables": [],
+    "image":["/images/2.png"],
+    "imageSize":"large"
   },
   {
     "id": 3,
@@ -637,7 +639,9 @@ export const sampleReadingContent: ReadingContent[] = [
       "const promise = new Promise(function (resolve, reject) {\n      // Perform async operation\n    });",
       "const promise = new Promise((resolve, reject) => {\n      setTimeout(() => {\n        resolve(\"I'm a Promise!\");\n      }, 5000);\n    });\n\n    promise\n      .then((value) => console.log(value)); // Logs after 5 seconds: \"I'm a Promise!\"\n      .catch((error) => console.error(error))  // Handles any rejection\n      .finally(() => console.log(\"Done\"));     // Runs regardless of success or failure"
     ],
-    "tables": []
+    "tables": [],
+    "image":["/images/52.png"],
+    "imageSize":"large"
   },
   {
     "id": 53,
@@ -743,7 +747,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 63,
     "question": "What is callback in callback",
-    "description": "You can nest one callback inside in another callback to execute the actions sequentially one by one. This is known as callbacks in callbacks. Beware, too many levels of nesting lead to [Callback hell](https://github.com/sudheerj/javascript-interview-questions?tab=readme-ov-filewhat-is-a-callback-hell)",
+    "description": "You can nest one callback inside in another callback to execute the actions sequentially one by one. This is known as callbacks in callbacks. Beware, too many levels of nesting lead to [Callback hell]",
     "codeExamples": [
       "loadScript(\"/script1.js\", function (script) {\n      console.log(\"first script is loaded\");\n\n      loadScript(\"/script2.js\", function (script) {\n        console.log(\"second script is loaded\");\n\n        loadScript(\"/script3.js\", function (script) {\n          console.log(\"third script is loaded\");\n          // after all scripts are loaded\n        });\n      });\n    });"
     ],
@@ -1172,7 +1176,9 @@ export const sampleReadingContent: ReadingContent[] = [
     "question": "What is BOM",
     "description": "The Browser Object Model (BOM) allows JavaScript to \"talk to\" the browser. It consists of the objects navigator, history, screen, location and document which are children of the window. The Browser Object Model is not standardized and can change based on different browsers.",
     "codeExamples": [],
-    "tables": []
+    "tables": [],
+    "image":["/images/106.png"],
+    "imageSize":"large"
   },
   {
     "id": 107,
@@ -1996,7 +2002,7 @@ export const sampleReadingContent: ReadingContent[] = [
     "description": "The Proxy object is used to define custom behavior for fundamental operations such as property lookup, assignment, enumeration, function invocation, etc.\n\n      A proxy is created with two parameters: a target object which you want to proxy and a handler object which contains methods to intercept fundamental operations. The syntax would be as follows,\n\n      Let's take a look at below examples of proxy object and how the get method which customize the lookup behavior,\n\n      In the above code, it uses `get` handler which define the behavior of the proxy when an operation is performed on it. These proxies are mainly used for some of the below cross-cutting concerns.\n\n      1. Logging\n      2. Authentication or Authorization\n      3. Data binding and observables\n      4. Function parameter validation\n\n      Note: This feature was introduced with ES6.",
     "codeExamples": [
       "var p = new Proxy(target, handler);",
-      "//Example1:\n\n      const person = {\n        name: \"Sudheer Jonna\",\n        age: 35,\n      };\n\n      const handler = {\n        get(target, prop) {\n          if (prop === \"name\") {\n            return \"Mr. \" + target[prop];\n          }\n          return target[prop];\n        },\n      };\n\n      const proxy = new Proxy(person, handler);\n\n      //Example2:\n\n      var handler1 = {\n        get: function (obj, prop) {\n          return prop in obj ? obj[prop] : 100;\n        },\n      };\n\n      var p = new Proxy({}, handler1);\n      p.a = 10;\n      p.b = null;\n\n      console.log(p.a, p.b); // 10, null\n      console.log(\"c\" in p, p.c); // false, 100"
+      "//Example1:\n\n      const person = {\n        name: \"Devashish Jonna\",\n        age: 35,\n      };\n\n      const handler = {\n        get(target, prop) {\n          if (prop === \"name\") {\n            return \"Mr. \" + target[prop];\n          }\n          return target[prop];\n        },\n      };\n\n      const proxy = new Proxy(person, handler);\n\n      //Example2:\n\n      var handler1 = {\n        get: function (obj, prop) {\n          return prop in obj ? obj[prop] : 100;\n        },\n      };\n\n      var p = new Proxy({}, handler1);\n      p.a = 10;\n      p.b = null;\n\n      console.log(p.a, p.b); // 10, null\n      console.log(\"c\" in p, p.c); // false, 100"
     ],
     "tables": []
   },
@@ -2398,7 +2404,9 @@ export const sampleReadingContent: ReadingContent[] = [
     "codeExamples": [
       "function hungry() {\n        eatFruits();\n      }\n      function eatFruits() {\n        return \"I'm eating fruits\";\n      }\n\n      // Invoke the `hungry` function\n      hungry();"
     ],
-    "tables": []
+    "tables": [],
+    "image":["/images/238.png"],
+    "imageSize":"large"
   },
   {
     "id": 239,
@@ -2520,7 +2528,7 @@ export const sampleReadingContent: ReadingContent[] = [
     "description": "TypeScript is a typed superset of JavaScript created by Microsoft that adds optional types, classes\n      and many other features, and compiles to plain JavaScript. Angular is built entirely in TypeScript and it is used as the primary language there. You can install it globally as\n\n      Let's see a simple example of TypeScript usage,\n\n      The greeting method allows only string type as argument.",
     "codeExamples": [
       "      npm install -g typescript\n      ",
-      "      function greeting(name: string): string {\n        return \"Hello, \" + name;\n      }\n\n      let user = \"Sudheer\";\n\n      console.log(greeting(user));\n      "
+      "      function greeting(name: string): string {\n        return \"Hello, \" + name;\n      }\n\n      let user = \"Devashish\";\n\n      console.log(greeting(user));\n      "
     ],
     "tables": []
   },
@@ -3491,7 +3499,7 @@ export const sampleReadingContent: ReadingContent[] = [
     "question": "Mixin Example using Object composition",
     "description": "",
     "codeExamples": [
-      "// Define a mixin\n      const canEat = {\n        eat() {\n          console.log(\"Eating...\");\n        }\n      };\n\n      const canWalk = {\n        walk() {\n          console.log(\"Walking...\");\n        }\n      };\n\n      const canRead = {\n        read() {\n          console.log(\"Reading...\");\n        }\n      };\n\n      // Create a class\n      class Person {\n        constructor(name) {\n          this.name = name;\n        }\n      }\n\n      // Apply mixins\n      Object.assign(Person.prototype, canEat, canWalk, canRead);\n\n      // Use it\n      const person = new Person(\"Sudheer\");\n      person.eat();  // Output: Eating...\n      person.walk(); // Output: Walking...\n      person.read(); // Output: Reading..."
+      "// Define a mixin\n      const canEat = {\n        eat() {\n          console.log(\"Eating...\");\n        }\n      };\n\n      const canWalk = {\n        walk() {\n          console.log(\"Walking...\");\n        }\n      };\n\n      const canRead = {\n        read() {\n          console.log(\"Reading...\");\n        }\n      };\n\n      // Create a class\n      class Person {\n        constructor(name) {\n          this.name = name;\n        }\n      }\n\n      // Apply mixins\n      Object.assign(Person.prototype, canEat, canWalk, canRead);\n\n      // Use it\n      const person = new Person(\"Devashish\");\n      person.eat();  // Output: Eating...\n      person.walk(); // Output: Walking...\n      person.read(); // Output: Reading..."
     ],
     "tables": []
   },
@@ -3671,7 +3679,9 @@ export const sampleReadingContent: ReadingContent[] = [
     "codeExamples": [
       "console.log(\n        \"%c The text has blue color, with large font and red background\",\n        \"color: blue; font-size: x-large; background: red\"\n      );"
     ],
-    "tables": []
+    "tables": [],
+    "image":["/images/372.png"],
+    "imageSize":"large"
   },
   {
     "id": 373,
@@ -3680,7 +3690,9 @@ export const sampleReadingContent: ReadingContent[] = [
     "codeExamples": [
       "const user = { name: \"John\", id: 1, city: \"Delhi\" };\n      console.dir(user);"
     ],
-    "tables": []
+    "tables": [],
+    "image":["/images/373.png"],
+    "imageSize":"large"
   },
   {
     "id": 374,
@@ -3689,7 +3701,9 @@ export const sampleReadingContent: ReadingContent[] = [
     "codeExamples": [
       "const element = document.getElementsByTagName(\"body\")[0];\n      console.log(element);"
     ],
-    "tables": []
+    "tables": [],
+    "image":["/images/374.png"],
+    "imageSize":"large"
   },
   {
     "id": 375,
@@ -3698,7 +3712,9 @@ export const sampleReadingContent: ReadingContent[] = [
     "codeExamples": [
       "      const users = [\n        { name: \"John\", id: 1, city: \"Delhi\" },\n        { name: \"Max\", id: 2, city: \"London\" },\n        { name: \"Rod\", id: 3, city: \"Paris\" },\n      ];\n      console.table(users);\n      "
     ],
-    "tables": []
+    "tables": [],
+    "image":["/images/375.png"],
+    "imageSize":"large"
   },
   {
     "id": 376,
@@ -3913,14 +3929,18 @@ export const sampleReadingContent: ReadingContent[] = [
     "question": "What is heap",
     "description": "Heap(Or memory heap) is the memory location where objects are stored when we define variables. i.e, This is the place where all the memory allocations and de-allocation take place. Both heap and call-stack are two containers of JS runtime.\n     Whenever runtime comes across variables and function declarations in the code it stores them in the Heap.",
     "codeExamples": [],
-    "tables": []
+    "tables": [],
+    "image":["/images/396.png"],
+    "imageSize":"large"
   },
   {
     "id": 397,
     "question": "What is an event table",
     "description": "Event Table is a data structure that stores and keeps track of all the events which will be executed asynchronously like after some time interval or after the resolution of some API requests. i.e Whenever you call a setTimeout function or invoke async operation, it is added to the Event Table.\n     It doesn't not execute functions on it’s own. The main purpose of the event table is to keep track of events and send them to the Event Queue as shown in the below diagram.",
     "codeExamples": [],
-    "tables": []
+    "tables": [],
+    "image":["/images/397.png"],
+    "imageSize":"large"
   },
   {
     "id": 398,
@@ -4010,7 +4030,9 @@ export const sampleReadingContent: ReadingContent[] = [
     "codeExamples": [
       "import { Observable } from \"rxjs\";\n\n     const observable = new Observable((observer) => {\n       setTimeout(() => {\n         observer.next(\"Message from a Observable!\");\n       }, 3000);\n     });\n\n     observable.subscribe((value) => console.log(value));"
     ],
-    "tables": []
+    "tables": [],
+    "image":["/images/408.png"],
+    "imageSize":"large"
   },
   {
     "id": 409,
@@ -4206,7 +4228,7 @@ export const sampleReadingContent: ReadingContent[] = [
     "question": "How do you group and nest console output?",
     "description": "The `console.group()` can be used to group related log messages to be able to easily read the logs and use console.groupEnd()to close the group. Along with this, you can also nest groups which allows to output message in hierarchical manner.\n\n     For example, if you’re logging a user’s details:\n\n     You can also use `console.groupCollapsed()` instead of `console.group()` if you want the groups to be collapsed by default.",
     "codeExamples": [
-      "     console.group(\"User Details\");\n     console.log(\"name: Sudheer Jonna\");\n     console.log(\"job: Software Developer\");\n\n     // Nested Group\n     console.group(\"Address\");\n     console.log(\"Street: Commonwealth\");\n     console.log(\"City: Los Angeles\");\n     console.log(\"State: California\");\n\n     // Close nested group\n     console.groupEnd();\n\n     // Close outer group\n     console.groupEnd();\n     "
+      "     console.group(\"User Details\");\n     console.log(\"name: Devashish Jonna\");\n     console.log(\"job: Software Developer\");\n\n     // Nested Group\n     console.group(\"Address\");\n     console.log(\"Street: Commonwealth\");\n     console.log(\"City: Los Angeles\");\n     console.log(\"State: California\");\n\n     // Close nested group\n     console.groupEnd();\n\n     // Close outer group\n     console.groupEnd();\n     "
     ],
     "tables": []
   },
@@ -4470,7 +4492,7 @@ export const sampleReadingContent: ReadingContent[] = [
       "const person = {\n    name: \"John\",\n    greet: function () {\n      console.log(\"Hello, \" + this.name);\n    },\n  };\n\n  person.greet();",
       "document.getElementById(\"myButton\").addEventListener(\"click\", function () {\n            console.log(this);\n   });",
       "const obj = {\n          age: 42,\n          regular: function() { console.log(this.age); },\n          arrow: () => { console.log(this.age); }\n        };\n        obj.regular(); // 42 (this refers to obj)\n        obj.arrow();   // undefined (this refers to the outer scope, not obj)",
-      "function Person(name) {\n      this.name = name;\n    }\n    \n    const p1 = new Person('Sudheer');\n    console.log(p1.name); // Sudheer"
+      "function Person(name) {\n      this.name = name;\n    }\n    \n    const p1 = new Person('Devashish');\n    console.log(p1.name); // Devashish"
     ],
     "tables": []
   },
@@ -4552,7 +4574,9 @@ export const sampleReadingContent: ReadingContent[] = [
     "question": "What are the event phases of a browser?",
     "description": "There are 3 phases in the lifecycle of an event propagation in JavaScript,\n\n     1. Capturing phase: This phase goes down gradually from the top of the DOM tree to the target element when a nested element clicked. Before the click event reaching the final destination element, the click event of each parent's element must be triggered.\n\n     2. Target phase: This is the phase where the event originally occurred reached the target element .\n\n     3. Bubbling phase: This is reverse of the capturing phase. In this pase, the event bubbles up from the target element through it's parent element, an ancestor and goes all the way to the global window object.\n\n     The pictorial representation of these 3 event phases in DOM looks like below,",
     "codeExamples": [],
-    "tables": []
+    "tables": [],
+    "image":["/images/462.png"],
+    "imageSize":"large"
   },
   {
     "id": 463,
