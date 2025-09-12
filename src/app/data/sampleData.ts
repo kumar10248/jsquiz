@@ -7,18 +7,18 @@ export const sampleReadingContent: ReadingContent[] = [
     "question": "What are the possible ways to create objects in JavaScript",
     "description": "There are many ways to create objects in javascript as mentioned below:\n\n    1. Object literal syntax:\n\n       The object literal syntax (or object initializer), is a comma-separated set of name-value pairs wrapped in curly braces.\n\n       \n\n       Object literal property values can be of any data type, including array, function, and nested object.\n\n       Note: This is one of the easiest ways to create an object and it's most commonly used for creating simple, ad-hoc objects.\n\n    2. Object constructor:\n\n       The simplest way to create an empty object is using the `Object` constructor. Currently this approach is not recommended.\n\n       \n\n       The `Object()` is a built-in constructor function so \"new\" keyword is not required for creating plain objects. The above code snippet can be re-written as:\n\n       \n       However, `Object()` can be used to either create a plain object or convert a given value into its corresponding object wrapper, whereas `new Object()` is specifically used to explicitly create a new object instance.\n       \n    3. Object's create method:\n\n       The `create` method of Object is used to create a new object by passing the specified prototype object and properties as arguments, i.e., this pattern is helpful to create new objects based on existing objects. In other words, this is useful for setting up prototypal inheritance. The second argument is optional and it is used to create properties on a newly created object.\n\n       The following code creates a new empty object whose prototype is null.\n\n       \n\n       The following example creates an object along with additional new properties.\n\n       \n\n    4. Function constructor:\n\n       In this approach, create any function and apply the new operator to create object instances. This was the main way to do constructor-based OOP before ES6 classes.\n\n       \n    5. Function constructor with prototype:\n\n       This is similar to function constructor but it uses prototype for their properties and methods. Using prototype means you're sharing methods/properties across instances, which saves memory and improve performance.\n\n       \n\n       This is equivalent to creating an instance with `Object.create` method with a function prototype and then calling that function with an instance and parameters as arguments.\n\n       \n\n       (OR)\n\n       \n\n    6. Object's assign method:\n\n       The `Object.assign` method is used to copy all the properties from one or more source objects and stores them into a target object. This is mainly used for cloning and merging\n\n       The following code creates a new staff object by copying properties of his working company and the car he owns.\n\n       \n\n    7. ES6 Class syntax:\n\n       ES6 introduces class feature to create objects. This is syntactic sugar over the prototype-based system.\n\n       \n\n    8. Singleton pattern:\n\n       A Singleton is an object which can only be instantiated one time. Repeated calls to its constructor return the same instance. This way one can ensure that they don't accidentally create multiple instances.\n\n         Singleton with Closure (Classic JS Pattern)\n        \n         In modern JavaScript applications, singletons are commonly implemented using ES6 modules for their built-in caching behavior, or closures for encapsulated state management.",
     "codeExamples": [
-      "var object = {\n         name: \"Sudheer\",\n         age: 34,\n       };",
+      "var object = {\n         name: \"Devashish\",\n         age: 34,\n       };",
       "var object = new Object();",
       "var object = Object();",
       "var object = Object.create(null);",
       "let vehicle = {\n         wheels: \"4\",\n         fuelType: \"Gasoline\",\n         color: \"Green\",\n       };\n       let carProps = {\n         type: {\n           value: \"Volkswagen\",\n         },\n         model: {\n           value: \"Golf\",\n         },\n       };\n\n       var car = Object.create(vehicle, carProps);\n       console.log(car);",
-      "function Person(name) {\n         this.name = name;\n         this.age = 21;\n       }\n       var object = new Person(\"Sudheer\");",
-      "function Person() {}\n       Person.prototype.name = \"Sudheer\";\n       var object = new Person();",
+      "function Person(name) {\n         this.name = name;\n         this.age = 21;\n       }\n       var object = new Person(\"Devashish\");",
+      "function Person() {}\n       Person.prototype.name = \"Devashish\";\n       var object = new Person();",
       "function func(x, y, z) {\n        this.x = x;\n        this.y = y;\n        this.z = z;\n       }\n\n       var instance = new func(1, 2, 3);",
       "function func(x, y, z) {\n          this.x = x;\n          this.y = y;\n          this.z = z;\n       }\n       // Create a new instance using function prototype.\n       var newInstance = Object.create(func.prototype)\n\n       // Call the function\n       var result = func.call(newInstance, 1, 2, 3),\n\n       // If the result is a non-null object then use it otherwise just use the new instance.\n       console.log(result && typeof result === 'object' ? result : newInstance);",
       "const orgObject = { company: \"XYZ Corp\" };\n       const carObject = { name: \"Toyota\" };\n       const staff = Object.assign({}, orgObject, carObject);",
-      "class Person {\n         constructor(name) {\n           this.name = name;\n         }\n       }\n\n       var object = new Person(\"Sudheer\");",
-      "const Singleton = (function () {\n        let instance;\n\n        function createInstance() {\n          return { name: \"Sudheer\" };\n        }\n\n        return {\n          getInstance: function () {\n            if (!instance) {\n              instance = createInstance();\n            }\n            return instance;\n          }\n        };\n        })();\n\n        // Usage\n        const obj1 = Singleton.getInstance();\n        const obj2 = Singleton.getInstance();\n\n        console.log(obj1 === obj2); // true"
+      "class Person {\n         constructor(name) {\n           this.name = name;\n         }\n       }\n\n       var object = new Person(\"Devashish\");",
+      "const Singleton = (function () {\n        let instance;\n\n        function createInstance() {\n          return { name: \"Devashish\" };\n        }\n\n        return {\n          getInstance: function () {\n            if (!instance) {\n              instance = createInstance();\n            }\n            return instance;\n          }\n        };\n        })();\n\n        // Usage\n        const obj1 = Singleton.getInstance();\n        const obj2 = Singleton.getInstance();\n\n        console.log(obj1 === obj2); // true"
     ],
     "tables": []
   },
@@ -501,7 +501,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 63,
     "question": "What is callback in callback",
-    "description": "You can nest one callback inside in another callback to execute the actions sequentially one by one. This is known as callbacks in callbacks. Beware, too many levels of nesting lead to [Callback hell](https://github.com/sudheerj/javascript-interview-questions?tab=readme-ov-filewhat-is-a-callback-hell)",
+    "description": "You can nest one callback inside in another callback to execute the actions sequentially one by one. This is known as callbacks in callbacks. Beware, too many levels of nesting lead to [Callback hell](https://github.com/Devashishj/javascript-interview-questions?tab=readme-ov-filewhat-is-a-callback-hell)",
     "codeExamples": [
       "loadScript(\"/script1.js\", function (script) {\n      console.log(\"first script is loaded\");\n\n      loadScript(\"/script2.js\", function (script) {\n        console.log(\"second script is loaded\");\n\n        loadScript(\"/script3.js\", function (script) {\n          console.log(\"third script is loaded\");\n          // after all scripts are loaded\n        });\n      });\n    });"
     ],
@@ -1598,7 +1598,7 @@ export const sampleReadingContent: ReadingContent[] = [
     "description": "The Proxy object is used to define custom behavior for fundamental operations such as property lookup, assignment, enumeration, function invocation, etc.\n\n      A proxy is created with two parameters: a target object which you want to proxy and a handler object which contains methods to intercept fundamental operations. The syntax would be as follows,\n\n      \n\n      Let's take a look at below examples of proxy object and how the get method which customize the lookup behavior,\n\n      \n\n      In the above code, it uses `get` handler which define the behavior of the proxy when an operation is performed on it. These proxies are mainly used for some of the below cross-cutting concerns.\n\n      1. Logging\n      2. Authentication or Authorization\n      3. Data binding and observables\n      4. Function parameter validation\n\n      Note: This feature was introduced with ES6.",
     "codeExamples": [
       "var p = new Proxy(target, handler);",
-      "//Example1:\n\n      const person = {\n        name: \"Sudheer Jonna\",\n        age: 35,\n      };\n\n      const handler = {\n        get(target, prop) {\n          if (prop === \"name\") {\n            return \"Mr. \" + target[prop];\n          }\n          return target[prop];\n        },\n      };\n\n      const proxy = new Proxy(person, handler);\n\n      //Example2:\n\n      var handler1 = {\n        get: function (obj, prop) {\n          return prop in obj ? obj[prop] : 100;\n        },\n      };\n\n      var p = new Proxy({}, handler1);\n      p.a = 10;\n      p.b = null;\n\n      console.log(p.a, p.b); // 10, null\n      console.log(\"c\" in p, p.c); // false, 100"
+      "//Example1:\n\n      const person = {\n        name: \"Devashish Jonna\",\n        age: 35,\n      };\n\n      const handler = {\n        get(target, prop) {\n          if (prop === \"name\") {\n            return \"Mr. \" + target[prop];\n          }\n          return target[prop];\n        },\n      };\n\n      const proxy = new Proxy(person, handler);\n\n      //Example2:\n\n      var handler1 = {\n        get: function (obj, prop) {\n          return prop in obj ? obj[prop] : 100;\n        },\n      };\n\n      var p = new Proxy({}, handler1);\n      p.a = 10;\n      p.b = null;\n\n      console.log(p.a, p.b); // 10, null\n      console.log(\"c\" in p, p.c); // false, 100"
     ],
     "tables": []
   },
@@ -2074,7 +2074,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 252,
     "question": "What is typescript",
-    "description": "TypeScript is a typed superset of JavaScript created by Microsoft that adds optional types, classes\n      and many other features, and compiles to plain JavaScript. Angular is built entirely in TypeScript and it is used as the primary language there. You can install it globally as\n\n      ```bash\n      npm install -g typescript\n      ```\n\n      Let's see a simple example of TypeScript usage,\n\n      ```typescript\n      function greeting(name: string): string {\n        return \"Hello, \" + name;\n      }\n\n      let user = \"Sudheer\";\n\n      console.log(greeting(user));\n      ```\n\n      The greeting method allows only string type as argument.",
+    "description": "TypeScript is a typed superset of JavaScript created by Microsoft that adds optional types, classes\n      and many other features, and compiles to plain JavaScript. Angular is built entirely in TypeScript and it is used as the primary language there. You can install it globally as\n\n      ```bash\n      npm install -g typescript\n      ```\n\n      Let's see a simple example of TypeScript usage,\n\n      ```typescript\n      function greeting(name: string): string {\n        return \"Hello, \" + name;\n      }\n\n      let user = \"Devashish\";\n\n      console.log(greeting(user));\n      ```\n\n      The greeting method allows only string type as argument.",
     "codeExamples": [],
     "tables": []
   },
@@ -2930,7 +2930,7 @@ export const sampleReadingContent: ReadingContent[] = [
     "question": "Mixin Example using Object composition",
     "description": "",
     "codeExamples": [
-      "// Define a mixin\n      const canEat = {\n        eat() {\n          console.log(\"Eating...\");\n        }\n      };\n\n      const canWalk = {\n        walk() {\n          console.log(\"Walking...\");\n        }\n      };\n\n      const canRead = {\n        read() {\n          console.log(\"Reading...\");\n        }\n      };\n\n      // Create a class\n      class Person {\n        constructor(name) {\n          this.name = name;\n        }\n      }\n\n      // Apply mixins\n      Object.assign(Person.prototype, canEat, canWalk, canRead);\n\n      // Use it\n      const person = new Person(\"Sudheer\");\n      person.eat();  // Output: Eating...\n      person.walk(); // Output: Walking...\n      person.read(); // Output: Reading..."
+      "// Define a mixin\n      const canEat = {\n        eat() {\n          console.log(\"Eating...\");\n        }\n      };\n\n      const canWalk = {\n        walk() {\n          console.log(\"Walking...\");\n        }\n      };\n\n      const canRead = {\n        read() {\n          console.log(\"Reading...\");\n        }\n      };\n\n      // Create a class\n      class Person {\n        constructor(name) {\n          this.name = name;\n        }\n      }\n\n      // Apply mixins\n      Object.assign(Person.prototype, canEat, canWalk, canRead);\n\n      // Use it\n      const person = new Person(\"Devashish\");\n      person.eat();  // Output: Eating...\n      person.walk(); // Output: Walking...\n      person.read(); // Output: Reading..."
     ],
     "tables": []
   },
@@ -3590,7 +3590,7 @@ export const sampleReadingContent: ReadingContent[] = [
   {
     "id": 429,
     "question": "How do you group and nest console output?",
-    "description": "The `console.group()` can be used to group related log messages to be able to easily read the logs and use console.groupEnd()to close the group. Along with this, you can also nest groups which allows to output message in hierarchical manner.\n\n     For example, if you’re logging a user’s details:\n\n     ```js\n     console.group(\"User Details\");\n     console.log(\"name: Sudheer Jonna\");\n     console.log(\"job: Software Developer\");\n\n     // Nested Group\n     console.group(\"Address\");\n     console.log(\"Street: Commonwealth\");\n     console.log(\"City: Los Angeles\");\n     console.log(\"State: California\");\n\n     // Close nested group\n     console.groupEnd();\n\n     // Close outer group\n     console.groupEnd();\n     ```\n\n     You can also use `console.groupCollapsed()` instead of `console.group()` if you want the groups to be collapsed by default.",
+    "description": "The `console.group()` can be used to group related log messages to be able to easily read the logs and use console.groupEnd()to close the group. Along with this, you can also nest groups which allows to output message in hierarchical manner.\n\n     For example, if you’re logging a user’s details:\n\n     ```js\n     console.group(\"User Details\");\n     console.log(\"name: Devashish Jonna\");\n     console.log(\"job: Software Developer\");\n\n     // Nested Group\n     console.group(\"Address\");\n     console.log(\"Street: Commonwealth\");\n     console.log(\"City: Los Angeles\");\n     console.log(\"State: California\");\n\n     // Close nested group\n     console.groupEnd();\n\n     // Close outer group\n     console.groupEnd();\n     ```\n\n     You can also use `console.groupCollapsed()` instead of `console.group()` if you want the groups to be collapsed by default.",
     "codeExamples": [],
     "tables": []
   },
@@ -3776,7 +3776,7 @@ export const sampleReadingContent: ReadingContent[] = [
       "const person = {\n    name: \"John\",\n    greet: function () {\n      console.log(\"Hello, \" + this.name);\n    },\n  };\n\n  person.greet();",
       "document.getElementById(\"myButton\").addEventListener(\"click\", function () {\n            console.log(this);\n   });",
       "const obj = {\n          age: 42,\n          regular: function() { console.log(this.age); },\n          arrow: () => { console.log(this.age); }\n        };\n        obj.regular(); // 42 (this refers to obj)\n        obj.arrow();   // undefined (this refers to the outer scope, not obj)",
-      "function Person(name) {\n      this.name = name;\n    }\n    \n    const p1 = new Person('Sudheer');\n    console.log(p1.name); // Sudheer"
+      "function Person(name) {\n      this.name = name;\n    }\n    \n    const p1 = new Person('Devashish');\n    console.log(p1.name); // Devashish"
     ],
     "tables": []
   },
@@ -3975,15 +3975,15 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 1,
 		title: "1. What's the output?",
 		code:
-			'function sayHi() {\n  console.log(name);\n  console.log(age);\n  var name = "Lydia";\n  let age = 21;\n}\n\nsayHi();',
+			'function sayHi() {\n  console.log(name);\n  console.log(age);\n  var name = "Devashish";\n  let age = 21;\n}\n\nsayHi();',
 		options: [
 			{
 				correct: false,
-				text: "`Lydia` and `undefined`"
+				text: "`Devashish` and `undefined`"
 			},
 			{
 				correct: false,
-				text: "`Lydia` and `ReferenceError`"
+				text: "`Devashish` and `ReferenceError`"
 			},
 			{
 				correct: false,
@@ -4048,7 +4048,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 	{
 		id: 4,
 		title: "4. What's the output?",
-		code: '+true;\n!"Lydia";',
+		code: '+true;\n!"Devashish";',
 		options: [
 			{
 				correct: true,
@@ -4064,7 +4064,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			}
 		],
 		explanation:
-			"The unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.\n\nThe string `'Lydia'` is a truthy value. What we're actually asking, is \"is this truthy value falsy?\". This returns `false`."
+			"The unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.\n\nThe string `'Devashish'` is a truthy value. What we're actually asking, is \"is this truthy value falsy?\". This returns `false`."
 	},
 	{
 		id: 5,
@@ -4225,7 +4225,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 11,
 		title: "11. What's the output?",
 		code:
-			'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};\n\nconsole.log(member.getFullName());',
+			'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Devashish", "Hallie");\nPerson.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};\n\nconsole.log(member.getFullName());',
 		options: [
 			{
 				correct: true,
@@ -4237,7 +4237,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			},
 			{
 				correct: false,
-				text: "`Lydia Hallie`"
+				text: "`Devashish Hallie`"
 			},
 			{
 				correct: false,
@@ -4251,26 +4251,26 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 12,
 		title: "12. What's the output?",
 		code:
-			'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst lydia = new Person("Lydia", "Hallie");\nconst sarah = Person("Sarah", "Smith");\n\nconsole.log(lydia);\nconsole.log(sarah);',
+			'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst Devashish = new Person("Devashish", "Hallie");\nconst sarah = Person("Sarah", "Smith");\n\nconsole.log(Devashish);\nconsole.log(sarah);',
 		options: [
 			{
 				correct: true,
 				text:
-					'`Person {firstName: "Lydia", lastName: "Hallie"}` and `undefined`'
+					'`Person {firstName: "Devashish", lastName: "Hallie"}` and `undefined`'
 			},
 			{
 				correct: false,
 				text:
-					'`Person {firstName: "Lydia", lastName: "Hallie"}` and `Person {firstName: "Sarah", lastName: "Smith"}`'
+					'`Person {firstName: "Devashish", lastName: "Hallie"}` and `Person {firstName: "Sarah", lastName: "Smith"}`'
 			},
 			{
 				correct: false,
-				text: '`Person {firstName: "Lydia", lastName: "Hallie"}` and `{}`'
+				text: '`Person {firstName: "Devashish", lastName: "Hallie"}` and `{}`'
 			},
 			{
 				correct: false,
 				text:
-					'`Person {firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`'
+					'`Person {firstName: "Devashish", lastName: "Hallie"}` and `ReferenceError`'
 			}
 		],
 		explanation:
@@ -4373,19 +4373,19 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 17,
 		title: "17. What's the output?",
 		code:
-			'function getPersonInfo(one, two, three) {\n  console.log(one);\n  console.log(two);\n  console.log(three);\n}\n\nconst person = "Lydia";\nconst age = 21;\n\ngetPersonInfo`${person} is ${age} years old`;',
+			'function getPersonInfo(one, two, three) {\n  console.log(one);\n  console.log(two);\n  console.log(three);\n}\n\nconst person = "Devashish";\nconst age = 21;\n\ngetPersonInfo`${person} is ${age} years old`;',
 		options: [
 			{
 				correct: false,
-				text: '`"Lydia"` `21` `["", " is ", " years old"]`'
+				text: '`"Devashish"` `21` `["", " is ", " years old"]`'
 			},
 			{
 				correct: true,
-				text: '`["", " is ", " years old"]` `"Lydia"` `21`'
+				text: '`["", " is ", " years old"]` `"Devashish"` `21`'
 			},
 			{
 				correct: false,
-				text: '`"Lydia"` `["", " is ", " years old"]` `21`'
+				text: '`"Devashish"` `["", " is ", " years old"]` `21`'
 			}
 		],
 		explanation:
@@ -4643,11 +4643,11 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 28,
 		title: "28. What's the output?",
 		code:
-			'String.prototype.giveLydiaPizza = () => {\n  return "Just give Lydia pizza already!";\n};\n\nconst name = "Lydia";\n\nname.giveLydiaPizza();',
+			'String.prototype.giveDevashishPizza = () => {\n  return "Just give Devashish pizza already!";\n};\n\nconst name = "Devashish";\n\nname.giveDevashishPizza();',
 		options: [
 			{
 				correct: true,
-				text: '`"Just give Lydia pizza already!"`'
+				text: '`"Just give Devashish pizza already!"`'
 			},
 			{
 				correct: false,
@@ -4773,11 +4773,11 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 33,
 		title: "33. What's the output?",
 		code:
-			'const person = { name: "Lydia" };\n\nfunction sayHi(age) {\n  return `${this.name} is ${age}`;\n}\n\nconsole.log(sayHi.call(person, 21));\nconsole.log(sayHi.bind(person, 21));',
+			'const person = { name: "Devashish" };\n\nfunction sayHi(age) {\n  return `${this.name} is ${age}`;\n}\n\nconsole.log(sayHi.call(person, 21));\nconsole.log(sayHi.bind(person, 21));',
 		options: [
 			{
 				correct: false,
-				text: "`undefined is 21` `Lydia is 21`"
+				text: "`undefined is 21` `Devashish is 21`"
 			},
 			{
 				correct: false,
@@ -4785,11 +4785,11 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			},
 			{
 				correct: false,
-				text: "`Lydia is 21` `Lydia is 21`"
+				text: "`Devashish is 21` `Devashish is 21`"
 			},
 			{
 				correct: true,
-				text: "`Lydia is 21` `function`"
+				text: "`Devashish is 21` `function`"
 			}
 		],
 		explanation:
@@ -5027,7 +5027,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 	{
 		id: 43,
 		title: "43. What does this return?",
-		code: '[..."Lydia"];',
+		code: '[..."Devashish"];',
 		options: [
 			{
 				correct: true,
@@ -5035,11 +5035,11 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			},
 			{
 				correct: false,
-				text: '`["Lydia"]`'
+				text: '`["Devashish"]`'
 			},
 			{
 				correct: false,
-				text: '`[[], "Lydia"]`'
+				text: '`[[], "Devashish"]`'
 			},
 			{
 				correct: false,
@@ -5105,7 +5105,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 46,
 		title: "46. What's the output?",
 		code:
-			'let person = { name: "Lydia" };\nconst members = [person];\nperson = null;\n\nconsole.log(members);',
+			'let person = { name: "Devashish" };\nconst members = [person];\nperson = null;\n\nconsole.log(members);',
 		options: [
 			{
 				correct: false,
@@ -5121,7 +5121,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			},
 			{
 				correct: true,
-				text: '`[{ name: "Lydia" }]`'
+				text: '`[{ name: "Devashish" }]`'
 			}
 		],
 		explanation:
@@ -5131,11 +5131,11 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 47,
 		title: "47. What's the output?",
 		code:
-			'const person = {\n  name: "Lydia",\n  age: 21\n};\n\nfor (const item in person) {\n  console.log(item);\n}',
+			'const person = {\n  name: "Devashish",\n  age: 21\n};\n\nfor (const item in person) {\n  console.log(item);\n}',
 		options: [
 			{
 				correct: false,
-				text: '`{ name: "Lydia" }, { age: 21 }`'
+				text: '`{ name: "Devashish" }, { age: 21 }`'
 			},
 			{
 				correct: true,
@@ -5143,11 +5143,11 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			},
 			{
 				correct: false,
-				text: '`"Lydia", 21`'
+				text: '`"Devashish", 21`'
 			},
 			{
 				correct: false,
-				text: '`["name", "Lydia"], ["age", 21]`'
+				text: '`["name", "Devashish"], ["age", 21]`'
 			}
 		],
 		explanation:
@@ -5233,11 +5233,11 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 51,
 		title: "51. What's the output?",
 		code:
-			'function getInfo(member, year) {\n  member.name = "Lydia";\n  year = "1998";\n}\n\nconst person = { name: "Sarah" };\nconst birthYear = "1997";\n\ngetInfo(person, birthYear);\n\nconsole.log(person, birthYear);',
+			'function getInfo(member, year) {\n  member.name = "Devashish";\n  year = "1998";\n}\n\nconst person = { name: "Sarah" };\nconst birthYear = "1997";\n\ngetInfo(person, birthYear);\n\nconsole.log(person, birthYear);',
 		options: [
 			{
 				correct: true,
-				text: '`{ name: "Lydia" }, "1997"`'
+				text: '`{ name: "Devashish" }, "1997"`'
 			},
 			{
 				correct: false,
@@ -5245,7 +5245,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			},
 			{
 				correct: false,
-				text: '`{ name: "Lydia" }, "1998"`'
+				text: '`{ name: "Devashish" }, "1998"`'
 			},
 			{
 				correct: false,
@@ -5253,7 +5253,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			}
 		],
 		explanation:
-			'Arguments are passed by _value_, unless their value is an object, then they\'re passed by _reference_. `birthYear` is passed by value, since it\'s a string, not an object. When we pass arguments by value, a _copy_ of that value is created (see question 46).\n\nThe variable `birthYear` has a reference to the value `"1997"`. The argument `year` also has a reference to the value `"1997"`, but it\'s not the same value as `birthYear` has a reference to. When we update the value of `year` by setting `year` equal to `"1998"`, we are only updating the value of `year`. `birthYear` is still equal to `"1997"`.\n\nThe value of `person` is an object. The argument `member` has a (copied) reference to the _same_ object. When we modify a property of the object `member` has a reference to, the value of `person` will also be modified, since they both have a reference to the same object. `person`\'s `name` property is now equal to the value `"Lydia"`'
+			'Arguments are passed by _value_, unless their value is an object, then they\'re passed by _reference_. `birthYear` is passed by value, since it\'s a string, not an object. When we pass arguments by value, a _copy_ of that value is created (see question 46).\n\nThe variable `birthYear` has a reference to the value `"1997"`. The argument `year` also has a reference to the value `"1997"`, but it\'s not the same value as `birthYear` has a reference to. When we update the value of `year` by setting `year` equal to `"1998"`, we are only updating the value of `year`. `birthYear` is still equal to `"1997"`.\n\nThe value of `person` is an object. The argument `member` has a (copied) reference to the _same_ object. When we modify a property of the object `member` has a reference to, the value of `person` will also be modified, since they both have a reference to the same object. `person`\'s `name` property is now equal to the value `"Devashish"`'
 	},
 	{
 		id: 52,
@@ -5413,7 +5413,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 58,
 		title: "58. What's the output?",
 		code:
-			'const name = "Lydia";\nage = 21;\n\nconsole.log(delete name);\nconsole.log(delete age);',
+			'const name = "Devashish";\nage = 21;\n\nconsole.log(delete name);\nconsole.log(delete age);',
 		options: [
 			{
 				correct: true,
@@ -5421,7 +5421,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			},
 			{
 				correct: false,
-				text: '`"Lydia"`, `21`'
+				text: '`"Devashish"`, `21`'
 			},
 			{
 				correct: false,
@@ -5465,19 +5465,19 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 60,
 		title: "60. What's the output?",
 		code:
-			'const user = { name: "Lydia", age: 21 };\nconst admin = { admin: true, ...user };\n\nconsole.log(admin);',
+			'const user = { name: "Devashish", age: 21 };\nconst admin = { admin: true, ...user };\n\nconsole.log(admin);',
 		options: [
 			{
 				correct: false,
-				text: '`{ admin: true, user: { name: "Lydia", age: 21 } }`'
+				text: '`{ admin: true, user: { name: "Devashish", age: 21 } }`'
 			},
 			{
 				correct: true,
-				text: '`{ admin: true, name: "Lydia", age: 21 }`'
+				text: '`{ admin: true, name: "Devashish", age: 21 }`'
 			},
 			{
 				correct: false,
-				text: '`{ admin: true, user: ["Lydia", 21] }`'
+				text: '`{ admin: true, user: ["Devashish", 21] }`'
 			},
 			{
 				correct: false,
@@ -5485,29 +5485,29 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			}
 		],
 		explanation:
-			'It\'s possible to combine objects using the spread operator `...`. It lets you create copies of the key/value pairs of one object, and add them to another object. In this case, we create copies of the `user` object, and add them to the `admin` object. The `admin` object now contains the copied key/value pairs, which results in `{ admin: true, name: "Lydia", age: 21 }`.'
+			'It\'s possible to combine objects using the spread operator `...`. It lets you create copies of the key/value pairs of one object, and add them to another object. In this case, we create copies of the `user` object, and add them to the `admin` object. The `admin` object now contains the copied key/value pairs, which results in `{ admin: true, name: "Devashish", age: 21 }`.'
 	},
 	{
 		id: 61,
 		title: "61. What's the output?",
 		code:
-			'const person = { name: "Lydia" };\n\nObject.defineProperty(person, "age", { value: 21 });\n\nconsole.log(person);\nconsole.log(Object.keys(person));',
+			'const person = { name: "Devashish" };\n\nObject.defineProperty(person, "age", { value: 21 });\n\nconsole.log(person);\nconsole.log(Object.keys(person));',
 		options: [
 			{
 				correct: false,
-				text: '`{ name: "Lydia", age: 21 }`, `["name", "age"]`'
+				text: '`{ name: "Devashish", age: 21 }`, `["name", "age"]`'
 			},
 			{
 				correct: true,
-				text: '`{ name: "Lydia", age: 21 }`, `["name"]`'
+				text: '`{ name: "Devashish", age: 21 }`, `["name"]`'
 			},
 			{
 				correct: false,
-				text: '`{ name: "Lydia"}`, `["name", "age"]`'
+				text: '`{ name: "Devashish"}`, `["name", "age"]`'
 			},
 			{
 				correct: false,
-				text: '`{ name: "Lydia"}`, `["age"]`'
+				text: '`{ name: "Devashish"}`, `["age"]`'
 			}
 		],
 		explanation:
@@ -5517,7 +5517,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 62,
 		title: "62. What's the output?",
 		code:
-			'const settings = {\n  username: "lydiahallie",\n  level: 19,\n  health: 90\n};\n\nconst data = JSON.stringify(settings, ["level", "health"]);\nconsole.log(data);',
+			'const settings = {\n  username: "Devashishhallie",\n  level: 19,\n  health: 90\n};\n\nconst data = JSON.stringify(settings, ["level", "health"]);\nconsole.log(data);',
 		options: [
 			{
 				correct: true,
@@ -5525,7 +5525,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			},
 			{
 				correct: false,
-				text: '`"{"username": "lydiahallie"}"`'
+				text: '`"{"username": "Devashishhallie"}"`'
 			},
 			{
 				correct: false,
@@ -5533,7 +5533,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			},
 			{
 				correct: false,
-				text: '`"{"username": "lydiahallie", "level":19, "health":90}"`'
+				text: '`"{"username": "Devashishhallie", "level":19, "health":90}"`'
 			}
 		],
 		explanation:
@@ -5700,29 +5700,29 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 69,
 		title: "69. What's the output?",
 		code:
-			'const name = "Lydia Hallie"\nconsole.log(name.padStart(13))\nconsole.log(name.padStart(2))',
+			'const name = "Devashish Hallie"\nconsole.log(name.padStart(13))\nconsole.log(name.padStart(2))',
 		options: [
 			{
 				correct: false,
-				text: '`"Lydia Hallie"`, `"Lydia Hallie"`'
+				text: '`"Devashish Hallie"`, `"Devashish Hallie"`'
 			},
 			{
 				correct: false,
 				text:
-					'`"           Lydia Hallie"`, `"  Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)'
+					'`"           Devashish Hallie"`, `"  Devashish Hallie"` (`"[13x whitespace]Devashish Hallie"`, `"[2x whitespace]Devashish Hallie"`)'
 			},
 			{
 				correct: true,
 				text:
-					'`" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)'
+					'`" Devashish Hallie"`, `"Devashish Hallie"` (`"[1x whitespace]Devashish Hallie"`, `"Devashish Hallie"`)'
 			},
 			{
 				correct: false,
-				text: '`"Lydia Hallie"`, `"Lyd"`,'
+				text: '`"Devashish Hallie"`, `"Lyd"`,'
 			}
 		],
 		explanation:
-			'With the `padStart` method, we can add padding to the beginning of a string. The value passed to this method is the _total_ length of the string together with the padding. The string `"Lydia Hallie"` has a length of `12`. `name.padStart(13)` inserts 1 space at the start of the string, because 12 + 1 is 13.\n\nIf the argument passed to the `padStart` method is smaller than the length of the array, no padding will be added.'
+			'With the `padStart` method, we can add padding to the beginning of a string. The value passed to this method is the _total_ length of the string together with the padding. The string `"Devashish Hallie"` has a length of `12`. `name.padStart(13)` inserts 1 space at the start of the string, because 12 + 1 is 13.\n\nIf the argument passed to the `padStart` method is smaller than the length of the array, no padding will be added.'
 	},
 	{
 		id: 70,
@@ -5882,11 +5882,11 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 	{
 		id: 76,
 		title: "76. What's the output?",
-		code: 'const { name: myName } = { name: "Lydia" };\n\nconsole.log(name);',
+		code: 'const { name: myName } = { name: "Devashish" };\n\nconsole.log(name);',
 		options: [
 			{
 				correct: false,
-				text: '`"Lydia"`'
+				text: '`"Devashish"`'
 			},
 			{
 				correct: false,
@@ -5902,7 +5902,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			}
 		],
 		explanation:
-			'When we unpack the property `name` from the object on the right-hand side, we assign its value `"Lydia"` to a variable with the name `myName`.\n\nWith `{ name: myName }`, we tell JavaScript that we want to create a new variable called `myName` with the value of the `name` property on the right-hand side.\n\nSince we try to log `name`, a variable that is not defined, a ReferenceError gets thrown.'
+			'When we unpack the property `name` from the object on the right-hand side, we assign its value `"Devashish"` to a variable with the name `myName`.\n\nWith `{ name: myName }`, we tell JavaScript that we want to create a new variable called `myName` with the value of the `name` property on the right-hand side.\n\nSince we try to log `name`, a variable that is not defined, a ReferenceError gets thrown.'
 	},
 	{
 		id: 77,
@@ -6022,7 +6022,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			}
 		],
 		explanation:
-			"By default, arguments have the value of `undefined`, unless a value has been passed to the function. In this case, we didn't pass a value for the `name` argument. `name` is equal to `undefined` which gets logged.\n\nIn ES6, we can overwrite this default `undefined` value with default parameters. For example:\n\n`function sayHi(name = \"Lydia\") { ... }`\n\nIn this case, if we didn't pass a value or if we passed `undefined`, `name` would always be equal to the string `Lydia`"
+			"By default, arguments have the value of `undefined`, unless a value has been passed to the function. In this case, we didn't pass a value for the `name` argument. `name` is equal to `undefined` which gets logged.\n\nIn ES6, we can overwrite this default `undefined` value with default parameters. For example:\n\n`function sayHi(name = \"Devashish\") { ... }`\n\nIn this case, if we didn't pass a value or if we passed `undefined`, `name` would always be equal to the string `Devashish`"
 	},
 	{
 		id: 82,
@@ -6054,19 +6054,19 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 83,
 		title: "83. What is the output?",
 		code:
-			'const person = {\n  name: "Lydia",\n  age: 21\n}\n\nlet city = person.city\ncity = "Amsterdam"\n\nconsole.log(person)',
+			'const person = {\n  name: "Devashish",\n  age: 21\n}\n\nlet city = person.city\ncity = "Amsterdam"\n\nconsole.log(person)',
 		options: [
 			{
 				correct: true,
-				text: '`{ name: "Lydia", age: 21 }`'
+				text: '`{ name: "Devashish", age: 21 }`'
 			},
 			{
 				correct: false,
-				text: '`{ name: "Lydia", age: 21, city: "Amsterdam" }`'
+				text: '`{ name: "Devashish", age: 21, city: "Amsterdam" }`'
 			},
 			{
 				correct: false,
-				text: '`{ name: "Lydia", age: 21, city: undefined }`'
+				text: '`{ name: "Devashish", age: 21, city: undefined }`'
 			},
 			{
 				correct: false,
@@ -6209,11 +6209,11 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 89,
 		title: "89. What's the output?",
 		code:
-			'// module.js \nexport default () => "Hello world"\nexport const name = "Lydia"\n\n// index.js \nimport * as data from "./module"\n\nconsole.log(data)',
+			'// module.js \nexport default () => "Hello world"\nexport const name = "Devashish"\n\n// index.js \nimport * as data from "./module"\n\nconsole.log(data)',
 		options: [
 			{
 				correct: true,
-				text: '`{ default: function default(), name: "Lydia" }`'
+				text: '`{ default: function default(), name: "Devashish" }`'
 			},
 			{
 				correct: false,
@@ -6221,7 +6221,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			},
 			{
 				correct: false,
-				text: '`{ default: "Hello world", name: "Lydia" }`'
+				text: '`{ default: "Hello world", name: "Devashish" }`'
 			},
 			{
 				correct: false,
@@ -6229,7 +6229,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			}
 		],
 		explanation:
-			'With the `import * as name` syntax, we import _all exports_ from the `module.js` file into the `index.js` file as a new object called `data` is created. In the `module.js` file, there are two exports: the default export, and a named export. The default export is a function which returns the string `"Hello World"`, and the named export is a variable called `name` which has the value of the string `"Lydia"`. \n\nThe `data` object has a `default` property for the default export, other properties have the names of the named exports and their corresponding values.'
+			'With the `import * as name` syntax, we import _all exports_ from the `module.js` file into the `index.js` file as a new object called `data` is created. In the `module.js` file, there are two exports: the default export, and a named export. The default export is a function which returns the string `"Hello World"`, and the named export is a variable called `name` which has the value of the string `"Devashish"`. \n\nThe `data` object has a `default` property for the default export, other properties have the names of the named exports and their corresponding values.'
 	},
 	{
 		id: 90,
@@ -6286,7 +6286,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 92,
 		title: "92. What's the output?",
 		code:
-			'function giveLydiaPizza() {\n  return "Here is pizza!"\n}\n\nconst giveLydiaChocolate = () => "Here\'s chocolate... now go hit the gym already."\n\nconsole.log(giveLydiaPizza.prototype)\nconsole.log(giveLydiaChocolate.prototype)',
+			'function giveDevashishPizza() {\n  return "Here is pizza!"\n}\n\nconst giveDevashishChocolate = () => "Here\'s chocolate... now go hit the gym already."\n\nconsole.log(giveDevashishPizza.prototype)\nconsole.log(giveDevashishChocolate.prototype)',
 		options: [
 			{
 				correct: false,
@@ -6306,21 +6306,21 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			}
 		],
 		explanation:
-			"Regular functions, such as the `giveLydiaPizza` function, have a `prototype` property, which is an object (prototype object) with a `constructor` property. Arrow functions however, such as the `giveLydiaChocolate` function, do not have this `prototype` property. `undefined` gets returned when trying to access the `prototype` property using `giveLydiaChocolate.prototype`."
+			"Regular functions, such as the `giveDevashishPizza` function, have a `prototype` property, which is an object (prototype object) with a `constructor` property. Arrow functions however, such as the `giveDevashishChocolate` function, do not have this `prototype` property. `undefined` gets returned when trying to access the `prototype` property using `giveDevashishChocolate.prototype`."
 	},
 	{
 		id: 93,
 		title: "93. What's the output?",
 		code:
-			'const person = {\n  name: "Lydia",\n  age: 21\n}\n\nfor (const [x, y] of Object.entries(person)) {\n  console.log(x, y)\n}',
+			'const person = {\n  name: "Devashish",\n  age: 21\n}\n\nfor (const [x, y] of Object.entries(person)) {\n  console.log(x, y)\n}',
 		options: [
 			{
 				correct: true,
-				text: "`name` `Lydia` and `age` `21`"
+				text: "`name` `Devashish` and `age` `21`"
 			},
 			{
 				correct: false,
-				text: '`["name", "Lydia"]` and `["age", 21]`'
+				text: '`["name", "Devashish"]` and `["age", 21]`'
 			},
 			{
 				correct: false,
@@ -6332,7 +6332,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			}
 		],
 		explanation:
-			'`Object.entries(person)` returns an array of nested arrays, containing the keys and objects:\n\n`[ [ \'name\', \'Lydia\' ], [ \'age\', 21 ] ]` \n\nUsing the `for-of` loop, we can iterate over each element in the array, the subarrays in this case. We can destructure the subarrays instantly in the for-of loop, using `const [x, y]`. `x` is equal to the first element in the subarray, `y` is equal to the second element in the subarray. \n\nThe first subarray is `[ "name", "Lydia" ]`, with `x` equal to `"name"`, and `y` equal to `"Lydia"`, which get logged.\nThe second subarray is `[ "age", 21 ]`, with `x` equal to `"age"`, and `y` equal to `21`, which get logged.'
+			'`Object.entries(person)` returns an array of nested arrays, containing the keys and objects:\n\n`[ [ \'name\', \'Devashish\' ], [ \'age\', 21 ] ]` \n\nUsing the `for-of` loop, we can iterate over each element in the array, the subarrays in this case. We can destructure the subarrays instantly in the for-of loop, using `const [x, y]`. `x` is equal to the first element in the subarray, `y` is equal to the second element in the subarray. \n\nThe first subarray is `[ "name", "Devashish" ]`, with `x` equal to `"name"`, and `y` equal to `"Devashish"`, which get logged.\nThe second subarray is `[ "age", 21 ]`, with `x` equal to `"age"`, and `y` equal to `21`, which get logged.'
 	},
 	{
 		id: 94,
@@ -6390,11 +6390,11 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 96,
 		title: "96. What's the output?",
 		code:
-			'class Person {\n  constructor() {\n    this.name = "Lydia"\n  }\n}\n\nPerson = class AnotherPerson {\n  constructor() {\n    this.name = "Sarah"\n  }\n}\n\nconst member = new Person()\nconsole.log(member.name)',
+			'class Person {\n  constructor() {\n    this.name = "Devashish"\n  }\n}\n\nPerson = class AnotherPerson {\n  constructor() {\n    this.name = "Sarah"\n  }\n}\n\nconst member = new Person()\nconsole.log(member.name)',
 		options: [
 			{
 				correct: false,
-				text: '`"Lydia"`'
+				text: '`"Devashish"`'
 			},
 			{
 				correct: true,
@@ -6442,7 +6442,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 98,
 		title: "98. What's the output?",
 		code:
-			'const getList = ([x, ...y]) => [x, y]\nconst getUser = user => { name: user.name, age: user.age }\n\nconst list = [1, 2, 3, 4]\nconst user = { name: "Lydia", age: 21 }\n\nconsole.log(getList(list))\nconsole.log(getUser(user))',
+			'const getList = ([x, ...y]) => [x, y]\nconst getUser = user => { name: user.name, age: user.age }\n\nconst list = [1, 2, 3, 4]\nconst user = { name: "Devashish", age: 21 }\n\nconsole.log(getList(list))\nconsole.log(getUser(user))',
 		options: [
 			{
 				correct: true,
@@ -6450,15 +6450,15 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			},
 			{
 				correct: false,
-				text: '`[1, [2, 3, 4]]` and `{ name: "Lydia", age: 21 }`'
+				text: '`[1, [2, 3, 4]]` and `{ name: "Devashish", age: 21 }`'
 			},
 			{
 				correct: false,
-				text: '`[1, 2, 3, 4]` and `{ name: "Lydia", age: 21 }`'
+				text: '`[1, 2, 3, 4]` and `{ name: "Devashish", age: 21 }`'
 			},
 			{
 				correct: false,
-				text: '`Error` and `{ name: "Lydia", age: 21 }`'
+				text: '`Error` and `{ name: "Devashish", age: 21 }`'
 			}
 		],
 		explanation:
@@ -6467,7 +6467,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 	{
 		id: 99,
 		title: "99. What's the output?",
-		code: 'const name = "Lydia"\n\nconsole.log(name())',
+		code: 'const name = "Devashish"\n\nconsole.log(name())',
 		options: [
 			{
 				correct: false,
@@ -6575,7 +6575,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 103,
 		title: "103. What's the value of output?",
 		code:
-			'const set = new Set()\n\nset.add(1)\nset.add("Lydia")\nset.add({ name: "Lydia" })\n\nfor (let item of set) {\n  console.log(item + 2)\n}',
+			'const set = new Set()\n\nset.add(1)\nset.add("Devashish")\nset.add({ name: "Devashish" })\n\nfor (let item of set) {\n  console.log(item + 2)\n}',
 		options: [
 			{
 				correct: false,
@@ -6587,15 +6587,15 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			},
 			{
 				correct: true,
-				text: "`3`, `Lydia2`, `[object Object]2`"
+				text: "`3`, `Devashish2`, `[object Object]2`"
 			},
 			{
 				correct: false,
-				text: '`"12"`, `Lydia2`, `[object Object]2`'
+				text: '`"12"`, `Devashish2`, `[object Object]2`'
 			}
 		],
 		explanation:
-			'The `+` operator is not only used for adding numerical values, but we can also use it to concatenate strings. Whenever the JavaScript engine sees that one or more values are not a number, it coerces the number into a string. \n\nThe first one is `1`, which is a numerical value. `1 + 2` returns the number 3.\n\nHowever, the second one is a string `"Lydia"`. `"Lydia"` is a string and `2` is a number: `2` gets coerced into a string. `"Lydia"` and `"2"` get concatenated, which results in the string `"Lydia2"`. \n\n`{ name: "Lydia" }` is an object. Neither a number nor an object is a string, so it stringifies both. Whenever we stringify a regular object, it becomes `"[object Object]"`. `"[object Object]"` concatenated with `"2"` becomes `"[object Object]2"`.'
+			'The `+` operator is not only used for adding numerical values, but we can also use it to concatenate strings. Whenever the JavaScript engine sees that one or more values are not a number, it coerces the number into a string. \n\nThe first one is `1`, which is a numerical value. `1 + 2` returns the number 3.\n\nHowever, the second one is a string `"Devashish"`. `"Devashish"` is a string and `2` is a number: `2` gets coerced into a string. `"Devashish"` and `"2"` get concatenated, which results in the string `"Devashish2"`. \n\n`{ name: "Devashish" }` is an object. Neither a number nor an object is a string, so it stringifies both. Whenever we stringify a regular object, it becomes `"[object Object]"`. `"[object Object]"` concatenated with `"2"` becomes `"[object Object]2"`.'
 	},
 	{
 		id: 104,
@@ -6626,7 +6626,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 105,
 		title: "105. What's its value?",
 		code:
-			'function compareMembers(person1, person2 = person) {\n  if (person1 !== person2) {\n    console.log("Not the same!")\n  } else {\n    console.log("They are the same!")\n  }\n}\n\nconst person = { name: "Lydia" }\n\ncompareMembers(person)',
+			'function compareMembers(person1, person2 = person) {\n  if (person1 !== person2) {\n    console.log("Not the same!")\n  } else {\n    console.log("They are the same!")\n  }\n}\n\nconst person = { name: "Devashish" }\n\ncompareMembers(person)',
 		options: [
 			{
 				correct: false,
@@ -6766,17 +6766,17 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			}
 		],
 		explanation:
-			"With the `JSON.parse()` method, we can parse JSON string to a JavaScript value. \n\n```javascript\n// Stringifying a number into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonNumber = JSON.stringify(4) // '4'\nJSON.parse(jsonNumber) // 4\n\n// Stringifying an array value into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'\nJSON.parse(jsonArray) // [1, 2, 3]\n\n// Stringifying an object  into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonArray = JSON.stringify({ name: \"Lydia\" }) // '{\"name\":\"Lydia\"}'\nJSON.parse(jsonArray) // { name: 'Lydia' }\n```"
+			"With the `JSON.parse()` method, we can parse JSON string to a JavaScript value. \n\n```javascript\n// Stringifying a number into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonNumber = JSON.stringify(4) // '4'\nJSON.parse(jsonNumber) // 4\n\n// Stringifying an array value into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'\nJSON.parse(jsonArray) // [1, 2, 3]\n\n// Stringifying an object  into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonArray = JSON.stringify({ name: \"Devashish\" }) // '{\"name\":\"Devashish\"}'\nJSON.parse(jsonArray) // { name: 'Devashish' }\n```"
 	},
 	{
 		id: 111,
 		title: "111. What's the output?",
 		code:
-			"let name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n  let name = 'Sarah'\n}\n\ngetName()",
+			"let name = 'Devashish'\n\nfunction getName() {\n  console.log(name)\n  let name = 'Sarah'\n}\n\ngetName()",
 		options: [
 			{
 				correct: false,
-				text: "Lydia"
+				text: "Devashish"
 			},
 			{
 				correct: false,
@@ -6792,7 +6792,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			}
 		],
 		explanation:
-			"Each function has its own _execution context_ (or _scope_). The `getName` function first looks within its own context (scope) to see if it contains the variable `name` we're trying to access. In this case, the `getName` function contains its own `name` variable: we declare the variable `name` with the `let` keyword, and with the value of `'Sarah'`. \n\nVariables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the \"temporal dead zone\". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`. \n\nIf we wouldn't have declared the `name` variable within the `getName` function, the javascript engine would've looked down the _scope chain_. The outer scope has a variable called `name` with the value of `Lydia`. In that case, it would've logged `Lydia`. \n\n```javascript\nlet name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n}\n\ngetName() // Lydia\n```"
+			"Each function has its own _execution context_ (or _scope_). The `getName` function first looks within its own context (scope) to see if it contains the variable `name` we're trying to access. In this case, the `getName` function contains its own `name` variable: we declare the variable `name` with the `let` keyword, and with the value of `'Sarah'`. \n\nVariables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the \"temporal dead zone\". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`. \n\nIf we wouldn't have declared the `name` variable within the `getName` function, the javascript engine would've looked down the _scope chain_. The outer scope has a variable called `name` with the value of `Devashish`. In that case, it would've logged `Devashish`. \n\n```javascript\nlet name = 'Devashish'\n\nfunction getName() {\n  console.log(name)\n}\n\ngetName() // Devashish\n```"
 	},
 	{
 		id: 112,
@@ -6901,7 +6901,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 116,
 		title: "116. What's the output?",
 		code:
-			'const person = {\n  name: "Lydia",\n  age: 21\n}\n\nconst changeAge = (x = { ...person }) => x.age += 1\nconst changeAgeAndName = (x = { ...person }) => {\n  x.age += 1\n  x.name = "Sarah"\n}\n\nchangeAge(person)\nchangeAgeAndName()\n\nconsole.log(person)',
+			'const person = {\n  name: "Devashish",\n  age: 21\n}\n\nconst changeAge = (x = { ...person }) => x.age += 1\nconst changeAgeAndName = (x = { ...person }) => {\n  x.age += 1\n  x.name = "Sarah"\n}\n\nchangeAge(person)\nchangeAgeAndName()\n\nconsole.log(person)',
 		options: [
 			{
 				correct: false,
@@ -6913,15 +6913,15 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			},
 			{
 				correct: true,
-				text: '`{name: "Lydia", age: 22}`'
+				text: '`{name: "Devashish", age: 22}`'
 			},
 			{
 				correct: false,
-				text: '`{name: "Lydia", age: 23}`'
+				text: '`{name: "Devashish", age: 23}`'
 			}
 		],
 		explanation:
-			'Both the `changeAge` and `changeAgeAndName` functions have a default parameter, namely a _newly_ created object `{ ...person }`. This object has copies of all the key/values in the `person` object. \n\nFirst, we invoke the `changeAge` function and pass the `person` object as its argument. This function increases the value of the `age` property by 1. `person` is now `{ name: "Lydia", age: 22 }`.\n\nThen, we invoke the `changeAgeAndName` function, however we don\'t pass a parameter. Instead, the value of `x` is equal to a _new_ object: `{ ...person }`. Since it\'s a new object, it doesn\'t affect the values of the properties on the `person` object. `person` is still equal to `{ name: "Lydia", age: 22 }`.'
+			'Both the `changeAge` and `changeAgeAndName` functions have a default parameter, namely a _newly_ created object `{ ...person }`. This object has copies of all the key/values in the `person` object. \n\nFirst, we invoke the `changeAge` function and pass the `person` object as its argument. This function increases the value of the `age` property by 1. `person` is now `{ name: "Devashish", age: 22 }`.\n\nThen, we invoke the `changeAgeAndName` function, however we don\'t pass a parameter. Instead, the value of `x` is equal to a _new_ object: `{ ...person }`. Since it\'s a new object, it doesn\'t affect the values of the properties on the `person` object. `person` is still equal to `{ name: "Devashish", age: 22 }`.'
 	},
 	{
 		id: 117,
@@ -6978,7 +6978,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 119,
 		title: "119. What's the output?",
 		code:
-			'const person = {\n\tfirstName: "Lydia",\n\tlastName: "Hallie",\n\tpet: {\n\t\tname: "Mara",\n\t\tbreed: "Dutch Tulip Hound"\n\t},\n\tgetFullName() {\n\t\treturn `${this.firstName} ${this.lastName}`;\n\t}\n};\n\nconsole.log(person.pet?.name);\nconsole.log(person.pet?.family?.name);\nconsole.log(person.getFullName?.());\nconsole.log(member.getLastName?.());',
+			'const person = {\n\tfirstName: "Devashish",\n\tlastName: "Hallie",\n\tpet: {\n\t\tname: "Mara",\n\t\tbreed: "Dutch Tulip Hound"\n\t},\n\tgetFullName() {\n\t\treturn `${this.firstName} ${this.lastName}`;\n\t}\n};\n\nconsole.log(person.pet?.name);\nconsole.log(person.pet?.family?.name);\nconsole.log(person.getFullName?.());\nconsole.log(member.getLastName?.());',
 		options: [
 			{
 				correct: false,
@@ -6986,11 +6986,11 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			},
 			{
 				correct: true,
-				text: "`Mara` `undefined` `Lydia Hallie` `undefined`"
+				text: "`Mara` `undefined` `Devashish Hallie` `undefined`"
 			},
 			{
 				correct: false,
-				text: "`Mara` `null` `Lydia Hallie` `null`"
+				text: "`Mara` `null` `Devashish Hallie` `null`"
 			},
 			{
 				correct: false,
@@ -6998,7 +6998,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			}
 		],
 		explanation:
-			"With the optional chaining operator `?.`, we no longer have to explicitly check whether the deeper nested values are valid or not. If we're trying to access a property on an `undefined` or `null` value (_nullish_), the expression short-circuits and returns `undefined`.\n\n`person.pet?.name`: `person` has a property named `pet`: `person.pet` is not nullish. It has a property called `name`, and returns `Mara`.\n`person.pet?.family?.name`: `person` has a property named `pet`: `person.pet` is not nullish. `pet` does _not_ have a property called `family`, `person.pet.family` is nullish. The expression returns `undefined`.\n`person.getFullName?.()`: `person` has a property named `getFullName`: `person.getFullName()` is not nullish and can get invoked, which returns `Lydia Hallie`.\n`member.getLastName?.()`: `member` is not defined: `member.getLastName()` is nullish. The expression returns `undefined`."
+			"With the optional chaining operator `?.`, we no longer have to explicitly check whether the deeper nested values are valid or not. If we're trying to access a property on an `undefined` or `null` value (_nullish_), the expression short-circuits and returns `undefined`.\n\n`person.pet?.name`: `person` has a property named `pet`: `person.pet` is not nullish. It has a property called `name`, and returns `Mara`.\n`person.pet?.family?.name`: `person` has a property named `pet`: `person.pet` is not nullish. `pet` does _not_ have a property called `family`, `person.pet.family` is nullish. The expression returns `undefined`.\n`person.getFullName?.()`: `person` has a property named `getFullName`: `person.getFullName()` is not nullish and can get invoked, which returns `Devashish Hallie`.\n`member.getLastName?.()`: `member` is not defined: `member.getLastName()` is nullish. The expression returns `undefined`."
 	},
 	{
 		id: 120,
@@ -7056,7 +7056,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 122,
 		title: "122. What's the output?",
 		code:
-			'const name = "Lydia Hallie";\n\nconsole.log(!typeof name === "object");\nconsole.log(!typeof name === "string");',
+			'const name = "Devashish Hallie";\n\nconsole.log(!typeof name === "object");\nconsole.log(!typeof name === "string");',
 		options: [
 			{
 				correct: false,
@@ -7213,7 +7213,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 128,
 		title: "128. What's the output?",
 		code:
-			'const name = "Lydia Hallie";\nconst age = 21;\n\nconsole.log(Number.isNaN(name));\nconsole.log(Number.isNaN(age));\n\nconsole.log(isNaN(name));\nconsole.log(isNaN(age));',
+			'const name = "Devashish Hallie";\nconst age = 21;\n\nconsole.log(Number.isNaN(name));\nconsole.log(Number.isNaN(age));\n\nconsole.log(isNaN(name));\nconsole.log(isNaN(age));',
 		options: [
 			{
 				correct: false,
@@ -7239,7 +7239,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 129,
 		title: "129. What's the output?",
 		code:
-			'const randomValue = 21;\n\nfunction getInfo() {\n\tconsole.log(typeof randomValue);\n\tconst randomValue = "Lydia Hallie";\n}\n\ngetInfo();',
+			'const randomValue = 21;\n\nfunction getInfo() {\n\tconsole.log(typeof randomValue);\n\tconst randomValue = "Devashish Hallie";\n}\n\ngetInfo();',
 		options: [
 			{
 				correct: false,
@@ -7389,13 +7389,13 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			}
 		],
 		explanation:
-			'With the asterisk `*`, we import all exported values from that file, both default and named. If we had the following file:\n\n```javascript\n// info.js\nexport const name = "Lydia";\nexport const age = 21;\nexport default "I love JavaScript";\n\n// index.js\nimport * as info from "./info";\nconsole.log(info);\n```\n\nThe following would get logged:\n\n```javascript\n{\n  default: "I love JavaScript",\n  name: "Lydia",\n  age: 21\n}\n```\n\nFor the `sum` example, it means that the imported value `sum` looks like this:\n\n```javascript\n{ default: function sum(x) { return x + x } }\n```\n\nWe can invoke this function, by calling `sum.default`'
+			'With the asterisk `*`, we import all exported values from that file, both default and named. If we had the following file:\n\n```javascript\n// info.js\nexport const name = "Devashish";\nexport const age = 21;\nexport default "I love JavaScript";\n\n// index.js\nimport * as info from "./info";\nconsole.log(info);\n```\n\nThe following would get logged:\n\n```javascript\n{\n  default: "I love JavaScript",\n  name: "Devashish",\n  age: 21\n}\n```\n\nFor the `sum` example, it means that the imported value `sum` looks like this:\n\n```javascript\n{ default: function sum(x) { return x + x } }\n```\n\nWe can invoke this function, by calling `sum.default`'
 	},
 	{
 		id: 135,
 		title: "135. What's the output?",
 		code:
-			'const handler = {\n\tset: () => console.log("Added a new property!"),\n\tget: () => console.log("Accessed a property!")\n};\n\nconst person = new Proxy({}, handler);\n\nperson.name = "Lydia";\nperson.name;',
+			'const handler = {\n\tset: () => console.log("Added a new property!"),\n\tget: () => console.log("Accessed a property!")\n};\n\nconst person = new Proxy({}, handler);\n\nperson.name = "Devashish";\nperson.name;',
 		options: [
 			{
 				correct: false,
@@ -7415,12 +7415,12 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			}
 		],
 		explanation:
-			'With a Proxy object, we can add custom behavior to an object that we pass to it as the second argument. In tis case, we pass the `handler` object which contained to properties: `set` and `get`. `set` gets invoked whenever we _set_ property values, `get` gets invoked whenever we _get_ (access) property values.\n\nThe first argument is an empty object `{}`, which is the value of `person`. To this object, the custom behavior specified in the `handler` object gets added. If we add a property to the `person` object, `set` will get invoked. If we access a property on the `person` object, `get` gets invoked.\n\nFirst, we added a new property `name` to the proxy object (`person.name = "Lydia"`). `set` gets invoked, and logs `"Added a new property!"`.\n\nThen, we access a property value on the proxy object, the `get` property on the handler object got invoked. `"Accessed a property!"` gets logged.'
+			'With a Proxy object, we can add custom behavior to an object that we pass to it as the second argument. In tis case, we pass the `handler` object which contained to properties: `set` and `get`. `set` gets invoked whenever we _set_ property values, `get` gets invoked whenever we _get_ (access) property values.\n\nThe first argument is an empty object `{}`, which is the value of `person`. To this object, the custom behavior specified in the `handler` object gets added. If we add a property to the `person` object, `set` will get invoked. If we access a property on the `person` object, `get` gets invoked.\n\nFirst, we added a new property `name` to the proxy object (`person.name = "Devashish"`). `set` gets invoked, and logs `"Added a new property!"`.\n\nThen, we access a property value on the proxy object, the `get` property on the handler object got invoked. `"Accessed a property!"` gets logged.'
 	},
 	{
 		id: 136,
 		title: "136. Which of the following will modify the `person` object?",
-		code: 'const person = { name: "Lydia Hallie" };\n\nObject.seal(person);',
+		code: 'const person = { name: "Devashish Hallie" };\n\nObject.seal(person);',
 		options: [
 			{
 				correct: true,
@@ -7446,7 +7446,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 137,
 		title: "137. Which of the following will modify the `person` object?",
 		code:
-			'const person = {\n\tname: "Lydia Hallie",\n\taddress: {\n\t\tstreet: "100 Main St"\n\t}\n};\n\nObject.freeze(person);',
+			'const person = {\n\tname: "Devashish Hallie",\n\taddress: {\n\t\tstreet: "100 Main St"\n\t}\n};\n\nObject.freeze(person);',
 		options: [
 			{
 				correct: false,
@@ -7550,7 +7550,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 		id: 141,
 		title: "141. What's the output?",
 		code:
-			'const person = {\n\tname: "Lydia Hallie",\n\thobbies: ["coding"]\n};\n\nfunction addHobby(hobby, hobbies = person.hobbies) {\n\thobbies.push(hobby);\n\treturn hobbies;\n}\n\naddHobby("running", []);\naddHobby("dancing");\naddHobby("baking", person.hobbies);\n\nconsole.log(person.hobbies);',
+			'const person = {\n\tname: "Devashish Hallie",\n\thobbies: ["coding"]\n};\n\nfunction addHobby(hobby, hobbies = person.hobbies) {\n\thobbies.push(hobby);\n\treturn hobbies;\n}\n\naddHobby("running", []);\naddHobby("dancing");\naddHobby("baking", person.hobbies);\n\nconsole.log(person.hobbies);',
 		options: [
 			{
 				correct: false,
@@ -7627,9 +7627,9 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 	{
 		id: 144,
 		title:
-			'144. What do we need to add to the `person` object to get `["Lydia Hallie", 21]` as the output of `[...person]`?',
+			'144. What do we need to add to the `person` object to get `["Devashish Hallie", 21]` as the output of `[...person]`?',
 		code:
-			'const person = {\n  name: "Lydia Hallie",\n  age: 21\n}\n\n[...person] // ["Lydia Hallie", 21]',
+			'const person = {\n  name: "Devashish Hallie",\n  age: 21\n}\n\n[...person] // ["Devashish Hallie", 21]',
 		options: [
 			{
 				correct: false,
@@ -7649,7 +7649,7 @@ export const sampleQuizQuestions: QuizQuestion[] =  [
 			}
 		],
 		explanation:
-			'Objects aren\'t iterable by default. An iterable is an iterable if the iterator protocol is present. We can add this manually by adding the iterator symbol `[Symbol.iterator]`, which has to return a generator object, for example by making it a generator function `*[Symbol.iterator]() {}`. This generator function has to yield the `Object.values` of the `person` object if we want it to return the array `["Lydia Hallie", 21]`: `yield* Object.values(this)`.'
+			'Objects aren\'t iterable by default. An iterable is an iterable if the iterator protocol is present. We can add this manually by adding the iterator symbol `[Symbol.iterator]`, which has to return a generator object, for example by making it a generator function `*[Symbol.iterator]() {}`. This generator function has to yield the `Object.values` of the `person` object if we want it to return the array `["Devashish Hallie", 21]`: `yield* Object.values(this)`.'
 	},
     
   {
