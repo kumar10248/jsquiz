@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import FeatureCard from './components/FeatureCard';
 import { Book, Brain, Trophy, Zap, Code, Users, Sparkles, ArrowRight, CheckCircle, Star, Rocket, Target, BookOpen, GraduationCap } from 'lucide-react';
 
@@ -102,7 +103,7 @@ export default function Home() {
             
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-10 sm:mb-16 animate-fade-in px-2" style={{ animationDelay: '0.4s' }}>
-              <a 
+              <Link 
                 href="/reading" 
                 className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-xl shadow-lg hover:shadow-amber-500/25 transition-all duration-300 active:scale-95 sm:hover:scale-105 overflow-hidden text-sm sm:text-base"
               >
@@ -112,8 +113,8 @@ export default function Home() {
                   Start Learning
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
-              </a>
-              <a 
+              </Link>
+              <Link 
                 href="/quiz" 
                 className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-slate-800/80 text-white font-bold rounded-xl border-2 border-slate-600 hover:border-amber-500 shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95 sm:hover:scale-105 text-sm sm:text-base"
               >
@@ -121,7 +122,7 @@ export default function Home() {
                   <Brain className="w-5 h-5 text-purple-400" />
                   Take a Quiz
                 </span>
-              </a>
+              </Link>
             </div>
 
             {/* Stats Grid */}
@@ -241,7 +242,7 @@ export default function Home() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-                <a 
+                <Link 
                   href="/reading" 
                   className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-xl shadow-lg hover:shadow-amber-500/25 transition-all duration-300 active:scale-95 sm:hover:scale-105 text-sm sm:text-base"
                 >
@@ -249,8 +250,8 @@ export default function Home() {
                     Get Started Free
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                   </span>
-                </a>
-                <a 
+                </Link>
+                <Link 
                   href="/quiz" 
                   className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white/10 text-white font-bold rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 active:scale-95 sm:hover:scale-105 text-sm sm:text-base"
                 >
@@ -258,7 +259,7 @@ export default function Home() {
                     <Brain className="w-4 h-4 sm:w-5 sm:h-5" />
                     Try a Quiz
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

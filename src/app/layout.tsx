@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Code, Github, Twitter, Heart } from 'lucide-react';
 import './globals.css';
 
@@ -30,7 +31,7 @@ export default function RootLayout({
             <div className="w-full px-3 sm:px-4 md:px-6 lg:px-8 max-w-7xl mx-auto">
               <div className="flex items-center justify-between h-16 md:h-20">
                 {/* Logo */}
-                <a href="/" className="flex items-center gap-2 md:gap-3 group">
+                <Link href="/" className="flex items-center gap-2 md:gap-3 group">
                   <div className="relative">
                     <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-amber-500/25 transition-all duration-300 group-hover:scale-105">
                       <Code className="w-5 h-5 md:w-6 md:h-6 text-white" />
@@ -45,40 +46,40 @@ export default function RootLayout({
                       Learn • Practice • Master
                     </span>
                   </div>
-                </a>
+                </Link>
 
                 {/* Navigation */}
                 <nav className="hidden md:flex items-center gap-1">
-                  <a 
+                  <Link 
                     href="/reading" 
                     className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white rounded-lg hover:bg-slate-800/50 transition-all duration-200"
                   >
                     Learn
-                  </a>
-                  <a 
+                  </Link>
+                  <Link 
                     href="/quiz" 
                     className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white rounded-lg hover:bg-slate-800/50 transition-all duration-200"
                   >
                     Quiz
-                  </a>
+                  </Link>
                 </nav>
 
                 {/* CTA Button */}
                 <div className="flex items-center gap-3">
-                  <a 
+                  <Link 
                     href="/quiz" 
                     className="hidden sm:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white text-sm font-semibold rounded-lg shadow-lg hover:shadow-amber-500/25 transition-all duration-300 hover:scale-105"
                   >
                     Start Quiz
-                  </a>
+                  </Link>
                   
                   {/* Mobile menu button */}
-                  <a 
+                  <Link 
                     href="/quiz"
                     className="sm:hidden p-2 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800/50 transition-colors"
                   >
                     <Code className="w-5 h-5" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -110,8 +111,8 @@ export default function RootLayout({
                 <div className="space-y-4">
                   <h3 className="text-sm font-semibold text-white uppercase tracking-wider">Quick Links</h3>
                   <div className="flex flex-col gap-2">
-                    <a href="/reading" className="text-sm text-slate-400 hover:text-amber-400 transition-colors">Reading Materials</a>
-                    <a href="/quiz" className="text-sm text-slate-400 hover:text-amber-400 transition-colors">Practice Quiz</a>
+                    <Link href="/reading" className="text-sm text-slate-400 hover:text-amber-400 transition-colors">Reading Materials</Link>
+                    <Link href="/quiz" className="text-sm text-slate-400 hover:text-amber-400 transition-colors">Practice Quiz</Link>
                   </div>
                 </div>
 
